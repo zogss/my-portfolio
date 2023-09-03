@@ -1,0 +1,5 @@
+.env
+./public
+./node_modules
+./.gitignore
+./.cache

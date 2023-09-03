@@ -1,0 +1,48 @@
+{
+  "plugins": ["prettier", "react", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "space-before-function-paren": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "jsx-a11y/label-has-associated-control": "off",
+    "import/no-unresolved": "off",
+    "import/no-cycle": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-unused-vars": "warn",
+    "import/no-absolute-path": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "arrow-body-style": "off",
+    "react/require-default-props": "off",
+    "no-nested-ternary": "off",
+    "no-underscore-dangle": "off"
+  }
+}

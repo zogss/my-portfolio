@@ -1,4 +1,7 @@
 node_modules/
 .cache/
 public
-.vercel
+src/gatsby-types.d.ts
+
+# local env files
+.env
