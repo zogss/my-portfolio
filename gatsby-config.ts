@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { lstatSync, readdirSync } from 'fs'
 import type { GatsbyConfig } from 'gatsby'
-import { join } from 'path'
+import path, { join } from 'path'
 
 const siteUrl = 'https://yanlucas.vercel.app/'
 
@@ -29,18 +29,45 @@ const config: GatsbyConfig = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
+    'gatsby-transformer-remark',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        path: `${__dirname}/src/images`,
-        name: `images`,
+        name: '@yanlucas/website',
+        short_name: '@yanlucas/website',
+        start_url: '/',
+        background_color: '#121120',
+        theme_color: '#121120',
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: 'standalone',
+        icon: 'src/images/yan_icon.png', // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: 'use-credentials',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/locales`,
-        name: `locale`,
+        name: 'locale',
+        path: path.join(__dirname, 'locales'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: path.join(__dirname, 'src', 'images'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: path.join(__dirname, 'src', 'data'),
       },
     },
     {

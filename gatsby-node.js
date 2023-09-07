@@ -5,8 +5,7 @@
  */
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-  createTypes(`
-    type SitePage implements Node {
+  const typeDefs = `type SitePage implements Node {
       context: SitePageContext
     }
     type SitePageContext {
@@ -18,6 +17,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         defaultLanguage: String,
         originalPath: String
         routed: Boolean
-    }
-  `)
+    }`
+
+  createTypes(typeDefs)
 }
