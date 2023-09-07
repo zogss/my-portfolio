@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Seo from '~/components/Seo'
 import MainLayout from '~/layouts/MainLayout'
 import { AboutSection, HomeSection, ProjectsSection } from '~/partials/sections'
+import TechStackSection from '~/partials/sections/TechStackSection'
 
 export const Head = () => {
   //* hooks
@@ -27,6 +28,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => (
     <HomeSection />
     <AboutSection />
     <ProjectsSection projects={props.data.projects.nodes} />
+    <TechStackSection />
   </MainLayout>
 )
 

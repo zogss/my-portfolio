@@ -49,30 +49,32 @@ const textShadow = {
   primary: '0px 0px 13.37690258026123px rgba(0, 0, 0, 0.25)',
 }
 
-export const content = [`./src/**/*.{js,jsx,ts,tsx}`]
-export const theme = {
-  extend: {
-    colors,
-    boxShadow,
-    textShadow,
-    minHeight: heightSpacing,
-    maxHeight: heightSpacing,
+module.exports = {
+  content: [`./src/**/*.{js,jsx,ts,tsx}`],
+  theme: {
+    extend: {
+      colors,
+      boxShadow,
+      textShadow,
+      minHeight: heightSpacing,
+      maxHeight: heightSpacing,
+    },
   },
+  plugins: [
+    'prettier-plugin-tailwindcss',
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 }
-export const plugins = [
-  '@tailwindcss/aspect-ratio',
-  '@tailwindcss/container-queries',
-  '@tailwindcss/forms',
-  '@tailwindcss/typography',
-  'prettier-plugin-tailwindcss',
-  plugin(({ matchUtilities, theme }) => {
-    matchUtilities(
-      {
-        'text-shadow': (value) => ({
-          textShadow: value,
-        }),
-      },
-      { values: theme('textShadow') }
-    )
-  }),
-]
