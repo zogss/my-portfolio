@@ -1,0 +1,96 @@
+[
+  {
+    "title": "Spacie",
+    "description": "spacie_description",
+    "img": "/images/projects/spacie_image.png",
+    "alt": "spacie_alt",
+    "color": "rose",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "TailwindCSS",
+      "Bootstrap",
+      "React Hook Form",
+      "Yup",
+      "Axios",
+      "React Query",
+      "React Table",
+      "ApexCharts",
+      "Socket.io Client",
+      "i18next",
+      "Vite",
+      "Firebase"
+    ]
+  },
+  {
+    "title": "CS Analytics",
+    "description": "cs_analytics_description",
+    "img": "/images/projects/cs_analytics_image.png",
+    "alt": "cs_analytics_alt",
+    "color": "blue",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "TailwindCSS",
+      "React Hook Form",
+      "Zod",
+      "Axios",
+      "React Query",
+      "React Table",
+      "ApexCharts",
+      "Vite",
+      "Recoil",
+      "Popper.js",
+      "Font Awesome"
+    ]
+  },
+  {
+    "title": "Expert Stats",
+    "description": "expert_stats_description",
+    "img": "/images/projects/expert_stats_image.png",
+    "alt": "expert_stats_alt",
+    "color": "dark",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Angular",
+      "Angular Forms",
+      "Angular Material",
+      "Bootstrap",
+      "RxJS",
+      "Popper.js",
+      "Axios",
+      "ApexCharts",
+      "Font Awesome"
+    ]
+  },
+  {
+    "title": "Chirp",
+    "description": "chirp_description",
+    "img": "/images/projects/chirp_image.png",
+    "alt": "chirp_alt",
+    "color": "black",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Clerk",
+      "Trpc",
+      "Upstash",
+      "Prisma",
+      "TailwindCSS",
+      "Zod"
+    ]
+  }
+]
