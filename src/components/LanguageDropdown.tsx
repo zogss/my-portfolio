@@ -24,7 +24,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
 
   //* handlers
   const getImageByLanguage = (language: string) => {
-    return data.photos.edges.find((edge) => edge.node.base.includes(language))
+    return data.photos.edges.find((edge) => edge.node.base.includes(language + '_flag'))
   }
 
   //* render
