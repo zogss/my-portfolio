@@ -1,7 +1,14 @@
 {
-  "Home": "Casa",
-  "Hi people": "Olá pessoas",
-  "Welcome to your new Gatsby site.": "Bem-vindo ao seu novo site Gatsby.",
-  "Now go build something great.": "Now go build something great.",
-  "Go to page 2": "Go to page 2"
+  "en": "Inglês",
+  "pt": "Português",
+  "br": "Português",
+  "google_seach": "Pesquisar por {{text}} no Google",
+  "spacie_description": "Uma plataforma que conecta empresas a influenciadores para campanhas promocionais. O sistema se integra ao Google, Instagram e TikTok usando o protocolo OAuth2, permitindo aos usuários utilizar suas informações dessas plataformas no Spacie.",
+  "spacie_alt": "Imagem da Spacie - Plataforma de marketing de influenciadores",
+  "cs_analytics_description": "Este é um site que oferece estatísticas abrangentes, provenientes da HLTV, juntamente com análises personalizadas por administradores para jogadores, times e campeonatos de CS:GO. O usuário pode mergulhar mais fundo no mundo do Counter-Strike: Global Offensive com enormes insights baseados em dados.",
+  "cs_analytics_alt": "Imagem do CS Analytics - Plataforma de estatísticas de CS:GO",
+  "expert_stats_description": "Uma plataforma dedicada a fornecer estatísticas abrangentes sobre futebol virtual, apresentando quatro ligas. Oferece probabilidades extensas, dados de jogos recentes e estatísticas detalhadas para os próximos jogos, proporcionando uma visão completa do mundo do futebol virtual.",
+  "expert_stats_alt": "Imagem do Expert Stats - Plataforma de estatísticas de futebol virtual",
+  "chirp_description": "Este é um Twitter exclusivo feito por mim, onde o usuário só pode usar emojis. Serviu como um excelente projeto para aprimorar meus conhecimentos e praticar diversas tecnologias e padrões de design.",
+  "chirp_alt": "Imagem do Chirp - Twitter de emojis"
 }

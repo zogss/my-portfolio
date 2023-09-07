@@ -1,7 +1,14 @@
 {
-  "Home": "Home",
-  "Hi people": "Hi people",
-  "Welcome to your new Gatsby site.": "Welcome to your new Gatsby site.",
-  "Now go build something great.": "Now go build something great.",
-  "Go to page 2": "Go to page 2"
+  "en": "English",
+  "pt": "Portuguese",
+  "br": "Portuguese",
+  "google_seach": "Seach {{text}} on Google",
+  "spacie_description": "A plataform that connects companies with influencers for promotional campaigns. The system integrates with Google, Instagram, and TikTok using the OAuth2 protocol, allowing users to utilize their information from these platforms on Spacie.",
+  "spacie_alt": "Spacie Image - Influencer marketing platform",
+  "cs_analytics_description": "This is a website that offers comprehensive statistics, sourced from HLTV, along with personalized analysis by administrators for CS:GO players, teams, and championships. The user can dive deeper into the world of Counter-Strike: Global Offensive with huge data-driven insights.",
+  "cs_analytics_alt": "CS Analytics Image - CS:GO statistics platform",
+  "expert_stats_description": "A platform dedicated to providing comprehensive statistics on virtual football, featuring four leagues. It offers extensive odds, recent match data, and detailed statistics for upcoming matches, delivering a thorough insight into the world of virtual football.",
+  "expert_stats_alt": "Expert Stats Image - Virtual football statistics platform",
+  "chirp_description": "This is a unique Twitter made by my own, where the user can only use emojis. It served as an excellent project to enhance my knowledge and practice various technologies and design patterns.",
+  "chirp_alt": "Chirp Image - Emoji Twitter"
 }
