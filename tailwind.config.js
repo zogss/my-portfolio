@@ -43,7 +43,7 @@ const backgroundImage = {
 const boxShadow = {
   primary: '0px 4px 20px -1px rgba(0, 0, 0, 0.25), 0px 4px 20px 0px rgba(47, 24, 108, 0.1)',
   secondary: '0px 4px 50px 0px rgba(106, 45, 206, 0.65)',
-  tertiary: '0px 4px 15px 0px rgba(106, 45, 206, 0.65)',
+  tertiary: '0px 0px 10px 0px rgba(106, 45, 206, 0.65)',
   'white-sm': '0px 0px 20px 0px rgba(255, 255, 255, 0.25)',
   'white-md': '0px 0px 40px 0px rgba(255, 255, 255, 0.25)',
   'white-lg': '0px 0px 80px 0px rgba(255, 255, 255, 0.25)',

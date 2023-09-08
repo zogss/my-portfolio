@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { ProjectObjType } from '~/utils'

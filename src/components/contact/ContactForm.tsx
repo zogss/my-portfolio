@@ -26,7 +26,7 @@ const ContactForm: React.FC = () => {
 
   //* render
   return (
-    <form onSubmit={onSubmit} className="flex w-3/4 flex-col items-start gap-3.5">
+    <form onSubmit={onSubmit} className="flex w-2/3 flex-col items-start gap-3.5">
       <Input className="w-full">
         <Input.Input
           type="text"
@@ -60,10 +60,10 @@ const ContactForm: React.FC = () => {
           className="form-input-primary form-input"
         />
       </Input>
-      <div className="mt-2.5 w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem]">
+      <div className="mt-2.5 w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] grayscale transition-all duration-500 group-hover/contactFormContainer:grayscale-0">
         <button
           type="submit"
-          className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5"
+          className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5 transition-all duration-200"
         >
           {t('send')}
           <BsSend className="h-[1.125rem] w-[1.125rem]" />

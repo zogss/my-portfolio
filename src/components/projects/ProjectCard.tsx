@@ -1,7 +1,8 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React, { useCallback } from 'react'
-import { ProjectObjType } from '~/utils'
+import { ProjectObjType, enterLeftAnimation, enterRightAnimation } from '~/utils'
 import Tag from '../Tag'
 import LinesUnion from '../svgs/LinesUnion'
 
@@ -39,8 +40,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   //* render
   return (
-    <div className="flex w-full flex-col items-center gap-3">
-      <div className="relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-6">
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+      className="flex w-full flex-col items-center gap-3"
+    >
+      <motion.div
+        variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
+        className="relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-6"
+      >
         <div
           className={clsx('z-[1] flex items-start gap-6 self-stretch', {
             'flex-row-reverse': index % 2 !== 0,
@@ -84,13 +93,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             index % 2 !== 0 ? '-right-1/4 -top-2/3' : '-left-1/4 -top-2/3 -scale-x-[1]'
           )}
         />
-      </div>
-      <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
+      </motion.div>
+      <motion.div
+        variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
+        className="flex w-full flex-wrap items-center justify-center gap-1.5"
+      >
         {techs.map((tech, i) => (
           <Tag key={i} text={tech} />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 

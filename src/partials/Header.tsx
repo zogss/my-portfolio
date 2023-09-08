@@ -24,13 +24,13 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
         if (window.scrollY > 20) {
           headerElement.classList.remove('flex')
           headerElement.classList.add('hidden')
-          navElement.classList.remove('hidden')
-          navElement.classList.add('flex')
+
+          navElement.classList.remove('-translate-y-[100%]')
         } else {
           headerElement.classList.remove('hidden')
           headerElement.classList.add('flex')
-          navElement.classList.remove('flex')
-          navElement.classList.add('hidden')
+
+          navElement.classList.add('-translate-y-[100%]')
         }
       }
       window.addEventListener('scroll', handleScroll)
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
     <>
       <header
         ref={headerRef}
-        className="fixed left-0 top-0 z-10 flex w-full items-center justify-between px-8 py-3 pr-3"
+        className="fixed left-1/2 top-0 z-10 flex  w-[80vw]  -translate-x-1/2 items-center justify-between px-8 py-3 pr-3"
       >
         <div className="flex items-center gap-16">
           <Link to="#home" className="flex shrink-0">
@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
       </header>
       <nav
         ref={navRef}
-        className="fixed left-1/2 top-0 z-10 hidden w-[80vw] -translate-x-1/2 items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900 px-8 py-3 pr-3 shadow-primary"
+        className="fixed left-1/2 top-0 z-10 flex w-[80vw] -translate-x-1/2 -translate-y-[100%] items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-8 py-3 pr-3 shadow-primary transition-all duration-300"
       >
         <div className="flex items-center gap-16">
           <Link to="#home" className="flex shrink-0">

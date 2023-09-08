@@ -1,5 +1,6 @@
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React, { Fragment } from 'react'
@@ -28,86 +29,124 @@ import {
   SiStorybook,
   SiStyledcomponents,
 } from 'react-icons/si'
+import { enterLeftAnimation } from '~/utils'
 
 const TechStackBlock: React.FC = () => {
   //* hooks
   const { t } = useI18next()
 
+  //* handlers
+  const getActiveTab = () => {
+    const activeTab = localStorage.getItem('techStackActiveTab')
+    if (activeTab) {
+      return parseInt(activeTab)
+    }
+    return 1
+  }
+
+  const setActiveTab = (index: number) => {
+    localStorage.setItem('techStackActiveTab', index.toString())
+  }
+
   //* render
   return (
-    <Tab.Group
-      as="div"
-      defaultIndex={1}
-      className="flex w-full flex-col items-center gap-2.5 rounded-lg bg-midnight-slate-700 2xl:w-3/4"
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+      className="flex w-full items-center justify-center"
     >
-      <Tab.List className="flex w-full items-stretch justify-center gap-3 self-stretch border-b-4 border-white/10">
-        <Tab
-          className={({ selected }) =>
-            clsx(
-              'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-              selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
-            )
-          }
+      <motion.div variants={enterLeftAnimation} className="flex w-full items-center justify-center">
+        <Tab.Group
+          as="div"
+          defaultIndex={getActiveTab()}
+          className="flex w-full flex-col items-center gap-2.5 rounded-lg bg-midnight-slate-700 2xl:w-3/4"
         >
-          <StaticImage src="../../images/backend_icon.png" alt="" className="h-10 w-10 shrink-0" />
-          Backend
-        </Tab>
-        <Tab
-          className={({ selected }) =>
-            clsx(
-              'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-              selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
-            )
-          }
-        >
-          <StaticImage src="../../images/frontend_icon.png" alt="" className="h-10 w-10 shrink-0" />
-          Frontend
-        </Tab>
-        <Tab
-          className={({ selected }) =>
-            clsx(
-              'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-              selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
-            )
-          }
-        >
-          <StaticImage src="../../images/mobile_icon.png" alt="" className="h-10 w-10 shrink-0" />
-          Mobile
-        </Tab>
-      </Tab.List>
-      <Tab.Panels as={Fragment}>
-        {techStack.map((stack, i) => (
-          <Tab.Panel
-            key={`tech-stack-${i}`}
-            as="ul"
-            className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6"
-          >
-            {stack.techs.map(({ title, Icon, color }, i) => (
-              <li key={i} className="relative flex flex-col items-center justify-center gap-3">
-                <Icon
-                  style={{
-                    color,
-                  }}
-                  className="z-[1] h-11 w-11"
-                />
-                <a
-                  href={`https://www.google.com/search?q=${title}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t('google_seach', { text: title })}
-                  className="z-[1] text-sm font-medium leading-5"
-                >
-                  {title}
-                </a>
-                <div className="absolute inset-0 flex items-start justify-center pt-6">
-                  <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
-                </div>
-              </li>
+          <Tab.List className="flex w-full items-stretch justify-center gap-3 self-stretch border-b-4 border-white/10">
+            <Tab
+              onClick={() => setActiveTab(0)}
+              className={({ selected }) =>
+                clsx(
+                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
+                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                )
+              }
+            >
+              <StaticImage
+                src="../../images/backend_icon.png"
+                alt=""
+                className="h-10 w-10 shrink-0"
+              />
+              Backend
+            </Tab>
+            <Tab
+              onClick={() => setActiveTab(1)}
+              className={({ selected }) =>
+                clsx(
+                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
+                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                )
+              }
+            >
+              <StaticImage
+                src="../../images/frontend_icon.png"
+                alt=""
+                className="h-10 w-10 shrink-0"
+              />
+              Frontend
+            </Tab>
+            <Tab
+              onClick={() => setActiveTab(2)}
+              className={({ selected }) =>
+                clsx(
+                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
+                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                )
+              }
+            >
+              <StaticImage
+                src="../../images/mobile_icon.png"
+                alt=""
+                className="h-10 w-10 shrink-0"
+              />
+              Mobile
+            </Tab>
+          </Tab.List>
+          <Tab.Panels as={Fragment}>
+            {techStack.map((stack, i) => (
+              <Tab.Panel
+                key={`tech-stack-${i}`}
+                as="ul"
+                className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6"
+              >
+                {stack.techs.map(({ title, Icon, color }, i) => (
+                  <li key={i} className="relative flex flex-col items-center justify-center gap-3">
+                    <Icon
+                      style={{
+                        color,
+                      }}
+                      className="z-[1] h-11 w-11"
+                    />
+                    <a
+                      href={`https://www.google.com/search?q=${title}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t('google_seach', { text: title })}
+                      className="z-[1] text-sm font-medium leading-5"
+                    >
+                      {title}
+                    </a>
+                    <div className="absolute inset-0 flex items-start justify-center pt-6">
+                      <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
+                    </div>
+                  </li>
+                ))}
+              </Tab.Panel>
             ))}
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
+          </Tab.Panels>
+        </Tab.Group>
+      </motion.div>
+    </motion.div>
   )
 }
 

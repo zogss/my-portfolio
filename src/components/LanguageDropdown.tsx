@@ -30,7 +30,14 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   //* render
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="inline-flex w-full items-center justify-center gap-1 rounded bg-charcoal-black-700 px-3 py-2 pr-1 text-neutral-100/50 transition-colors hover:bg-white/10">
+      <Menu.Button
+        className={({ open }) =>
+          clsx(
+            'inline-flex w-full items-center justify-center gap-1 rounded px-3 py-2 pr-1 text-neutral-100/50 transition-colors hover:bg-white/10',
+            { 'bg-white/20': open }
+          )
+        }
+      >
         {({ open }) => (
           <>
             <GatsbyImage
