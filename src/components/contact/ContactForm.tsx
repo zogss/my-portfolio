@@ -63,7 +63,7 @@ const ContactForm: React.FC = () => {
       <div className="mt-2.5 w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem]">
         <button
           type="submit"
-          className="bg-gradient-tertiary flex items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-1.5"
+          className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5"
         >
           {t('send')}
           <BsSend className="h-[1.125rem] w-[1.125rem]" />

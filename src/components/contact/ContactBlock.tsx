@@ -4,7 +4,7 @@ import ContactForm from './ContactForm'
 
 const ContactBlock: React.FC = () => {
   return (
-    <div className="shadow-secondary relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 bg-charcoal-black-700 px-12 py-8">
+    <div className="relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 bg-charcoal-black-700 px-12 py-8 shadow-secondary">
       <div className="flex flex-col items-start gap-6 self-stretch">
         <h4 className="flex flex-col items-start justify-center gap-3">
           <span className="text-2xl font-semibold">Get in touch</span>

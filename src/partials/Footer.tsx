@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           <div className="w-full rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem]">
             <button
               type="submit"
-              className="bg-gradient-tertiary flex w-full items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-2.5"
+              className="flex w-full items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5"
             >
               {process.env.PERSONAL_EMAIL}
             </button>

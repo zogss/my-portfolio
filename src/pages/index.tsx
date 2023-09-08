@@ -13,13 +13,7 @@ import {
 } from '~/partials/sections'
 import { ProjectObjType } from '~/utils'
 
-export const Head = () => {
-  //* hooks
-  const { t } = useTranslation()
-
-  //* render
-  return <Seo title={t('Home')} />
-}
+export const Head = () => <Seo title="Yan Lucas" />
 
 export interface IndexPageProps extends PageProps {
   data: {
