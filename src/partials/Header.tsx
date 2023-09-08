@@ -20,8 +20,6 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
     const headerElement = headerRef.current
     const navElement = navRef.current
     if (navElement && headerElement) {
-      headerElement.classList.add('flex')
-      navElement.classList.add('hidden')
       const handleScroll = () => {
         if (window.scrollY > 20) {
           headerElement.classList.remove('flex')
@@ -47,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
     <>
       <header
         ref={headerRef}
-        className="fixed left-0 top-0 z-10 w-full items-center justify-between px-8 py-3 pr-3"
+        className="fixed left-0 top-0 z-10 flex w-full items-center justify-between px-8 py-3 pr-3"
       >
         <div className="flex items-center gap-16">
           <Link to="#home" className="flex shrink-0">
@@ -66,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
       </header>
       <nav
         ref={navRef}
-        className="shadow-primary fixed left-1/2 top-0 z-10 w-[80vw] -translate-x-1/2 items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900 px-8 py-3 pr-3"
+        className="fixed left-1/2 top-0 z-10 hidden w-[80vw] -translate-x-1/2 items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900 px-8 py-3 pr-3 shadow-primary"
       >
         <div className="flex items-center gap-16">
           <Link to="#home" className="flex shrink-0">
