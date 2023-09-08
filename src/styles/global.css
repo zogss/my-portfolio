@@ -6,3 +6,15 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+.form-input {
+  @apply w-full rounded-lg px-4 py-2;
+}
+
+.form-input-primary {
+  @apply shadow-tertiary border border-violet-700 bg-charcoal-black-700 text-base text-neutral-100 outline-none transition-all duration-500 placeholder:text-sm placeholder:text-white/40 focus:border-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-700;
+}
+
+.form-error {
+  @apply text-start text-sm font-medium text-red-600;
+}

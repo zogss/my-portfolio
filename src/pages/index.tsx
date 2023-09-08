@@ -6,6 +6,7 @@ import Seo from '~/components/Seo'
 import MainLayout from '~/layouts/MainLayout'
 import {
   AboutSection,
+  ContactSection,
   HomeSection,
   ProjectsSection,
   TechStackSection,
@@ -34,6 +35,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => (
     <AboutSection />
     <ProjectsSection projects={props.data.projects.nodes} />
     <TechStackSection />
+    <ContactSection />
   </MainLayout>
 )
 
