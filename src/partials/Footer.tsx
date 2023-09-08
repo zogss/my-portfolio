@@ -21,20 +21,35 @@ const Footer: React.FC = () => {
             className="h-36 w-36 shrink-0"
           />
           <div className="flex flex-col items-start gap-1 py-1">
-            <Link to="#home" className="flex rounded px-3.5 py-3 text-sm text-neutral-100/50">
-              Home
+            <Link
+              to="#home"
+              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+            >
+              {t('home')}
             </Link>
-            <Link to="#about" className="flex rounded px-3.5 py-3 text-sm text-neutral-100/50">
-              About
+            <Link
+              to="#about"
+              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+            >
+              {t('about')}
             </Link>
-            <Link to="#projects" className="flex rounded px-3.5 py-3 text-sm text-neutral-100/50">
-              Projects
+            <Link
+              to="#projects"
+              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+            >
+              {t('projects')}
             </Link>
-            <Link to="#tech-stack" className="flex rounded px-3.5 py-3 text-sm text-neutral-100/50">
-              Tech Stack
+            <Link
+              to="#tech-stack"
+              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+            >
+              {t('tech_stack')}
             </Link>
-            <Link to="#contact" className="flex rounded px-3.5 py-3 text-sm text-neutral-100/50">
-              Contact
+            <Link
+              to="#contact"
+              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+            >
+              {t('contact')}
             </Link>
           </div>
         </div>
@@ -52,7 +67,9 @@ const Footer: React.FC = () => {
       </div>
       <div className="h-[1px] w-full self-stretch bg-white/20" />
       <div className="flex w-full items-center justify-between self-stretch">
-        <span className="text-xs font-medium text-white/40">@ 2023 Yan Lucas.</span>
+        <span className="text-xs font-medium text-white/40">
+          @ {new Date().getFullYear()} Yan Lucas.
+        </span>
         <a
           href={environments.inspiration.figmaUrl}
           target="_blank"
