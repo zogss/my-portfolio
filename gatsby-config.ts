@@ -1,7 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import dotenv from 'dotenv'
 import { lstatSync, readdirSync } from 'fs'
 import type { GatsbyConfig } from 'gatsby'
 import path, { join } from 'path'
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const siteUrl = 'https://yanlucas.vercel.app/'
 

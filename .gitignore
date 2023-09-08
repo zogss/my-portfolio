@@ -5,3 +5,5 @@ src/gatsby-types.d.ts
 
 # local env files
 .env
+.env.development
+.env.production
