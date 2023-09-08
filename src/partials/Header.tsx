@@ -20,6 +20,8 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
     const headerElement = headerRef.current
     const navElement = navRef.current
     if (navElement && headerElement) {
+      headerElement.classList.add('flex')
+      navElement.classList.add('hidden')
       const handleScroll = () => {
         if (window.scrollY > 20) {
           headerElement.classList.remove('flex')

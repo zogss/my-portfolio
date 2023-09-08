@@ -9,8 +9,6 @@ const Footer: React.FC = () => {
   //* hooks
   const { t } = useI18next()
 
-  console.log(process.env.PERSONAL_EMAIL)
-
   //* render
   return (
     <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[15%] pb-6 pt-12">
