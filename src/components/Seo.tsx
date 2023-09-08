@@ -54,6 +54,7 @@ const Seo: React.FC<SeoProps> = ({ description, title }) => {
       <meta property="og:title" content={metaData.title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="../images/yan_icon.png" />
       <meta property="twitter:title" content={metaData.title} />
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:creator" content={site.siteMetadata.author} />
