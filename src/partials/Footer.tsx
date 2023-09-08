@@ -4,6 +4,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next'
 import React from 'react'
 import SocialLinks from '~/components/SocialLinks'
 import FigmaIcon from '~/components/svgs/FigmaIcon'
+import { environments } from '~/utils'
 
 const Footer: React.FC = () => {
   //* hooks
@@ -40,12 +41,12 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-end justify-end gap-7 self-stretch">
           <SocialLinks className="w-full justify-end gap-4" />
           <div className="w-full rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem]">
-            <button
-              type="submit"
+            <a
+              href={`mailto:${environments.personal.email}`}
               className="flex w-full items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5"
             >
-              {process.env.PERSONAL_EMAIL}
-            </button>
+              {environments.personal.email}
+            </a>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ const Footer: React.FC = () => {
       <div className="flex w-full items-center justify-between self-stretch">
         <span className="text-xs font-medium text-white/40">@ 2023 Yan Lucas.</span>
         <a
-          href={process.env.INSPIRATION_FIGMA_URL}
+          href={environments.inspiration.figmaUrl}
           target="_blank"
           rel="noreferrer"
           className="flex items-center justify-center gap-3 rounded px-3 py-2 text-xs font-medium text-white/40 transition-colors duration-500 hover:bg-zinc-700 hover:text-neutral-300"
