@@ -2,6 +2,16 @@
   "en": "English",
   "pt": "Portuguese",
   "br": "Portuguese",
+
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "tech_stack": "Tech Stack",
+  "contact": "Contact",
+  "no_error": "No error",
+  "send": "Send",
+  "inspired_text": "Inspired by {{name}}",
+
   "google_seach": "Seach {{text}} on Google",
   "spacie_description": "A plataform that connects companies with influencers for promotional campaigns. The system integrates with Google, Instagram, and TikTok using the OAuth2 protocol, allowing users to utilize their information from these platforms on Spacie.",
   "spacie_alt": "Spacie Image - Influencer marketing platform",
@@ -10,5 +20,19 @@
   "expert_stats_description": "A platform dedicated to providing comprehensive statistics on virtual football, featuring four leagues. It offers extensive odds, recent match data, and detailed statistics for upcoming matches, delivering a thorough insight into the world of virtual football.",
   "expert_stats_alt": "Expert Stats Image - Virtual football statistics platform",
   "chirp_description": "This is a unique Twitter made by my own, where the user can only use emojis. It served as an excellent project to enhance my knowledge and practice various technologies and design patterns.",
-  "chirp_alt": "Chirp Image - Emoji Twitter"
+  "chirp_alt": "Chirp Image - Emoji Twitter",
+
+  "name_label": "Name",
+  "name_placeholder": "Enter your name",
+  "email_label": "Email",
+  "email_placeholder": "Enter your email",
+  "message_label": "Message",
+  "message_placeholder": "Enter your message",
+
+  "required_field_error": "This field is required",
+  "name_min_length_error": "The name must have at least 3 characters",
+  "name_max_length_error": "The name must have at most 50 characters",
+  "email_field_error": "Enter a valid email",
+  "message_min_length_error": "The message must have at least 5 characters",
+  "message_max_length_error": "The message must have at most 500 characters"
 }

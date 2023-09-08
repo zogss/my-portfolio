@@ -2,6 +2,16 @@
   "en": "Inglês",
   "pt": "Português",
   "br": "Português",
+
+  "home": "Início",
+  "about": "Sobre",
+  "projects": "Projetos",
+  "tech_stack": "Tecnologias",
+  "contact": "Contato",
+  "no_error": "Nenhum erro",
+  "send": "Enviar",
+  "inspired_text": "Inspirado por {{name}}",
+
   "google_seach": "Pesquisar por {{text}} no Google",
   "spacie_description": "Uma plataforma que conecta empresas a influenciadores para campanhas promocionais. O sistema se integra ao Google, Instagram e TikTok usando o protocolo OAuth2, permitindo aos usuários utilizar suas informações dessas plataformas no Spacie.",
   "spacie_alt": "Imagem da Spacie - Plataforma de marketing de influenciadores",
@@ -10,5 +20,19 @@
   "expert_stats_description": "Uma plataforma dedicada a fornecer estatísticas abrangentes sobre futebol virtual, apresentando quatro ligas. Oferece probabilidades extensas, dados de jogos recentes e estatísticas detalhadas para os próximos jogos, proporcionando uma visão completa do mundo do futebol virtual.",
   "expert_stats_alt": "Imagem do Expert Stats - Plataforma de estatísticas de futebol virtual",
   "chirp_description": "Este é um Twitter exclusivo feito por mim, onde o usuário só pode usar emojis. Serviu como um excelente projeto para aprimorar meus conhecimentos e praticar diversas tecnologias e padrões de design.",
-  "chirp_alt": "Imagem do Chirp - Twitter de emojis"
+  "chirp_alt": "Imagem do Chirp - Twitter de emojis",
+
+  "name_label": "Nome",
+  "name_placeholder": "Digite seu nome",
+  "email_label": "E-mail",
+  "email_placeholder": "Digite seu e-mail",
+  "message_label": "Mensagem",
+  "message_placeholder": "Digite sua mensagem",
+
+  "required_field_error": "Este campo é obrigatório",
+  "name_min_length_error": "O nome deve ter pelo menos 3 caracteres",
+  "name_max_length_error": "O nome deve ter no máximo 50 caracteres",
+  "email_field_error": "Insira um e-mail válido",
+  "message_min_length_error": "A mensagem deve ter pelo menos 5 caracteres",
+  "message_max_length_error": "A mensagem deve ter no máximo 500 caracteres"
 }
