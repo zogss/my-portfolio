@@ -9,7 +9,7 @@ interface ProjectsBlockProps {
 }
 
 const ProjectsBlock: React.FC<ProjectsBlockProps> = ({ projects }) => (
-  <div className="flex flex-col items-center gap-6 self-stretch">
+  <div className="z-[1] flex flex-col items-center gap-6 self-stretch">
     <ProjectCard index={0} {...projects[0]} img="../../images/projects/spacie_image.png">
       <StaticImage
         src="../../images/projects/spacie_image.png"

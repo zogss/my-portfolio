@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => (
         </h2>
       </div>
     </div>
-    <div className="flex w-full items-center justify-between gap-16">
+    <div className="z-[1] flex w-full items-center justify-between gap-16">
       <div className="relative p-3">
         <StaticImage
           src="../../images/about_image.jpg"
@@ -24,25 +24,23 @@ const AboutSection: React.FC = () => (
         />
         <div className="absolute inset-0 bg-black/70 blur-3xl" />
       </div>
-      <div>
-        <h3 className="text-lg text-neutral-100/40">
-          <span className="mb-[18px] block text-2xl font-bold text-neutral-100">
-            Dedicated software engineer residing in Maceió, Alagoas, Brazil.
-          </span>
-          <p className="mb-3">
-            I&apos;m 20 years old with highly experience in creating attractive and functional user
-            interfaces. Over the past two years, I have worked for several companies and had the
-            opportunity to contribute to the development of exciting web projects.
-          </p>
-          <p>
-            My strength lies in creating web experiences that not only meet user needs but also
-            exceed their expectations. I&apos;m dedicated to collaborative problem-solving, valuing
-            diverse perspectives and actively seeking innovative solutions. My goal is to leverage
-            my technical proficiency and interpersonal skills to drive successful projects, ensuring
-            exceptional outcomes for users.
-          </p>
-        </h3>
-      </div>
+      <h3 className="text-lg text-neutral-100/40">
+        <span className="mb-[18px] block text-2xl font-bold text-neutral-100">
+          Dedicated software engineer residing in Maceió, Alagoas, Brazil.
+        </span>
+        <p className="mb-3">
+          I&apos;m 20 years old with highly experience in creating attractive and functional user
+          interfaces. Over the past two years, I have worked for several companies and had the
+          opportunity to contribute to the development of exciting web projects.
+        </p>
+        <p>
+          My strength lies in creating web experiences that not only meet user needs but also exceed
+          their expectations. I&apos;m dedicated to collaborative problem-solving, valuing diverse
+          perspectives and actively seeking innovative solutions. My goal is to leverage my
+          technical proficiency and interpersonal skills to drive successful projects, ensuring
+          exceptional outcomes for users.
+        </p>
+      </h3>
     </div>
   </section>
 )

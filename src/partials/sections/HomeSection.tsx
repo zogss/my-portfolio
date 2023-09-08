@@ -1,12 +1,12 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
-import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
+import SocialLinks from '~/components/SocialLinks'
 import HomeEclipse from '~/components/svgs/HomeEclipse'
 
 const HomeSection: React.FC = () => (
   <section
     id="home"
-    className="flex min-h-home-section w-full flex-col items-center justify-center overflow-hidden px-[15%]"
+    className="flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-[15%]"
   >
     <HomeEclipse className="absolute overflow-hidden" />
     <div className="z-[1] flex w-full flex-col items-start justify-start gap-16">
@@ -24,11 +24,7 @@ const HomeSection: React.FC = () => (
           </p>
         </h2>
       </div>
-      <div className="flex h-12 items-center gap-8 text-white/40">
-        <BsInstagram className="h-12 w-12 shrink-0" />
-        <BsLinkedin className="h-12 w-12 shrink-0" />
-        <BsGithub className="h-12 w-12 shrink-0" />
-      </div>
+      <SocialLinks className="h-12 gap-2 !text-white/40" iconSize="lg" />
     </div>
     <div className="absolute right-[15%] flex h-auto w-[700px] justify-end rounded-2xl bg-gradient-to-l from-black/30 to-black/0">
       <StaticImage

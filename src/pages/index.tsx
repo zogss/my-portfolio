@@ -4,8 +4,13 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import Seo from '~/components/Seo'
 import MainLayout from '~/layouts/MainLayout'
-import { AboutSection, HomeSection, ProjectsSection } from '~/partials/sections'
-import TechStackSection from '~/partials/sections/TechStackSection'
+import {
+  AboutSection,
+  HomeSection,
+  ProjectsSection,
+  TechStackSection,
+} from '~/partials/sections'
+import { ProjectObjType } from '~/utils'
 
 export const Head = () => {
   //* hooks
@@ -19,7 +24,7 @@ export interface IndexPageProps extends PageProps {
   data: {
     locales: { edges: any[] }
     photos: { edges: any[] }
-    projects: { nodes: any[] }
+    projects: { nodes: ProjectObjType[] }
   }
 }
 

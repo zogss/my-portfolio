@@ -68,7 +68,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
               <h3 className="text-2xl font-semibold">{t(title)}</h3>
             </div>
-            <p className="text-base font-medium text-white/30">{t(description)}</p>
+            <p
+              className={clsx(
+                'text-base font-medium text-white/30',
+                index % 2 !== 0 ? 'text-end' : 'text-start'
+              )}
+            >
+              {t(description)}
+            </p>
           </div>
         </div>
         <LinesUnion
