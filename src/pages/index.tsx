@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { graphql, type PageProps } from 'gatsby'
 import * as React from 'react'
-import { useTranslation } from 'react-i18next'
+import ScrollSpy from 'react-ui-scrollspy'
 import Seo from '~/components/Seo'
 import MainLayout from '~/layouts/MainLayout'
 import {
@@ -25,11 +24,13 @@ export interface IndexPageProps extends PageProps {
 
 const IndexPage: React.FC<IndexPageProps> = (props) => (
   <MainLayout pageProps={props}>
-    <HomeSection />
-    <AboutSection />
-    <ProjectsSection projects={props.data.projects.nodes} />
-    <TechStackSection />
-    <ContactSection />
+    <ScrollSpy offsetBottom={100} scrollThrottle={400}>
+      <HomeSection />
+      <AboutSection />
+      <ProjectsSection projects={props.data.projects.nodes} />
+      <TechStackSection />
+      <ContactSection />
+    </ScrollSpy>
   </MainLayout>
 )
 

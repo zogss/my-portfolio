@@ -42,22 +42,24 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
 
   //* render
   return (
-    <div className="flex items-center gap-1.5" onMouseLeave={handleMouseLeave}>
+    <div className="flex items-center" onMouseLeave={handleMouseLeave}>
       {links.map((link) => (
         <Link
           key={link.name}
           to={link.to}
           id={`${link.name}-${floating ? 'floating' : 'header'}`}
-          className="z-[1] flex rounded px-3.5 py-3 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
+          data-to-scrollspy-id={link.to.replace('#', '')}
+          className="relative z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
           onMouseEnter={() => handleMouseEnter(`${link.name}-${floating ? 'floating' : 'header'}`)}
         >
           {t(link.name)}
+          <div className="link-border absolute bottom-0 left-0 right-0" />
         </Link>
       ))}
       <div
         ref={floatingBarRef}
         className={clsx(
-          'absolute rounded bg-white/20 transition-all duration-200 ease-linear',
+          'absolute rounded bg-white/20 transition-all',
           hoveredItem ? 'opacity-100' : 'opacity-0'
         )}
       />

@@ -18,3 +18,11 @@
 .form-error {
   @apply text-start text-sm font-medium text-red-600;
 }
+
+.active-scroll-spy {
+  @apply text-neutral-100;
+}
+
+.active-scroll-spy > .link-border {
+  @apply block h-0.5 translate-y-[6px] rounded-full bg-neutral-100;
+}
