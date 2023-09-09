@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
@@ -9,7 +10,7 @@ import { enterRightAnimation } from '~/utils'
 
 const HomeSection: React.FC = () => {
   //* hooks
-  const { t } = useI18next()
+  const { t, language } = useI18next()
 
   //* render
   return (
@@ -23,7 +24,12 @@ const HomeSection: React.FC = () => {
       <HomeEclipse className="absolute -translate-x-16 -translate-y-12 md:-translate-y-8" />
       <div className="z-[1] flex w-full flex-col items-center justify-start gap-8 md:gap-12 lg:items-start lg:gap-16 lg:pb-10 2xl:pb-16">
         <div className="flex flex-col items-start justify-start gap-6">
-          <div className="flex h-24 w-full mix-blend-overlay md:h-32 xl:h-16">
+          <div
+            className={clsx(
+              'flex w-full mix-blend-overlay xl:h-16',
+              language === 'br' ? 'h-36 md:h-48' : 'h-24 md:h-32'
+            )}
+          >
             <h2 className="absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:text-[4rem] lg:left-auto lg:max-w-xs lg:translate-x-0 lg:text-start xl:max-w-none xl:whitespace-nowrap">
               {upperCase(t('software_engineer'))}
             </h2>
