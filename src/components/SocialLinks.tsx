@@ -18,7 +18,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
       case 'md':
         return 'h-7 w-7'
       case 'lg':
-        return 'h-12 w-12'
+        return 'h-10 w-10 md:h-12 md:w-12'
       default:
         return 'h-7 w-7'
     }
@@ -34,7 +34,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded-md bg-transparent p-3 transition-colors duration-500 hover:bg-white/20 hover:text-black/70"
+        className="rounded-md bg-transparent p-2.5 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-3"
       >
         <BsInstagram className={clsx(iconSizeClass, 'shrink-0')} />
       </a>
@@ -42,7 +42,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.linkedinUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded-md bg-transparent p-3 transition-colors duration-500 hover:bg-white/20 hover:text-black/70"
+        className="rounded-md bg-transparent p-2.5 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-3"
       >
         <BsLinkedin className={clsx(iconSizeClass, 'shrink-0')} />
       </a>
@@ -50,7 +50,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded-md bg-transparent p-3 transition-colors duration-500 hover:bg-white/20 hover:text-black/70"
+        className="rounded-md bg-transparent p-2.5 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-3"
       >
         <BsGithub className={clsx(iconSizeClass, 'shrink-0')} />
       </a>

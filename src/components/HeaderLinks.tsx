@@ -42,7 +42,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
 
   //* render
   return (
-    <div className="flex items-center" onMouseLeave={handleMouseLeave}>
+    <div className="hidden items-center lg:flex" onMouseLeave={handleMouseLeave}>
       {links.map((link) => (
         <Link
           key={link.name}

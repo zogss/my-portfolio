@@ -45,9 +45,9 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
     <>
       <header
         ref={headerRef}
-        className="fixed left-1/2 top-0 z-10 flex  w-[80vw]  -translate-x-1/2 items-center justify-between px-8 py-3 pr-3"
+        className="fixed left-0 right-0 top-0 z-10 flex w-full items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
       >
-        <div className="flex items-center gap-16">
+        <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
           <Link to="#home" className="flex shrink-0">
             <StaticImage
               src="../images/yan_icon.png"
@@ -57,16 +57,16 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
           </Link>
           <SocialLinks className="h-12 gap-1" iconSize="sm" />
         </div>
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-8 lg:gap-10 xl:gap-12">
           <HeaderLinks />
           <LanguageDropdown pageProps={pageProps} />
         </div>
       </header>
       <nav
         ref={navRef}
-        className="fixed left-1/2 top-0 z-10 flex w-[80vw] -translate-x-1/2 -translate-y-[100%] items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-8 py-3 pr-3 shadow-primary transition-all duration-300"
+        className="fixed left-0 right-0 top-0 z-10 flex w-full -translate-y-[100%] items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-all duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
       >
-        <div className="flex items-center gap-16">
+        <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
           <Link to="#home" className="flex shrink-0">
             <StaticImage
               src="../images/yan_icon.png"
@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
           </Link>
           <SocialLinks className="h-12 gap-1" iconSize="sm" />
         </div>
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-8 lg:gap-10 xl:gap-12">
           <HeaderLinks floating />
           <LanguageDropdown pageProps={pageProps} />
         </div>

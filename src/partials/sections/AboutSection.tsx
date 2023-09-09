@@ -15,20 +15,20 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen w-full flex-col items-center justify-start gap-16 px-[15%] py-14"
+      className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
     >
-      <AboutEclipse className="absolute -top-[10%] h-auto w-[80%] overflow-hidden" />
+      <AboutEclipse className="absolute -top-[20%] h-auto -translate-x-10 sm:-top-[18%] md:-top-[10%] lg:w-[80%]" />
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
-        className="flex w-full items-center justify-center gap-6 py-[72px]"
+        className="flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]"
       >
         <motion.div
           variants={enterLeftAnimation}
-          className="h-16 w-full text-center mix-blend-overlay"
+          className="h-12 w-full text-center mix-blend-overlay md:h-16"
         >
-          <h2 className="absolute left-1/2 -translate-x-1/2 text-[64px] font-black leading-[100.5%] tracking-[1.28px] text-white/80 backdrop-blur-[2.824876308441162px] text-shadow-primary">
+          <h2 className="absolute left-1/2 w-full -translate-x-1/2 text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
             {upperCase(t('about_me'))}
           </h2>
         </motion.div>
@@ -37,21 +37,21 @@ const AboutSection: React.FC = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
-        className="z-[1] flex w-full items-center justify-between gap-16"
+        className="z-[1] flex w-full flex-col items-center justify-between gap-10 md:gap-12 lg:gap-16 xl:flex-row"
       >
         <motion.div variants={enterLeftAnimation} className="relative p-3">
           <StaticImage
             src="../../images/about_image.jpg"
             alt={t('about_image_alt')}
-            className="z-[1] h-[346px] w-[450px] rounded-3xl shadow-2xl 2xl:h-[400px] 2xl:w-[550px]"
+            className="z-[1] h-[14.375rem] w-[18.75rem] rounded-3xl shadow-2xl md:h-[21.625rem] md:w-[28.125rem] 2xl:h-[25rem] 2xl:w-[34.375rem]"
           />
           <div className="absolute inset-0 bg-black/70 blur-3xl" />
         </motion.div>
-        <motion.h3 variants={enterRightAnimation} className="text-lg text-neutral-100/40">
-          <span className="mb-[18px] block text-2xl font-bold text-neutral-100">
+        <motion.h3 variants={enterRightAnimation} className="text-neutral-100/40 md:text-lg">
+          <span className="mb-[1.125rem] block text-center text-lg font-bold leading-tight text-neutral-100 md:text-2xl md:leading-normal xl:text-start">
             {t('about_section_text_part_1', { location: environments.personal.location })}
           </span>
-          <p className="mb-3">
+          <p className="mb-3 text-center xl:text-start">
             {t('about_section_text_part_2', {
               age:
                 DateTime.now().year - DateTime.fromObject({ year: 2003, month: 1, day: 20 }).year,
@@ -59,7 +59,7 @@ const AboutSection: React.FC = () => {
                 DateTime.now().year - DateTime.fromObject({ year: 2021, month: 11, day: 15 }).year,
             })}
           </p>
-          <p>{t('about_section_text_part_3')}</p>
+          <p className="text-center xl:text-start">{t('about_section_text_part_3')}</p>
         </motion.h3>
       </motion.div>
     </section>

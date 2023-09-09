@@ -58,62 +58,87 @@ const TechStackBlock: React.FC = () => {
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
-      className="flex w-full items-center justify-center"
+      className="z-[1] flex w-full items-center justify-center"
     >
       <motion.div variants={enterLeftAnimation} className="flex w-full items-center justify-center">
         <Tab.Group
           as="div"
           defaultIndex={getActiveTab()}
-          className="flex w-full flex-col items-center gap-2.5 rounded-lg bg-midnight-slate-700 2xl:w-3/4"
+          tabIndex={getActiveTab()}
+          className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4"
         >
-          <Tab.List className="flex w-full items-stretch justify-center gap-3 self-stretch border-b-4 border-white/10">
+          <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
             <Tab
               onClick={() => setActiveTab(0)}
               className={({ selected }) =>
                 clsx(
-                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                  'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                  selected
+                    ? 'z-[1] border-b-transparent border-opacity-5'
+                    : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
                 )
               }
             >
-              <StaticImage
-                src="../../images/backend_icon.png"
-                alt=""
-                className="h-10 w-10 shrink-0"
-              />
-              Backend
+              {({ selected }) => (
+                <>
+                  <StaticImage
+                    src="../../images/backend_icon.png"
+                    alt=""
+                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                      'opacity-70': !selected,
+                    })}
+                  />
+                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Backend</span>
+                </>
+              )}
             </Tab>
             <Tab
               onClick={() => setActiveTab(1)}
               className={({ selected }) =>
                 clsx(
-                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                  'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                  selected
+                    ? 'z-[1] border-b-transparent border-opacity-5'
+                    : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
                 )
               }
             >
-              <StaticImage
-                src="../../images/frontend_icon.png"
-                alt=""
-                className="h-10 w-10 shrink-0"
-              />
-              Frontend
+              {({ selected }) => (
+                <>
+                  <StaticImage
+                    src="../../images/frontend_icon.png"
+                    alt=""
+                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                      'opacity-70': !selected,
+                    })}
+                  />
+                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Frontend</span>
+                </>
+              )}
             </Tab>
             <Tab
               onClick={() => setActiveTab(2)}
               className={({ selected }) =>
                 clsx(
-                  'flex flex-1 items-center justify-start gap-6 rounded-t-lg px-7 py-4 text-base font-semibold ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-500 backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none focus:ring-2',
-                  selected ? 'bg-slate-gray-300 text-zinc-600' : 'hover:bg-white/10'
+                  'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[3.5px] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                  selected
+                    ? 'z-[1] border-b-transparent border-opacity-5'
+                    : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
                 )
               }
             >
-              <StaticImage
-                src="../../images/mobile_icon.png"
-                alt=""
-                className="h-10 w-10 shrink-0"
-              />
-              Mobile
+              {({ selected }) => (
+                <>
+                  <StaticImage
+                    src="../../images/mobile_icon.png"
+                    alt=""
+                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                      'opacity-70': !selected,
+                    })}
+                  />
+                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Mobile</span>
+                </>
+              )}
             </Tab>
           </Tab.List>
           <Tab.Panels as={Fragment}>
@@ -129,14 +154,14 @@ const TechStackBlock: React.FC = () => {
                       style={{
                         color,
                       }}
-                      className="z-[1] h-11 w-11"
+                      className="z-[1] h-9 w-9 md:h-11 md:w-11"
                     />
                     <a
                       href={`https://www.google.com/search?q=${title}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={t('google_seach', { text: title })}
-                      className="z-[1] text-sm font-medium leading-5"
+                      className="z-[1] text-sm font-medium"
                     >
                       {title}
                     </a>

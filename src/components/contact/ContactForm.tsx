@@ -26,7 +26,7 @@ const ContactForm: React.FC = () => {
 
   //* render
   return (
-    <form onSubmit={onSubmit} className="flex w-2/3 flex-col items-start gap-3.5">
+    <form onSubmit={onSubmit} className="z-[1] flex w-full flex-col items-start gap-3.5 lg:w-2/3">
       <Input className="w-full">
         <Input.Input
           type="text"

@@ -12,15 +12,15 @@ const Footer: React.FC = () => {
 
   //* render
   return (
-    <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[15%] pb-6 pt-12">
-      <div className="flex w-full items-start justify-between self-stretch">
-        <div className="flex items-start gap-8">
+    <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[10%] pb-6 pt-12 md:px-[15%]">
+      <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">
+        <div className="flex flex-col items-start gap-8 md:flex-row">
           <StaticImage
             src="../images/yan_icon.png"
             alt="Yan's icon"
-            className="h-36 w-36 shrink-0"
+            className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
           />
-          <div className="flex flex-col items-start gap-1 py-1">
+          <div className="hidden flex-col items-start gap-1 py-1 md:flex">
             <Link
               to="#home"
               className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
@@ -53,12 +53,12 @@ const Footer: React.FC = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col items-end justify-end gap-7 self-stretch">
-          <SocialLinks className="w-full justify-end gap-4" />
-          <div className="w-full rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem]">
+        <div className="flex flex-col items-center justify-end gap-2 self-stretch md:items-end md:gap-7">
+          <SocialLinks className="w-full justify-center gap-4 md:justify-end" />
+          <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] md:w-full">
             <a
               href={`mailto:${environments.personal.email}`}
-              className="flex w-full items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5"
+              className="flex w-fit items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5 text-sm md:w-full md:text-base"
             >
               {environments.personal.email}
             </a>
@@ -66,8 +66,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="h-[1px] w-full self-stretch bg-white/20" />
-      <div className="flex w-full items-center justify-between self-stretch">
-        <span className="text-xs font-medium text-white/40">
+      <div className="flex w-full flex-col-reverse items-center justify-center gap-3 self-stretch sm:flex-row sm:justify-between">
+        <span className="text-xs font-medium text-neutral-100/70 sm:text-white/40">
           @ {new Date().getFullYear()} Yan Lucas.
         </span>
         <a
