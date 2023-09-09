@@ -37,15 +37,19 @@ const TechStackBlock: React.FC = () => {
 
   //* handlers
   const getActiveTab = () => {
-    const activeTab = localStorage.getItem('techStackActiveTab')
-    if (activeTab) {
-      return parseInt(activeTab)
+    if (typeof window !== 'undefined') {
+      const activeTab = localStorage.getItem('techStackActiveTab')
+      if (activeTab) {
+        return parseInt(activeTab)
+      }
     }
     return 1
   }
 
   const setActiveTab = (index: number) => {
-    localStorage.setItem('techStackActiveTab', index.toString())
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('techStackActiveTab', index.toString())
+    }
   }
 
   //* render
