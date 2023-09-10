@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from '~/components/Loader'
 import { IndexPageProps } from '~/pages'
 import Footer from '~/partials/Footer'
 import Header from '~/partials/Header'
@@ -13,6 +14,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children, pageProps }) => (
     <Header pageProps={pageProps} />
     <main className="relative flex w-full flex-col">{children}</main>
     <Footer />
+    <Loader />
   </div>
 )
 
