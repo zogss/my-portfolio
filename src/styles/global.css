@@ -26,3 +26,15 @@
 .active-scroll-spy > .link-border {
   @apply block h-0.5 translate-y-[6px] rounded-full bg-neutral-100;
 }
+
+@keyframes wiggleUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

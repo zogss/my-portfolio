@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <motion.div
         variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
-        className="relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-4 md:p-6"
+        className="group/projectCard relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-4 md:p-6"
       >
         <div
           className={clsx(
@@ -79,7 +79,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {Array.from({ length: 3 }).map((_, i) => (
                   <div
                     key={`${title}-circle-${i}`}
-                    className={`h-2 w-2 rounded-full ${projectBackground}`}
+                    className={clsx(`h-2 w-2 rounded-full ${projectBackground}`, {
+                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out]': i === 0,
+                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out_0.1s]': i === 1,
+                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out_0.2s]': i === 2,
+                    })}
                   />
                 ))}
               </div>
