@@ -12,7 +12,7 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
 
   //* render
   return (
-    <motion.span
+    <motion.div
       id="form-error"
       initial={false}
       animate={
@@ -47,10 +47,10 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
               },
             }
       }
-      className="form-error"
+      className="overflow-hidden"
     >
-      {t(error)}
-    </motion.span>
+      <span className="form-error">{t(error)}</span>
+    </motion.div>
   )
 }
 

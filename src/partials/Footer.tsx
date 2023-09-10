@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React from 'react'
+import { navLinks } from '~/components/HeaderLinks'
 import SocialLinks from '~/components/SocialLinks'
 import FigmaIcon from '~/components/svgs/FigmaIcon'
 import { environments } from '~/utils'
@@ -21,36 +22,15 @@ const Footer: React.FC = () => {
             className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
           />
           <div className="hidden flex-col items-start gap-1 py-1 md:flex">
-            <Link
-              to="#home"
-              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-            >
-              {t('home')}
-            </Link>
-            <Link
-              to="#about"
-              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-            >
-              {t('about')}
-            </Link>
-            <Link
-              to="#projects"
-              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-            >
-              {t('projects')}
-            </Link>
-            <Link
-              to="#tech-stack"
-              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-            >
-              {t('tech_stack')}
-            </Link>
-            <Link
-              to="#contact"
-              className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-            >
-              {t('contact')}
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.to}
+                className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+              >
+                {t(link.name)}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="flex flex-col items-center justify-end gap-2 self-stretch md:items-end md:gap-7">

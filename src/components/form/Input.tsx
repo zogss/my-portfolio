@@ -7,7 +7,7 @@ interface InputProps {
   className?: string
 }
 const Input: React.FC<InputProps> = ({ children, className }) => (
-  <div className={clsx('flex flex-col gap-1', className)}>{children}</div>
+  <div className={clsx('flex flex-col', className)}>{children}</div>
 )
 
 Input.displayName = 'Input'

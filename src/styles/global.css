@@ -16,7 +16,7 @@
 }
 
 .form-error {
-  @apply text-start text-sm font-medium text-red-600;
+  @apply mt-1 block text-start text-sm font-medium text-red-600;
 }
 
 .active-scroll-spy {

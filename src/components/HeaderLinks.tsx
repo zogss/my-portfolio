@@ -43,7 +43,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
   //* render
   return (
     <div className="hidden items-center lg:flex" onMouseLeave={handleMouseLeave}>
-      {links.map((link) => (
+      {navLinks.map((link) => (
         <Link
           key={link.name}
           to={link.to}
@@ -69,7 +69,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
 
 export default HeaderLinks
 
-const links = [
+export const navLinks = [
   {
     name: 'home',
     to: '#home',

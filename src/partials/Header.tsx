@@ -1,8 +1,12 @@
+import { Disclosure } from '@headlessui/react'
+import clsx from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import React, { useEffect, useRef } from 'react'
-import HeaderLinks from '~/components/HeaderLinks'
-import LanguageDropdown from '~/components/LanguageDropdown'
+import { useI18next } from 'gatsby-plugin-react-i18next'
+import React, { Fragment, useEffect, useRef } from 'react'
+import { navLinks } from '~/components/HeaderLinks'
+import HeaderMenu from '~/components/HeaderMenu'
 import SocialLinks from '~/components/SocialLinks'
 import { IndexPageProps } from '~/pages'
 
@@ -11,6 +15,9 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ pageProps }) => {
+  //* hooks
+  const { t } = useI18next()
+
   //* refs
   const headerRef = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
@@ -43,44 +50,110 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
   //* render
   return (
     <>
-      <header
-        ref={headerRef}
-        className="fixed left-0 right-0 top-0 z-10 flex w-full items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
-      >
-        <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
-          <Link to="#home" className="flex shrink-0">
-            <StaticImage
-              src="../images/yan_icon.png"
-              alt="Yan Logo"
-              className="h-[2.125rem] w-[2.125rem] shrink-0"
-            />
-          </Link>
-          <SocialLinks className="h-12 gap-1" iconSize="sm" />
-        </div>
-        <div className="flex items-center gap-8 lg:gap-10 xl:gap-12">
-          <HeaderLinks />
-          <LanguageDropdown pageProps={pageProps} />
-        </div>
-      </header>
-      <nav
-        ref={navRef}
-        className="fixed left-0 right-0 top-0 z-10 flex w-full -translate-y-[100%] items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-all duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
-      >
-        <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
-          <Link to="#home" className="flex shrink-0">
-            <StaticImage
-              src="../images/yan_icon.png"
-              alt="Yan Logo"
-              className="h-[2.125rem] w-[2.125rem] shrink-0"
-            />
-          </Link>
-          <SocialLinks className="h-12 gap-1" iconSize="sm" />
-        </div>
-        <div className="flex items-center gap-8 lg:gap-10 xl:gap-12">
-          <HeaderLinks floating />
-          <LanguageDropdown pageProps={pageProps} />
-        </div>
-      </nav>
+      <Disclosure key="header-disclosure" as={Fragment}>
+        {({ open, close }) => (
+          <>
+            <header
+              ref={headerRef}
+              className={clsx(
+                'fixed left-0 right-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]',
+                open
+                  ? 'bg-charcoal-black-700/90'
+                  : 'bg-gradient-to-b from-charcoal-black-700/90 to-charcoal-black-700/50'
+              )}
+            >
+              <div className="flex w-full items-center justify-between gap-4">
+                <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
+                  <Link to="#home" className="flex shrink-0">
+                    <StaticImage
+                      src="../images/yan_icon.png"
+                      alt="Yan Logo"
+                      className="h-[2.125rem] w-[2.125rem] shrink-0"
+                    />
+                  </Link>
+                  <SocialLinks className="h-12 gap-1" iconSize="sm" />
+                </div>
+                <HeaderMenu floating pageProps={pageProps} />
+              </div>
+              <AnimatePresence>
+                {open && (
+                  <motion.div
+                    key="nav"
+                    animate={{
+                      opacity: 1,
+                      height: 'auto',
+                    }}
+                    exit={{ opacity: 0, height: 0 }}
+                    initial={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="flex w-full overflow-hidden lg:hidden"
+                  >
+                    <div className="mt-4 flex w-full flex-col items-start gap-1 py-2">
+                      {navLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          to={link.to}
+                          onClick={() => close()}
+                          className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+                        >
+                          {t(link.name)}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </header>
+            <nav
+              ref={navRef}
+              className="fixed left-0 right-0 top-0 z-10 flex w-full -translate-y-[100%] flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-all duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
+            >
+              <div className="flex w-full items-center justify-between gap-4">
+                <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
+                  <Link to="#home" className="flex shrink-0">
+                    <StaticImage
+                      src="../images/yan_icon.png"
+                      alt="Yan Logo"
+                      className="h-[2.125rem] w-[2.125rem] shrink-0"
+                    />
+                  </Link>
+                  <SocialLinks className="h-12 gap-1" iconSize="sm" />
+                </div>
+                <HeaderMenu floating pageProps={pageProps} />
+              </div>
+
+              <AnimatePresence>
+                {open && (
+                  <motion.div
+                    key="nav"
+                    animate={{
+                      opacity: 1,
+                      height: 'auto',
+                    }}
+                    exit={{ opacity: 0, height: 0 }}
+                    initial={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="flex w-full overflow-hidden lg:hidden"
+                  >
+                    <div className="mt-4 flex w-full flex-col items-start gap-1 py-2">
+                      {navLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          to={link.to}
+                          onClick={() => close()}
+                          className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+                        >
+                          {t(link.name)}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </nav>
+          </>
+        )}
+      </Disclosure>
     </>
   )
 }
