@@ -2,9 +2,10 @@
   {
     "title": "Spacie",
     "description": "spacie_description",
+    "url": "https://app.spacie.com.br/",
+    "repository_url": null,
     "img": "/images/projects/spacie_image.png",
     "alt": "spacie_alt",
-    "color": "rose",
     "techs": [
       "HTML",
       "CSS",
@@ -28,9 +29,10 @@
   {
     "title": "CS Analytics",
     "description": "cs_analytics_description",
+    "url": "https://main.d117z3353iltcd.amplifyapp.com/",
+    "repository_url": null,
     "img": "/images/projects/cs_analytics_image.png",
     "alt": "cs_analytics_alt",
-    "color": "blue",
     "techs": [
       "HTML",
       "CSS",
@@ -53,9 +55,10 @@
   {
     "title": "Expert Stats",
     "description": "expert_stats_description",
+    "url": "https://expertstats.com.br/",
+    "repository_url": null,
     "img": "/images/projects/expert_stats_image.png",
     "alt": "expert_stats_alt",
-    "color": "dark",
     "techs": [
       "HTML",
       "CSS",
@@ -75,9 +78,10 @@
   {
     "title": "Chirp",
     "description": "chirp_description",
+    "url": "https://chirp-zogss.vercel.app/",
+    "repository_url": "https://github.com/zogss/chirp",
     "img": "/images/projects/chirp_image.png",
     "alt": "chirp_alt",
-    "color": "black",
     "techs": [
       "HTML",
       "CSS",
@@ -91,6 +95,44 @@
       "Prisma",
       "TailwindCSS",
       "Zod"
+    ]
+  },
+  {
+    "title": "Massagueirinha Menu",
+    "description": "massagueirinha_menu_description",
+    "url": "https://massaguerinha-menu-cc348.web.app/",
+    "repository_url": null,
+    "img": "/images/projects/massagueirinha_image.png",
+    "alt": "massagueirinha_menu_alt",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Gatsby",
+      "Firebase",
+      "TailwindCSS"
+    ]
+  },
+  {
+    "title": "Bull Blockchain",
+    "description": "bull_blockchain_description",
+    "url": null,
+    "repository_url": "https://github.com/zogss/blockchains-website/",
+    "img": "/images/projects/bullblockchain_image.gif",
+    "alt": "bull_blockchain_alt",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Express",
+      "Handlebars",
+      "Alpine",
+      "Bootstrap",
+      "MongoDB",
+      "Yup"
     ]
   }
 ]

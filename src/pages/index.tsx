@@ -69,8 +69,9 @@ export const query = graphql`
         id
         title
         description
+        url
+        repository_url
         alt
-        color
         techs
         img
       }

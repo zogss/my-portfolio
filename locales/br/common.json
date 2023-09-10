@@ -9,6 +9,9 @@
   "tech_stack": "Tecnologias",
   "contact": "Contato",
   "no_error": "Nenhum erro",
+  "visit": "Visitar",
+  "code": "Código",
+  "repository": "Repositório",
   "send": "Enviar",
   "inspired_text": "Inspirado por {{name}}",
   "software_engineer": "Engenheiro de Software",
@@ -28,6 +31,7 @@
   "contact_form_description": "Estou sempre aberto a novas oportunidades e desafios. Se você quiser entrar em contato, preencha o formulário abaixo e entrarei em contato o mais breve possível.",
 
   "google_seach": "Pesquisar por {{text}} no Google",
+
   "spacie_description": "Uma plataforma que conecta empresas a influenciadores para campanhas promocionais. O sistema se integra ao Google, Instagram e TikTok usando o protocolo OAuth2, permitindo aos usuários utilizar suas informações dessas plataformas no Spacie.",
   "spacie_alt": "Imagem da Spacie - Plataforma de marketing de influenciadores",
   "cs_analytics_description": "Este é um site que oferece estatísticas abrangentes, provenientes da HLTV, juntamente com análises personalizadas por administradores para jogadores, times e campeonatos de CS:GO. O usuário pode mergulhar mais fundo no mundo do Counter-Strike: Global Offensive com enormes insights baseados em dados.",
@@ -36,6 +40,10 @@
   "expert_stats_alt": "Imagem do Expert Stats - Plataforma de estatísticas de futebol virtual",
   "chirp_description": "Este é um Twitter exclusivo feito por mim, onde o usuário só pode usar emojis. Serviu como um excelente projeto para aprimorar meus conhecimentos e praticar diversas tecnologias e padrões de design.",
   "chirp_alt": "Imagem do Chirp - Twitter de emojis",
+  "massagueirinha_menu_description": "Um site para um cardápio de um restaurante, onde o usuário pode visualizar os pratos e seus preços. Foi um projeto que desenvolvi inicialmente para ser um site de cardápio de um restaurante, mas acabei transformando em um site de cardápio de um restaurante fictício.",
+  "massagueirinha_menu_alt": "Imagem da Massagueirinha - Site de cardápio de restaurante",
+  "bull_blockchain_description": "Um site para uma empresa de blockchain, onde o usuário pode visualizar as informações da empresa e seus serviços. Foi um projeto que desenvolvi para praticar meus conhecimentos.",
+  "bull_blockchain_alt": "Imagem da Bull Blockchain - Site de empresa de blockchain",
 
   "name_label": "Nome",
   "name_placeholder": "Digite seu nome",

@@ -9,6 +9,9 @@
   "tech_stack": "Tech Stack",
   "contact": "Contact",
   "no_error": "No error",
+  "visit": "Visit",
+  "code": "Code",
+  "repository": "Repository",
   "send": "Send",
   "inspired_text": "Inspired by {{name}}",
   "software_engineer": "Software Engineer",
@@ -28,6 +31,7 @@
   "contact_form_description": "I'm always open to new opportunities and challenges. If you want to get in touch, please fill out the form below and I'll get back to you as soon as possible.",
 
   "google_seach": "Seach {{text}} on Google",
+
   "spacie_description": "A plataform that connects companies with influencers for promotional campaigns. The system integrates with Google, Instagram, and TikTok using the OAuth2 protocol, allowing users to utilize their information from these platforms on Spacie.",
   "spacie_alt": "Spacie Image - Influencer marketing platform",
   "cs_analytics_description": "This is a website that offers comprehensive statistics, sourced from HLTV, along with personalized analysis by administrators for CS:GO players, teams, and championships. The user can dive deeper into the world of Counter-Strike: Global Offensive with huge data-driven insights.",
@@ -36,6 +40,10 @@
   "expert_stats_alt": "Expert Stats Image - Virtual football statistics platform",
   "chirp_description": "This is a unique Twitter made by my own, where the user can only use emojis. It served as an excellent project to enhance my knowledge and practice various technologies and design patterns.",
   "chirp_alt": "Chirp Image - Emoji Twitter",
+  "massagueirinha_menu_description": "A website for a restaurant menu, where the user can view the dishes and their prices. It was a project that I initially developed to be a restaurant menu website, but I ended up transforming it into a website for a fictitious restaurant menu.",
+  "massagueirinha_menu_alt": "Massagueirinha Image - Restaurant menu website",
+  "bull_blockchain_description": "A website for a blockchain company, where the user can view the company's information and services. It was a project that I developed to practice my knowledge.",
+  "bull_blockchain_alt": "Bull Blockchain Image - Blockchain company website",
 
   "name_label": "Name",
   "name_placeholder": "Enter your name",

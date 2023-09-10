@@ -30,6 +30,8 @@ const colors = {
   'spacie-rose': '#CA0185',
   'cs-blue': '#5F5AF5',
   'expert-dark': '#131628',
+  'massgueirinha-orange': '#e9522d',
+  'bull-blockchain-blue': '#04203a',
 }
 
 const backgroundImage = {

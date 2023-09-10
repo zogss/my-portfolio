@@ -3,16 +3,15 @@ export type ProjectNameType =
   | 'CS Analytics'
   | 'Expert Stats'
   | 'Chirp'
+  | 'Massagueirinha Menu'
   | 'Bull Blockchain'
-  | 'Massagueirinha'
-
-export type ProjectColorType = 'rose' | 'blue' | 'dark' | 'black'
 
 export type ProjectObjType = {
   title: ProjectNameType
   description: string
+  url: string | null
+  repository_url: string | null
   img: string
   alt: string
-  color: ProjectColorType
   techs: string[]
 }
