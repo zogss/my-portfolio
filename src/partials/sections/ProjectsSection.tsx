@@ -20,7 +20,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
       id="projects"
       className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
     >
-      <TitleEclipse className="absolute -top-[6.25rem] h-auto md:-top-[10%]" />
+      <TitleEclipse className="absolute -top-[7.5rem] md:-top-[12.5rem]" />
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
