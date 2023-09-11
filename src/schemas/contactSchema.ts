@@ -14,7 +14,7 @@ export const contactSchema = z.object({
     .string({ required_error: 'required_field_error' })
     .nonempty('required_field_error')
     .min(5, 'message_min_length_error')
-    .max(500, 'message_max_length_error'),
+    .max(1000, 'message_max_length_error'),
 })
 
 export type ContactFormDataType = z.infer<typeof contactSchema>

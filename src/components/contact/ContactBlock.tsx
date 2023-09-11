@@ -15,7 +15,7 @@ const ContactBlock: React.FC = () => {
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
-      className="group/contactFormContainer flex w-full  items-center justify-center transition-all duration-500 hover:shadow-secondary lg:w-3/4"
+      className="group/contactFormContainer flex w-full items-center justify-center transition-all duration-500 hover:shadow-secondary xl:w-3/4"
     >
       <motion.div
         variants={enterRightAnimation}
