@@ -1,7 +1,7 @@
 const siteMetadata = {
   author: 'Yan Lucas',
   title: 'Yan Lucas',
-  image: '/icon.png',
+  image: '/src/images/yan_icon.png',
   siteUrl: 'https://yanlucas.vercel.app/',
   description: 'Um site pessoal para mostrar meus projetos e experiências profissionais.',
   keywords: [
