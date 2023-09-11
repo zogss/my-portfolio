@@ -1,4 +1,4 @@
-import { Disclosure } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import clsx from 'clsx'
 import React from 'react'
 import { IndexPageProps } from '~/pages'
@@ -18,7 +18,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ pageProps, floating }) => {
         <LanguageDropdown pageProps={pageProps} />
       </div>
 
-      <Disclosure.Button
+      <Menu.Button
         className={({ open }) =>
           clsx(
             'inline-flex items-center justify-center gap-1 rounded px-3 py-2 text-neutral-100/50 transition-colors hover:bg-white/10 lg:hidden',
@@ -40,7 +40,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ pageProps, floating }) => {
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
-      </Disclosure.Button>
+      </Menu.Button>
     </>
   )
 }

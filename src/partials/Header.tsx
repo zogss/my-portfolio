@@ -1,4 +1,4 @@
-import { Disclosure } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'gatsby'
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
   //* render
   return (
     <>
-      <Disclosure key="header-disclosure" as={Fragment}>
+      <Menu key="header-disclosure" as={Fragment}>
         {({ open, close }) => (
           <>
             <header
@@ -73,12 +73,12 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                   </Link>
                   <SocialLinks className="h-12 gap-1" iconSize="sm" />
                 </div>
-                <HeaderMenu floating pageProps={pageProps} />
+                <HeaderMenu pageProps={pageProps} />
               </div>
               <AnimatePresence>
                 {open && (
                   <motion.div
-                    key="nav"
+                    key="header"
                     animate={{
                       opacity: 1,
                       height: 'auto',
@@ -88,26 +88,31 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                     transition={{ duration: 0.4 }}
                     className="flex w-full overflow-hidden lg:hidden"
                   >
-                    <div className="mt-4 flex w-full flex-col items-start gap-1 py-2">
+                    <Menu.Items
+                      as="div"
+                      static
+                      className="mt-4 flex w-full flex-col items-start gap-1 py-2"
+                    >
                       {navLinks.map((link) => (
-                        <Link
+                        <Menu.Item
+                          as={Link}
                           key={link.name}
                           to={link.to}
                           onClick={() => close()}
                           className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
                         >
                           {t(link.name)}
-                        </Link>
+                        </Menu.Item>
                       ))}
-                    </div>
+                    </Menu.Items>
                   </motion.div>
                 )}
               </AnimatePresence>
             </header>
           </>
         )}
-      </Disclosure>
-      <Disclosure>
+      </Menu>
+      <Menu key="nav-disclosure" as={Fragment}>
         {({ open, close }) => (
           <>
             <nav
@@ -127,7 +132,6 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                 </div>
                 <HeaderMenu floating pageProps={pageProps} />
               </div>
-
               <AnimatePresence>
                 {open && (
                   <motion.div
@@ -141,25 +145,30 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                     transition={{ duration: 0.4 }}
                     className="flex w-full overflow-hidden lg:hidden"
                   >
-                    <div className="mt-4 flex w-full flex-col items-start gap-1 py-2">
+                    <Menu.Items
+                      as="div"
+                      static
+                      className="mt-4 flex w-full flex-col items-start gap-1 py-2"
+                    >
                       {navLinks.map((link) => (
-                        <Link
+                        <Menu.Item
+                          as={Link}
                           key={link.name}
                           to={link.to}
                           onClick={() => close()}
                           className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
                         >
                           {t(link.name)}
-                        </Link>
+                        </Menu.Item>
                       ))}
-                    </div>
+                    </Menu.Items>
                   </motion.div>
                 )}
               </AnimatePresence>
             </nav>
           </>
         )}
-      </Disclosure>
+      </Menu>
     </>
   )
 }

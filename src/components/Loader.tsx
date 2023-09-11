@@ -12,7 +12,7 @@ const Loader: React.FC = () => (
       <motion.div
         layout
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }}
-        className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent pl-10"
+        className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent"
       >
         <StaticImage
           src="../images/yan_icon.png"
