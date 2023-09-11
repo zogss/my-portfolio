@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
-        className="z-[1] flex w-full flex-col items-center justify-between gap-10 md:gap-12 lg:gap-16 xl:flex-row"
+        className="z-[1] flex w-full flex-col items-center gap-10 md:gap-12 xl:flex-row xl:items-start xl:justify-center 2xl:gap-16"
       >
         <motion.div variants={enterLeftAnimation} className="relative p-3">
           <StaticImage
