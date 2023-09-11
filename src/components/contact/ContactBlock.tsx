@@ -19,12 +19,14 @@ const ContactBlock: React.FC = () => {
     >
       <motion.div
         variants={enterRightAnimation}
-        className="relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 bg-charcoal-black-700 p-4 py-6 md:px-8 lg:px-12 lg:py-8"
+        className="relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 bg-charcoal-black-700 p-5 py-6 md:px-8 lg:px-12 lg:py-8"
       >
         <div className="flex flex-col items-start gap-6 self-stretch">
           <h4 className="flex w-full flex-col items-start justify-center gap-3 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
-            <span className="text-2xl font-semibold">{t('contact_form_title')}</span>
-            <p className="text-sm font-medium text-white/40">{t('contact_form_description')}</p>
+            <span className="text-xl font-semibold md:text-2xl">{t('contact_form_title')}</span>
+            <p className="text-xs font-medium text-white/40 md:text-sm">
+              {t('contact_form_description')}
+            </p>
           </h4>
           <div className="flex flex-col items-start justify-center gap-6 self-stretch">
             <ContactForm />

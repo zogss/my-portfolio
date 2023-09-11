@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
+      className="relative flex min-h-[75vh] w-full flex-col items-center justify-start gap-10 px-[10%] py-10 sm:min-h-screen md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
     >
       <TitleEclipse className="absolute -top-[15%] h-auto md:-top-[10%]" />
       <motion.div
