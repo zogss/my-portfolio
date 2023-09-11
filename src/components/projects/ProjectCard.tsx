@@ -139,11 +139,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </motion.div>
       <motion.div
         variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
-        className="flex w-full flex-wrap items-center justify-center gap-1.5"
+        className="w-full overflow-hidden"
       >
-        {techs.map((tech, i) => (
-          <Tag key={i} text={tech} />
-        ))}
+        <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
+          {techs.map((tech, i) => (
+            <Tag key={i} text={tech} />
+          ))}
+        </div>
       </motion.div>
     </motion.div>
   )
