@@ -9,11 +9,7 @@ const Loader: React.FC = () => (
     className="fixed inset-0 z-[9999] flex items-center justify-center bg-charcoal-black-700 text-black transition-all duration-500 ease-in"
   >
     <motion.div layout className="flex w-fit items-end">
-      <motion.div
-        layout
-        transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }}
-        className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent"
-      >
+      <motion.div layout className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent">
         <StaticImage
           src="../images/yan_icon.png"
           alt="Yan's icon"
@@ -25,7 +21,7 @@ const Loader: React.FC = () => (
         layout
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: 'auto' }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
+        transition={{ duration: 1, ease: 'easeInOut', delay: 0.5 }}
         className="overflow-hidden"
       >
         <span className="truncate text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">

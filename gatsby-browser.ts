@@ -31,5 +31,5 @@ export const onRouteUpdate = () => {
         element.style.display = 'none'
       }, 500)
     }
-  }, 3500)
+  }, 2000)
 }
