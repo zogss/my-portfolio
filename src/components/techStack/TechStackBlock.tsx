@@ -220,6 +220,11 @@ const techStack = [
         Icon: SiPrisma,
         color: '#1B222D',
       },
+      {
+        title: 'Firebase',
+        Icon: SiFirebase,
+        color: '#FFCA28',
+      },
       // {
       //   title: 'Trpc',
       //   Icon: SiTrpc,
