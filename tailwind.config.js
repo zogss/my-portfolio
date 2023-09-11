@@ -62,6 +62,10 @@ const textShadow = {
   primary: '0px 0px 13.37690258026123px rgba(0, 0, 0, 0.25)',
 }
 
+const screens = {
+  '3xl': '1792px',
+}
+
 module.exports = {
   content: [`./src/**/*.{js,jsx,ts,tsx}`],
   theme: {
@@ -72,6 +76,7 @@ module.exports = {
       textShadow,
       minHeight: heightSpacing,
       maxHeight: heightSpacing,
+      screens,
     },
   },
   plugins: [

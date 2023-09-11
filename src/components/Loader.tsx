@@ -15,7 +15,7 @@ const Loader: React.FC = () => (
       <motion.div
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: 'auto' }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 0.5 }}
+        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
         className="overflow-hidden"
       >
         <span className="truncate text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">

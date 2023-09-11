@@ -26,11 +26,18 @@ const HomeSection: React.FC = () => {
         <div className="flex flex-col items-start justify-start gap-6">
           <div
             className={clsx(
-              'flex w-full mix-blend-overlay xl:h-16',
-              language === 'br' ? 'h-36 md:h-48' : 'h-24 md:h-32'
+              'flex w-full mix-blend-overlay',
+              language === 'br' ? '3xl:h-16 h-36 md:h-48 lg:h-32' : 'h-24 md:h-32 xl:h-16'
             )}
           >
-            <h2 className="absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:text-[4rem] lg:left-auto lg:max-w-xs lg:translate-x-0 lg:text-start xl:max-w-none xl:whitespace-nowrap">
+            <h2
+              className={clsx(
+                'absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary sm:max-w-xs md:flex md:justify-center md:text-[4rem] lg:left-auto lg:block lg:translate-x-0 lg:text-start',
+                language === 'br'
+                  ? '3xl:max-w-none 3xl:whitespace-nowrap lg:max-w-xl'
+                  : 'lg:max-w-xs xl:max-w-none xl:whitespace-nowrap'
+              )}
+            >
               {upperCase(t('software_engineer'))}
             </h2>
           </div>
@@ -46,12 +53,12 @@ const HomeSection: React.FC = () => {
       </div>
       <motion.div
         variants={enterRightAnimation}
-        className="relative flex h-[200px] w-[200px] items-start overflow-hidden rounded-full border border-white/5 bg-gradient-to-bl from-zinc-800/50 to-black/10 shadow-primary before:absolute before:inset-3 before:z-[1] before:rounded-full before:border before:border-white/5 before:bg-gradient-to-l before:from-zinc-800/50 before:to-black/10 md:h-[300px] md:w-[300px] md:translate-y-[25%] lg:absolute lg:right-[5%] lg:h-auto lg:w-[43.75rem] lg:translate-y-[12%] lg:items-center lg:justify-end lg:overflow-auto lg:rounded-2xl lg:border-none lg:bg-gradient-to-l lg:from-black/30 lg:to-black/0 lg:shadow-none lg:before:hidden xl:right-[6%] xl:translate-y-[9%] 2xl:right-[12%] 2xl:translate-y-[7%]"
+        className="relative z-[2] flex h-[200px] w-[200px] items-start overflow-hidden rounded-full border border-white/5 bg-gradient-to-bl from-zinc-800/50 to-black/10 shadow-primary before:absolute before:inset-3 before:z-[1] before:rounded-full before:border before:border-white/5 before:bg-gradient-to-l before:from-zinc-800/50 before:to-black/10 md:h-[300px] md:w-[300px] md:translate-y-[25%] lg:absolute lg:right-[5%] lg:h-auto lg:w-[43.75rem] lg:translate-y-[12%] lg:items-center lg:justify-end lg:overflow-auto lg:rounded-2xl lg:border-none lg:bg-gradient-to-l lg:from-black/30 lg:to-black/0 lg:shadow-none lg:before:hidden xl:right-[6%] xl:translate-y-[9%] 2xl:right-[12%] 2xl:translate-y-[7%]"
       >
         <StaticImage
           src="../../images/yan_main_photo.png"
           alt={t('yan_main_photo_alt')}
-          className="z-[1] h-[230px] w-[230px] -translate-y-1 rounded-full md:h-[350px] md:w-[350px] md:rounded-none lg:z-0 lg:h-[32.5rem] lg:w-[32.5rem] 2xl:h-[620px] 2xl:w-[620px]"
+          className="z-[3] h-[230px] w-[230px] -translate-y-1 rounded-full md:h-[350px] md:w-[350px] md:rounded-none lg:z-0 lg:h-[32.5rem] lg:w-[32.5rem] 2xl:h-[620px] 2xl:w-[620px]"
         />
       </motion.div>
     </motion.section>
