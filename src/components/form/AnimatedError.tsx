@@ -23,11 +23,11 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
               display: 'block',
               transition: {
                 height: {
-                  duration: 0.4,
+                  duration: 0.2,
                 },
                 opacity: {
-                  duration: 0.25,
-                  delay: 0.15,
+                  duration: 0.1,
+                  delay: 0.1,
                 },
               },
             }
@@ -36,10 +36,10 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
               opacity: 0,
               transition: {
                 height: {
-                  duration: 0.4,
+                  duration: 0.2,
                 },
                 opacity: {
-                  duration: 0.25,
+                  duration: 0.1,
                 },
               },
               transitionEnd: {
