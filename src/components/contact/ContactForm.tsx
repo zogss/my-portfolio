@@ -79,20 +79,6 @@ const ContactForm: React.FC = () => {
           className="form-input-primary form-input"
         />
       </Input>
-      <button
-        type="button"
-        disabled={isSubmitting}
-        onClick={() => {
-          toast.success(t('contact_form_success'))
-          toast.warning(t('contact_form_success'))
-          toast.info(t('contact_form_success'))
-          toast.error(t('contact_form_success'))
-        }}
-        className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5 transition-all duration-200 disabled:opacity-50"
-      >
-        {t('send')}
-        <BsSend className="h-[1.125rem] w-[1.125rem]" />
-      </button>
       <div className="mt-2.5 flex w-fit items-center justify-start gap-6">
         <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] grayscale transition-all duration-500 group-hover/contactFormContainer:grayscale-0">
           <button
