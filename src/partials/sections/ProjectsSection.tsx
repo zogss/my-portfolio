@@ -24,7 +24,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="flex w-full flex-col items-center gap-2.5 self-stretch"
       >
         <div className="flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">

@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="flex w-full flex-col items-center gap-3"
     >
       <motion.div

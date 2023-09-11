@@ -18,7 +18,7 @@ const HomeSection: React.FC = () => {
       id="home"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="flex min-h-screen w-full flex-col-reverse items-center justify-end gap-10 overflow-hidden px-[10%] pt-[17vh] md:justify-center md:gap-5 md:px-[15%] md:pt-0 lg:flex-col"
     >
       <HomeEclipse className="absolute -translate-x-16 -translate-y-12 md:-translate-y-8" />

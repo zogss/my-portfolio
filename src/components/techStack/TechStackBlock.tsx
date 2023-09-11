@@ -57,7 +57,7 @@ const TechStackBlock: React.FC = () => {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="z-[1] flex w-full items-center justify-center"
     >
       <motion.div variants={enterLeftAnimation} className="flex w-full items-center justify-center">
@@ -154,14 +154,14 @@ const TechStackBlock: React.FC = () => {
                       style={{
                         color,
                       }}
-                      className="z-[1] h-9 w-9 md:h-11 md:w-11"
+                      className="z-[1] h-7 w-7 md:h-9 md:w-9 lg:h-11 lg:w-11"
                     />
                     <a
                       href={`https://www.google.com/search?q=${title}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={t('google_seach', { text: title })}
-                      className="z-[1] text-sm font-medium"
+                      className="z-[1] text-xs font-medium md:text-sm"
                     >
                       {title}
                     </a>

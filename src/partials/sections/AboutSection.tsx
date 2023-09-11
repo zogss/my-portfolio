@@ -21,7 +21,7 @@ const AboutSection: React.FC = () => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]"
       >
         <motion.div
@@ -36,7 +36,7 @@ const AboutSection: React.FC = () => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="z-[1] flex w-full flex-col items-center gap-10 md:gap-12 xl:flex-row xl:items-start xl:justify-center 2xl:gap-16"
       >
         <motion.div variants={enterLeftAnimation} className="relative p-3">
