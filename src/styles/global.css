@@ -49,7 +49,7 @@
   * Toast
 */
 .react-hot-toast__container {
-  @apply !bottom-[90px] !right-6;
+  @apply !bottom-[20px] !right-5;
 }
 
 .react-hot-toast__toast {

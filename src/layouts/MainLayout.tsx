@@ -20,7 +20,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children, pageProps }) => (
       position="bottom-right"
       containerClassName="react-hot-toast__container"
       toastOptions={{
-        duration: 3000,
+        duration: 5000,
         className: 'react-hot-toast__toast',
       }}
     />
