@@ -11,17 +11,17 @@ const Tag: React.FC<TagProps> = ({ text }) => {
 
   //* render
   return (
-    <a
-      href={`https://www.google.com/search?q=${text}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={t('google_seach', { text })}
-      className="flex items-center justify-center rounded-full bg-gradient-primary p-[2px]"
+    <div
+      // href={`https://www.google.com/search?q=${text}`}
+      // target="_blank"
+      // rel="noopener noreferrer"
+      // aria-label={t('google_seach', { text })}
+      className="flex items-center justify-center rounded-full bg-gradient-primary p-[.125rem]"
     >
-      <div className="flex items-center justify-center rounded-full bg-charcoal-black-700 bg-gradient-secondary px-3.5 py-1.5 shadow-primary backdrop-blur-[20px]">
+      <div className="flex items-center justify-center rounded-full bg-charcoal-black-700 bg-gradient-secondary px-3.5 py-1.5 shadow-primary backdrop-blur-[1.25rem]">
         <span className="text-sm font-semibold leading-tight text-white/40">{text}</span>
       </div>
-    </a>
+    </div>
   )
 }
 
