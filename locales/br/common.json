@@ -15,6 +15,7 @@
   "send": "Enviar",
   "contact_form_success": "Sua mensagem foi enviada com sucesso!",
   "global_error": "Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.",
+  "submit_count_error": "Você já enviou 5 mensagens. Aguarde 5 minutos para enviar outra mensagem.",
   "success_icon": "Icone de sucesso",
   "error_icon": "Icone de erro",
   "info_icon": "Icone de informação",

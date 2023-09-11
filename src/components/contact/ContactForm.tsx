@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { addDoc, collection, getFirestore, setDoc } from 'firebase/firestore'
 import app from 'gatsby-plugin-firebase-v9.0'
 import { useI18next } from 'gatsby-plugin-react-i18next'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { BsSend } from 'react-icons/bs'
 import { ContactFormDataType, contactSchema } from '~/schemas'
@@ -15,17 +15,25 @@ const ContactForm: React.FC = () => {
   const { t } = useI18next()
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, submitCount },
   } = useForm<ContactFormDataType>({
     mode: 'onChange',
     reValidateMode: 'onChange',
     resolver: zodResolver(contactSchema),
   })
 
+  //* states
+  const [submitBlocked, setSubmitBlocked] = useState(false)
+
   //* handlers
   const onSubmit = handleSubmit(async (data) => {
     try {
+      if (submitCount >= 5) {
+        setSubmitBlocked(true)
+        throw new Error('submit_count_error')
+      }
       const db = getFirestore(app)
 
       const dataWithTimestamp = { ...data, createdAt: new Date() }
@@ -39,6 +47,23 @@ const ContactForm: React.FC = () => {
       toast.error(t(err))
     }
   })
+
+  //* effects
+  useEffect(() => {
+    if (submitBlocked) {
+      const timeout = setTimeout(
+        () => {
+          reset()
+          setSubmitBlocked(false)
+        },
+        1000 * 60 * 5 // 5 minutes
+      )
+
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+  }, [reset, submitBlocked])
 
   //* render
   return (
