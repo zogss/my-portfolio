@@ -13,6 +13,12 @@
   "code": "Code",
   "repository": "Repository",
   "send": "Send",
+  "contact_form_success": "Your message has been sent successfully!",
+  "global_error": "An error occurred while sending your message. Please try again later.",
+  "success_icon": "Success icon",
+  "error_icon": "Error icon",
+  "info_icon": "Info icon",
+  "warning_icon": "Warning icon",
   "inspired_text": "Inspired by {{name}}",
   "software_engineer": "Software Engineer",
   "about_me": "About me",
@@ -57,5 +63,5 @@
   "name_max_length_error": "The name must have at most 50 characters",
   "email_field_error": "Enter a valid email",
   "message_min_length_error": "The message must have at least 5 characters",
-  "message_max_length_error": "The message must have at most 500 characters"
+  "message_max_length_error": "The message must have at most 1000 characters"
 }
