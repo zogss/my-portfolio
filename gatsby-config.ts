@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import { lstatSync, readdirSync } from 'fs'
 import type { GatsbyConfig } from 'gatsby'
 import path, { join } from 'path'
+import siteMetadata from './config/metadata'
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -18,12 +19,7 @@ const languages = readdirSync(join(__dirname, 'locales')).filter((fileName) => {
 })
 
 const config: GatsbyConfig = {
-  siteMetadata: {
-    author: 'Yan Lucas',
-    title: 'Yan Lucas',
-    siteUrl,
-    description: 'Um site pessoal para mostrar meus projetos e experiências profissionais.',
-  },
+  siteMetadata,
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen

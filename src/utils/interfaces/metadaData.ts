@@ -1,10 +1,16 @@
 export type MetadataType = {
   site: {
     siteMetadata: {
-      title: string
       author: string
+      title: string
+      image: string
       siteUrl: string
       description: string
+      keywords: string[]
+      social: {
+        name: string
+        url: string
+      }[]
     }
   }
 }
