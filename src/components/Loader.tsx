@@ -6,7 +6,7 @@ const Loader: React.FC = () => (
   <div
     id="loader-wrapper"
     aria-label="Loading"
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-charcoal-black-700 text-black transition-all duration-500 ease-in"
+    className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-charcoal-black-700 text-black transition-all duration-500 ease-in"
   >
     <div className="flex w-fit items-end">
       <div className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent">
@@ -21,6 +21,20 @@ const Loader: React.FC = () => (
         <span className="truncate text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">
           an Lucas
         </span>
+      </motion.div>
+    </div>
+    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center pb-3">
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        className="inline-block h-5 w-5"
+      >
+        <div className="ldio-r4drh11gvk7">
+          <div className="absolute inset-0 rounded-full bg-gray-400"></div>
+          <div className="absolute inset-0 rounded-full bg-gray-600"></div>
+          <div className="absolute inset-0 rounded-full bg-gray-400"></div>
+        </div>
       </motion.div>
     </div>
   </div>

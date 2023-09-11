@@ -49,7 +49,7 @@ export const query = graphql`
     }
     photos: allFile(
       sort: { fields: base, order: ASC }
-      filter: { extension: { regex: "/(png)/" } }
+      filter: { extension: { regex: "/(png)/" }, name: { in: ["br_flag", "en_flag"] } }
     ) {
       edges {
         node {
