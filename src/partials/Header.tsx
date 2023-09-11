@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
               )}
             >
               <div className="flex w-full items-center justify-between gap-4">
-                <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
+                <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
                   <Link to="#home" className="flex shrink-0">
                     <StaticImage
                       src="../images/yan_icon.png"
@@ -120,7 +120,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
               className="fixed left-0 right-0 top-0 z-10 flex w-full -translate-y-[100%] flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-all duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
             >
               <div className="flex w-full items-center justify-between gap-4">
-                <div className="flex items-center gap-6 lg:gap-8 xl:gap-16">
+                <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
                   <Link to="#home" className="flex shrink-0">
                     <StaticImage
                       src="../images/yan_icon.png"

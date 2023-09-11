@@ -33,7 +33,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
       <Menu.Button
         className={({ open }) =>
           clsx(
-            'inline-flex w-full items-center justify-center gap-1 rounded px-3 py-2 pr-1 text-neutral-100/50 transition-colors hover:bg-white/10',
+            'inline-flex w-full items-center justify-center gap-0.5 rounded px-2 py-1.5 pr-0.5 text-neutral-100/50 transition-colors hover:bg-white/10 md:gap-1 md:px-3 md:py-2 md:pr-1',
             { 'bg-white/20': open }
           )
         }
@@ -50,7 +50,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
                   .join(' ')
                   .split('.')[0] + ' image'
               }
-              className="h-4 w-8 shrink-0 rounded-sm"
+              className="h-3 w-6 shrink-0 rounded-sm md:h-4 md:w-8"
             />
             <ChevronDownIcon
               className={clsx(
