@@ -9,6 +9,7 @@ const siteMetadata = {
     'Yan',
     'Lucas',
     'Yan Lucas',
+    'yan lucas pereira branco',
     'Yan Lucas software engineer',
     'Yan Lucas engenheiro de software',
     'Yan Lucas frontend developer',

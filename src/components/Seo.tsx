@@ -29,13 +29,14 @@ const Seo: React.FC<SeoProps> = ({ description, title }) => {
       <meta name="og:description" content={metaDescription} />
       <meta name="og:image" content={metaData.siteUrl + metaData.image} />
       <meta name="og:creator" content={metaData.author} />
-      <meta name="twitter:title" content={metaData.title} />
       <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={metaData.title} />
       <meta name="twitter:creator" content={metaData.author} />
+      <meta name="twitter:image" content={metaData.siteUrl + metaData.image} />
       <meta name="twitter:description" content={metaDescription} />
+      <link rel="canonical" href={metaData.siteUrl} />
       <link rel="alternate" hrefLang="en" href={`${metaData.siteUrl}en/`} />
       <link rel="alternate" hrefLang="pt" href={metaData.siteUrl} />
-      <link rel="icon" href="/yan_icon.png" />
     </>
   )
 }
