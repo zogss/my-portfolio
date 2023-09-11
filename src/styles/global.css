@@ -19,6 +19,9 @@
   @apply mt-1 block text-start text-sm font-medium text-red-600;
 }
 
+/**
+  * Scrollspy
+*/
 .active-scroll-spy {
   @apply text-neutral-100;
 }
@@ -27,6 +30,9 @@
   @apply block h-0.5 translate-y-[6px] rounded-full bg-neutral-100;
 }
 
+/** 
+  * Custom animation
+*/
 @keyframes wiggleUp {
   0% {
     transform: translateY(0);
@@ -38,3 +44,19 @@
     transform: translateY(0);
   }
 }
+
+/** 
+  * Toast
+*/
+.react-hot-toast__container {
+  @apply !bottom-[90px] !right-6;
+}
+
+.react-hot-toast__toast {
+  @apply !bg-transparent !p-0;
+}
+
+.react-hot-toast__toast > div {
+  @apply !m-0;
+}
+
