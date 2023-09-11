@@ -40,6 +40,16 @@ const ContactForm: React.FC = () => {
       const contactsRef = await addDoc(collection(db, 'contacts'), dataWithTimestamp)
       await setDoc(contactsRef, dataWithTimestamp)
 
+      reset(
+        {
+          ...data,
+          message: '',
+        },
+        {
+          keepIsSubmitted: true,
+          keepSubmitCount: true,
+        }
+      )
       toast.success(t('contact_form_success'))
     } catch (error) {
       const err = getErrorMessage(error) || 'global_error'
