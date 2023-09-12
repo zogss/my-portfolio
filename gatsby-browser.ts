@@ -5,6 +5,11 @@ import './src/styles/global.css'
 
 export const onClientEntry = () => {
   setTimeout(() => {
+    const htmlElement = document.getElementsByTagName('html')[0]
+    if (htmlElement) {
+      htmlElement.style.overflow = 'hidden'
+      htmlElement.style.marginRight = '15px'
+    }
     const element = document.getElementById('loader-wrapper')
     if (element) {
       element.style.display = 'flex'
@@ -14,6 +19,11 @@ export const onClientEntry = () => {
 
 export const onInitialClientRender = () => {
   setTimeout(() => {
+    const htmlElement = document.getElementsByTagName('html')[0]
+    if (htmlElement) {
+      htmlElement.style.overflow = 'hidden'
+      htmlElement.style.marginRight = '15px'
+    }
     const element = document.getElementById('loader-wrapper')
     if (element) {
       element.style.display = 'flex'
@@ -23,6 +33,11 @@ export const onInitialClientRender = () => {
 
 export const onRouteUpdate = () => {
   setTimeout(() => {
+    const htmlElement = document.getElementsByTagName('html')[0]
+    if (htmlElement) {
+      htmlElement.style.overflow = 'unset'
+      htmlElement.style.marginRight = '0px'
+    }
     const element = document.getElementById('loader-wrapper')
     if (element) {
       element.classList.add('opacity-0')
@@ -31,5 +46,5 @@ export const onRouteUpdate = () => {
         element.style.display = 'none'
       }, 500)
     }
-  }, 2000)
+  }, 1500)
 }
