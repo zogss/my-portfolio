@@ -28,7 +28,7 @@ const Loader: React.FC = () => (
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
-        className="inline-block h-5 w-5"
+        className="h-5 w-5 -translate-x-2.5"
       >
         <div className="ldio-r4drh11gvk7">
           <div className="absolute inset-0 rounded-full bg-gray-400"></div>
