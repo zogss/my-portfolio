@@ -8,17 +8,17 @@ const Loader: React.FC = () => (
     aria-label="Loading"
     className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-charcoal-black-700 text-black transition-all duration-500 ease-in"
   >
-    <div className="flex w-fit items-end -space-x-6 md:-space-x-7 lg:-space-x-8">
+    <div className="flex w-fit items-end">
       <div className="z-[1] bg-gradient-to-r from-charcoal-black-700 to-transparent pb-1.5 lg:pb-2">
         <YIcon className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36" />
       </div>
       <motion.div
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: 'auto' }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
-        className="overflow-hidden"
+        transition={{ duration: 1, ease: 'easeInOut' }}
+        className="-translate-x-6 overflow-hidden md:-translate-x-7 lg:-translate-x-8"
       >
-        <span className="truncate text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">
+        <span className="block overflow-hidden whitespace-nowrap text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">
           an Lucas
         </span>
       </motion.div>
