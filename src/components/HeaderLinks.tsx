@@ -46,11 +46,12 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
       {navLinks.map((link) => (
         <Link
           key={link.name}
-          to={link.to}
+          to={link.to || '/'}
           id={`${link.name}-${floating ? 'floating' : 'header'}`}
           data-to-scrollspy-id={link.to.replace('#', '')}
-          className="relative z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
+          title={t(link.name)}
           onMouseEnter={() => handleMouseEnter(`${link.name}-${floating ? 'floating' : 'header'}`)}
+          className="relative z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
         >
           {t(link.name)}
           <div className="link-border absolute bottom-0 left-0 right-0" />

@@ -27,6 +27,8 @@ const LanguageDropdown: React.FC = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button
+        title={t('language')}
+        aria-label={t('language')}
         className={({ open }) =>
           clsx(
             'inline-flex w-full items-center justify-center gap-0.5 rounded px-2 py-1.5 pr-0.5 text-neutral-100/50 transition-colors hover:bg-white/10 md:gap-1 md:px-3 md:py-2 md:pr-1',

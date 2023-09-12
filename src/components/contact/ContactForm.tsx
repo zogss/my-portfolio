@@ -119,6 +119,7 @@ const ContactForm: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
+            title={t('send')}
             className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5 transition-all duration-200 disabled:opacity-50"
           >
             {t('send')}

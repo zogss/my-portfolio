@@ -34,6 +34,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
+        title={environments.personal.instagramUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-2.5 lg:p-3"
       >
         <BsInstagram className={clsx(iconSizeClass, 'shrink-0')} />
@@ -42,6 +43,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.linkedinUrl}
         target="_blank"
         rel="noopener noreferrer"
+        title={environments.personal.linkedinUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-2.5 lg:p-3"
       >
         <BsLinkedin className={clsx(iconSizeClass, 'shrink-0')} />
@@ -50,6 +52,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
         href={environments.personal.githubUrl}
         target="_blank"
         rel="noopener noreferrer"
+        title={environments.personal.githubUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-black/70 md:p-2.5 lg:p-3"
       >
         <BsGithub className={clsx(iconSizeClass, 'shrink-0')} />

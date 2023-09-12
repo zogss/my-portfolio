@@ -160,6 +160,7 @@ const TechStackBlock: React.FC = () => {
                       href={`https://www.google.com/search?q=${title}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      title={t('google_seach', { text: title })}
                       aria-label={t('google_seach', { text: title })}
                       className="z-[1] text-xs font-medium md:text-sm"
                     >

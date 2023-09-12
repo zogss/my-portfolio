@@ -8,7 +8,7 @@ import { ProjectObjType, enterLeftAnimation, enterRightAnimation } from '~/utils
 import Tag from '../Tag'
 import LinesUnion from '../svgs/LinesUnion'
 
-export interface ProjectCardProps extends Omit<ProjectObjType, 'img' | 'alt'> {
+export interface ProjectCardProps extends Omit<ProjectObjType, 'alt'> {
   children?: React.ReactNode
   index: number
 }
@@ -111,6 +111,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={url}
                 className={`flex w-full items-center justify-center gap-2.5 rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold transition-colors duration-500 ${projectBackground} focus:outline-none md:w-fit`}
               >
                 <span>{t('visit')}</span>
@@ -122,6 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={repository_url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={repository_url}
                 className={`${projectBackground} flex w-full items-center justify-center gap-2.5 rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold transition-colors duration-500 focus:outline-none md:w-fit`}
               >
                 <span>{t('code')}</span>

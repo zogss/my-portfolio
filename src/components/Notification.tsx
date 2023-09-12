@@ -16,8 +16,8 @@ export const SuccessNotification: React.FC<NotificationProps> = ({ message, toas
     <div className="relative flex w-80 items-center rounded-lg border border-green-600 bg-charcoal-black-700 p-4 text-sm text-white">
       <button
         type="button"
-        title="Fechar"
-        aria-label="Fechar"
+        title={t('close')}
+        aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
         className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-green-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
       >
@@ -37,8 +37,8 @@ export const InfoNotification: React.FC<NotificationProps> = ({ message, toastIn
     <div className="relative flex w-80 items-center rounded-lg border border-blue-600 bg-charcoal-black-700 p-4 text-sm text-white">
       <button
         type="button"
-        title="Fechar"
-        aria-label="Fechar"
+        title={t('close')}
+        aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
         className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-blue-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
       >
@@ -55,8 +55,8 @@ export const WarningNotification: React.FC<NotificationProps> = ({ message, toas
     <div className="relative flex w-80 items-center rounded-lg border border-yellow-600 bg-charcoal-black-700 p-4 text-sm text-white">
       <button
         type="button"
-        title="Fechar"
-        aria-label="Fechar"
+        title={t('close')}
+        aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
         className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-yellow-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
       >
@@ -76,8 +76,8 @@ export const DangerNotification: React.FC<NotificationProps> = ({ message, toast
     <div className="relative flex w-80 items-center rounded-lg border border-red-600 bg-charcoal-black-700 p-4 text-sm text-white">
       <button
         type="button"
-        title="Fechar"
-        aria-label="Fechar"
+        title={t('close')}
+        aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
         className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-red-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
       >

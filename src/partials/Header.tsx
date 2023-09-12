@@ -59,9 +59,14 @@ const Header: React.FC = () => {
             >
               <div className="flex w-full items-center justify-between gap-4">
                 <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
-                  <Link to="#home" className="flex shrink-0">
+                  <Link
+                    to="#home"
+                    title={t('navigate_home')}
+                    aria-label={t('navigate_home')}
+                    className="flex shrink-0"
+                  >
                     <StaticImage
-                      src="../images/yan_icon.png"
+                      src="../images/icon.png"
                       alt="Yan Logo"
                       className="h-[2.125rem] w-[2.125rem] shrink-0"
                     />
@@ -92,7 +97,7 @@ const Header: React.FC = () => {
                         <Menu.Item
                           as={Link}
                           key={link.name}
-                          to={link.to}
+                          to={link.to || '/'}
                           onClick={() => close()}
                           className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
                         >
@@ -116,9 +121,14 @@ const Header: React.FC = () => {
             >
               <div className="flex w-full items-center justify-between gap-4">
                 <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
-                  <Link to="#home" className="flex shrink-0">
+                  <Link
+                    to="#home"
+                    title={t('navigate_home')}
+                    aria-label={t('navigate_home')}
+                    className="flex shrink-0"
+                  >
                     <StaticImage
-                      src="../images/yan_icon.png"
+                      src="../images/icon.png"
                       alt="Yan Logo"
                       className="h-[2.125rem] w-[2.125rem] shrink-0"
                     />
@@ -149,7 +159,7 @@ const Header: React.FC = () => {
                         <Menu.Item
                           as={Link}
                           key={link.name}
-                          to={link.to}
+                          to={link.to || '/'}
                           onClick={() => close()}
                           className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
                         >

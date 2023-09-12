@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
       <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">
         <div className="flex flex-col items-start gap-8 md:flex-row">
           <StaticImage
-            src="../images/yan_icon.png"
+            src="../images/icon.png"
             alt="Yan's icon"
             className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
           />
@@ -25,7 +25,8 @@ const Footer: React.FC = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.to}
+                to={link.to || '/'}
+                title={t(link.name)}
                 className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
               >
                 {t(link.name)}
@@ -38,6 +39,7 @@ const Footer: React.FC = () => {
           <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] md:w-full">
             <a
               href={`mailto:${environments.personal.email}`}
+              title={environments.personal.email}
               className="flex w-fit items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5 text-sm md:w-full md:text-base"
             >
               {environments.personal.email}
@@ -54,6 +56,7 @@ const Footer: React.FC = () => {
           href={environments.inspiration.figmaUrl}
           target="_blank"
           rel="noreferrer"
+          title={environments.inspiration.figmaUrl}
           className="flex items-center justify-center gap-3 rounded px-3 py-2 text-xs font-medium text-white/40 transition-colors duration-500 hover:bg-zinc-700 hover:text-neutral-300"
         >
           {t('inspired_text', { name: '@KC Studio' })}

@@ -27,14 +27,14 @@ const HomeSection: React.FC = () => {
           <div
             className={clsx(
               'flex w-full mix-blend-overlay',
-              language === 'br' ? '3xl:h-16 h-36 md:h-48 lg:h-32' : 'h-24 md:h-32 xl:h-16'
+              language === 'br' ? 'h-36 md:h-48 lg:h-32 3xl:h-16' : 'h-24 md:h-32 xl:h-16'
             )}
           >
             <h2
               className={clsx(
                 'absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary sm:max-w-xs md:flex md:justify-center md:text-[4rem] lg:left-auto lg:block lg:translate-x-0 lg:text-start',
                 language === 'br'
-                  ? '3xl:max-w-none 3xl:whitespace-nowrap lg:max-w-xl'
+                  ? 'lg:max-w-xl 3xl:max-w-none 3xl:whitespace-nowrap'
                   : 'lg:max-w-xs xl:max-w-none xl:whitespace-nowrap'
               )}
             >
@@ -58,6 +58,7 @@ const HomeSection: React.FC = () => {
         <StaticImage
           src="../../images/yan_main_photo.png"
           alt={t('yan_main_photo_alt')}
+          quality={100}
           className="z-[3] h-[230px] w-[230px] -translate-y-1 rounded-full md:h-[350px] md:w-[350px] md:rounded-none lg:z-0 lg:h-[32.5rem] lg:w-[32.5rem] 2xl:h-[620px] 2xl:w-[620px]"
         />
       </motion.div>
