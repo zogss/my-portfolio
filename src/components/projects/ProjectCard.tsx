@@ -1,10 +1,9 @@
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React, { useMemo } from 'react'
 import { BiLinkExternal } from 'react-icons/bi'
 import { BsGithub } from 'react-icons/bs'
-import { ProjectObjType, enterLeftAnimation, enterRightAnimation } from '~/utils'
+import { ProjectObjType } from '~/utils'
 import Tag from '../Tag'
 import LinesUnion from '../svgs/LinesUnion'
 
@@ -47,16 +46,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   //* render
   return (
-    <motion.div
-      key={`${title.replace(' ', '-')}-${index}`}
-      id={`${title.replace(' ', '-')}-${index}`}
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.4 }}
+    <div
+      // key={`${title.replace(' ', '-')}-${index}`}
+      // id={`${title.replace(' ', '-')}-${index}`}
+      // initial="offscreen"
+      // whileInView="onscreen"
+      // viewport={{ once: true, amount: 0.4 }}
       className="w-full"
     >
-      <motion.div
-        variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
+      <div
+        // variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
         className="flex w-full flex-col items-center gap-3"
       >
         <div className="group/projectCard relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-4 md:p-6">
@@ -149,8 +148,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 
