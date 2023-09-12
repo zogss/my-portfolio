@@ -8,13 +8,8 @@ import React, { Fragment, useEffect, useRef } from 'react'
 import { navLinks } from '~/components/HeaderLinks'
 import HeaderMenu from '~/components/HeaderMenu'
 import SocialLinks from '~/components/SocialLinks'
-import { IndexPageProps } from '~/pages'
 
-interface HeaderProps {
-  pageProps: IndexPageProps
-}
-
-const Header: React.FC<HeaderProps> = ({ pageProps }) => {
+const Header: React.FC = () => {
   //* hooks
   const { t } = useI18next()
 
@@ -73,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                   </Link>
                   <SocialLinks className="h-12 gap-1" iconSize="sm" />
                 </div>
-                <HeaderMenu pageProps={pageProps} />
+                <HeaderMenu />
               </div>
               <AnimatePresence>
                 {open && (
@@ -130,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ pageProps }) => {
                   </Link>
                   <SocialLinks className="h-12 gap-1" iconSize="sm" />
                 </div>
-                <HeaderMenu floating pageProps={pageProps} />
+                <HeaderMenu floating />
               </div>
               <AnimatePresence>
                 {open && (

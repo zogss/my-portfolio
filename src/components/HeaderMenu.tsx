@@ -1,23 +1,21 @@
 import { Menu } from '@headlessui/react'
 import clsx from 'clsx'
 import React from 'react'
-import { IndexPageProps } from '~/pages'
 import HeaderLinks from './HeaderLinks'
 import LanguageDropdown from './LanguageDropdown'
 
 interface HeaderMenuProps {
-  pageProps: IndexPageProps
   floating?: boolean
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ pageProps, floating }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ floating }) => {
   return (
     <>
       <div className="flex items-center gap-2 md:gap-5 xl:gap-12">
         <div className="hidden lg:block">
           <HeaderLinks floating={floating} />
         </div>
-        <LanguageDropdown pageProps={pageProps} />
+        <LanguageDropdown />
         <Menu.Button
           className={({ open }) =>
             clsx(

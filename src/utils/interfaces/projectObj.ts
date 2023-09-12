@@ -11,7 +11,6 @@ export type ProjectObjType = {
   description: string
   url: string | null
   repository_url: string | null
-  img: string
   alt: string
   techs: string[]
 }

@@ -1,19 +1,12 @@
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link, useI18next } from 'gatsby-plugin-react-i18next'
-import { type i18n } from 'i18next'
 import React, { Fragment } from 'react'
-import { IndexPageProps } from '~/pages'
+import BrFlag from './svgs/flags/BrFlag'
+import UsFlag from './svgs/flags/UsFlag'
 
-interface LanguageDropdownProps {
-  pageProps: IndexPageProps
-}
-
-const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
-  pageProps: { data, pageContext },
-}) => {
+const LanguageDropdown: React.FC = () => {
   //* hooks
   const {
     t,
@@ -23,9 +16,12 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   } = useI18next()
 
   //* handlers
-  const getImageByLanguage = (language: string) => {
-    return data.photos.edges.find((edge) => edge.node.base.includes(language + '_flag'))
+  const getFlagByLanguage = (language: string) => {
+    return flags.find((flag) => flag.slug === language) || flags[0]
   }
+
+  //* memos
+  const CurrentFlag = getFlagByLanguage(language).Icon
 
   //* render
   return (
@@ -40,18 +36,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
       >
         {({ open }) => (
           <>
-            <GatsbyImage
-              image={
-                getImage(getImageByLanguage((pageContext as { i18n: i18n }).i18n.language).node)!
-              }
-              alt={
-                getImageByLanguage((pageContext as { i18n: i18n }).i18n.language)
-                  .node.base.split('-')
-                  .join(' ')
-                  .split('.')[0] + ' image'
-              }
-              className="h-3 w-6 shrink-0 rounded-sm md:h-4 md:w-8"
-            />
+            <CurrentFlag className="h-8 w-8 shrink-0 rounded" />
             <ChevronDownIcon
               className={clsx(
                 'h-5 w-5 shrink-0 transition-all ease-in',
@@ -75,27 +60,25 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
           as="ul"
           className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-neutral-100/30 rounded-md bg-charcoal-black-700 shadow-white-md"
         >
-          {languages.map((lng) => (
-            <Menu.Item key={lng} as="li" className="group/translationLink">
-              <Link
-                to={originalPath}
-                language={lng}
-                className={clsx(
-                  'flex w-full items-center justify-end gap-2 px-3.5 py-3 text-sm transition-colors hover:bg-royal-purple-700 hover:text-white group-first/translationLink:rounded-t-md group-last/translationLink:rounded-b-md',
-                  language === lng ? 'bg-royal-purple-700 text-white' : 'text-neutral-100/50'
-                )}
-              >
-                {t(lng)}
-                <GatsbyImage
-                  image={getImage(getImageByLanguage(lng).node)!}
-                  alt={
-                    getImageByLanguage(lng).node.base.split('-').join(' ').split('.')[0] + ' image'
-                  }
-                  className="h-4 w-8 shrink-0 rounded-sm"
-                />
-              </Link>
-            </Menu.Item>
-          ))}
+          {languages.map((lng) => {
+            const Flag = getFlagByLanguage(lng).Icon
+            return (
+              <Menu.Item key={lng} as="li" className="group/translationLink">
+                <Link
+                  to={originalPath || '/'}
+                  language={lng}
+                  title={t(lng)}
+                  className={clsx(
+                    'flex w-full items-center justify-end gap-2 px-3.5 py-3 text-sm transition-colors hover:bg-royal-purple-700 hover:text-white group-first/translationLink:rounded-t-md group-last/translationLink:rounded-b-md',
+                    language === lng ? 'bg-royal-purple-700 text-white' : 'text-neutral-100/50'
+                  )}
+                >
+                  {t(lng)}
+                  <Flag className="h-6 w-6 shrink-0 rounded-sm" />
+                </Link>
+              </Menu.Item>
+            )
+          })}
         </Menu.Items>
       </Transition>
     </Menu>
@@ -103,3 +86,16 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
 }
 
 export default LanguageDropdown
+
+const flags = [
+  {
+    name: 'brazil',
+    slug: 'br',
+    Icon: BrFlag,
+  },
+  {
+    name: 'united_states',
+    slug: 'en',
+    Icon: UsFlag,
+  },
+]

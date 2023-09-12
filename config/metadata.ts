@@ -1,7 +1,7 @@
 const siteMetadata = {
   author: 'Yan Lucas',
   title: 'Yan Lucas',
-  image: '/yan_icon.png',
+  image: '/icon.png',
   siteUrl: 'https://yanlucas.vercel.app/',
   description:
     'Yan Lucas, engenheiro de software apaixonado pelo desenvolvimento de interfaces interativas e experiências digitais de alta qualidade.',

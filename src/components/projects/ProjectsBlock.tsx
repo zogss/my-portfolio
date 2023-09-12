@@ -1,14 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
-import BullBlockchainGif from '~/images/projects/bullblockchain_image.gif'
 import { ProjectObjType } from '~/utils'
 import ProjectCard from './ProjectCard'
 
-interface ProjectsBlockProps {
-  projects: ProjectObjType[]
-}
-
-const ProjectsBlock: React.FC<ProjectsBlockProps> = ({ projects }) => (
+const ProjectsBlock: React.FC = () => (
   <div className="z-[1] flex flex-col items-center gap-6 self-stretch">
     <ProjectCard index={0} {...projects[0]}>
       <StaticImage
@@ -42,12 +37,12 @@ const ProjectsBlock: React.FC<ProjectsBlockProps> = ({ projects }) => (
       <StaticImage
         src="../../images/projects/massagueirinha_image.png"
         alt={projects[4].alt}
-        className="aspect aspect-[16/9] max-h-[200px] w-full rounded-lg lg:h-[200px] lg:w-[400px]"
+        className="aspect-[16/9] max-h-[200px] w-full rounded-lg lg:h-[200px] lg:w-[400px]"
       />
     </ProjectCard>
     <ProjectCard index={5} {...projects[5]}>
-      <img
-        src={BullBlockchainGif}
+      <StaticImage
+        src="../../images/projects/bullblockchain_image.gif"
         alt={projects[5].alt}
         className="aspect-[16/9] max-h-[200px] w-full rounded-lg lg:h-[200px] lg:w-[400px]"
       />
@@ -56,3 +51,136 @@ const ProjectsBlock: React.FC<ProjectsBlockProps> = ({ projects }) => (
 )
 
 export default ProjectsBlock
+
+const projects: ProjectObjType[] = [
+  {
+    title: 'Spacie',
+    description: 'spacie_description',
+    url: 'https://app.spacie.com.br/',
+    repository_url: null,
+    alt: 'spacie_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'TailwindCSS',
+      'Bootstrap',
+      'React Hook Form',
+      'Yup',
+      'Axios',
+      'React Query',
+      'React Table',
+      'ApexCharts',
+      'Socket.io Client',
+      'i18next',
+      'Vite',
+      'Firebase',
+    ],
+  },
+  {
+    title: 'CS Analytics',
+    description: 'cs_analytics_description',
+    url: 'https://main.d117z3353iltcd.amplifyapp.com/',
+    repository_url: null,
+    alt: 'cs_analytics_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'TailwindCSS',
+      'React Hook Form',
+      'Zod',
+      'Axios',
+      'React Query',
+      'React Table',
+      'ApexCharts',
+      'Vite',
+      'Recoil',
+      'Popper.js',
+      'Font Awesome',
+    ],
+  },
+  {
+    title: 'Expert Stats',
+    description: 'expert_stats_description',
+    url: 'https://expertstats.com.br/',
+    repository_url: null,
+    alt: 'expert_stats_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'Angular',
+      'Angular Forms',
+      'Angular Material',
+      'Bootstrap',
+      'RxJS',
+      'Popper.js',
+      'Axios',
+      'ApexCharts',
+      'Font Awesome',
+    ],
+  },
+  {
+    title: 'Chirp',
+    description: 'chirp_description',
+    url: 'https://chirp-zogss.vercel.app/',
+    repository_url: 'https://github.com/zogss/chirp',
+    alt: 'chirp_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Clerk',
+      'Trpc',
+      'Upstash',
+      'Prisma',
+      'TailwindCSS',
+      'Zod',
+    ],
+  },
+  {
+    title: 'Massagueirinha Menu',
+    description: 'massagueirinha_menu_description',
+    url: 'https://massaguerinha-menu-cc348.web.app/',
+    repository_url: null,
+    alt: 'massagueirinha_menu_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Gatsby',
+      'Firebase',
+      'TailwindCSS',
+    ],
+  },
+  {
+    title: 'Bull Blockchain',
+    description: 'bull_blockchain_description',
+    url: null,
+    repository_url: 'https://github.com/zogss/blockchains-website/',
+    alt: 'bull_blockchain_alt',
+    techs: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'Express',
+      'Handlebars',
+      'Alpine',
+      'Bootstrap',
+      'MongoDB',
+      'Yup',
+    ],
+  },
+]

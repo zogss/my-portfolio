@@ -55,7 +55,7 @@ const config: GatsbyConfig = {
         background_color: '#121120',
         theme_color: '#121120',
         display: 'standalone',
-        icon: 'src/images/yan_icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
     {
@@ -70,13 +70,6 @@ const config: GatsbyConfig = {
       options: {
         name: 'images',
         path: path.join(__dirname, 'src', 'images'),
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: path.join(__dirname, 'src', 'data'),
       },
     },
     {

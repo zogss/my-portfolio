@@ -4,13 +4,9 @@ import { upperCase } from 'lodash'
 import React from 'react'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
 import TitleEclipse from '~/components/svgs/TitleEclipse'
-import { ProjectObjType, enterLeftAnimation, enterRightAnimation } from '~/utils'
+import { enterLeftAnimation, enterRightAnimation } from '~/utils'
 
-interface ProjectsSectionProps {
-  projects: ProjectObjType[]
-}
-
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
+const ProjectsSection: React.FC = () => {
   //* hooks
   const { t } = useI18next()
 
@@ -49,7 +45,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
           </span>
         </motion.h3>
       </motion.div>
-      <ProjectsBlock projects={projects} />
+      <ProjectsBlock />
     </section>
   )
 }
