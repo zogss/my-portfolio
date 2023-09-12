@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
           variants={enterLeftAnimation}
           className="h-12 w-full text-center mix-blend-overlay md:h-16"
         >
-          <h2 className="absolute left-1/2 w-full -translate-x-1/2 text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
+          <h2 className="absolute left-1/2 w-full -translate-x-1/2 whitespace-nowrap text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
             {upperCase(t('about_me'))}
           </h2>
         </motion.div>
