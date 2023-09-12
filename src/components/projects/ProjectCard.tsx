@@ -1,9 +1,12 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { useI18next } from 'gatsby-plugin-react-i18next'
+import { kebabCase } from 'lodash'
 import React, { useMemo } from 'react'
 import { BiLinkExternal } from 'react-icons/bi'
 import { BsGithub } from 'react-icons/bs'
-import { ProjectObjType } from '~/utils'
+import { useWindowSize } from '~/hooks/useWindowSize'
+import { ProjectObjType, enterBottomAnimation } from '~/utils'
 import Tag from '../Tag'
 import LinesUnion from '../svgs/LinesUnion'
 
@@ -23,6 +26,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   //* hooks
   const { t } = useI18next()
+  const { isSmaller } = useWindowSize({
+    breakpoint: 'md',
+  })
 
   //* memos
   const projectBackground = useMemo(() => {
@@ -46,22 +52,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   //* render
   return (
-    <div
-      // key={`${title.replace(' ', '-')}-${index}`}
-      // id={`${title.replace(' ', '-')}-${index}`}
-      // initial="offscreen"
-      // whileInView="onscreen"
-      // viewport={{ once: true, amount: 0.4 }}
+    <motion.div
+      key={`${kebabCase(title)}-${index}`}
+      id={`${kebabCase(title)}-${index}`}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: isSmaller ? 0.3 : 0.6 }}
       className="w-full"
     >
-      <div
-        // variants={index % 2 !== 0 ? enterLeftAnimation : enterRightAnimation}
+      <motion.div
+        variants={enterBottomAnimation}
         className="flex w-full flex-col items-center gap-3"
       >
         <div className="group/projectCard relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-4 md:p-6">
           <div
             className={clsx(
-              'z-[1] flex flex-col items-center gap-6 self-stretch xl:items-start',
+              'z-[1] flex flex-col items-center gap-4 self-stretch md:gap-6 xl:items-start',
               index % 2 !== 0 ? 'xl:flex-row-reverse' : 'xl:flex-row'
             )}
           >
@@ -93,7 +99,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
               <p
                 className={clsx(
-                  'text-center text-base font-medium text-white/30',
+                  'text-center text-sm font-medium text-white/30 md:text-base',
                   index % 2 !== 0 ? 'xl:text-end' : 'xl:text-start'
                 )}
               >
@@ -144,12 +150,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="w-full overflow-hidden">
           <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
             {techs.map((tech, i) => (
-              <Tag key={i} text={tech} />
+              <Tag key={`${kebabCase(title)}-${tech}-${i}`} text={tech} />
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 

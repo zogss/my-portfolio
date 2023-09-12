@@ -29,3 +29,20 @@ export const enterRightAnimation: Variants = {
     },
   },
 }
+
+export const enterBottomAnimation: Variants = {
+  offscreen: {
+    y: 40,
+    scale: 0.9,
+    opacity: 0.5,
+  },
+  onscreen: {
+    y: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      ease: 'easeInOut',
+      duration: 1,
+    },
+  },
+}
