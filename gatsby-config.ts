@@ -25,12 +25,6 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
-    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-firebase-v9.0',
       options: {
@@ -148,6 +142,12 @@ const config: GatsbyConfig = {
         },
       },
     },
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
+    'gatsby-transformer-remark',
   ],
 }
 
