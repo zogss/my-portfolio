@@ -3,39 +3,28 @@ import React, { PropsWithChildren, useEffect } from 'react'
 const WithEnterAnimation: React.FC<PropsWithChildren> = ({ children }) => {
   //* effects
   useEffect(() => {
-    const targetElements = document.querySelectorAll('[data-animation]') as NodeListOf<HTMLElement>
+    const intersectionObservers: IntersectionObserver[] = []
+    const targetElements = document.querySelectorAll('[data-animation]')
 
-    const getOffsetTop = (element: HTMLElement) => {
-      let offsetTop = 0
-      while (element) {
-        offsetTop += element.offsetTop
-        if (element.offsetParent) {
-          element = element.offsetParent as HTMLElement
-        } else {
-          break
-        }
-      }
-      return offsetTop
-    }
-
-    const animeScroll = () => {
-      const windowTop = window.scrollY
-      const windowHeight = window.innerHeight
-
-      targetElements.forEach((element) => {
-        const elementOffsetTop = getOffsetTop(element)
-        if (windowTop > elementOffsetTop - windowHeight / 1.1) {
-          element.classList.add('animate')
-        }
+    targetElements.forEach((el, i) => {
+      intersectionObservers[i] = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const element = entry.target
+          if (
+            entry.isIntersecting &&
+            !(element.firstChild as unknown as Element).classList.contains('animate')
+          ) {
+            ;(element.firstChild as unknown as Element).classList.add('animate')
+          }
+        })
       })
-    }
-
-    const debounceScroll = animeScroll
-
-    window.addEventListener('scroll', debounceScroll)
+      intersectionObservers[i].observe(el)
+    })
 
     return () => {
-      window.removeEventListener('scroll', debounceScroll)
+      if (intersectionObservers.length > 0) {
+        intersectionObservers.forEach((observer) => observer.disconnect())
+      }
     }
   }, [])
 

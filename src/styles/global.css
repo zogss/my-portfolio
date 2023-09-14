@@ -185,44 +185,44 @@
 /** 
   * enter aniamtions
 */
-[data-animation='up'] {
+[data-animation='up'] > div {
   opacity: 0;
   transition: 0.8s ease-in-out;
 }
 
-[data-animation='up'] {
+[data-animation='up'] > div {
   transform: translateY(-3.125rem);
 }
 
-[data-animation='up'].animate {
+[data-animation='up'] > div.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-[data-animation='left'] {
+[data-animation='left'] > div {
   opacity: 0;
   transition: 1s cubic-bezier(0, 0.71, 0.2, 1.01);
 }
 
-[data-animation='left'] {
+[data-animation='left'] > div {
   transform: translateX(-500px);
 }
 
-[data-animation='left'].animate {
+[data-animation='left'] > div.animate {
   opacity: 1;
   transform: translateX(0);
 }
 
-[data-animation='right'] {
+[data-animation='right'] > div {
   opacity: 0;
   transition: 1s cubic-bezier(0, 0.71, 0.2, 1.01);
 }
 
-[data-animation='right'] {
+[data-animation='right'] > div {
   transform: translateX(500px);
 }
 
-[data-animation='right'].animate {
+[data-animation='right'] > div.animate {
   opacity: 1;
   transform: translateX(0);
 }
