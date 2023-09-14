@@ -43,15 +43,19 @@ const AboutSection: React.FC = () => {
           <StaticImage
             src="../../images/about_image.jpg"
             alt={t('about_image_alt')}
+            quality={100}
             className="z-[1] h-[14.375rem] w-[18.75rem] rounded-3xl shadow-2xl md:h-[21.625rem] md:w-[28.125rem] 2xl:h-[25rem] 2xl:w-[34.375rem]"
           />
           <div className="absolute inset-0 bg-black/70 blur-3xl" />
         </motion.div>
-        <motion.h3 variants={enterRightAnimation} className="text-neutral-100/40 md:text-lg">
-          <span className="mb-[1.125rem] block text-center text-lg font-bold leading-tight text-neutral-100 md:text-2xl md:leading-normal xl:text-start">
+        <motion.div
+          variants={enterRightAnimation}
+          className="flex w-full flex-col items-center text-neutral-100/40 md:text-lg"
+        >
+          <h3 className="mb-[1.125rem] block max-w-xl text-center text-lg font-bold leading-tight text-neutral-100 md:text-2xl md:leading-normal xl:max-w-none xl:text-start">
             {t('about_section_text_part_1', { location: environments.personal.location })}
-          </span>
-          <p className="mb-3 text-center xl:text-start">
+          </h3>
+          <p className="mb-3 text-justify indent-5">
             {t('about_section_text_part_2', {
               age:
                 DateTime.now().year - DateTime.fromObject({ year: 2003, month: 1, day: 20 }).year,
@@ -59,8 +63,8 @@ const AboutSection: React.FC = () => {
                 DateTime.now().year - DateTime.fromObject({ year: 2021, month: 11, day: 15 }).year,
             })}
           </p>
-          <p className="text-center xl:text-start">{t('about_section_text_part_3')}</p>
-        </motion.h3>
+          <p className="text-justify indent-5">{t('about_section_text_part_3')}</p>
+        </motion.div>
       </motion.div>
     </section>
   )
