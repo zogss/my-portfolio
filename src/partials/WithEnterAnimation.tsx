@@ -7,17 +7,22 @@ const WithEnterAnimation: React.FC<PropsWithChildren> = ({ children }) => {
     const targetElements = document.querySelectorAll('[data-animation]')
 
     targetElements.forEach((el, i) => {
-      intersectionObservers[i] = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const element = entry.target
-          if (
-            entry.isIntersecting &&
-            !(element.firstChild as unknown as Element).classList.contains('animate')
-          ) {
-            ;(element.firstChild as unknown as Element).classList.add('animate')
-          }
-        })
-      })
+      intersectionObservers[i] = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const element = entry.target
+            if (
+              entry.isIntersecting &&
+              !(element.firstChild as unknown as Element).classList.contains('animate')
+            ) {
+              ;(element.firstChild as unknown as Element).classList.add('animate')
+            }
+          })
+        },
+        {
+          threshold: window.innerWidth > 768 ? 0.2 : 0.4,
+        }
+      )
       intersectionObservers[i].observe(el)
     })
 
