@@ -42,7 +42,7 @@ const ProjectsBlock: React.FC = () => (
     </ProjectCard>
     <ProjectCard index={5} {...projects[5]}>
       <StaticImage
-        src="../../images/projects/bullblockchain_image.gif"
+        src="../../images/projects/bullblockchain_image.png"
         alt={projects[5].alt}
         className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
       />
