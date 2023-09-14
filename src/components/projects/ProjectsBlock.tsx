@@ -9,42 +9,42 @@ const ProjectsBlock: React.FC = () => (
       <StaticImage
         src="../../images/projects/spacie_image.png"
         alt={projects[0].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
     <ProjectCard index={1} {...projects[1]}>
       <StaticImage
         src="../../images/projects/cs_analytics_image.png"
         alt={projects[1].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
     <ProjectCard index={2} {...projects[2]}>
       <StaticImage
         src="../../images/projects/expert_stats_image.png"
         alt={projects[2].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
     <ProjectCard index={3} {...projects[3]}>
       <StaticImage
         src="../../images/projects/chirp_image.png"
         alt={projects[3].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
     <ProjectCard index={4} {...projects[4]}>
       <StaticImage
         src="../../images/projects/massagueirinha_image.png"
         alt={projects[4].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
     <ProjectCard index={5} {...projects[5]}>
       <StaticImage
         src="../../images/projects/bullblockchain_image.png"
         alt={projects[5].alt}
-        className="aspect-[16/9] max-h-[12.5rem] w-full rounded-lg lg:h-[12.5rem] lg:w-[25rem]"
+        className="aspect-[18/9] h-full max-h-[12.5rem] transition-all duration-[5000ms] ease-[cubic-bezier(0,0.1,0.2,0.3,0.5,0.7,1.01)] hover:scale-125 2xl:max-h-[220px]"
       />
     </ProjectCard>
   </div>
