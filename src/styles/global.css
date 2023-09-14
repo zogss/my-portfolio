@@ -181,3 +181,48 @@
 .ldio-r4drh11gvk7 div {
   box-sizing: content-box;
 }
+
+/** 
+  * enter aniamtions
+*/
+[data-animation='up'] {
+  opacity: 0;
+  transition: 0.8s ease-in-out;
+}
+
+[data-animation='up'] {
+  transform: translateY(-3.125rem);
+}
+
+[data-animation='up'].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animation='left'] {
+  opacity: 0;
+  transition: 1s cubic-bezier(0, 0.71, 0.2, 1.01);
+}
+
+[data-animation='left'] {
+  transform: translateX(-500px);
+}
+
+[data-animation='left'].animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[data-animation='right'] {
+  opacity: 0;
+  transition: 1s cubic-bezier(0, 0.71, 0.2, 1.01);
+}
+
+[data-animation='right'] {
+  transform: translateX(500px);
+}
+
+[data-animation='right'].animate {
+  opacity: 1;
+  transform: translateX(0);
+}
