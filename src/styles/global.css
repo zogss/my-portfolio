@@ -7,6 +7,10 @@
 
 @import 'tailwindcss/utilities';
 
+html {
+  @apply bg-charcoal-black-700;
+}
+
 .form-input {
   @apply w-full rounded-lg px-4 py-2;
 }
