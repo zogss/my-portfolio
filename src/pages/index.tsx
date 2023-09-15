@@ -15,7 +15,7 @@ export const Head = () => <Seo title="Yan Lucas" />
 
 const IndexPage: React.FC = () => (
   <MainLayout>
-    <ScrollSpy offsetBottom={100} scrollThrottle={400}>
+    <ScrollSpy offsetBottom={100}>
       <HomeSection />
       <AboutSection />
       <ProjectsSection />

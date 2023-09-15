@@ -61,9 +61,9 @@ const ProjectCardModal: React.FC<ProjectCardModalProps> = ({
                 <button
                   type="button"
                   onClick={close}
-                  className="p-2 text-gray-400 transition-colors hover:text-gray-500 focus:outline-none"
+                  className="rounded-md p-1.5 text-neutral-200 transition-colors hover:bg-white/30 hover:text-white focus:outline-none"
                 >
-                  <MdClose />
+                  <MdClose className="h-5 w-5 shrink-0" />
                 </button>
               </Dialog.Title>
               <div className="h-[.0625rem] w-full bg-neutral-100/20" />
