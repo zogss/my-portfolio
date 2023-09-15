@@ -1,8 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import React, { Fragment } from 'react'
+import { BiChevronDown } from 'react-icons/bi'
 import BrFlag from './svgs/flags/BrFlag'
 import UsFlag from './svgs/flags/UsFlag'
 
@@ -39,7 +39,7 @@ const LanguageDropdown: React.FC = () => {
         {({ open }) => (
           <>
             <CurrentFlag className="h-8 w-8 shrink-0 rounded" />
-            <ChevronDownIcon
+            <BiChevronDown
               className={clsx(
                 'h-5 w-5 shrink-0 transition-all ease-in',
                 open ? 'rotate-180' : 'rotate-0'
