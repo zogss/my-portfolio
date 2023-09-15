@@ -1,34 +1,28 @@
-import 'firebase/auth'
 import 'firebase/firestore'
-import 'firebase/functions'
 import './src/styles/global.css'
 
 export const onClientEntry = () => {
-  setTimeout(() => {
-    const htmlElement = document.getElementsByTagName('html')[0]
-    if (htmlElement) {
-      htmlElement.style.overflow = 'hidden'
-      htmlElement.style.marginRight = '.9375rem'
-    }
-    const element = document.getElementById('loader-wrapper')
-    if (element) {
-      element.style.display = 'flex'
-    }
-  }, 0)
+  const htmlElement = document.getElementsByTagName('html')[0]
+  if (htmlElement) {
+    htmlElement.style.overflow = 'hidden'
+    htmlElement.style.marginRight = '.9375rem'
+  }
+  const element = document.getElementById('loader-wrapper')
+  if (element) {
+    element.style.display = 'flex'
+  }
 }
 
 export const onInitialClientRender = () => {
-  setTimeout(() => {
-    const htmlElement = document.getElementsByTagName('html')[0]
-    if (htmlElement) {
-      htmlElement.style.overflow = 'hidden'
-      htmlElement.style.marginRight = '.9375rem'
-    }
-    const element = document.getElementById('loader-wrapper')
-    if (element) {
-      element.style.display = 'flex'
-    }
-  }, 0)
+  const htmlElement = document.getElementsByTagName('html')[0]
+  if (htmlElement) {
+    htmlElement.style.overflow = 'hidden'
+    htmlElement.style.marginRight = '.9375rem'
+  }
+  const element = document.getElementById('loader-wrapper')
+  if (element) {
+    element.style.display = 'flex'
+  }
 }
 
 export const onRouteUpdate = () => {
@@ -46,5 +40,5 @@ export const onRouteUpdate = () => {
         element.style.display = 'none'
       }, 500)
     }
-  }, 1500)
+  }, 500)
 }

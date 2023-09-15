@@ -15,7 +15,7 @@ const Loader: React.FC = () => (
       <motion.div
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: 'auto' }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
         className="-translate-x-6 overflow-hidden md:-translate-x-7 lg:-translate-x-8"
       >
         <span className="block overflow-hidden whitespace-nowrap text-end text-3xl text-neutral-100 md:text-5xl lg:text-7xl">
@@ -27,7 +27,7 @@ const Loader: React.FC = () => (
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        transition={{ duration: 0.2, ease: 'easeInOut' }}
         className="h-5 w-5 -translate-x-2.5"
       >
         <div className="ldio-r4drh11gvk7">
