@@ -16,8 +16,8 @@ const ContactSection: React.FC = () => {
     >
       <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">
         <TitleEclipse className="absolute left-1/2 top-1/2 h-[31.25rem] -translate-x-1/2 -translate-y-1/2 lg:h-[50rem]" />
-        <div className="h-12 w-full text-center md:h-16">
-          <h2 className="absolute left-1/2 w-full -translate-x-1/2 whitespace-nowrap text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 mix-blend-overlay backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
+        <div className="h-10 w-full text-center sm:h-12 md:h-16">
+          <h2 className="absolute left-1/2 w-full -translate-x-1/2 whitespace-nowrap text-4xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 mix-blend-overlay backdrop-blur-[.1766rem] text-shadow-primary sm:text-5xl md:w-auto md:text-[4rem]">
             {upperCase(t('contact'))}
           </h2>
         </div>
