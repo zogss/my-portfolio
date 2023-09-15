@@ -4,7 +4,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next'
 import { upperCase } from 'lodash'
 import { DateTime } from 'luxon'
 import React from 'react'
-import AboutEclipse from '~/components/svgs/AboutEclipse'
+import TitleEclipse from '~/components/svgs/TitleEclipse'
 import { enterLeftAnimation, enterRightAnimation, environments } from '~/utils'
 
 const AboutSection: React.FC = () => {
@@ -17,22 +17,14 @@ const AboutSection: React.FC = () => {
       id="about"
       className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
     >
-      <AboutEclipse className="absolute -top-[20%] h-auto -translate-x-10 sm:-top-[18%] md:-top-[10%] lg:w-[80%]" />
-      <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.4 }}
-        className="flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]"
-      >
-        <motion.div
-          variants={enterLeftAnimation}
-          className="h-12 w-full text-center mix-blend-overlay md:h-16"
-        >
-          <h2 className="absolute left-1/2 w-full -translate-x-1/2 whitespace-nowrap text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
+      <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">
+        <TitleEclipse className="absolute left-1/2 top-1/2 h-[21.875rem] -translate-x-1/2 -translate-y-1/2 md:h-[25rem] lg:h-[50rem]" />
+        <div className="h-12 w-full text-center md:h-16">
+          <h2 className="absolute left-1/2 w-full -translate-x-1/2 whitespace-nowrap text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 mix-blend-overlay backdrop-blur-[.1766rem] text-shadow-primary md:w-auto md:text-[4rem]">
             {upperCase(t('about_me'))}
           </h2>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
       <motion.div
         initial="offscreen"
         whileInView="onscreen"

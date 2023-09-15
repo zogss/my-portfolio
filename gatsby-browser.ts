@@ -8,7 +8,7 @@ export const onClientEntry = () => {
     const htmlElement = document.getElementsByTagName('html')[0]
     if (htmlElement) {
       htmlElement.style.overflow = 'hidden'
-      htmlElement.style.marginRight = '15px'
+      htmlElement.style.marginRight = '.9375rem'
     }
     const element = document.getElementById('loader-wrapper')
     if (element) {
@@ -22,7 +22,7 @@ export const onInitialClientRender = () => {
     const htmlElement = document.getElementsByTagName('html')[0]
     if (htmlElement) {
       htmlElement.style.overflow = 'hidden'
-      htmlElement.style.marginRight = '15px'
+      htmlElement.style.marginRight = '.9375rem'
     }
     const element = document.getElementById('loader-wrapper')
     if (element) {
@@ -36,7 +36,7 @@ export const onRouteUpdate = () => {
     const htmlElement = document.getElementsByTagName('html')[0]
     if (htmlElement) {
       htmlElement.style.overflow = 'unset'
-      htmlElement.style.marginRight = '0px'
+      htmlElement.style.marginRight = '0rem'
     }
     const element = document.getElementById('loader-wrapper')
     if (element) {

@@ -43,27 +43,28 @@ const backgroundImage = {
 }
 
 const boxShadow = {
-  primary: '0px 4px 20px -1px rgba(0, 0, 0, 0.25), 0px 4px 20px 0px rgba(47, 24, 108, 0.1)',
-  secondary: '0px 4px 50px 0px rgba(106, 45, 206, 0.65)',
-  tertiary: '0px 0px 10px 0px rgba(106, 45, 206, 0.65)',
-  'white-sm': '0px 0px 20px 0px rgba(255, 255, 255, 0.25)',
-  'white-md': '0px 0px 40px 0px rgba(255, 255, 255, 0.25)',
-  'white-lg': '0px 0px 80px 0px rgba(255, 255, 255, 0.25)',
+  primary:
+    '0rem .25rem 1.25rem -0.0625rem rgba(0, 0, 0, 0.25), 0rem .25rem 1.25rem 0rem rgba(47, 24, 108, 0.1)',
+  secondary: '0rem .25rem 3.125rem 0rem rgba(106, 45, 206, 0.65)',
+  tertiary: '0rem 0rem .625rem 0rem rgba(106, 45, 206, 0.65)',
+  'white-sm': '0rem 0rem 1.25rem 0rem rgba(255, 255, 255, 0.25)',
+  'white-md': '0rem 0rem 2.5rem 0rem rgba(255, 255, 255, 0.25)',
+  'white-lg': '0rem 0rem 5rem 0rem rgba(255, 255, 255, 0.25)',
 }
 
 const heightSpacing = {
-  'home-section': 'calc(100vh - 72px)',
+  'home-section': 'calc(100vh - 4.5rem)',
 }
 
 const textShadow = {
-  sm: '0 1px 2px var(--tw-shadow-color)',
-  DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-  lg: '0 8px 16px var(--tw-shadow-color)',
-  primary: '0px 0px 13.37690258026123px rgba(0, 0, 0, 0.25)',
+  sm: '0 .0625rem .125rem var(--tw-shadow-color)',
+  DEFAULT: '0 .125rem .25rem var(--tw-shadow-color)',
+  lg: '0 .5rem 1rem var(--tw-shadow-color)',
+  primary: '0rem 0rem .8361rem rgba(0, 0, 0, 0.25)',
 }
 
 const screens = {
-  '3xl': '1792px',
+  '3xl': '112rem',
 }
 
 module.exports = {

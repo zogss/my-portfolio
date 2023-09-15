@@ -33,8 +33,8 @@ export const enterRightAnimation: Variants = {
 export const enterBottomAnimation: Variants = {
   offscreen: {
     y: 40,
-    scale: 0.9,
-    opacity: 0.5,
+    scale: 0.8,
+    opacity: 0.2,
   },
   onscreen: {
     y: 0,
@@ -42,7 +42,7 @@ export const enterBottomAnimation: Variants = {
     opacity: 1,
     transition: {
       ease: 'easeInOut',
-      duration: 1,
+      duration: 0.8,
     },
   },
 }

@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="h-[1px] w-full self-stretch bg-white/20" />
+      <div className="h-[.0625rem] w-full self-stretch bg-white/20" />
       <div className="flex w-full flex-col-reverse items-center justify-center gap-3 self-stretch sm:flex-row sm:justify-between">
         <span className="text-xs font-medium text-neutral-100/70 sm:text-white/40">
           @ {new Date().getFullYear()} Yan Lucas.

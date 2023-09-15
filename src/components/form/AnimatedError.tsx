@@ -18,7 +18,7 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
       animate={
         error
           ? {
-              height: '20px',
+              height: '1.25rem',
               opacity: 1,
               display: 'block',
               transition: {

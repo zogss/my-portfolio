@@ -9,7 +9,7 @@ const TitleEclipse: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <g opacity="1" filter="url(#filter0_f_371_1243)">
+    <g filter="url(#filter0_f_371_1243)">
       <path
         d="M1504.38 361.338C1550.6 343.587 1569.5 324.149 1559.32 304.833C1549.14 285.517 1510.22 266.949 1446.17 250.855C1382.12 234.761 1295.02 221.664 1192.97 212.78C1090.92 203.896 977.227 199.515 862.463 200.043C747.7 200.57 635.589 205.991 536.552 215.799C437.514 225.608 354.765 239.487 295.994 256.146C237.224 272.804 204.341 291.703 200.401 311.084C196.461 330.465 221.593 349.699 273.46 367H880.488L1504.38 361.338Z"
         fill="url(#paint0_radial_371_1243)"
@@ -43,7 +43,7 @@ const TitleEclipse: React.FC<SVGProps<SVGSVGElement>> = (props) => (
         gradientTransform="translate(782.69 271.106) rotate(58.2645) scale(186.901 869.114)"
       >
         <stop stopColor="#621ABE" />
-        <stop offset="1" stopColor="#24214B" stopOpacity="0" />
+        <stop offset="1" stopColor="#24214B" stopOpacity="0.5" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_371_1243"

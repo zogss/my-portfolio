@@ -57,6 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
         tabIndex={isSmaller ? 0 : undefined}
         onClick={isSmaller ? () => setIsOpen(true) : undefined}
         onKeyDown={isSmaller ? (e) => e.key === 'Enter' && setIsOpen(true) : undefined}
+        data-animation-target={index % 2 !== 0 ? 'left' : 'right'}
         className="flex flex-col items-center gap-3 lg:w-full"
       >
         <div className="group/projectCard relative flex flex-col items-start gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-4 md:p-6">
