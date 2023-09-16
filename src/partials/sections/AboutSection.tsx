@@ -36,6 +36,8 @@ const AboutSection: React.FC = () => {
             src="../../images/about_image.jpg"
             alt={t('about_image_alt')}
             quality={100}
+            width={550}
+            height={400}
             className="z-[1] h-[14.375rem] w-[18.75rem] rounded-3xl shadow-2xl md:h-[21.625rem] md:w-[28.125rem] 2xl:h-[25rem] 2xl:w-[34.375rem]"
           />
           <div className="absolute inset-0 bg-black/70 blur-3xl" />

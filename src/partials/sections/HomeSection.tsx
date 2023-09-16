@@ -60,6 +60,8 @@ const HomeSection: React.FC = () => {
             src="../../images/yan_main_photo.png"
             alt={t('yan_main_photo_alt')}
             quality={100}
+            width={620}
+            height={620}
             className="z-[3] h-[14.375rem] w-[14.375rem] -translate-y-1 rounded-full md:h-[21.875rem] md:w-[21.875rem] md:rounded-none lg:z-0 lg:h-[32.5rem] lg:w-[32.5rem] 2xl:h-[38.75rem] 2xl:w-[38.75rem]"
           />
         </motion.div>
