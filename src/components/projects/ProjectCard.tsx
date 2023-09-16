@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 
   //* render
   return (
-    <div data-animation={index % 2 !== 0 ? 'left' : 'right'} className="flex flex-col lg:w-full">
+    <div data-animation="animate" className="flex flex-col lg:w-full">
       <div
         role={isSmaller ? 'button' : undefined}
         tabIndex={isSmaller ? 0 : undefined}

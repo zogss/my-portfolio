@@ -11,11 +11,17 @@ const WithEnterAnimation: React.FC<PropsWithChildren> = ({ children }) => {
         (entries) => {
           entries.forEach((entry) => {
             const element = entry.target
-            if (
-              entry.isIntersecting &&
-              !(element.firstChild as unknown as Element).classList.contains('animate')
-            ) {
-              ;(element.firstChild as unknown as Element).classList.add('animate')
+
+            if (entry.isIntersecting) {
+              const targetChildElements = element.querySelectorAll('[data-animation-target]')
+
+              targetChildElements.forEach((child, index) => {
+                if (!child.classList.contains('animate')) {
+                  child.classList.add('animate')
+                } else if (targetChildElements.length === index + 1) {
+                  intersectionObservers[i].unobserve(el)
+                }
+              })
             }
           })
         },

@@ -1,11 +1,10 @@
-import { motion } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import { upperCase } from 'lodash'
 import { DateTime } from 'luxon'
 import React from 'react'
 import TitleEclipse from '~/components/svgs/TitleEclipse'
-import { enterLeftAnimation, enterRightAnimation, environments } from '~/utils'
+import { environments } from '~/utils'
 
 const AboutSection: React.FC = () => {
   //* hooks
@@ -25,13 +24,11 @@ const AboutSection: React.FC = () => {
           </h2>
         </div>
       </div>
-      <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.4 }}
+      <div
+        data-animation="animate"
         className="z-[1] flex w-full flex-col items-center gap-10 md:gap-12 xl:flex-row xl:items-start xl:justify-center 2xl:gap-16"
       >
-        <motion.div variants={enterLeftAnimation} className="relative p-3">
+        <div data-animation-target="left" className="relative p-3">
           <StaticImage
             src="../../images/about_image.jpg"
             alt={t('about_image_alt')}
@@ -41,9 +38,9 @@ const AboutSection: React.FC = () => {
             className="z-[1] h-[14.375rem] w-[18.75rem] rounded-3xl shadow-2xl md:h-[21.625rem] md:w-[28.125rem] 2xl:h-[25rem] 2xl:w-[34.375rem]"
           />
           <div className="absolute inset-0 bg-black/70 blur-3xl" />
-        </motion.div>
-        <motion.div
-          variants={enterRightAnimation}
+        </div>
+        <div
+          data-animation-target="right"
           className="flex w-full flex-col items-center text-sm text-neutral-100/40 md:text-base lg:text-lg"
         >
           <h3 className="mb-[1.125rem] block max-w-xl text-center text-lg font-bold leading-tight text-neutral-100 md:text-xl md:leading-normal lg:text-2xl xl:max-w-none xl:text-start">
@@ -58,8 +55,8 @@ const AboutSection: React.FC = () => {
             })}
           </p>
           <p className="text-justify indent-5">{t('about_section_text_part_3')}</p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

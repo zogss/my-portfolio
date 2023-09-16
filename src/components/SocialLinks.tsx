@@ -1,15 +1,15 @@
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 import React, { useMemo } from 'react'
 import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
-import { enterLeftAnimation, environments } from '~/utils'
+import { environments } from '~/utils'
 
 interface SocialLinksProps {
   className?: string
   iconSize?: 'sm' | 'md' | 'lg'
+  animate?: boolean
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ animate = false, className, iconSize }) => {
   //* memos
   const iconSizeClass = useMemo(() => {
     switch (iconSize) {
@@ -26,8 +26,8 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
 
   //* render
   return (
-    <motion.div
-      variants={enterLeftAnimation}
+    <div
+      data-animation-target={animate ? 'left' : undefined}
       className={clsx('flex items-center text-slate-gray-500', className)}
     >
       <a
@@ -57,7 +57,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ className, iconSize }) => {
       >
         <BsGithub className={clsx(iconSizeClass, 'shrink-0')} />
       </a>
-    </motion.div>
+    </div>
   )
 }
 

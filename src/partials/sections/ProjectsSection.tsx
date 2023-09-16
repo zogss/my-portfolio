@@ -1,10 +1,8 @@
-import { motion } from 'framer-motion'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import { upperCase } from 'lodash'
 import React from 'react'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
 import TitleEclipse from '~/components/svgs/TitleEclipse'
-import { enterBottomAnimation } from '~/utils'
 
 const ProjectsSection: React.FC = () => {
   //* hooks
@@ -25,14 +23,9 @@ const ProjectsSection: React.FC = () => {
             </h2>
           </div>
         </div>
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.4 }}
-          className="flex w-full justify-center"
-        >
-          <motion.h3
-            variants={enterBottomAnimation}
+        <div data-animation="animate" className="flex w-full justify-center">
+          <h3
+            data-animation-target="up"
             className="z-[1] flex flex-col items-center gap-1.5 lg:gap-2.5"
           >
             <span className="text-center font-semibold md:text-lg lg:text-xl">
@@ -41,8 +34,8 @@ const ProjectsSection: React.FC = () => {
             <span className="text-center text-sm font-medium text-white/30 md:text-base lg:text-lg">
               {t('projects_section_text_part_2')}
             </span>
-          </motion.h3>
-        </motion.div>
+          </h3>
+        </div>
       </div>
       <ProjectsBlock />
     </section>

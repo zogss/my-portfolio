@@ -1,6 +1,5 @@
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React, { Fragment } from 'react'
@@ -30,7 +29,6 @@ import {
   SiStorybook,
   SiStyledcomponents,
 } from 'react-icons/si'
-import { enterBottomAnimation } from '~/utils'
 
 const TechStackBlock: React.FC = () => {
   //* hooks
@@ -55,16 +53,8 @@ const TechStackBlock: React.FC = () => {
 
   //* render
   return (
-    <motion.div
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      className="z-[1] flex w-full items-center justify-center"
-    >
-      <motion.div
-        variants={enterBottomAnimation}
-        className="flex w-full items-center justify-center"
-      >
+    <div data-animation="animate" className="z-[1] flex w-full items-center justify-center">
+      <div data-animation-target="up" className="flex w-full items-center justify-center">
         <Tab.Group
           as="div"
           defaultIndex={getActiveTab()}
@@ -160,7 +150,7 @@ const TechStackBlock: React.FC = () => {
           <Tab.Panels as={Fragment}>
             {techStack.map((stack, i) => (
               <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
-                <ul className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6">
+                <ul className="flex w-full flex-wrap items-center justify-center gap-8 self-stretch p-6">
                   {stack.techs.map(({ title, Icon, color }, i) => (
                     <li
                       key={i}
@@ -192,8 +182,8 @@ const TechStackBlock: React.FC = () => {
             ))}
           </Tab.Panels>
         </Tab.Group>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 
