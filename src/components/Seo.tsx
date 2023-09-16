@@ -1,24 +1,30 @@
+import { HeadProps } from 'gatsby'
 import React from 'react'
 import { useSiteMetadata } from '~/hooks/useSiteMetadata'
 
-interface SeoProps {
+interface SeoProps extends HeadProps<any, any> {
   description?: string
-  lang?: string
   meta?: any[]
   title: string
 }
 
-const Seo: React.FC<SeoProps> = ({ description, title }) => {
+const Seo: React.FC<SeoProps> = ({ description, title, pageContext }) => {
   //* hooks
   const metaData = useSiteMetadata()
 
   //* constants
   const metaDescription = description || metaData.description
 
+  const lang = pageContext.language === 'br' ? 'pt-BR' : 'en-US'
+
   //* render
   return (
     <>
+      <html lang={lang} />
       <title>{title}</title>
+      <link rel="canonical" href={metaData.siteUrl} />
+      <link rel="alternate" hrefLang="pt-BR" href={metaData.siteUrl} />
+      <link rel="alternate" hrefLang="en-US" href={`${metaData.siteUrl}en/`} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaData.keywords.join(', ')} />
       <meta name="robots" content="index, follow" />
@@ -34,9 +40,6 @@ const Seo: React.FC<SeoProps> = ({ description, title }) => {
       <meta name="twitter:creator" content={metaData.author} />
       <meta name="twitter:image" content={metaData.siteUrl + metaData.image} />
       <meta name="twitter:description" content={metaDescription} />
-      <link rel="canonical" href={metaData.siteUrl} />
-      <link rel="alternate" hrefLang="en" href={`${metaData.siteUrl}en/`} />
-      <link rel="alternate" hrefLang="pt" href={metaData.siteUrl} />
     </>
   )
 }

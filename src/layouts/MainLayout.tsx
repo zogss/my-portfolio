@@ -1,21 +1,14 @@
 import React from 'react'
 import { Toaster } from 'react-hot-toast'
 import Loader from '~/components/Loader'
-import Footer from '~/partials/Footer'
-import Header from '~/partials/Header'
-import WithEnterAnimation from '~/partials/WithEnterAnimation'
 
 interface LayoutProps {
-  children: React.ReactNode
+  element: React.ReactNode
 }
 
-const MainLayout: React.FC<LayoutProps> = ({ children }) => (
-  <WithEnterAnimation>
-    <div className="flex min-h-screen w-full flex-col justify-start overflow-hidden text-neutral-100">
-      <Header />
-      <main className="relative flex w-full flex-col">{children}</main>
-      <Footer />
-    </div>
+const MainLayout: React.FC<LayoutProps> = ({ element }) => (
+  <>
+    {element}
     <Loader />
     <Toaster
       position="bottom-right"
@@ -25,7 +18,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children }) => (
         className: 'react-hot-toast__toast',
       }}
     />
-  </WithEnterAnimation>
+  </>
 )
 
 export default MainLayout

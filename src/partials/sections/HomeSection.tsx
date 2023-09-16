@@ -31,7 +31,7 @@ const HomeSection: React.FC = () => {
                 language === 'br' ? 'h-36 md:h-48 lg:h-32 3xl:h-16' : 'h-24 md:h-32 xl:h-16'
               )}
             >
-              <h2
+              <h1
                 className={clsx(
                   'absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary sm:max-w-xs md:flex md:justify-center md:text-[4rem] lg:left-auto lg:block lg:translate-x-0 lg:text-start',
                   language === 'br'
@@ -40,7 +40,7 @@ const HomeSection: React.FC = () => {
                 )}
               >
                 {upperCase(t('software_engineer'))}
-              </h2>
+              </h1>
             </div>
             <h2 className="z-[1] text-slate-gray-300">
               <p className="w-full max-w-sm text-center font-medium lg:text-start">

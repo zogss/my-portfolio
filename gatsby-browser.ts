@@ -1,4 +1,5 @@
 import 'firebase/firestore'
+import MainLayout from './src/layouts/MainLayout'
 import './src/styles/global.css'
 
 export const onClientEntry = () => {
@@ -42,3 +43,5 @@ export const onRouteUpdate = () => {
     }
   }, 500)
 }
+
+export const wrapPageElement = MainLayout

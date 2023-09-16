@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { BsSend } from 'react-icons/bs'
 import { ContactFormDataType, contactSchema } from '~/schemas'
 import { toast } from '~/services/toast'
-import { getErrorMessage } from '~/utils/getErrorMessage'
+import { getErrorMessage } from '~/utils'
 import Input from '../form/Input'
 
 const ContactForm: React.FC = () => {

@@ -1,8 +1,7 @@
-import { graphql } from 'gatsby'
+import { HeadFC, graphql } from 'gatsby'
 import * as React from 'react'
-import ScrollSpy from 'react-ui-scrollspy'
 import Seo from '~/components/Seo'
-import MainLayout from '~/layouts/MainLayout'
+import PageLayout from '~/layouts/PageLayout'
 import {
   AboutSection,
   ContactSection,
@@ -11,18 +10,16 @@ import {
   TechStackSection,
 } from '~/partials/sections'
 
-export const Head = () => <Seo title="Yan Lucas" />
+export const Head: HeadFC = (props) => <Seo title="Yan Lucas" {...props} />
 
 const IndexPage: React.FC = () => (
-  <MainLayout>
-    <ScrollSpy offsetBottom={100}>
-      <HomeSection />
-      <AboutSection />
-      <ProjectsSection />
-      <TechStackSection />
-      <ContactSection />
-    </ScrollSpy>
-  </MainLayout>
+  <PageLayout>
+    <HomeSection />
+    <AboutSection />
+    <ProjectsSection />
+    <TechStackSection />
+    <ContactSection />
+  </PageLayout>
 )
 
 export default IndexPage
