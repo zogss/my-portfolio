@@ -2,12 +2,12 @@ import { Menu } from '@headlessui/react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React, { Fragment, useEffect, useRef } from 'react'
 import { navLinks } from '~/components/HeaderLinks'
 import HeaderMenu from '~/components/HeaderMenu'
 import SocialLinks from '~/components/SocialLinks'
+import YIcon from '~/components/svgs/YIcon'
 
 const Header: React.FC = () => {
   //* hooks
@@ -65,9 +65,8 @@ const Header: React.FC = () => {
                     aria-label={t('navigate_home')}
                     className="flex shrink-0"
                   >
-                    <StaticImage
-                      src="../images/icon.png"
-                      alt="Yan Logo"
+                    <YIcon
+                      aria-label={t('yan_logo_alt')}
                       className="h-[2.125rem] w-[2.125rem] shrink-0"
                     />
                   </Link>
@@ -127,9 +126,8 @@ const Header: React.FC = () => {
                     aria-label={t('navigate_home')}
                     className="flex shrink-0"
                   >
-                    <StaticImage
-                      src="../images/icon.png"
-                      alt="Yan Logo"
+                    <YIcon
+                      aria-label={t('yan_logo_alt')}
                       className="h-[2.125rem] w-[2.125rem] shrink-0"
                     />
                   </Link>

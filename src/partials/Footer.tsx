@@ -1,10 +1,10 @@
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import React from 'react'
 import { navLinks } from '~/components/HeaderLinks'
 import SocialLinks from '~/components/SocialLinks'
 import FigmaIcon from '~/components/svgs/FigmaIcon'
+import YIcon from '~/components/svgs/YIcon'
 import { environments } from '~/utils'
 
 const Footer: React.FC = () => {
@@ -16,9 +16,8 @@ const Footer: React.FC = () => {
     <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[10%] pb-6 pt-12 md:px-[15%]">
       <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">
         <div className="flex flex-col items-start gap-8 md:flex-row">
-          <StaticImage
-            src="../images/icon.png"
-            alt="Yan's icon"
+          <YIcon
+            aria-label={t('yan_logo_alt')}
             className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
           />
           <div className="hidden flex-col items-start gap-1 py-1 md:flex">

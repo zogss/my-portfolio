@@ -16,6 +16,7 @@ import { FaBootstrap, FaCss3, FaHtml5, FaNodeJs, FaReact, FaSass } from 'react-i
 import {
   SiAlpinedotjs,
   SiApollographql,
+  SiExpo,
   SiExpress,
   SiFirebase,
   SiGatsby,
@@ -86,12 +87,16 @@ const TechStackBlock: React.FC = () => {
                 <>
                   <StaticImage
                     src="../../images/backend_icon.png"
-                    alt=""
+                    alt={t('backend_icon_alt')}
+                    width={40}
+                    height={40}
                     className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
                       'opacity-70': !selected,
                     })}
                   />
-                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Backend</span>
+                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
+                    Backend
+                  </span>
                 </>
               )}
             </Tab>
@@ -110,12 +115,16 @@ const TechStackBlock: React.FC = () => {
                 <>
                   <StaticImage
                     src="../../images/frontend_icon.png"
-                    alt=""
+                    alt={t('frontend_icon_alt')}
+                    width={40}
+                    height={40}
                     className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
                       'opacity-70': !selected,
                     })}
                   />
-                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Frontend</span>
+                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
+                    Frontend
+                  </span>
                 </>
               )}
             </Tab>
@@ -134,46 +143,51 @@ const TechStackBlock: React.FC = () => {
                 <>
                   <StaticImage
                     src="../../images/mobile_icon.png"
-                    alt=""
+                    alt={t('mobile_icon_alt')}
+                    width={40}
+                    height={40}
                     className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
                       'opacity-70': !selected,
                     })}
                   />
-                  <span className={clsx(selected ? 'block' : 'hidden md:block')}>Mobile</span>
+                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
+                    Mobile
+                  </span>
                 </>
               )}
             </Tab>
           </Tab.List>
           <Tab.Panels as={Fragment}>
             {techStack.map((stack, i) => (
-              <Tab.Panel
-                key={`tech-stack-${i}`}
-                as="ul"
-                className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6"
-              >
-                {stack.techs.map(({ title, Icon, color }, i) => (
-                  <li key={i} className="relative flex flex-col items-center justify-center gap-3">
-                    <Icon
-                      style={{
-                        color,
-                      }}
-                      className="z-[1] h-7 w-7 md:h-9 md:w-9 lg:h-11 lg:w-11"
-                    />
-                    <a
-                      href={`https://www.google.com/search?q=${title}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={t('google_seach', { text: title })}
-                      aria-label={t('google_seach', { text: title })}
-                      className="z-[1] text-xs font-medium md:text-sm"
+              <Tab.Panel key={`tech-stack-${i}`} as={Fragment}>
+                <ul className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6">
+                  {stack.techs.map(({ title, Icon, color }, i) => (
+                    <li
+                      key={i}
+                      className="relative flex flex-col items-center justify-center gap-3"
                     >
-                      {title}
-                    </a>
-                    <div className="absolute inset-0 flex items-start justify-center pt-6">
-                      <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
-                    </div>
-                  </li>
-                ))}
+                      <Icon
+                        style={{
+                          color,
+                        }}
+                        className="z-[1] h-7 w-7 md:h-9 md:w-9 lg:h-11 lg:w-11"
+                      />
+                      <a
+                        href={`https://www.google.com/search?q=${title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={t('google_seach', { text: title })}
+                        aria-label={t('google_seach', { text: title })}
+                        className="z-[1] text-xs font-medium md:text-sm"
+                      >
+                        {title}
+                      </a>
+                      <div className="absolute inset-0 flex items-start justify-center pt-6">
+                        <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </Tab.Panel>
             ))}
           </Tab.Panels>
@@ -364,6 +378,16 @@ const techStack = [
         title: 'React Native',
         Icon: FaReact,
         color: '#61DAFB',
+      },
+      {
+        title: 'Expo',
+        Icon: SiExpo,
+        color: '#000000',
+      },
+      {
+        title: 'Redux',
+        Icon: BiLogoRedux,
+        color: '#764ABC',
       },
     ],
   },
