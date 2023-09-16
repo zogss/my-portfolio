@@ -159,7 +159,7 @@ const TechStackBlock: React.FC = () => {
           </Tab.List>
           <Tab.Panels as={Fragment}>
             {techStack.map((stack, i) => (
-              <Tab.Panel key={`tech-stack-${i}`} as={Fragment}>
+              <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
                 <ul className="flex flex-wrap items-center justify-center gap-8 self-stretch p-6">
                   {stack.techs.map(({ title, Icon, color }, i) => (
                     <li
