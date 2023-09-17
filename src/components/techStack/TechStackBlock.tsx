@@ -53,109 +53,102 @@ const TechStackBlock: React.FC = () => {
 
   //* render
   return (
-    <div data-animation="animate" className="z-[1] flex w-full items-center justify-center">
-      <div data-animation-target="up" className="flex w-full items-center justify-center">
-        <Tab.Group
-          as="div"
-          defaultIndex={getActiveTab()}
-          tabIndex={getActiveTab()}
-          className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4"
-        >
-          <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
-            <Tab
-              onClick={() => setActiveTab(0)}
-              className={({ selected }) =>
-                clsx(
-                  'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
-                  selected
-                    ? 'z-[1] border-b-transparent border-opacity-5'
-                    : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
-                )
-              }
-            >
-              {({ selected }) => (
-                <>
-                  <StaticImage
-                    src="../../images/backend_icon.png"
-                    alt={t('backend_icon_alt')}
-                    width={40}
-                    height={40}
-                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                      'opacity-70': !selected,
-                    })}
-                  />
-                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
-                    Backend
-                  </span>
-                </>
-              )}
-            </Tab>
-            <Tab
-              onClick={() => setActiveTab(1)}
-              className={({ selected }) =>
-                clsx(
-                  'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
-                  selected
-                    ? 'z-[1] border-b-transparent border-opacity-5'
-                    : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
-                )
-              }
-            >
-              {({ selected }) => (
-                <>
-                  <StaticImage
-                    src="../../images/frontend_icon.png"
-                    alt={t('frontend_icon_alt')}
-                    width={40}
-                    height={40}
-                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                      'opacity-70': !selected,
-                    })}
-                  />
-                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
-                    Frontend
-                  </span>
-                </>
-              )}
-            </Tab>
-            <Tab
-              onClick={() => setActiveTab(2)}
-              className={({ selected }) =>
-                clsx(
-                  'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
-                  selected
-                    ? 'z-[1] border-b-transparent border-opacity-5'
-                    : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
-                )
-              }
-            >
-              {({ selected }) => (
-                <>
-                  <StaticImage
-                    src="../../images/mobile_icon.png"
-                    alt={t('mobile_icon_alt')}
-                    width={40}
-                    height={40}
-                    className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                      'opacity-70': !selected,
-                    })}
-                  />
-                  <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
-                    Mobile
-                  </span>
-                </>
-              )}
-            </Tab>
-          </Tab.List>
-          <Tab.Panels as={Fragment}>
-            {techStack.map((stack, i) => (
-              <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
-                <ul className="flex w-full flex-wrap items-center justify-center gap-8 self-stretch p-6">
-                  {stack.techs.map(({ title, Icon, color }, i) => (
-                    <li
-                      key={i}
-                      className="relative flex flex-col items-center justify-center gap-3"
-                    >
+    <div className="z-[1] flex w-full flex-1 justify-center">
+      <Tab.Group
+        as="div"
+        defaultIndex={getActiveTab()}
+        tabIndex={getActiveTab()}
+        className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4"
+      >
+        <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
+          <Tab
+            onClick={() => setActiveTab(0)}
+            className={({ selected }) =>
+              clsx(
+                'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                selected
+                  ? 'z-[1] border-b-transparent border-opacity-5'
+                  : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+              )
+            }
+          >
+            {({ selected }) => (
+              <>
+                <StaticImage
+                  src="../../images/backend_icon.png"
+                  alt={t('backend_icon_alt')}
+                  width={40}
+                  height={40}
+                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                    'opacity-70': !selected,
+                  })}
+                />
+                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Backend</span>
+              </>
+            )}
+          </Tab>
+          <Tab
+            onClick={() => setActiveTab(1)}
+            className={({ selected }) =>
+              clsx(
+                'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                selected
+                  ? 'z-[1] border-b-transparent border-opacity-5'
+                  : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+              )
+            }
+          >
+            {({ selected }) => (
+              <>
+                <StaticImage
+                  src="../../images/frontend_icon.png"
+                  alt={t('frontend_icon_alt')}
+                  width={40}
+                  height={40}
+                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                    'opacity-70': !selected,
+                  })}
+                />
+                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
+                  Frontend
+                </span>
+              </>
+            )}
+          </Tab>
+          <Tab
+            onClick={() => setActiveTab(2)}
+            className={({ selected }) =>
+              clsx(
+                'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                selected
+                  ? 'z-[1] border-b-transparent border-opacity-5'
+                  : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+              )
+            }
+          >
+            {({ selected }) => (
+              <>
+                <StaticImage
+                  src="../../images/mobile_icon.png"
+                  alt={t('mobile_icon_alt')}
+                  width={40}
+                  height={40}
+                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
+                    'opacity-70': !selected,
+                  })}
+                />
+                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Mobile</span>
+              </>
+            )}
+          </Tab>
+        </Tab.List>
+        <Tab.Panels as={Fragment}>
+          {techStack.map((stack, i) => (
+            <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
+              <ul className="flex w-full flex-wrap items-center justify-center gap-8 self-stretch p-6">
+                {stack.techs.map(({ title, Icon, color }, i) => (
+                  <li key={i}>
+                    <div className="relative flex flex-col items-center justify-center gap-3">
                       <Icon
                         style={{
                           color,
@@ -175,14 +168,14 @@ const TechStackBlock: React.FC = () => {
                       <div className="absolute inset-0 flex items-start justify-center pt-6">
                         <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
                       </div>
-                    </li>
-                  ))}
-                </ul>
-              </Tab.Panel>
-            ))}
-          </Tab.Panels>
-        </Tab.Group>
-      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Tab.Panel>
+          ))}
+        </Tab.Panels>
+      </Tab.Group>
     </div>
   )
 }
