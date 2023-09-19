@@ -38,7 +38,7 @@ const HomeSection: React.FC = () => {
                 {upperCase(t('software_engineer'))}
               </h1>
             </div>
-            <h2 className="z-[1] text-slate-gray-300">
+            <h2 className="z-[3] text-slate-gray-300">
               <p className="w-full max-w-sm text-center font-medium lg:text-start">
                 {t('home_section_description_part_1')}{' '}
                 <span className="font-bold text-white">Yan Lucas</span>
@@ -46,7 +46,7 @@ const HomeSection: React.FC = () => {
               </p>
             </h2>
           </div>
-          <SocialLinks animate className="z-[1] gap-2 !text-white/40" iconSize="lg" />
+          <SocialLinks animate className="z-[3] gap-2 !text-white/40" iconSize="lg" />
         </div>
         <div
           data-animation-target="right"
