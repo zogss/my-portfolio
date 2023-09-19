@@ -1,18 +1,41 @@
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import { upperCase } from 'lodash'
 import React from 'react'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
 import TitleEclipse from '~/components/svgs/TitleEclipse'
+import { ProjectsQueryType } from '~/utils'
+
+export const PROJECTS_QUERY = graphql`
+  query {
+    content: allProject {
+      nodes {
+        title
+        slug
+        image {
+          base
+          childImageSharp {
+            gatsbyImageData(placeholder: DOMINANT_COLOR, quality: 100, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+        alt
+      }
+    }
+  }
+`
 
 const ProjectsSection: React.FC = () => {
   //* hooks
   const { t } = useI18next()
+  const {
+    content: { nodes: projects },
+  } = useStaticQuery<ProjectsQueryType>(PROJECTS_QUERY)
 
   //* render
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
+      className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[9%] md:py-14 lg:gap-16"
     >
       <div className="flex w-full flex-col items-center gap-2.5 self-stretch">
         <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">
@@ -37,7 +60,16 @@ const ProjectsSection: React.FC = () => {
           </h3>
         </div>
       </div>
-      <ProjectsBlock />
+      <ProjectsBlock projects={projects} />
+      <Link
+        to="projects"
+        title={t('view_all_projects')}
+        className="hover:bg-midnight-slate-400 z-[2] flex items-center justify-center rounded-md bg-midnight-slate-700 px-3 py-1 shadow-primary backdrop-blur-[1.25rem] transition-colors md:px-5 md:py-2.5"
+      >
+        <span className="text-sm font-medium leading-tight md:text-base">
+          {t('view_all_projects')}
+        </span>
+      </Link>
     </section>
   )
 }
