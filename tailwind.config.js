@@ -6,6 +6,7 @@ const charcoalBlack = {
 }
 
 const midnightSlate = {
+  400: '#4F4E61',
   700: '#292835',
 }
 
