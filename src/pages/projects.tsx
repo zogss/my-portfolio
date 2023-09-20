@@ -5,8 +5,14 @@ import Seo from '~/components/Seo'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
 import PageLayout from '~/layouts/PageLayout'
 import { ProjectType, ProjectsQueryType } from '~/utils'
+import { getStrFromLocaleCtx } from '~/utils/helpers/getStrFromLocaleCtx'
 
-export const Head: HeadFC = (props) => <Seo title="Projects | Yan Lucas" {...props} />
+export const Head: HeadFC<I18nPageData> = (props) => (
+  <Seo
+    title={`${getStrFromLocaleCtx(props.data.locales.edges[0].node.data, 'projects')} - Yan Lucas`}
+    {...props}
+  />
+)
 
 const ProjectsPage: React.FC<
   PageProps<I18nPageData & ProjectsQueryType & { image: ProjectType['image'] }>
@@ -20,8 +26,9 @@ const ProjectsPage: React.FC<
         src: data.image,
         alt: 'projects_page_image_alt',
       }}
+      hideOverlay
     />
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[9%] md:py-14 lg:gap-16">
+    <div className="flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[9%] md:py-14 lg:gap-16">
       <ProjectsBlock projects={data.content.nodes} />
     </div>
   </PageLayout>
@@ -44,20 +51,16 @@ export const query = graphql`
       nodes {
         title
         slug
-        description
-        url
-        repository_url
-        alt
         image {
           base
           childImageSharp {
             gatsbyImageData(placeholder: DOMINANT_COLOR, quality: 100, formats: [AUTO, WEBP, AVIF])
           }
         }
-        techs
+        alt
       }
     }
-    image: file(relativePath: { eq: "code_image.jpg" }) {
+    image: file(relativePath: { eq: "projects_background_image.jpg" }) {
       base
       childImageSharp {
         gatsbyImageData(placeholder: DOMINANT_COLOR, quality: 100, formats: [AUTO, WEBP, AVIF])

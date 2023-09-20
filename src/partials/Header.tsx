@@ -1,8 +1,7 @@
 import { Menu } from '@headlessui/react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from 'gatsby'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import React, { Fragment, useEffect, useRef } from 'react'
 import { navLinks } from '~/components/HeaderLinks'
 import HeaderMenu from '~/components/HeaderMenu'
@@ -54,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
           <header
             ref={headerRef}
             className={clsx(
-              'fixed left-0 right-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:px-[calc(5vw_+_26px)] xl:px-[calc(10vw_+_26px)]',
+              'fixed left-0 right-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:px-[calc(5vw_+_1.625rem)] xl:px-[calc(10vw_+_1.625rem)]',
               open
                 ? 'bg-charcoal-black-700/90'
                 : 'bg-gradient-to-b from-charcoal-black-700/90 to-charcoal-black-700/50'

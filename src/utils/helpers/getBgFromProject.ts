@@ -1,4 +1,6 @@
-export const getBgFromProject = (slug: string) => {
+import { ProjectSlugType } from '../interfaces'
+
+export const getBgFromProject = (slug: ProjectSlugType) => {
   switch (slug) {
     case 'spacie':
       return 'hover:bg-spacie-rose bg-spacie-rose'
@@ -12,6 +14,10 @@ export const getBgFromProject = (slug: string) => {
       return 'hover:bg-massgueirinha-orange bg-massgueirinha-orange'
     case 'bull-blockchain':
       return 'hover:bg-bull-blockchain-blue bg-bull-blockchain-blue'
+    case 'car-rent':
+      return 'hover:bg-car-rent-violet bg-car-rent-violet'
+    case 'localize':
+      return 'hover:bg-localize-blue bg-localize-blue'
     default:
       return ''
   }

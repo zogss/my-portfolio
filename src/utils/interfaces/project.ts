@@ -7,6 +7,8 @@ export type ProjectNameType =
   | 'Chirp'
   | 'Massagueirinha Menu'
   | 'Bull Blockchain'
+  | 'Car Rent'
+  | 'Localize'
 
 export type ProjectSlugType =
   | 'spacie'
@@ -15,13 +17,16 @@ export type ProjectSlugType =
   | 'chirp'
   | 'massagueirinha-menu'
   | 'bull-blockchain'
+  | 'car-rent'
+  | 'localize'
 
 export type ProjectType = {
   id: string
   slug: ProjectSlugType
   title: ProjectNameType
   subtitle: string
-  description: string
+  short_description: string
+  long_description: string[]
   url: string | null
   repository_url: string | null
   techs: string[]

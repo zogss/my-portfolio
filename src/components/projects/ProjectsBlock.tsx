@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProjectType } from '~/utils'
-import ProjectCard from './ProjectCard'
+import ProjectCard from './project/ProjectCard'
 
 export interface ProjectsBlockProps {
   projects: ProjectType[]

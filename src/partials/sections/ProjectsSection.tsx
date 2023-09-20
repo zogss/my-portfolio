@@ -1,5 +1,5 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { upperCase } from 'lodash'
 import React from 'react'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
@@ -8,7 +8,7 @@ import { ProjectsQueryType } from '~/utils'
 
 export const PROJECTS_QUERY = graphql`
   query {
-    content: allProject {
+    content: allProject(limit: 6) {
       nodes {
         title
         slug
@@ -62,9 +62,9 @@ const ProjectsSection: React.FC = () => {
       </div>
       <ProjectsBlock projects={projects} />
       <Link
-        to="projects"
+        to="/projects"
         title={t('view_all_projects')}
-        className="hover:bg-midnight-slate-400 z-[2] flex items-center justify-center rounded-md bg-midnight-slate-700 px-3 py-1 shadow-primary backdrop-blur-[1.25rem] transition-colors md:px-5 md:py-2.5"
+        className="z-[2] flex items-center justify-center rounded-md bg-midnight-slate-700 px-3 py-1 shadow-primary backdrop-blur-[1.25rem] transition-colors hover:bg-midnight-slate-400 md:px-5 md:py-2.5"
       >
         <span className="text-sm font-medium leading-tight md:text-base">
           {t('view_all_projects')}

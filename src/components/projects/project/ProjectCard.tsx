@@ -1,10 +1,8 @@
 import clsx from 'clsx'
-import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import React, { useMemo } from 'react'
 import { ProjectType, getBgFromProject } from '~/utils'
-import LinesUnion from '../svgs/LinesUnion'
 
 const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
   //* hooks
@@ -15,19 +13,19 @@ const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
 
   //* render
   return (
-    <div data-animation="animate" className="flex flex-col">
+    <article data-animation="animate" className="flex flex-col">
       <Link
         to={`/projects/${slug}`}
         data-animation-target="up"
         className="flex flex-col items-center gap-3"
       >
-        <div className="group/projectCard relative flex flex-col gap-3 self-stretch overflow-hidden rounded-lg bg-midnight-slate-700 p-3 transition-all duration-500 hover:bg-neutral-300/20 md:p-4">
-          <div className="z-[1] flex flex-col items-center gap-3 self-stretch md:gap-4">
-            <div className="group/projectImg relative max-h-[190px] shrink-0 overflow-hidden rounded border border-transparent transition-colors duration-500 group-hover/projectCard:border-neutral-400/20 sm:h-[190px] sm:max-h-max 2xl:h-[205px]">
+        <div className="group/projectCard relative overflow-hidden rounded-md bg-midnight-slate-700 p-2.5 transition-all duration-500 hover:bg-neutral-300/20 md:p-3.5">
+          <div className="z-[1] flex flex-col items-center gap-2 self-stretch md:gap-3">
+            <div className="group/projectImg relative max-h-[11.875rem] shrink-0 overflow-hidden rounded border border-transparent transition-colors duration-500 group-hover/projectCard:border-neutral-400/20 sm:h-[11.875rem] sm:max-h-max 2xl:h-[12.8125rem]">
               <GatsbyImage
                 image={getImage(image)!}
                 alt={alt}
-                className="aspect-[18/9] max-h-[190px] w-full transition-all duration-[5000ms] ease-[cubic-bezier(0.7,0,0.7,1.01)] hover:scale-150 sm:w-auto 2xl:max-h-[205px]"
+                className="aspect-[18/9] max-h-[11.875rem] w-full transition-all duration-[5000ms] ease-[cubic-bezier(0.7,0,0.7,1.01)] hover:scale-150 sm:w-auto 2xl:max-h-[12.8125rem]"
               />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-black/70 px-5 py-1.5 opacity-0 shadow-primary transition-all duration-500 hover:bg-black group-hover/projectImg:opacity-100">
                 <span className="text-sm font-medium text-neutral-300 lg:text-base">
@@ -35,7 +33,7 @@ const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
                 </span>
               </div>
             </div>
-            <div className="flex w-full items-center justify-center gap-3 lg:gap-5 xl:w-fit">
+            <header className="flex w-full items-center justify-center gap-3 lg:gap-5 xl:w-fit">
               <div className="flex items-start justify-center gap-1.5">
                 {Array.from({ length: 3 }).map((_, i) => (
                   <div
@@ -51,12 +49,11 @@ const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
               <h3 className="text-lg font-semibold text-neutral-300 lg:pr-4 lg:text-xl xl:pr-0">
                 {t(title)}
               </h3>
-            </div>
+            </header>
           </div>
-          <LinesUnion className="absolute -right-3/4 -top-1/3 -rotate-[30deg] xl:-top-1/2" />
         </div>
       </Link>
-    </div>
+    </article>
   )
 }
 

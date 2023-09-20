@@ -2,7 +2,8 @@
   {
     "title": "Spacie",
     "slug": "spacie",
-    "description": "spacie_description",
+    "short_description": "spacie_description",
+    "long_description": ["some text", "some text"],
     "image": "spacie_image.png",
     "url": "https://app.spacie.com.br/",
     "repository_url": null,
@@ -31,7 +32,8 @@
   {
     "title": "CS Analytics",
     "slug": "cs-analytics",
-    "description": "cs_analytics_description",
+    "short_description": "cs_analytics_description",
+    "long_description": ["some text", "some text"],
     "image": "cs_analytics_image.png",
     "url": "https://main.d117z3353iltcd.amplifyapp.com/",
     "repository_url": null,
@@ -59,7 +61,8 @@
   {
     "title": "Expert Stats",
     "slug": "expert-stats",
-    "description": "expert_stats_description",
+    "short_description": "expert_stats_description",
+    "long_description": ["some text", "some text"],
     "image": "expert_stats_image.png",
     "url": "https://expertstats.com.br/",
     "repository_url": null,
@@ -84,8 +87,9 @@
   {
     "title": "Chirp",
     "slug": "chirp",
-    "description": "chirp_description",
-    "image": "chirp_image.png",
+    "short_description": "chirp_description",
+    "long_description": ["some text", "some text"],
+    "image": "chirp_image.jpg",
     "url": "https://chirp-zogss.vercel.app/",
     "repository_url": "https://github.com/zogss/chirp",
     "subtitle": "chirp_subtitle",
@@ -108,7 +112,8 @@
   {
     "title": "Massagueirinha Menu",
     "slug": "massagueirinha-menu",
-    "description": "massagueirinha_menu_description",
+    "short_description": "massagueirinha_menu_description",
+    "long_description": ["some text", "some text"],
     "image": "massagueirinha_image.png",
     "url": "https://massaguerinha-menu-cc348.web.app/",
     "repository_url": null,
@@ -128,7 +133,8 @@
   {
     "title": "Bull Blockchain",
     "slug": "bull-blockchain",
-    "description": "bull_blockchain_description",
+    "short_description": "bull_blockchain_description",
+    "long_description": ["some text", "some text"],
     "image": "bullblockchain_image.png",
     "url": null,
     "repository_url": "https://github.com/zogss/blockchains-website/",
@@ -143,8 +149,60 @@
       "Handlebars",
       "Alpine",
       "Bootstrap",
+      "Sass"
+    ]
+  },
+  {
+    "title": "Car Rent",
+    "slug": "car-rent",
+    "short_description": "car_rent_description",
+    "long_description": ["some text", "some text"],
+    "image": "car_rent_image.jpeg",
+    "url": "https://car-rent-26n3.onrender.com/",
+    "repository_url": "https://github.com/zogss/car-rent-website",
+    "subtitle": "car_rent_subtitle",
+    "alt": "car_rent_alt",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Express",
+      "Handlebars",
+      "Alpine",
+      "Bootstrap",
+      "Sass",
       "MongoDB",
       "Yup"
+    ]
+  },
+  {
+    "title": "Localize",
+    "slug": "localize",
+    "short_description": "localize_description",
+    "long_description": ["some text", "some text"],
+    "image": "localize_image.png",
+    "url": null,
+    "repository_url": "https://github.com/zogss/localize",
+    "subtitle": "localize_subtitle",
+    "alt": "localize_alt",
+    "techs": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "React Native",
+      "React Navigation",
+      "Expo",
+      "Expo Location",
+      "React Native Maps",
+      "Redux",
+      "Redux Toolkit",
+      "Axios",
+      "React Hook Form",
+      "Zod",
+      "Styled Components"
     ]
   }
 ]

@@ -87,7 +87,8 @@ export const createPages: GatsbyNode[`createPages`] = async ({ graphql, actions 
           slug
           title
           subtitle
-          description
+          short_description
+          long_description
           url
           repository_url
           techs

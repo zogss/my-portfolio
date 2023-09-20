@@ -1,7 +1,7 @@
 import { WindowLocation } from '@reach/router'
-import { Link } from 'gatsby'
+import clsx from 'clsx'
 import { GatsbyImage, getImage, type ImageDataLike } from 'gatsby-plugin-image'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { startCase } from 'lodash'
 import React, { Fragment } from 'react'
 
@@ -13,9 +13,16 @@ interface PageHeaderProps {
     alt: string
   }
   location: WindowLocation
+  hideOverlay?: boolean
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, image, location }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({
+  title,
+  subtitle,
+  image,
+  location,
+  hideOverlay,
+}) => {
   //* hooks
   const { t } = useI18next()
 
@@ -24,17 +31,17 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, image, locatio
 
   //* render
   return (
-    <div className="relative flex h-[50vh] w-full flex-col items-center justify-center overflow-hidden md:h-[40vh] lg:h-[50vh]">
-      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 bg-black/40">
-        <div className="flex flex-col items-center justify-start gap-2.5">
-          <h1 className="text-4xl font-black leading-[100.5%] tracking-[.08rem] backdrop-blur-[.1766rem] text-shadow-primary sm:text-5xl md:text-[4rem]">
+    <div className="relative flex h-[40vh] w-full flex-col items-center justify-center md:h-[45vh] lg:h-[50vh]">
+      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-start gap-2.5 pt-6">
+          <h1 className="text-4xl font-black tracking-[.08rem] sm:text-5xl md:text-[4rem]">
             {t(title)}
           </h1>
           <h2 className="text-center text-sm font-medium text-neutral-400 md:text-base lg:text-lg">
             {t(subtitle)}
           </h2>
         </div>
-        <div className="flex items-center justify-center gap-2.5 self-stretch text-center text-sm font-medium text-neutral-300 md:text-base lg:text-lg">
+        <div className="flex items-center justify-center gap-2.5 text-center text-sm font-medium text-neutral-300 md:text-base lg:text-lg">
           {paths.map((path, i) => (
             <Fragment key={`path-${i}`}>
               {i < paths.length - 1 ? (
@@ -45,7 +52,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, image, locatio
                   {t(path)}
                 </Link>
               ) : (
-                <span>{t(startCase(path))}</span>
+                <span>{startCase(t(path))}</span>
               )}
               {i !== paths.length - 1 && <span>/</span>}
             </Fragment>
@@ -53,14 +60,25 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, image, locatio
         </div>
       </div>
       {image && (
-        <div className="absolute inset-0 z-[-1]">
+        <div className="absolute inset-0 z-[-3] bg-black/30">
           <GatsbyImage
             image={getImage(image.src)!}
             alt={image.alt}
-            className="h-full w-full object-cover object-center blur-sm"
+            className="top-0 h-full w-full object-cover object-center"
           />
         </div>
       )}
+      {!hideOverlay && (
+        <div
+          className={clsx('absolute inset-0 z-[-1] flex items-center justify-center', {
+            'bg-black/40': !hideOverlay,
+          })}
+        >
+          <div className="h-[56.25rem] w-[106.25rem] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-charcoal-black-700 via-transparent to-transparent" />
+        </div>
+      )}
+      <div className="absolute inset-x-0 top-0 z-[-2] h-[4.5rem] bg-gradient-to-b from-charcoal-black-700 to-charcoal-black-700/20" />
+      <div className="absolute inset-x-0 bottom-0 z-[-2] h-40 bg-gradient-to-t from-charcoal-black-700 via-charcoal-black-700/60 to-transparent" />
     </div>
   )
 }

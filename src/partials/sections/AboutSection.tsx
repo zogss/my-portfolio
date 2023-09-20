@@ -46,7 +46,7 @@ const AboutSection: React.FC = () => {
           <h3 className="mb-[1.125rem] block max-w-xl text-center text-lg font-bold leading-tight text-neutral-100 md:text-xl md:leading-normal lg:text-2xl xl:max-w-none xl:text-start">
             {t('about_section_text_part_1', { location: environments.personal.location })}
           </h3>
-          <p className="mb-3 text-justify indent-5">
+          <p className="mb-3">
             {t('about_section_text_part_2', {
               age:
                 DateTime.now().year - DateTime.fromObject({ year: 2003, month: 1, day: 20 }).year,
@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
                 DateTime.now().year - DateTime.fromObject({ year: 2021, month: 11, day: 15 }).year,
             })}
           </p>
-          <p className="text-justify indent-5">{t('about_section_text_part_3')}</p>
+          <p className="mb-3">{t('about_section_text_part_3')}</p>
         </div>
       </div>
     </section>
