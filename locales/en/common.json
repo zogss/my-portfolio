@@ -53,18 +53,55 @@
 
   "google_seach": "Seach {{text}} on Google",
 
+  "spacie_subtitle": "Elevating Influencer Marketing to a New Level with Spacie.",
   "spacie_description": "A plataform that connects companies with influencers for promotional campaigns. The system integrates with Google, Instagram, and TikTok using the OAuth2 protocol, allowing users to utilize their information from these platforms on Spacie.",
+  "spacie_long_description_01": "Spacie is an innovative platform that serves as a strategic bridge between companies and influencers, offering a comprehensive solution for promotional campaigns. With its user-centered approach, Spacie brings together all the essential tools needed to create, manage, and analyze influencer marketing campaigns effectively.",
+  "spacie_long_description_02": "Companies can use Spacie to create customized campaigns according to their specific goals and requirements. The platform offers an advanced matching system that facilitates the identification of ideal influencers for collaborations. This is done by considering criteria such as the target audience, reach, and brand affinity, resulting in strategic partnerships that maximize campaign impact.",
+  "spacie_long_description_03": "Influencers also find a valuable tool in Spacie for managing their influencer marketing activities. They can access advanced metrics from their linked social networks, allowing them to track follower growth, engagement, and other relevant data. Additionally, influencers have the ability to generate comprehensive and detailed reports of their metrics, providing valuable insights into the performance of their campaigns and the evolution of their audiences.",
+  "spacie_long_description_04": "Spacie's seamless integration with leading social media platforms like Google, Instagram, and TikTok through the OAuth2 protocol ensures the security and ease of access to social media account information. This simplifies the entire process of planning, executing, and evaluating campaigns, enabling companies and influencers to make data-driven strategic decisions.",
+  "spacie_long_description_05": "In summary, Spacie is a comprehensive platform that empowers companies and influencers to achieve exceptional results in promotional campaigns. Its user-centered approach, along with advanced features and an intuitive interface, makes Spacie a leading choice in the world of influencer marketing.",
   "spacie_alt": "Spacie Image - Influencer marketing platform",
+
+  "cs_analytics_subtitle": "Empowering CS:GO Enthusiasts with In-Depth Analytics: The CS Analytics Story.",
   "cs_analytics_description": "This is a website that offers comprehensive statistics, sourced from HLTV, along with personalized analysis by administrators for CS:GO players, teams, and championships. The user can dive deeper into the world of Counter-Strike: Global Offensive with huge data-driven insights.",
   "cs_analytics_alt": "CS Analytics Image - CS:GO statistics platform",
-  "expert_stats_description": "A platform dedicated to providing comprehensive statistics on virtual football, featuring four leagues. It offers extensive odds, recent match data, and detailed statistics for upcoming matches, delivering a thorough insight into the world of virtual football.",
+  "cs_analytics_long_description_01": "The CS Analytics serves as an expansive statistical hub empowering users to delve deeper into the intricate universe of Counter-Strike: Global Offensive, granting them access to profound data-driven insights.",
+  "cs_analytics_long_description_02": "At the core of this project lies a meticulous data aggregation process, spanning from live match updates to in-depth player profiles, making it an invaluable resource for CS:GO enthusiasts.",
+  "cs_analytics_long_description_03": "In my role as a front-end developer, I had the privilege of leading the front-end team, which marked my initiation into a leadership position. As the team leader, I played a pivotal role in crafting the user experience and interface of the platform. My responsibilities encompassed not only active contributions to the codebase but also ensuring the seamless integration of data-driven insights into the user interface. Working in close collaboration with other team members, we collectively pursued the project's objectives. This multifaceted experience not only honed my technical proficiency but also nurtured essential leadership skills that I continue to apply and refine.",
+
+  "expert_stats_subtitle": "Elevating Virtual Football Analysis: My Journey with Expert Stats.",
+  "expert_stats_description": "Expert Stats is a platform dedicated to providing comprehensive statistics on virtual football, encompassing four different leagues. What sets it apart is its real-time information delivery, ensuring that users have access to up-to-the-minute data. It offers extensive odds, recent match data, and detailed statistics for upcoming games, providing a complete insight into the fascinating world of virtual football.",
   "expert_stats_alt": "Expert Stats Image - Virtual football statistics platform",
+  "expert_stats_long_description_01": "As a frontend developer, I had the opportunity to contribute to the Expert Stats project by implementing enhancements and fixes. This experience was particularly significant for me as it marked my first real project using Angular and RxJs. Furthermore, it was my inaugural experience working on a production project with active users, allowing me not only to refine the user interface but also to gain practical experience in the backend using Node.js, albeit briefly.",
+
+  "chirp_subtitle": "Exploring the Emoji Universe: Developing a Unique Twitter.",
   "chirp_description": "This is a unique Twitter made by my own, where the user can only use emojis. It served as an excellent project to enhance my knowledge and practice various technologies and design patterns.",
   "chirp_alt": "Chirp Image - Emoji Twitter",
+  "chirp_long_description_01": "In this project, I had the opportunity to learn and implement the Next.js API with the innovative trpc, as well as to utilize the robust Prisma, hosted on the scalable infrastructure of Planet Scale. This allowed me to deepen my knowledge in web development and explore new technological horizons.",
+
+  "massagueirinha_menu_subtitle": "Crafting Culinary Delights: From Restaurant Menu to an Enhanced Gatsby Website.",
   "massagueirinha_menu_description": "A website for a restaurant menu, where the user can view the dishes and their prices. It was a project that I initially developed to be a restaurant menu website, but I ended up transforming it into a website for a fictitious restaurant menu.",
   "massagueirinha_menu_alt": "Massagueirinha Image - Restaurant menu website",
-  "bull_blockchain_description": "A website for a blockchain company, where the user can view the company's information and services. It was a project that I developed to practice my knowledge.",
+  "massagueirinha_menu_long_description_01": "During the execution of this project, I had the opportunity to learn and apply the functionality of Gatsby to create highly SEO-optimized static websites. This experience not only improved my web development skills but also allowed me to create a user-friendly and efficient platform for restaurant menu viewing.",
+
+  "bull_blockchain_subtitle": "Enhancing Online Presence and User Experience for Bull Blockchain.",
+  "bull_blockchain_description": "A website for a blockchain company, where the user can view the company's information and services.",
   "bull_blockchain_alt": "Bull Blockchain Image - Blockchain company website",
+  "bull_blockchain_long_description_01": "The Bull Blockchain project initially started as a refactoring effort for an existing website, aiming to incorporate new development standards and enhanced SEO techniques. However, regrettably, the project was eventually discontinued due to the client's later lack of interest in implementing the planned changes.",
+  "bull_blockchain_long_description_02": "This website was designed to provide users with an informative and interactive experience, allowing them to access detailed information about the company, its services, and areas of expertise. Additionally, it offered a direct communication channel, making it easy for users to get in touch with the company for inquiries or requests.",
+  "bull_blockchain_long_description_03": "The Bull Blockchain project's primary goal was to enhance the company's online presence, showcasing its expertise in the blockchain field and providing visitors with a comprehensive view of its services and capabilities. To achieve this objective, modern development techniques and advanced SEO strategies were applied, ensuring that the site stood out in search results and provided a high-quality user experience.",
+
+  "car_rent_subtitle": "Revolutionizing Car Rental: A Journey with Handlebars, Bootstrap, and Authentication.",
+  "car_rent_description": "This project marked a significant milestone in my journey as a developer as it was my first endeavor with the use of Handlebars, Bootstrap, and other technologies such as Node.js, Express, SASS, MongoDB, Alpine.js, and Yup. We developed a car rental system with authentication, which, although simple in nature, offered a rich learning experience.",
+  "car_rent_alt": "Car Rent Image - Car rental system",
+  "car_rent_long_description_01": "Combining the flexibility of Handlebars for dynamic page creation with the efficiency of Bootstrap for responsive design, the project provided an ideal environment for exploring the creation of elegant and functional user interfaces. Integration with MongoDB allowed for the secure storage of user data and rental records, while the use of Alpine.js added a layer of interactivity to the system.",
+  "car_rent_long_description_02": "The Car Rent project was a valuable learning experience, allowing me to explore the intricacies of web development and gain practical experience with a wide range of technologies. It was also a great opportunity to collaborate with other developers, working together to achieve a common goal. This experience not only enhanced my technical proficiency but also nurtured my interpersonal skills, which are essential for successful teamwork.",
+
+  "localize_subtitle": "Reinventing Car Rental with React Native, Expo, and Innovative Authentication.",
+  "localize_description": "This project was an exciting opportunity to enhance my skills in React Native, Expo, and Redux, as well as to create innovative authentication that added significant value to the car rental system.",
+  "localize_alt": "Localize Image - Car rental system",
+  "localize_long_description_01": "One of the highlights of this project was the implementation of an authentication system inspired by IFOOD, which allowed users to be validated through their phone numbers and receive confirmation codes via WhatsApp. Additionally, this project would not have been possible without the collaboration of a friend who helped me with authentication on the backend, making it even more rewarding and reinforcing the importance of collaboration in software development.",
+  "localize_long_description_02": "Overall, this project was an exciting opportunity to enhance my skills in React Native, Expo, and Redux, as well as to create innovative authentication that added significant value to the car rental system.",
 
   "name_label": "Name",
   "name_placeholder": "Enter your name",
