@@ -33,6 +33,8 @@ const colors = {
   'expert-dark': '#131628',
   'massgueirinha-orange': '#e9522d',
   'bull-blockchain-blue': '#04203a',
+  'car-rent-violet': '#5038de',
+  'localize-blue': '#81d9f7',
 }
 
 const backgroundImage = {

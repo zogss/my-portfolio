@@ -1,5 +1,4 @@
-import { Link } from 'gatsby'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import React from 'react'
 import { navLinks } from '~/components/HeaderLinks'
 import SocialLinks from '~/components/SocialLinks'
@@ -7,7 +6,11 @@ import FigmaIcon from '~/components/svgs/FigmaIcon'
 import YIcon from '~/components/svgs/YIcon'
 import { environments } from '~/utils'
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  hideSectionLinks?: boolean
+}
+
+const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
   //* hooks
   const { t } = useI18next()
 
@@ -16,22 +19,32 @@ const Footer: React.FC = () => {
     <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[10%] pb-6 pt-12 md:px-[15%]">
       <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">
         <div className="flex flex-col items-start gap-8 md:flex-row">
-          <YIcon
-            aria-label={t('yan_logo_alt')}
-            className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
-          />
-          <div className="hidden flex-col items-start gap-1 py-1 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.to || '/'}
-                title={t(link.name)}
-                className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-              >
-                {t(link.name)}
-              </Link>
-            ))}
-          </div>
+          <Link
+            to={hideSectionLinks ? '/' : '#home'}
+            title={t('navigate_home')}
+            aria-label={t('navigate_home')}
+            className="flex shrink-0"
+          >
+            <YIcon
+              aria-label={t('yan_logo_alt')}
+              className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
+            />
+            <span className="sr-only">{t('yan_logo_alt')}</span>
+          </Link>
+          {!hideSectionLinks && (
+            <div className="hidden flex-col items-start gap-1 py-1 md:flex">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.to || '/'}
+                  title={t(link.name)}
+                  className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
+                >
+                  {t(link.name)}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex flex-col items-center justify-end gap-2 self-stretch md:items-end md:gap-7">
           <SocialLinks className="w-full justify-center gap-4 md:justify-end" />

@@ -1,2 +1,3 @@
 export * from './metadaData'
-export * from './projectObj'
+export * from './pageProps'
+export * from './project'

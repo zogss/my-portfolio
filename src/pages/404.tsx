@@ -1,4 +1,5 @@
-import { HeadFC, Link, PageProps, graphql } from 'gatsby'
+import { HeadFC, PageProps, graphql } from 'gatsby'
+import { Link } from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
 import Seo from '~/components/Seo'
 

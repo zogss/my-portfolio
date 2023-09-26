@@ -67,6 +67,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'projects',
+        path: path.join(__dirname, 'src', 'data', 'projects'),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
         languages,
@@ -142,11 +149,22 @@ const config: GatsbyConfig = {
         },
       },
     },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: ({ node }: { node: any }) => {
+          const name = node.sourceInstanceName
+          if (name === `projects`) {
+            return `Project`
+          }
+          return name
+        },
+      },
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
     'gatsby-transformer-remark',
   ],
 }
