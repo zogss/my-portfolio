@@ -4,8 +4,7 @@ import PageHeader from '~/components/PageHeader'
 import Seo from '~/components/Seo'
 import ProjectsBlock from '~/components/projects/ProjectsBlock'
 import PageLayout from '~/layouts/PageLayout'
-import { ProjectType, ProjectsQueryType } from '~/utils'
-import { getStrFromLocaleCtx } from '~/utils/helpers/getStrFromLocaleCtx'
+import { ProjectType, ProjectsQueryType, getStrFromLocaleCtx } from '~/utils'
 
 export const Head: HeadFC<I18nPageData> = (props) => (
   <Seo
