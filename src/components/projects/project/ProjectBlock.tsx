@@ -33,8 +33,8 @@ const ProjectBlock: React.FC<ProjectType> = ({
           alt={alt}
           className="h-full w-full rounded-md object-contain object-center"
         />
-        <div className="flex w-full items-center justify-between">
-          <div className="group/projectCard flex items-center justify-start gap-4">
+        <div className="flex w-full flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+          <div className="group/projectCard flex w-full justify-between gap-4 sm:w-fit">
             <ProjectTitleText
               as="a"
               href={url || 'javascript:void(0)'}
@@ -42,10 +42,11 @@ const ProjectBlock: React.FC<ProjectType> = ({
               rel={url ? 'noopener noreferrer' : undefined}
               title={url || undefined}
               color={slug}
+              className="w-fit"
             >
               {t(title)}
             </ProjectTitleText>
-            <ProjectTripleDots color={slug} size="md" />
+            <ProjectTripleDots color={slug} size="md" className="xs:flex hidden items-center" />
           </div>
           {(url || repository_url) && (
             <div className="flex items-center justify-start gap-1 md:gap-2">

@@ -67,6 +67,7 @@ const textShadow = {
 }
 
 const screens = {
+  xs: '25rem',
   '3xl': '112rem',
 }
 
