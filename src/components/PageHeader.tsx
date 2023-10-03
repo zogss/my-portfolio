@@ -31,7 +31,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
   //* render
   return (
-    <div className="relative flex h-64 w-full flex-col items-center justify-center md:h-80 lg:h-[28.75rem]">
+    <div className="relative flex h-64 w-full flex-col items-center justify-center py-10 md:h-80 md:py-16 lg:h-[28.75rem] lg:py-24">
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-start gap-2.5 px-[5%] pt-6 lg:px-0">
           <h1 className="text-center text-4xl font-black tracking-[.08rem] sm:text-5xl md:text-[4rem]">
