@@ -62,7 +62,7 @@ const ProjectsSection: React.FC = () => {
       <Link
         to="/projects"
         title={t('view_all_projects')}
-        className="z-[2] flex items-center justify-center rounded-md bg-midnight-slate-700 px-4 py-2 shadow-primary backdrop-blur-[1.25rem] transition-colors hover:bg-midnight-slate-400 md:px-5 md:py-2.5"
+        className="z-[2] flex items-center justify-center rounded-md bg-midnight-slate-700 px-4 py-2 shadow-primary transition-colors hover:bg-midnight-slate-400 md:px-5 md:py-2.5"
       >
         <span className="text-sm font-medium leading-tight md:text-base">
           {t('view_all_projects')}

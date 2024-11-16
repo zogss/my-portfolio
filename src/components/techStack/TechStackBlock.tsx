@@ -62,7 +62,7 @@ const TechStackBlock: React.FC = () => {
             onClick={() => setActiveTab(0)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
@@ -88,7 +88,7 @@ const TechStackBlock: React.FC = () => {
             onClick={() => setActiveTab(1)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold  transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
@@ -116,7 +116,7 @@ const TechStackBlock: React.FC = () => {
             onClick={() => setActiveTab(2)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold backdrop-blur-[.2188rem] transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
