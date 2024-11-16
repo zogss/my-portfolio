@@ -7,10 +7,8 @@ import SocialLinks from '~/components/SocialLinks'
 import HomeEclipse from '~/components/svgs/HomeEclipse'
 
 const HomeSection: React.FC = () => {
-  //* hooks
   const { t, language } = useI18next()
 
-  //* render
   return (
     <section
       id="home"

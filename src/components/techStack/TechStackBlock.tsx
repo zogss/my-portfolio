@@ -31,10 +31,8 @@ import {
 } from 'react-icons/si'
 
 const TechStackBlock: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
 
-  //* handlers
   const getActiveTab = () => {
     if (typeof window !== 'undefined') {
       const activeTab = localStorage.getItem('techStackActiveTab')
@@ -51,7 +49,6 @@ const TechStackBlock: React.FC = () => {
     }
   }
 
-  //* render
   return (
     <div className="z-[1] flex w-full flex-1 justify-center">
       <Tab.Group

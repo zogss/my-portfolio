@@ -4,10 +4,8 @@ import PenIllustration from '../svgs/PenIllustration'
 import ContactForm from './ContactForm'
 
 const ContactBlock: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <div data-animation="animate" className="flex w-full items-center justify-center">
       <div data-animation-target="up" className="flex w-full items-center justify-center">

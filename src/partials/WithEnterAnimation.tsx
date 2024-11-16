@@ -1,7 +1,6 @@
 import React, { PropsWithChildren, useEffect } from 'react'
 
 const WithEnterAnimation: React.FC<PropsWithChildren> = ({ children }) => {
-  //* effects
   useEffect(() => {
     const intersectionObservers: IntersectionObserver[] = []
     const targetElements = document.querySelectorAll('[data-animation]')
@@ -39,7 +38,6 @@ const WithEnterAnimation: React.FC<PropsWithChildren> = ({ children }) => {
     }
   }, [])
 
-  //* render
   return children
 }
 

@@ -25,13 +25,11 @@ export const PROJECTS_QUERY = graphql`
 `
 
 const ProjectsSection: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
   const {
     content: { nodes: projects },
   } = useStaticQuery<ProjectsQueryType>(PROJECTS_QUERY)
 
-  //* render
   return (
     <section
       id="projects"

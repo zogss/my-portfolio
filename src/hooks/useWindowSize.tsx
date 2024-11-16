@@ -28,12 +28,10 @@ type useWindowSizeReturnType = {
 type useWindowSizeType = (props: useWindowSizePropsType) => useWindowSizeReturnType
 
 export const useWindowSize: useWindowSizeType = ({ breakpoint, showCurrentBreakpoint }) => {
-  //* states
   const [isSmaller, setIsSmaller] = useState(false)
   const [windowSize, setWindowSize] = useState<WindowSize>()
   const [currBreakpoint, setCurrBreakpoint] = useState<keyof typeof breakpoints>()
 
-  //* effects
   useEffect(() => {
     let isFirstRender = true
 
@@ -79,7 +77,6 @@ export const useWindowSize: useWindowSizeType = ({ breakpoint, showCurrentBreakp
     return () => window.removeEventListener('resize', handleResize)
   }, [breakpoint, showCurrentBreakpoint, windowSize])
 
-  //* return
   return {
     isSmaller,
     windowSize,

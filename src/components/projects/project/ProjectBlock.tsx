@@ -21,10 +21,8 @@ const ProjectBlock: React.FC<ProjectType> = ({
   url,
   repository_url,
 }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <section className="flex w-full flex-col gap-9">
       <div className="flex w-full flex-col items-start gap-3 md:gap-4">
@@ -46,7 +44,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
             >
               {t(title)}
             </ProjectTitleText>
-            <ProjectTripleDots color={slug} size="md" className="xs:flex hidden items-center" />
+            <ProjectTripleDots color={slug} size="md" className="hidden items-center xs:flex" />
           </div>
           {(url || repository_url) && (
             <div className="flex items-center justify-start gap-1 md:gap-2">

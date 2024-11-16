@@ -10,7 +10,6 @@ interface SocialLinksProps {
 }
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ animate = false, className, iconSize }) => {
-  //* memos
   const iconSizeClass = useMemo(() => {
     switch (iconSize) {
       case 'sm':
@@ -24,7 +23,6 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ animate = false, className, i
     }
   }, [iconSize])
 
-  //* render
   return (
     <div
       data-animation-target={animate ? 'left' : undefined}

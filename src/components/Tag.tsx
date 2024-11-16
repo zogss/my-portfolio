@@ -6,10 +6,8 @@ interface TagProps {
 }
 
 const Tag: React.FC<TagProps> = ({ text }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <a
       href={`https://www.google.com/search?q=${text}`}

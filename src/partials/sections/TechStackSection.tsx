@@ -5,10 +5,8 @@ import TitleEclipse from '~/components/svgs/TitleEclipse'
 import TechStackBlock from '~/components/techStack/TechStackBlock'
 
 const TechStackSection: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <section
       id="tech-stack"

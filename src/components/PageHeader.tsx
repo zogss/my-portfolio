@@ -23,13 +23,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   location,
   hideOverlay,
 }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* constants
   const paths = `/home${location.pathname.replace('/en', '')}`.split('/').filter((path) => path)
 
-  //* render
   return (
     <div className="relative flex h-64 w-full flex-col items-center justify-center py-10 md:h-80 md:py-16 lg:h-[28.75rem] lg:py-24">
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4">

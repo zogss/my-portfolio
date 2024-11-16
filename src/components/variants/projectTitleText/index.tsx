@@ -44,10 +44,8 @@ const ProjectTitleText = <C extends React.ElementType>({
   size,
   ...props
 }: Props<C>) => {
-  //* constants
   const Comp = as || (asChild ? 'span' : Fragment)
 
-  //* render
   return <Comp {...props} className={cn(titleText({ color, size }), className)} />
 }
 

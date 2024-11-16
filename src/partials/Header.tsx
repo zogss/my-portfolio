@@ -13,14 +13,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* refs
   const headerRef = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
 
-  //* effects
   useEffect(() => {
     const headerElement = headerRef.current
     const navElement = navRef.current
@@ -45,7 +42,6 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
     }
   }, [])
 
-  //* render
   return (
     <>
       <Menu key="header-disclosure" as={Fragment}>

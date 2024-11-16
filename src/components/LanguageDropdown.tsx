@@ -7,7 +7,6 @@ import BrFlag from './svgs/flags/BrFlag'
 import UsFlag from './svgs/flags/UsFlag'
 
 const LanguageDropdown: React.FC = () => {
-  //* hooks
   const {
     t,
     languages,
@@ -15,15 +14,12 @@ const LanguageDropdown: React.FC = () => {
     i18n: { language },
   } = useI18next()
 
-  //* handlers
   const getFlagByLanguage = (language: string) => {
     return flags.find((flag) => flag.slug === language) || flags[0]
   }
 
-  //* memos
   const CurrentFlag = getFlagByLanguage(language).Icon
 
-  //* render
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button

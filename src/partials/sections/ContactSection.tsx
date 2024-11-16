@@ -5,10 +5,8 @@ import ContactBlock from '~/components/contact/ContactBlock'
 import TitleEclipse from '~/components/svgs/TitleEclipse'
 
 const ContactSection: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <section
       id="contact"

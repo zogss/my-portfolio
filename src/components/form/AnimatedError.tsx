@@ -7,10 +7,8 @@ interface AnimatedErrorProps {
 }
 
 const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <motion.div
       id="form-error"

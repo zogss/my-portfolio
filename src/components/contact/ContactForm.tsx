@@ -11,7 +11,6 @@ import { getErrorMessage } from '~/utils'
 import Input from '../form/Input'
 
 const ContactForm: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
   const {
     register,
@@ -24,10 +23,8 @@ const ContactForm: React.FC = () => {
     resolver: zodResolver(contactSchema),
   })
 
-  //* states
   const [submitBlocked, setSubmitBlocked] = useState(false)
 
-  //* handlers
   const onSubmit = handleSubmit(async (data) => {
     try {
       if (submitCount >= 5) {
@@ -58,7 +55,6 @@ const ContactForm: React.FC = () => {
     }
   })
 
-  //* effects
   useEffect(() => {
     if (submitBlocked) {
       const timeout = setTimeout(
@@ -75,7 +71,6 @@ const ContactForm: React.FC = () => {
     }
   }, [reset, submitBlocked])
 
-  //* render
   return (
     <form onSubmit={onSubmit} className="z-[1] flex w-full flex-col items-start gap-3.5 lg:w-2/3">
       <Input className="w-full">

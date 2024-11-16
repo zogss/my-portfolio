@@ -9,15 +9,12 @@ interface SeoProps extends HeadProps<any, any> {
 }
 
 const Seo: React.FC<SeoProps> = ({ description, title, pageContext }) => {
-  //* hooks
   const metaData = useSiteMetadata()
 
-  //* constants
   const metaDescription = description || metaData.description
 
   const lang = pageContext.language === 'br' ? 'pt-BR' : 'en-US'
 
-  //* render
   return (
     <>
       <html lang={lang} />

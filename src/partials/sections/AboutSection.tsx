@@ -7,10 +7,8 @@ import TitleEclipse from '~/components/svgs/TitleEclipse'
 import { environments } from '~/utils'
 
 const AboutSection: React.FC = () => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <section
       id="about"

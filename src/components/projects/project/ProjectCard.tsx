@@ -5,10 +5,8 @@ import ProjectTripleDots from '~/components/variants/projectTripleDots'
 import { ProjectType } from '~/utils'
 
 const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <article data-animation="animate" className="flex flex-col">
       <Link

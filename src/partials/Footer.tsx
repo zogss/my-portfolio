@@ -11,10 +11,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[10%] pb-6 pt-12 md:px-[15%]">
       <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">

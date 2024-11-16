@@ -8,16 +8,12 @@ interface HeaderLinksProps {
 }
 
 const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* refs
   const floatingBarRef = useRef<HTMLDivElement>(null)
 
-  //* states
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
-  //* handlers
   const handleMouseEnter = (index: string) => {
     setHoveredItem(index)
   }
@@ -26,7 +22,6 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
     setHoveredItem(null)
   }
 
-  //* effects
   useEffect(() => {
     if (hoveredItem) {
       const hoveredElement = document.getElementById(hoveredItem)
@@ -40,7 +35,6 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
     }
   }, [hoveredItem])
 
-  //* render
   return (
     <div className="hidden items-center lg:flex" onMouseLeave={handleMouseLeave}>
       {navLinks.map((link) => (

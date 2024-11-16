@@ -11,10 +11,8 @@ interface HeaderMenuProps {
 }
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ floating, hideSectionLinks }) => {
-  //* hooks
   const { t } = useI18next()
 
-  //* render
   return (
     <div className="flex items-center gap-2 md:gap-5 xl:gap-12">
       {!hideSectionLinks && (
