@@ -34,11 +34,10 @@ const ProjectBlock: React.FC<ProjectType> = ({
         <div className="flex w-full flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="group/projectCard flex w-full justify-between gap-4 sm:w-fit">
             <ProjectTitleText
-              as="a"
-              href={url || 'javascript:void(0)'}
-              target={url ? '_blank' : undefined}
-              rel={url ? 'noopener noreferrer' : undefined}
-              title={url || undefined}
+              as={url ? 'a' : 'span'}
+              {...(url
+                ? { href: url, target: '_blank', rel: 'noopener noreferrer', title: url }
+                : {})}
               color={slug}
               className="w-fit"
             >
