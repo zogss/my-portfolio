@@ -1,12 +1,9 @@
+import { GatsbyBrowser } from 'gatsby'
 import React from 'react'
 import { Toaster } from 'react-hot-toast'
 import Loader from '~/components/Loader'
 
-interface LayoutProps {
-  element: React.ReactNode
-}
-
-const MainLayout: React.FC<LayoutProps> = ({ element }) => (
+const MainLayout: GatsbyBrowser['wrapPageElement'] = ({ element }) => (
   <>
     {element}
     <Loader />

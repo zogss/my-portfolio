@@ -1,8 +1,9 @@
 import 'firebase/firestore'
 import MainLayout from './src/layouts/MainLayout'
 import './src/styles/global.css'
+import type { GatsbyBrowser } from 'gatsby'
 
-export const onClientEntry = () => {
+export const onClientEntry: GatsbyBrowser['onClientEntry'] = () => {
   const htmlElement = document.getElementsByTagName('html')[0]
   if (htmlElement) {
     htmlElement.style.overflow = 'hidden'
@@ -14,7 +15,7 @@ export const onClientEntry = () => {
   }
 }
 
-export const onInitialClientRender = () => {
+export const onInitialClientRender: GatsbyBrowser['onInitialClientRender'] = () => {
   const htmlElement = document.getElementsByTagName('html')[0]
   if (htmlElement) {
     htmlElement.style.overflow = 'hidden'
@@ -26,7 +27,7 @@ export const onInitialClientRender = () => {
   }
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate: GatsbyBrowser['onRouteUpdate'] = () => {
   setTimeout(() => {
     const htmlElement = document.getElementsByTagName('html')[0]
     if (htmlElement) {
@@ -44,4 +45,4 @@ export const onRouteUpdate = () => {
   }, 500)
 }
 
-export const wrapPageElement = MainLayout
+export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = MainLayout
