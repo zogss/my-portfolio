@@ -11,7 +11,7 @@
       "spacie_long_description_05"
     ],
     "image": "spacie_image.png",
-    "url": "https://app.spacie.com.br/",
+    "url": null,
     "repository_url": null,
     "subtitle": "spacie_subtitle",
     "alt": "spacie_alt",
@@ -45,7 +45,7 @@
       "cs_analytics_long_description_03"
     ],
     "image": "cs_analytics_image.png",
-    "url": "https://main.d117z3353iltcd.amplifyapp.com/",
+    "url": null,
     "repository_url": null,
     "subtitle": "cs_analytics_subtitle",
     "alt": "cs_analytics_alt",
@@ -74,7 +74,7 @@
     "short_description": "expert_stats_description",
     "long_description": ["expert_stats_long_description_01"],
     "image": "expert_stats_image.png",
-    "url": "https://expertstats.com.br/",
+    "url": null,
     "repository_url": null,
     "subtitle": "expert_stats_subtitle",
     "alt": "expert_stats_alt",
