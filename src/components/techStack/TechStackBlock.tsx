@@ -61,7 +61,7 @@ const TechStackBlock: React.FC = () => {
             onClick={() => setActiveTab(0)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex-1 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
@@ -69,25 +69,28 @@ const TechStackBlock: React.FC = () => {
             }
           >
             {({ selected }) => (
-              <>
+              <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/backend_icon.png"
                   alt={t('backend_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                    'opacity-70': !selected,
-                  })}
+                  className={clsx(
+                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                    {
+                      'opacity-70': !selected,
+                    }
+                  )}
                 />
                 <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Backend</span>
-              </>
+              </div>
             )}
           </Tab>
           <Tab
             onClick={() => setActiveTab(1)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold  transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex-1 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
@@ -95,27 +98,30 @@ const TechStackBlock: React.FC = () => {
             }
           >
             {({ selected }) => (
-              <>
+              <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/frontend_icon.png"
                   alt={t('frontend_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                    'opacity-70': !selected,
-                  })}
+                  className={clsx(
+                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                    {
+                      'opacity-70': !selected,
+                    }
+                  )}
                 />
                 <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
                   Frontend
                 </span>
-              </>
+              </div>
             )}
           </Tab>
           <Tab
             onClick={() => setActiveTab(2)}
             className={({ selected }) =>
               clsx(
-                'flex flex-1 items-center justify-center gap-3 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 text-sm font-semibold transition-all duration-500 focus:outline-none md:justify-start md:py-4 md:text-base lg:gap-6 lg:px-7',
+                'flex-1 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
                   : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
@@ -123,18 +129,21 @@ const TechStackBlock: React.FC = () => {
             }
           >
             {({ selected }) => (
-              <>
+              <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/mobile_icon.png"
                   alt={t('mobile_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx('h-8 w-8 shrink-0 md:h-10 md:w-10', {
-                    'opacity-70': !selected,
-                  })}
+                  className={clsx(
+                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                    {
+                      'opacity-70': !selected,
+                    }
+                  )}
                 />
                 <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Mobile</span>
-              </>
+              </div>
             )}
           </Tab>
         </Tab.List>
