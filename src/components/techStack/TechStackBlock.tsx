@@ -54,7 +54,6 @@ const TechStackBlock: React.FC = () => {
       <Tab.Group
         as="div"
         defaultIndex={getActiveTab()}
-        tabIndex={getActiveTab()}
         className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4"
       >
         <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
