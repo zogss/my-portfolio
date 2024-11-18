@@ -29,6 +29,7 @@ import {
   SiStorybook,
   SiStyledcomponents,
 } from 'react-icons/si'
+import ReactNavigationIcon from '../svgs/ReactNavigationIcon'
 
 const TechStackBlock: React.FC = () => {
   const { t } = useI18next()
@@ -376,6 +377,26 @@ const techStack = [
         title: 'Redux',
         Icon: BiLogoRedux,
         color: '#764ABC',
+      },
+      {
+        title: 'React Navigation',
+        Icon: ReactNavigationIcon,
+        color: '#61DAFB',
+      },
+      {
+        title: 'Styled Components',
+        Icon: SiStyledcomponents,
+        color: '#DB7093',
+      },
+      {
+        title: 'Firebase',
+        Icon: SiFirebase,
+        color: '#FFCA28',
+      },
+      {
+        title: 'GraphQL',
+        Icon: SiGraphql,
+        color: '#E10098',
       },
     ],
   },
