@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
 
   return (
     <>
-      <Menu key="header-disclosure" as={Fragment}>
+      <Menu as={Fragment}>
         {({ open, close }) => (
           <header
             ref={headerRef}
@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
           </header>
         )}
       </Menu>
-      <Menu key="nav-disclosure" as={Fragment}>
+      <Menu as={Fragment}>
         {({ open, close }) => (
           <nav
             ref={navRef}
