@@ -10,15 +10,15 @@ interface PageLayoutProps {
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ children, hideSectionLinks }) => (
-  <WithEnterAnimation>
-    <div className="flex min-h-screen w-full flex-col justify-start overflow-hidden text-neutral-100">
-      <Header hideSectionLinks={hideSectionLinks} />
-      <main className="relative flex h-full w-full flex-1 flex-col">
-        <ScrollSpy offsetBottom={100}>{children}</ScrollSpy>
-      </main>
-      <Footer hideSectionLinks={hideSectionLinks} />
-    </div>
-  </WithEnterAnimation>
+  <div className="flex min-h-screen w-full flex-col justify-start overflow-hidden text-neutral-100">
+    <Header hideSectionLinks={hideSectionLinks} />
+    <main className="relative flex h-full w-full flex-1 flex-col">
+      <ScrollSpy offsetBottom={100} offsetTop={100}>
+        {children}
+      </ScrollSpy>
+    </main>
+    <Footer hideSectionLinks={hideSectionLinks} />
+  </div>
 )
 
-export default PageLayout
+export default WithEnterAnimation(PageLayout)
