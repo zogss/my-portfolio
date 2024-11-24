@@ -1,6 +1,7 @@
-import React from 'react'
-import { tv, type VariantProps } from 'tailwind-variants'
-import { cn } from '~/utils'
+import React from 'react';
+import {tv, type VariantProps} from 'tailwind-variants';
+
+import {cn} from '@/utils';
 
 export const separator = tv({
   base: 'mb-1 w-full',
@@ -27,14 +28,14 @@ export const separator = tv({
     color: 'default',
     size: 'default',
   },
-})
+});
 
 type Props = {
-  className?: string
-} & VariantProps<typeof separator>
+  className?: string;
+} & VariantProps<typeof separator>;
 
-const ProjectSeparator: React.FC<Props> = ({ className, color, size }) => (
-  <div className={cn(separator({ color, size }), className)} />
-)
+const ProjectSeparator: React.FC<Props> = ({className, color, size}) => (
+  <div className={cn(separator({color, size}), className)} />
+);
 
-export default ProjectSeparator
+export default ProjectSeparator;

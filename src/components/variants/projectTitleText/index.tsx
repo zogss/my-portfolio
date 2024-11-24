@@ -1,6 +1,7 @@
-import React, { Fragment, type ComponentPropsWithoutRef } from 'react'
-import { tv, type VariantProps } from 'tailwind-variants'
-import { cn } from '~/utils'
+import React, {Fragment, type ComponentPropsWithoutRef} from 'react';
+import {tv, type VariantProps} from 'tailwind-variants';
+
+import {cn} from '@/utils';
 
 export const titleText = tv({
   base: 'flex w-full items-center hover:underline justify-center text-white rounded-md text-3xl font-bold leading-none transition-colors duration-500 hover:text-white focus:outline-none',
@@ -27,14 +28,14 @@ export const titleText = tv({
     color: 'default',
     size: 'default',
   },
-})
+});
 
 type Props<C extends React.ElementType> = {
-  children?: React.ReactNode
-  asChild?: boolean
-  as?: C
+  children?: React.ReactNode;
+  asChild?: boolean;
+  as?: C;
 } & VariantProps<typeof titleText> &
-  ComponentPropsWithoutRef<C>
+  ComponentPropsWithoutRef<C>;
 
 const ProjectTitleText = <C extends React.ElementType>({
   as,
@@ -44,9 +45,11 @@ const ProjectTitleText = <C extends React.ElementType>({
   size,
   ...props
 }: Props<C>) => {
-  const Comp = as || (asChild ? 'span' : Fragment)
+  const Comp = as || (asChild ? 'span' : Fragment);
 
-  return <Comp {...props} className={cn(titleText({ color, size }), className)} />
-}
+  return (
+    <Comp {...props} className={cn(titleText({color, size}), className)} />
+  );
+};
 
-export default ProjectTitleText
+export default ProjectTitleText;

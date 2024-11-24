@@ -1,22 +1,23 @@
-import dotenv from 'dotenv'
-import { lstatSync, readdirSync } from 'fs'
-import type { GatsbyConfig } from 'gatsby'
-import path, { join } from 'path'
-import siteMetadata from './config/metadata'
+import {lstatSync, readdirSync} from 'fs';
+import path, {join} from 'path';
+import dotenv from 'dotenv';
+import type {GatsbyConfig} from 'gatsby';
+
+import siteMetadata from './config/metadata';
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
-const siteUrl = 'https://yanlucas.vercel.app/'
+const siteUrl = 'https://yanlucas.vercel.app/';
 
-const defaultLanguage = 'br'
+const defaultLanguage = 'br';
 
-const languages = readdirSync(join(__dirname, 'locales')).filter((fileName) => {
-  const joinedPath = join(join(__dirname, 'locales'), fileName)
-  const isDirectory = lstatSync(joinedPath).isDirectory()
-  return isDirectory
-})
+const languages = readdirSync(join(__dirname, 'locales')).filter(fileName => {
+  const joinedPath = join(join(__dirname, 'locales'), fileName);
+  const isDirectory = lstatSync(joinedPath).isDirectory();
+  return isDirectory;
+});
 
 const config: GatsbyConfig = {
   siteMetadata,
@@ -97,7 +98,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
-          '~': path.resolve(__dirname, 'src'),
+          '@': path.resolve(__dirname, 'src'),
         },
         extensions: ['js', 'jsx', 'ts', 'tsx', 'css'],
       },
@@ -128,36 +129,42 @@ const config: GatsbyConfig = {
         }
         `,
         serialize: (node: {
-          context: { i18n: { languages: any; originalPath: any; defaultLanguage: any } }
+          context: {
+            i18n: {
+              languages: string[];
+              originalPath: string;
+              defaultLanguage: string;
+            };
+          };
         }) => {
-          const { languages, originalPath, defaultLanguage } = node.context.i18n
-          const url = siteUrl + originalPath
+          const {languages, originalPath, defaultLanguage} = node.context.i18n;
+          const url = siteUrl + originalPath;
           const links = [
-            { lang: defaultLanguage, url },
-            { lang: 'x-default', url },
-          ]
-          languages.forEach((lang: any) => {
-            if (lang === defaultLanguage) return
-            links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` })
-          })
+            {lang: defaultLanguage, url},
+            {lang: 'x-default', url},
+          ];
+          languages.forEach(lang => {
+            if (lang === defaultLanguage) return;
+            links.push({lang, url: `${siteUrl}/${lang}${originalPath}`});
+          });
           return {
             url,
             changefreq: 'daily',
             priority: originalPath === '/' ? 1.0 : 0.7,
             links,
-          }
+          };
         },
       },
     },
     {
       resolve: `gatsby-transformer-json`,
       options: {
-        typeName: ({ node }: { node: any }) => {
-          const name = node.sourceInstanceName
+        typeName: ({node}: {node: {sourceInstanceName: string}}) => {
+          const name = node.sourceInstanceName;
           if (name === `projects`) {
-            return `Project`
+            return `Project`;
           }
-          return name
+          return name;
         },
       },
     },
@@ -167,6 +174,6 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-remark',
   ],
-}
+};
 
-export default config
+export default config;

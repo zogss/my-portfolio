@@ -9,4 +9,4 @@ export const environments = {
   inspiration: {
     figmaUrl: process.env.GATSBY_INSPIRATION_FIGMA_URL,
   },
-}
+};

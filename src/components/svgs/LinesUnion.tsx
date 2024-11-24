@@ -1,14 +1,13 @@
-import React, { SVGProps } from 'react'
+import React, {SVGProps} from 'react';
 
-const LinesUnion: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+const LinesUnion: React.FC<SVGProps<SVGSVGElement>> = props => (
   <svg
     width="921"
     height="742"
     viewBox="0 0 921 742"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+    {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -22,13 +21,12 @@ const LinesUnion: React.FC<SVGProps<SVGSVGElement>> = (props) => (
         y1="84.93"
         x2="669.856"
         y2="476.341"
-        gradientUnits="userSpaceOnUse"
-      >
+        gradientUnits="userSpaceOnUse">
         <stop stopColor="#2B2A39" />
         <stop offset="1" stopColor="#4F4E61" />
       </linearGradient>
     </defs>
   </svg>
-)
+);
 
-export default LinesUnion
+export default LinesUnion;

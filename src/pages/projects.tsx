@@ -1,21 +1,32 @@
-import { HeadFC, PageProps, graphql } from 'gatsby'
-import React from 'react'
-import PageHeader from '~/components/PageHeader'
-import Seo from '~/components/Seo'
-import ProjectsBlock from '~/components/projects/ProjectsBlock'
-import PageLayout from '~/layouts/PageLayout'
-import { ProjectType, ProjectsQueryType, getStrFromLocaleCtx } from '~/utils'
+import React from 'react';
+import {graphql, HeadFC, HeadProps, PageProps} from 'gatsby';
 
-export const Head: HeadFC<I18nPageData> = (props) => (
+import {
+  getStrFromLocaleCtx,
+  PageContextType,
+  ProjectsQueryType,
+  ProjectType,
+} from '@/utils';
+import PageLayout from '@/layouts/PageLayout';
+import PageHeader from '@/components/PageHeader';
+import ProjectsBlock from '@/components/projects/ProjectsBlock';
+import Seo from '@/components/Seo';
+
+export const Head: HeadFC<I18nPageData, PageContextType> = (
+  props: HeadProps<I18nPageData, PageContextType>,
+) => (
   <Seo
-    title={`${getStrFromLocaleCtx(props.data.locales.edges[0].node.data, 'projects')} - Yan Lucas`}
+    title={`${getStrFromLocaleCtx(
+      props.data.locales.edges[0].node.data,
+      'projects',
+    )} - Yan Lucas`}
     {...props}
   />
-)
+);
 
 const ProjectsPage: React.FC<
-  PageProps<I18nPageData & ProjectsQueryType & { image: ProjectType['image'] }>
-> = ({ data, location }) => (
+  PageProps<I18nPageData & ProjectsQueryType & {image: ProjectType['image']}>
+> = ({data, location}) => (
   <PageLayout hideSectionLinks>
     <PageHeader
       title="projects"
@@ -31,13 +42,15 @@ const ProjectsPage: React.FC<
       <ProjectsBlock projects={data.content.nodes} />
     </div>
   </PageLayout>
-)
+);
 
-export default ProjectsPage
+export default ProjectsPage;
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { ns: { in: ["common"] }, language: { eq: $language } }) {
+    locales: allLocale(
+      filter: {ns: {in: ["common"]}, language: {eq: $language}}
+    ) {
       edges {
         node {
           ns
@@ -53,17 +66,25 @@ export const query = graphql`
         image {
           base
           childImageSharp {
-            gatsbyImageData(placeholder: DOMINANT_COLOR, quality: 100, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              placeholder: DOMINANT_COLOR
+              quality: 100
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         alt
       }
     }
-    image: file(relativePath: { eq: "projects_background_image.jpg" }) {
+    image: file(relativePath: {eq: "projects_background_image.jpg"}) {
       base
       childImageSharp {
-        gatsbyImageData(placeholder: DOMINANT_COLOR, quality: 100, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData(
+          placeholder: DOMINANT_COLOR
+          quality: 100
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }
-`
+`;

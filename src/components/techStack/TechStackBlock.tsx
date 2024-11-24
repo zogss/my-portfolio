@@ -1,8 +1,8 @@
-import { Tab } from '@headlessui/react'
-import clsx from 'clsx'
-import { StaticImage } from 'gatsby-plugin-image'
-import { useI18next } from 'gatsby-plugin-react-i18next'
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react';
+import {Tab} from '@headlessui/react';
+import clsx from 'clsx';
+import {StaticImage} from 'gatsby-plugin-image';
+import {useI18next} from 'gatsby-plugin-react-i18next';
 import {
   BiLogoAngular,
   BiLogoJavascript,
@@ -10,8 +10,15 @@ import {
   BiLogoRedux,
   BiLogoTailwindCss,
   BiLogoTypescript,
-} from 'react-icons/bi'
-import { FaBootstrap, FaCss3, FaHtml5, FaNodeJs, FaReact, FaSass } from 'react-icons/fa'
+} from 'react-icons/bi';
+import {
+  FaBootstrap,
+  FaCss3,
+  FaHtml5,
+  FaNodeJs,
+  FaReact,
+  FaSass,
+} from 'react-icons/fa';
 import {
   SiAlpinedotjs,
   SiApollographql,
@@ -28,48 +35,47 @@ import {
   SiReactivex,
   SiStorybook,
   SiStyledcomponents,
-} from 'react-icons/si'
-import ReactNavigationIcon from '../svgs/ReactNavigationIcon'
+} from 'react-icons/si';
+
+import ReactNavigationIcon from '../svgs/ReactNavigationIcon';
 
 const TechStackBlock: React.FC = () => {
-  const { t } = useI18next()
+  const {t} = useI18next();
 
   const getActiveTab = () => {
     if (typeof window !== 'undefined') {
-      const activeTab = localStorage.getItem('techStackActiveTab')
+      const activeTab = localStorage.getItem('techStackActiveTab');
       if (activeTab) {
-        return parseInt(activeTab)
+        return parseInt(activeTab);
       }
     }
-    return 1
-  }
+    return 1;
+  };
 
   const setActiveTab = (index: number) => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('techStackActiveTab', index.toString())
+      localStorage.setItem('techStackActiveTab', index.toString());
     }
-  }
+  };
 
   return (
     <div className="z-[1] flex w-full flex-1 justify-center">
       <Tab.Group
         as="div"
         defaultIndex={getActiveTab()}
-        className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4"
-      >
+        className="flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg bg-midnight-slate-700 2xl:w-3/4">
         <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
           <Tab
             onClick={() => setActiveTab(0)}
-            className={({ selected }) =>
+            className={({selected}) =>
               clsx(
                 'flex-1 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+                  : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
               )
-            }
-          >
-            {({ selected }) => (
+            }>
+            {({selected}) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/backend_icon.png"
@@ -80,25 +86,29 @@ const TechStackBlock: React.FC = () => {
                     'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
                     {
                       'opacity-70': !selected,
-                    }
+                    },
                   )}
                 />
-                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Backend</span>
+                <span
+                  className={clsx(
+                    selected ? 'block' : 'sr-only md:not-sr-only',
+                  )}>
+                  Backend
+                </span>
               </div>
             )}
           </Tab>
           <Tab
             onClick={() => setActiveTab(1)}
-            className={({ selected }) =>
+            className={({selected}) =>
               clsx(
                 'flex-1 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+                  : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
               )
-            }
-          >
-            {({ selected }) => (
+            }>
+            {({selected}) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/frontend_icon.png"
@@ -109,10 +119,13 @@ const TechStackBlock: React.FC = () => {
                     'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
                     {
                       'opacity-70': !selected,
-                    }
+                    },
                   )}
                 />
-                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>
+                <span
+                  className={clsx(
+                    selected ? 'block' : 'sr-only md:not-sr-only',
+                  )}>
                   Frontend
                 </span>
               </div>
@@ -120,16 +133,15 @@ const TechStackBlock: React.FC = () => {
           </Tab>
           <Tab
             onClick={() => setActiveTab(2)}
-            className={({ selected }) =>
+            className={({selected}) =>
               clsx(
                 'flex-1 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
                   ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5'
+                  : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
               )
-            }
-          >
-            {({ selected }) => (
+            }>
+            {({selected}) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
                 <StaticImage
                   src="../../images/mobile_icon.png"
@@ -140,10 +152,15 @@ const TechStackBlock: React.FC = () => {
                     'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
                     {
                       'opacity-70': !selected,
-                    }
+                    },
                   )}
                 />
-                <span className={clsx(selected ? 'block' : 'sr-only md:not-sr-only')}>Mobile</span>
+                <span
+                  className={clsx(
+                    selected ? 'block' : 'sr-only md:not-sr-only',
+                  )}>
+                  Mobile
+                </span>
               </div>
             )}
           </Tab>
@@ -152,27 +169,26 @@ const TechStackBlock: React.FC = () => {
           {techStack.map((stack, i) => (
             <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
               <ul className="flex w-full flex-wrap items-center justify-center gap-8 self-stretch p-6">
-                {stack.techs.map(({ title, Icon, color }, i) => (
+                {stack.techs.map(({title, Icon, color}, i) => (
                   <li key={i}>
                     <div className="relative flex flex-col items-center justify-center gap-3">
                       <Icon
                         style={{
                           color,
                         }}
-                        className="z-[1] h-7 w-7 md:h-9 md:w-9 lg:h-11 lg:w-11"
+                        className="z-[1] size-7 md:size-9 lg:size-11"
                       />
                       <a
                         href={`https://www.google.com/search?q=${title}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        title={t('google_seach', { text: title })}
-                        aria-label={t('google_seach', { text: title })}
-                        className="z-[1] text-xs font-medium md:text-sm"
-                      >
+                        title={t('google_seach', {text: title})}
+                        aria-label={t('google_seach', {text: title})}
+                        className="z-[1] text-xs font-medium md:text-sm">
                         {title}
                       </a>
                       <div className="absolute inset-0 flex items-start justify-center pt-6">
-                        <div className="h-5 w-5 bg-slate-gray-300 blur-xl" />
+                        <div className="size-5 bg-slate-gray-300 blur-xl" />
                       </div>
                     </div>
                   </li>
@@ -183,10 +199,10 @@ const TechStackBlock: React.FC = () => {
         </Tab.Panels>
       </Tab.Group>
     </div>
-  )
-}
+  );
+};
 
-export default TechStackBlock
+export default TechStackBlock;
 
 const techStack = [
   {
@@ -400,4 +416,4 @@ const techStack = [
       },
     ],
   },
-]
+];

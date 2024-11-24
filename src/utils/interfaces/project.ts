@@ -1,4 +1,4 @@
-import { type IGatsbyImageData } from 'gatsby-plugin-image'
+import {type IGatsbyImageData} from 'gatsby-plugin-image';
 
 export type ProjectNameType =
   | 'Spacie'
@@ -8,7 +8,7 @@ export type ProjectNameType =
   | 'Massagueirinha Menu'
   | 'Bull Blockchain'
   | 'Car Rent'
-  | 'Localize'
+  | 'Localize';
 
 export type ProjectSlugType =
   | 'spacie'
@@ -18,29 +18,29 @@ export type ProjectSlugType =
   | 'massagueirinha-menu'
   | 'bull-blockchain'
   | 'car-rent'
-  | 'localize'
+  | 'localize';
 
 export type ProjectType = {
-  id: string
-  slug: ProjectSlugType
-  title: ProjectNameType
-  subtitle: string
-  short_description: string
-  long_description: string[]
-  url: string | null
-  repository_url: string | null
-  techs: string[]
+  id: string;
+  slug: ProjectSlugType;
+  title: ProjectNameType;
+  subtitle: string;
+  short_description: string;
+  long_description: string[];
+  url: string | null;
+  repository_url: string | null;
+  techs: string[];
   image: {
-    base: string
+    base: string;
     childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
-  }
-  alt: string
-}
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+  alt: string;
+};
 
 export interface ProjectsQueryType {
   content: {
-    nodes: ProjectType[]
-  }
+    nodes: ProjectType[];
+  };
 }

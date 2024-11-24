@@ -1,14 +1,15 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { useI18next } from 'gatsby-plugin-react-i18next'
-import { kebabCase } from 'lodash'
-import React from 'react'
-import { BiLinkExternal } from 'react-icons/bi'
-import { BsGithub } from 'react-icons/bs'
-import Tag from '~/components/Tag'
-import ProjectSeparator from '~/components/variants/projectSeparator'
-import ProjectTitleText from '~/components/variants/projectTitleText'
-import ProjectTripleDots from '~/components/variants/projectTripleDots'
-import { ProjectType } from '~/utils'
+import React from 'react';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
+import {useI18next} from 'gatsby-plugin-react-i18next';
+import {kebabCase} from 'lodash';
+import {BiLinkExternal} from 'react-icons/bi';
+import {BsGithub} from 'react-icons/bs';
+
+import {ProjectType} from '@/utils';
+import Tag from '@/components/Tag';
+import ProjectSeparator from '@/components/variants/projectSeparator';
+import ProjectTitleText from '@/components/variants/projectTitleText';
+import ProjectTripleDots from '@/components/variants/projectTripleDots';
 
 const ProjectBlock: React.FC<ProjectType> = ({
   title,
@@ -21,7 +22,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
   url,
   repository_url,
 }) => {
-  const { t } = useI18next()
+  const {t} = useI18next();
 
   return (
     <section className="flex w-full flex-col gap-9">
@@ -29,21 +30,29 @@ const ProjectBlock: React.FC<ProjectType> = ({
         <GatsbyImage
           image={getImage(image)!}
           alt={alt}
-          className="h-full w-full rounded-md object-contain object-center"
+          className="size-full rounded-md object-contain object-center"
         />
         <div className="flex w-full flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="group/projectCard flex w-full justify-between gap-4 sm:w-fit">
             <ProjectTitleText
               as={url ? 'a' : 'span'}
               {...(url
-                ? { href: url, target: '_blank', rel: 'noopener noreferrer', title: url }
+                ? {
+                    href: url,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    title: url,
+                  }
                 : {})}
               color={slug}
-              className="w-fit"
-            >
+              className="w-fit">
               {t(title)}
             </ProjectTitleText>
-            <ProjectTripleDots color={slug} size="md" className="hidden items-center xs:flex" />
+            <ProjectTripleDots
+              color={slug}
+              size="md"
+              className="hidden items-center xs:flex"
+            />
           </div>
           {(url || repository_url) && (
             <div className="flex items-center justify-start gap-1 md:gap-2">
@@ -53,10 +62,9 @@ const ProjectBlock: React.FC<ProjectType> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   title={url}
-                  className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5"
-                >
+                  className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5">
                   <span className="sr-only">{t('visit')}</span>
-                  <BiLinkExternal className="h-5 w-5 shrink-0 md:h-6 md:w-6" />
+                  <BiLinkExternal className="size-5 shrink-0 md:size-6" />
                 </a>
               )}
               {repository_url && (
@@ -65,8 +73,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   title={repository_url}
-                  className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5"
-                >
+                  className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5">
                   <span className="sr-only">{t('code')}</span>
                   <BsGithub className="w-h-5 md:6 shmd:rink-0 h-6 w-5" />
                 </a>
@@ -85,7 +92,9 @@ const ProjectBlock: React.FC<ProjectType> = ({
       </div>
       <div className="mt-5 flex w-full flex-col items-start gap-3">
         <div className="flex w-full items-end justify-start gap-2">
-          <span className="text-sm font-semibold text-neutral-400">{t('techs')}</span>
+          <span className="text-sm font-semibold text-neutral-400">
+            {t('techs')}
+          </span>
           <ProjectSeparator color={slug} size="xs" />
         </div>
         <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
@@ -95,7 +104,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProjectBlock
+export default ProjectBlock;

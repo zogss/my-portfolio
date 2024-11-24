@@ -59,6 +59,6 @@ const siteMetadata = {
       url: 'https://www.instagram.com/yan_llucasb/',
     },
   ],
-}
+};
 
-export default siteMetadata
+export default siteMetadata;

@@ -1,3 +1,3 @@
-export * from './metadaData'
-export * from './pageProps'
-export * from './project'
+export * from './metadaData';
+export * from './pageProps';
+export * from './project';

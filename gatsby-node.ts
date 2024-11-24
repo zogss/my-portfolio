@@ -4,57 +4,71 @@
  * https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#field-sitepagecontext-is-no-longer-available-in-graphql-queries
  */
 
-import { GatsbyNode } from 'gatsby'
-import path from 'path'
-import { ProjectType } from './src/utils/interfaces/project'
+import path from 'path';
+import {GatsbyNode} from 'gatsby';
 
-const getFileNode = (options: any) => (source: any, _: any, context: any, info: any) => {
-  const { fieldName } = info
-  const partialPath = source[fieldName]
+import {ProjectType} from '@/utils/interfaces/project';
 
-  if (!partialPath) {
-    return null
-  }
+const getFileNode =
+  (options: {path: string}) =>
+  (
+    source: {[key: string]: string},
+    _: unknown,
+    context: {
+      nodeModel: {
+        findOne: (args: {
+          type: string;
+          query: {filter: {absolutePath: {eq: string}}};
+        }) => Promise<{absolutePath: string} | null>;
+      };
+    },
+    info: {fieldName: string},
+  ) => {
+    const {fieldName} = info;
+    const partialPath = source[fieldName];
 
-  const filePath = path.join(__dirname, options.path, partialPath)
+    if (!partialPath) {
+      return null;
+    }
 
-  const fileNode = context.nodeModel.findOne({
-    type: 'File',
-    query: {
-      filter: {
-        absolutePath: {
-          eq: filePath,
+    const filePath = path.join(__dirname, options.path, partialPath);
+
+    const fileNode = context.nodeModel.findOne({
+      type: 'File',
+      query: {
+        filter: {
+          absolutePath: {
+            eq: filePath,
+          },
         },
       },
-    },
-  })
+    });
 
-  if (!fileNode) {
-    return null
-  }
+    if (!fileNode) {
+      return null;
+    }
 
-  return fileNode
-}
+    return fileNode;
+  };
 
-export const createSchemaCustomization: GatsbyNode[`createSchemaCustomization`] = ({
-  actions,
-}): void => {
-  const { createTypes, createFieldExtension } = actions
+export const createSchemaCustomization: GatsbyNode[`createSchemaCustomization`] =
+  ({actions}): void => {
+    const {createTypes, createFieldExtension} = actions;
 
-  createFieldExtension({
-    name: 'fileByAbsolutePath',
-    args: {
-      path: {
-        type: 'String!',
-        defaultValue: '',
+    createFieldExtension({
+      name: 'fileByAbsolutePath',
+      args: {
+        path: {
+          type: 'String!',
+          defaultValue: '',
+        },
       },
-    },
-    extend: (options: any) => ({
-      resolve: getFileNode(options),
-    }),
-  })
+      extend: (options: {path: string}) => ({
+        resolve: getFileNode(options),
+      }),
+    });
 
-  const typeDefs = `
+    const typeDefs = `
     type SitePage implements Node {
       context: SitePageContext
     }
@@ -71,15 +85,18 @@ export const createSchemaCustomization: GatsbyNode[`createSchemaCustomization`] 
     
     type Project implements Node {
       image: File @fileByAbsolutePath(path: "src/images/projects")
-    }`
+    }`;
 
-  createTypes(typeDefs)
-}
+    createTypes(typeDefs);
+  };
 
-export const createPages: GatsbyNode[`createPages`] = async ({ graphql, actions }) => {
-  const { createPage } = actions
+export const createPages: GatsbyNode[`createPages`] = async ({
+  graphql,
+  actions,
+}) => {
+  const {createPage} = actions;
 
-  const result = await graphql<{ content: { nodes: ProjectType[] } }>(`
+  const result = await graphql<{content: {nodes: ProjectType[]}}>(`
     query {
       content: allProject {
         nodes {
@@ -106,17 +123,17 @@ export const createPages: GatsbyNode[`createPages`] = async ({ graphql, actions 
         }
       }
     }
-  `)
+  `);
 
   if (result.data) {
-    result.data.content.nodes.forEach((node) => {
+    result.data.content.nodes.forEach(node => {
       createPage({
         path: `/projects/${node.slug}`,
         component: path.resolve(`./src/templates/Project.tsx`),
         context: {
           project: node,
         },
-      })
-    })
+      });
+    });
   }
-}
+};

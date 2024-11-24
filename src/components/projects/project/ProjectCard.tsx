@@ -1,19 +1,19 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, useI18next } from 'gatsby-plugin-react-i18next'
-import React from 'react'
-import ProjectTripleDots from '~/components/variants/projectTripleDots'
-import { ProjectType } from '~/utils'
+import React from 'react';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
+import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 
-const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
-  const { t } = useI18next()
+import {ProjectType} from '@/utils';
+import ProjectTripleDots from '@/components/variants/projectTripleDots';
+
+const ProjectCard: React.FC<ProjectType> = ({image, alt, slug, title}) => {
+  const {t} = useI18next();
 
   return (
     <article data-animation="animate" className="flex flex-col">
       <Link
         to={`/projects/${slug}`}
         data-animation-target="up"
-        className="flex flex-col items-center gap-3"
-      >
+        className="flex flex-col items-center gap-3">
         <div className="group/projectCard relative overflow-hidden rounded-md bg-midnight-slate-700 p-2.5 transition-all duration-500 hover:bg-neutral-300/20 md:p-3.5">
           <div className="z-[1] flex flex-col items-center gap-2 self-stretch md:gap-3">
             <div className="group/projectImg relative max-h-[11.875rem] shrink-0 overflow-hidden rounded border border-transparent transition-colors duration-500 group-hover/projectCard:border-neutral-400/20 sm:h-[11.875rem] sm:max-h-max 2xl:h-[12.8125rem]">
@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
         </div>
       </Link>
     </article>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

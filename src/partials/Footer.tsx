@@ -1,17 +1,18 @@
-import { Link, useI18next } from 'gatsby-plugin-react-i18next'
-import React from 'react'
-import { navLinks } from '~/components/HeaderLinks'
-import SocialLinks from '~/components/SocialLinks'
-import FigmaIcon from '~/components/svgs/FigmaIcon'
-import YIcon from '~/components/svgs/YIcon'
-import { environments } from '~/utils'
+import React from 'react';
+import {Link, useI18next} from 'gatsby-plugin-react-i18next';
+
+import {environments} from '@/utils';
+import {navLinks} from '@/components/HeaderLinks';
+import SocialLinks from '@/components/SocialLinks';
+import FigmaIcon from '@/components/svgs/FigmaIcon';
+import YIcon from '@/components/svgs/YIcon';
 
 interface FooterProps {
-  hideSectionLinks?: boolean
+  hideSectionLinks?: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
-  const { t } = useI18next()
+const Footer: React.FC<FooterProps> = ({hideSectionLinks}) => {
+  const {t} = useI18next();
 
   return (
     <footer className="flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b from-charcoal-black-700 to-black/80 px-[10%] pb-6 pt-12 md:px-[15%]">
@@ -21,23 +22,21 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
             to={hideSectionLinks ? '/' : '#home'}
             title={t('navigate_home')}
             aria-label={t('navigate_home')}
-            className="flex shrink-0"
-          >
+            className="flex shrink-0">
             <YIcon
               aria-label={t('yan_logo_alt')}
-              className="h-24 w-24 shrink-0 md:h-32 md:w-32 lg:h-36 lg:w-36"
+              className="size-24 shrink-0 md:size-32 lg:size-36"
             />
             <span className="sr-only">{t('yan_logo_alt')}</span>
           </Link>
           {!hideSectionLinks && (
             <div className="hidden flex-col items-start gap-1 py-1 md:flex">
-              {navLinks.map((link) => (
+              {navLinks.map(link => (
                 <Link
                   key={link.name}
                   to={link.to || '/'}
                   title={t(link.name)}
-                  className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100"
-                >
+                  className="flex w-full rounded px-3.5 py-3 pr-8 text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100">
                   {t(link.name)}
                 </Link>
               ))}
@@ -50,8 +49,7 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
             <a
               href={`mailto:${environments.personal.email}`}
               title={environments.personal.email}
-              className="flex w-fit items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5 text-sm md:w-full md:text-base"
-            >
+              className="flex w-fit items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-2.5 text-sm md:w-full md:text-base">
               {environments.personal.email}
             </a>
           </div>
@@ -67,14 +65,13 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
           target="_blank"
           rel="noreferrer"
           title={environments.inspiration.figmaUrl}
-          className="flex items-center justify-center gap-3 rounded px-3 py-2 text-xs font-medium text-white/40 transition-colors duration-500 hover:bg-zinc-700 hover:text-neutral-300"
-        >
-          {t('inspired_text', { name: '@KC Studio' })}
+          className="flex items-center justify-center gap-3 rounded px-3 py-2 text-xs font-medium text-white/40 transition-colors duration-500 hover:bg-zinc-700 hover:text-neutral-300">
+          {t('inspired_text', {name: '@KC Studio'})}
           <FigmaIcon aria-hidden="true" />
         </a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

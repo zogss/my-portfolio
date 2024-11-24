@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion'
-import { useI18next } from 'gatsby-plugin-react-i18next'
-import React from 'react'
+import React from 'react';
+import {motion} from 'framer-motion';
+import {useI18next} from 'gatsby-plugin-react-i18next';
 
 interface AnimatedErrorProps {
-  error?: string
+  error?: string;
 }
 
-const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
-  const { t } = useI18next()
+const AnimatedError: React.FC<AnimatedErrorProps> = ({error = ''}) => {
+  const {t} = useI18next();
 
   return (
     <motion.div
@@ -45,11 +45,10 @@ const AnimatedError: React.FC<AnimatedErrorProps> = ({ error = '' }) => {
               },
             }
       }
-      className="overflow-hidden"
-    >
+      className="overflow-hidden">
       <span className="form-error">{t(error)}</span>
     </motion.div>
-  )
-}
+  );
+};
 
-export default AnimatedError
+export default AnimatedError;

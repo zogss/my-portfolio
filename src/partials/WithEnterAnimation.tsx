@@ -1,56 +1,58 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react';
 
-type WithEnterAnimationElement<T = object> = React.FC<T>
+type WithEnterAnimationElement<T = object> = React.FC<T>;
 
 const WithEnterAnimation = <T extends object = object>(
-  WrappedComponent: WithEnterAnimationElement<T>
+  WrappedComponent: WithEnterAnimationElement<T>,
 ) => {
   const ComponentWithAnimation = (props: T) => {
     useEffect(() => {
-      const intersectionObservers: IntersectionObserver[] = []
-      const targetElements = document.querySelectorAll('[data-animation]')
+      const intersectionObservers: IntersectionObserver[] = [];
+      const targetElements = document.querySelectorAll('[data-animation]');
 
       targetElements.forEach((el, i) => {
         intersectionObservers[i] = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const element = entry.target
+          entries => {
+            entries.forEach(entry => {
+              const element = entry.target;
 
               if (entry.isIntersecting) {
-                const targetChildElements = element.querySelectorAll('[data-animation-target]')
+                const targetChildElements = element.querySelectorAll(
+                  '[data-animation-target]',
+                );
 
                 targetChildElements.forEach((child, index) => {
                   if (!child.classList.contains('animate')) {
-                    child.classList.add('animate')
+                    child.classList.add('animate');
                   } else if (targetChildElements.length === index + 1) {
-                    intersectionObservers[i].unobserve(el)
+                    intersectionObservers[i].unobserve(el);
                   }
-                })
+                });
               }
-            })
+            });
           },
           {
             threshold: window.innerWidth > 768 ? 0.2 : 0.4,
-          }
-        )
-        intersectionObservers[i].observe(el)
-      })
+          },
+        );
+        intersectionObservers[i].observe(el);
+      });
 
       return () => {
         if (intersectionObservers.length > 0) {
-          intersectionObservers.forEach((observer) => observer.disconnect())
+          intersectionObservers.forEach(observer => observer.disconnect());
         }
-      }
-    }, [])
+      };
+    }, []);
 
-    return <WrappedComponent {...props} />
-  }
+    return <WrappedComponent {...props} />;
+  };
 
   ComponentWithAnimation.displayName = `WithEnterAnimation(${
     WrappedComponent.displayName || WrappedComponent.name || 'Component'
-  })`
+  })`;
 
-  return ComponentWithAnimation
-}
+  return ComponentWithAnimation;
+};
 
-export default WithEnterAnimation
+export default WithEnterAnimation;

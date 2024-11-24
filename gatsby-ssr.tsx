@@ -1,3 +1,3 @@
-import MainLayout from './src/layouts/MainLayout'
+import MainLayout from '@/layouts/MainLayout';
 
-export const wrapPageElement = MainLayout
+export const wrapPageElement = MainLayout;

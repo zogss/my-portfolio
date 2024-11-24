@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge'
+import {twMerge} from 'tailwind-merge';
 
 /**
  * @description
@@ -10,6 +10,8 @@ import { twMerge } from 'tailwind-merge'
  * cn('text-red-500', 'text-red-600') => text-red-600
  * cn('text-red-500', undefined, 'bg-red-500')
  * **/
-export const cn = (...classNames: Array<string | undefined | any>): string => {
-  return twMerge(classNames)
-}
+export const cn = (
+  ...classNames: Array<string | undefined | string>
+): string => {
+  return twMerge(classNames);
+};

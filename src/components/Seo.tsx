@@ -1,19 +1,20 @@
-import { HeadProps } from 'gatsby'
-import React from 'react'
-import { useSiteMetadata } from '~/hooks/useSiteMetadata'
+import React from 'react';
+import {HeadProps} from 'gatsby';
 
-interface SeoProps extends HeadProps<any, any> {
-  description?: string
-  meta?: any[]
-  title: string
+import {PageContextType} from '@/utils';
+import {useSiteMetadata} from '@/hooks/useSiteMetadata';
+
+interface SeoProps extends HeadProps<unknown, PageContextType> {
+  description?: string;
+  title: string;
 }
 
-const Seo: React.FC<SeoProps> = ({ description, title, pageContext }) => {
-  const metaData = useSiteMetadata()
+const Seo: React.FC<SeoProps> = ({description, title, pageContext}) => {
+  const metaData = useSiteMetadata();
 
-  const metaDescription = description || metaData.description
+  const metaDescription = description || metaData.description;
 
-  const lang = pageContext.language === 'br' ? 'pt-BR' : 'en-US'
+  const lang = pageContext.language === 'br' ? 'pt-BR' : 'en-US';
 
   return (
     <>
@@ -38,7 +39,7 @@ const Seo: React.FC<SeoProps> = ({ description, title, pageContext }) => {
       <meta name="twitter:image" content={metaData.siteUrl + metaData.image} />
       <meta name="twitter:description" content={metaDescription} />
     </>
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

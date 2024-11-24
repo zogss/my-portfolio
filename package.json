@@ -1,23 +1,22 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "private": false,
-  "license": "MIT",
-  "description": "my-portfolio",
-  "author": "zogss",
+  "private": true,
+  "description": "Meu portfólio pessoal",
+  "author": {
+    "name": "Yan Lucas",
+    "url": "https://yanlucas.vercel.app/"
+  },
   "keywords": [
     "gatsby"
   ],
   "scripts": {
     "dev": "gatsby develop",
-    "dev:clean-cache": "gatsby clean && gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint './**/*.{js,jsx,ts,tsx,css}' --ignore-pattern 'public/'",
-    "lint:fix": "eslint --quiet --fix './**/*.{js,jsx,ts,tsx,css}' --ignore-pattern 'public/'"
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -56,10 +55,10 @@
     "react-ui-scrollspy": "^2.3.0",
     "tailwind-merge": "^1.14.0",
     "tailwind-variants": "^0.1.14",
-    "tailwindcss": "^3.3.3",
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/luxon": "^3.3.2",
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
@@ -67,16 +66,19 @@
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "eslint": "^8.48.0",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.3",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -1,16 +1,19 @@
-import { HeadFC, PageProps, graphql } from 'gatsby'
-import React from 'react'
-import PageHeader from '~/components/PageHeader'
-import Seo from '~/components/Seo'
-import ProjectBlock from '~/components/projects/project/ProjectBlock'
-import PageLayout from '~/layouts/PageLayout'
-import { IProjectPageContext } from '~/utils'
+import React from 'react';
+import {graphql, HeadFC, HeadProps, PageProps} from 'gatsby';
 
-export const Head: HeadFC<I18nPageData, IProjectPageContext> = (props) => (
+import {PageContextWithProject} from '@/utils';
+import PageLayout from '@/layouts/PageLayout';
+import PageHeader from '@/components/PageHeader';
+import ProjectBlock from '@/components/projects/project/ProjectBlock';
+import Seo from '@/components/Seo';
+
+export const Head: HeadFC<I18nPageData, PageContextWithProject> = (
+  props: HeadProps<I18nPageData, PageContextWithProject>,
+) => (
   <Seo title={`${props.pageContext.project.title} - Yan Lucas`} {...props} />
-)
+);
 
-const Project: React.FC<PageProps<I18nPageData, IProjectPageContext>> = ({
+const Project: React.FC<PageProps<I18nPageData, PageContextWithProject>> = ({
   pageContext,
   location,
 }) => (
@@ -28,13 +31,15 @@ const Project: React.FC<PageProps<I18nPageData, IProjectPageContext>> = ({
       <ProjectBlock {...pageContext.project} />
     </div>
   </PageLayout>
-)
+);
 
-export default Project
+export default Project;
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { ns: { in: ["common"] }, language: { eq: $language } }) {
+    locales: allLocale(
+      filter: {ns: {in: ["common"]}, language: {eq: $language}}
+    ) {
       edges {
         node {
           ns
@@ -44,4 +49,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

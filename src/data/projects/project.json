@@ -170,7 +170,10 @@
     "title": "Car Rent",
     "slug": "car-rent",
     "short_description": "car_rent_description",
-    "long_description": ["car_rent_long_description_01", "car_rent_long_description_02"],
+    "long_description": [
+      "car_rent_long_description_01",
+      "car_rent_long_description_02"
+    ],
     "image": "car_rent_image.jpeg",
     "url": "https://car-rent-26n3.onrender.com/",
     "repository_url": "https://github.com/zogss/car-rent-website",
@@ -194,7 +197,10 @@
     "title": "Localize",
     "slug": "localize",
     "short_description": "localize_description",
-    "long_description": ["localize_long_description_01", "localize_long_description_02"],
+    "long_description": [
+      "localize_long_description_01",
+      "localize_long_description_02"
+    ],
     "image": "localize_image.png",
     "url": null,
     "repository_url": "https://github.com/zogss/localize",

@@ -1,6 +1,6 @@
-import React, { SVGProps } from 'react'
+import React, {SVGProps} from 'react';
 
-const YIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+const YIcon: React.FC<SVGProps<SVGSVGElement>> = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -8,8 +8,7 @@ const YIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     height="511"
     viewBox="0 -0.5 511 511"
     aria-hidden="true"
-    {...props}
-  >
+    {...props}>
     <defs>
       <clipPath id="clip-path">
         <rect width="511" height="510" />
@@ -23,6 +22,6 @@ const YIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
       />
     </g>
   </svg>
-)
+);
 
-export default YIcon
+export default YIcon;

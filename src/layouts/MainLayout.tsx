@@ -1,9 +1,11 @@
-import { GatsbyBrowser } from 'gatsby'
-import React from 'react'
-import { Toaster } from 'react-hot-toast'
-import Loader from '~/components/Loader'
+import React from 'react';
+import {GatsbyBrowser} from 'gatsby';
+import {Toaster} from 'react-hot-toast';
 
-const MainLayout: GatsbyBrowser['wrapPageElement'] = ({ element }) => (
+import Loader from '@/components/Loader';
+
+// eslint-disable-next-line react/prop-types
+const MainLayout: GatsbyBrowser['wrapPageElement'] = ({element}) => (
   <>
     {element}
     <Loader />
@@ -16,6 +18,6 @@ const MainLayout: GatsbyBrowser['wrapPageElement'] = ({ element }) => (
       }}
     />
   </>
-)
+);
 
-export default MainLayout
+export default MainLayout;

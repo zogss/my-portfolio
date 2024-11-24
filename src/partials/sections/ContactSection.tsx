@@ -1,17 +1,17 @@
-import { useI18next } from 'gatsby-plugin-react-i18next'
-import { upperCase } from 'lodash'
-import React from 'react'
-import ContactBlock from '~/components/contact/ContactBlock'
-import TitleEclipse from '~/components/svgs/TitleEclipse'
+import React from 'react';
+import {useI18next} from 'gatsby-plugin-react-i18next';
+import {upperCase} from 'lodash';
+
+import ContactBlock from '@/components/contact/ContactBlock';
+import TitleEclipse from '@/components/svgs/TitleEclipse';
 
 const ContactSection: React.FC = () => {
-  const { t } = useI18next()
+  const {t} = useI18next();
 
   return (
     <section
       id="contact"
-      className="relative flex min-h-[75vh] w-full flex-col items-center justify-start gap-10 px-[10%] py-10 sm:min-h-screen md:gap-12 md:px-[15%] md:py-14 lg:gap-16"
-    >
+      className="relative flex min-h-[75vh] w-full flex-col items-center justify-start gap-10 px-[10%] py-10 sm:min-h-screen md:gap-12 md:px-[15%] md:py-14 lg:gap-16">
       <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">
         <TitleEclipse className="absolute left-1/2 top-1/2 h-[31.25rem] -translate-x-1/2 -translate-y-1/2 lg:h-[50rem]" />
         <div className="h-10 w-full text-center sm:h-12 md:h-16">
@@ -22,7 +22,7 @@ const ContactSection: React.FC = () => {
       </div>
       <ContactBlock />
     </section>
-  )
-}
+  );
+};
 
-export default ContactSection
+export default ContactSection;
