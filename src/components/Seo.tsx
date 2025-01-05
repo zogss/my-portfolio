@@ -31,13 +31,16 @@ const Seo: React.FC<SeoProps> = ({
   const translatedMetaData =
     pageContext.language === 'br' ? metaData.br : metaData.en;
 
+  const translatedSiteUrl =
+    pageContext.language === 'br'
+      ? `${metaData.siteUrl}`
+      : `${metaData.siteUrl}/en`;
+
   const pageTitle = title || metaData.title;
   const metaDescription = description || translatedMetaData.description;
   const metaUrl = pathname
-    ? pageContext.language === 'br'
-      ? `${metaData.siteUrl}/${pathname}`
-      : `${metaData.siteUrl}/en/${pathname}`
-    : metaData.siteUrl;
+    ? `${translatedSiteUrl}/${pathname}`
+    : translatedSiteUrl;
   const metaImage = image
     ? metaData.siteUrl + image
     : metaData.siteUrl + metaData.image;
