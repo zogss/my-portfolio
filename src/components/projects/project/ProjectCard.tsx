@@ -18,6 +18,7 @@ const ProjectCard: React.FC<ProjectType> = ({image, alt, slug, title}) => {
           <div className="z-[1] flex flex-col items-center gap-2 self-stretch md:gap-3">
             <div className="group/projectImg relative max-h-[11.875rem] shrink-0 overflow-hidden rounded border border-transparent transition-colors duration-500 group-hover/projectCard:border-neutral-400/20 sm:h-[11.875rem] sm:max-h-max 2xl:h-[12.8125rem]">
               <GatsbyImage
+                as="figure"
                 image={getImage(image)!}
                 alt={alt}
                 className="aspect-[18/9] max-h-[11.875rem] w-full [transition:transform_5000ms_cubic-bezier(0.7,0,0.7,1.01),max-height_200ms] hover:scale-150 sm:w-auto 2xl:max-h-[12.8125rem]"
@@ -30,9 +31,9 @@ const ProjectCard: React.FC<ProjectType> = ({image, alt, slug, title}) => {
             </div>
             <header className="flex w-full items-center justify-center gap-3 lg:gap-5 xl:w-fit">
               <ProjectTripleDots color={slug} size="sm" />
-              <h3 className="text-lg font-semibold text-neutral-300 lg:pr-4 lg:text-xl xl:pr-0">
+              <span className="m-0 text-lg font-semibold text-neutral-300 lg:pr-4 lg:text-xl xl:pr-0">
                 {t(title)}
-              </h3>
+              </span>
             </header>
           </div>
         </div>
