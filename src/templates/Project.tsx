@@ -16,7 +16,7 @@ export const Head: HeadFC<I18nPageData, PageContextWithProject> = (
       props.data.locales.edges[0].node.data,
       props.pageContext.project.short_description,
     )}
-    pathname={props.pageContext.project.slug}
+    pathname={`projects/${props.pageContext.project.slug}`}
     metaOgType="article"
     metaTitle={`${props.pageContext.project.title} - Yan Lucas`}
     image={
