@@ -83,7 +83,6 @@ const ContactForm: React.FC = () => {
       <Input className="w-full">
         <Input.Input
           type="text"
-          id="name"
           autoComplete="name"
           {...register('name')}
           error={errors.name?.message}
@@ -96,7 +95,6 @@ const ContactForm: React.FC = () => {
       <Input className="w-full">
         <Input.Input
           type="email"
-          id="email"
           autoComplete="email"
           {...register('email')}
           error={errors.email?.message}
@@ -109,8 +107,6 @@ const ContactForm: React.FC = () => {
       <Input className="w-full">
         <Input.TextArea
           rows={3}
-          id="message"
-          autoComplete="off"
           {...register('message')}
           error={errors.message?.message}
           disabled={isSubmitting}
