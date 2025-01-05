@@ -19,6 +19,7 @@ export const Head: HeadFC<I18nPageData, PageContextWithProject> = (
     pathname={`projects/${props.pageContext.project.slug}`}
     metaOgType="article"
     metaTitle={`${props.pageContext.project.title} - Yan Lucas`}
+    metaTwitterCard="summary_large_image"
     image={
       props.pageContext.project.image.childImageSharp.gatsbyImageData.images
         .fallback?.src

@@ -12,6 +12,7 @@ interface SeoProps extends HeadProps<unknown, PageContextType> {
   imageAlt?: string;
   metaOgType?: string;
   metaTitle?: string;
+  metaTwitterCard?: string;
 }
 
 const Seo: React.FC<SeoProps> = ({
@@ -22,6 +23,7 @@ const Seo: React.FC<SeoProps> = ({
   imageAlt,
   metaOgType,
   metaTitle,
+  metaTwitterCard,
   pageContext,
 }) => {
   const metaData = useSiteMetadata();
@@ -47,6 +49,7 @@ const Seo: React.FC<SeoProps> = ({
   const metaImageAlt = imageAlt || translatedMetaData.title;
   const metaOgTypeValue = metaOgType || 'website';
   const metaTitleValue = metaTitle || translatedMetaData.title;
+  const metaTwitterCardValue = metaTwitterCard || 'summary';
 
   return (
     <>
@@ -86,7 +89,7 @@ const Seo: React.FC<SeoProps> = ({
       <meta property="twitter:description" content={metaDescription} />
       <meta property="twitter:image" content={metaImage} />
       <meta property="twitter:image:alt" content={metaImageAlt} />
-      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:card" content={metaTwitterCardValue} />
       <meta property="twitter:title" content={metaTitleValue} />
       <meta property="twitter:creator" content={metaData.author} />
       {pageContext.language === 'br' && (
