@@ -4,6 +4,8 @@ import {GatsbyImage, getImage, type ImageDataLike} from 'gatsby-plugin-image';
 import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 import {startCase} from 'lodash';
 
+import {cn} from '@/utils';
+
 interface PageHeaderProps {
   title: string;
   subtitle: string;
@@ -45,7 +47,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               {i < paths.length - 1 ? (
                 <Link
                   to={`/${path === 'home' ? '' : path}`}
-                  className="transition-all hover:text-neutral-400 hover:underline">
+                  className="transition-colors hover:text-neutral-400 hover:underline">
                   {t(path)}
                 </Link>
               ) : (
@@ -67,7 +69,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       )}
       {!hideOverlay && (
         <div
-          className={clsx(
+          className={cn(
             'absolute inset-0 z-[-1] flex items-center justify-center',
             {
               'bg-black/40': !hideOverlay,
