@@ -51,7 +51,7 @@ const Seo: React.FC<SeoProps> = ({
       <title>{pageTitle}</title>
       <link rel="canonical" href={metaData.siteUrl} />
       <link rel="alternate" hrefLang="pt-BR" href={metaData.siteUrl} />
-      <link rel="alternate" hrefLang="en" href={`${metaData.siteUrl}/en/`} />
+      <link rel="alternate" hrefLang="en" href={`${metaData.siteUrl}/en`} />
       <meta property="description" content={metaDescription} />
       <meta
         property="keywords"
@@ -67,6 +67,7 @@ const Seo: React.FC<SeoProps> = ({
       <meta property="og:title" content={metaTitleValue} />
       <meta property="og:creator" content={metaData.author} />
       <meta property="og:locale" content={lang} />
+      <meta property="og:site_name" content={metaData.title} />
       <meta property="twitter:url" content={metaUrl} />
       <meta property="twitter:description" content={metaDescription} />
       <meta property="twitter:image" content={metaImage} />
