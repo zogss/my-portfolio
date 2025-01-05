@@ -43,6 +43,7 @@ module.exports = {
       },
       colors: {
         'charcoal-black': {
+          400: '#41414D',
           700: '#121120',
         },
         'midnight-slate': {
