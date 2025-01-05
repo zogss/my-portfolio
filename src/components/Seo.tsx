@@ -7,7 +7,7 @@ import {useSiteMetadata} from '@/hooks/useSiteMetadata';
 interface SeoProps extends HeadProps<unknown, PageContextType> {
   title?: string;
   description?: string;
-  url?: string;
+  pathname?: string;
   image?: string;
   imageAlt?: string;
   metaOgType?: string;
@@ -17,7 +17,7 @@ interface SeoProps extends HeadProps<unknown, PageContextType> {
 const Seo: React.FC<SeoProps> = ({
   title,
   description,
-  url,
+  pathname,
   image,
   imageAlt,
   metaOgType,
@@ -33,10 +33,10 @@ const Seo: React.FC<SeoProps> = ({
 
   const pageTitle = title || metaData.title;
   const metaDescription = description || translatedMetaData.description;
-  const metaUrl = url
+  const metaUrl = pathname
     ? pageContext.language === 'br'
-      ? `${metaData.siteUrl}/${url}`
-      : `${metaData.siteUrl}/en/${url}`
+      ? `${metaData.siteUrl}/${pathname}`
+      : `${metaData.siteUrl}/en/${pathname}`
     : metaData.siteUrl;
   const metaImage = image
     ? metaData.siteUrl + image
@@ -49,9 +49,20 @@ const Seo: React.FC<SeoProps> = ({
     <>
       <html lang={lang} />
       <title>{pageTitle}</title>
-      <link rel="canonical" href={metaData.siteUrl} />
-      <link rel="alternate" hrefLang="pt-BR" href={metaData.siteUrl} />
-      <link rel="alternate" hrefLang="en" href={`${metaData.siteUrl}/en`} />
+      <link rel="canonical" href={metaUrl} />
+      <link
+        rel="alternate"
+        hrefLang="pt-BR"
+        href={`${metaData.siteUrl}/${pathname}`}
+      />
+      <link
+        rel="alternate"
+        hrefLang="en"
+        href={`${metaData.siteUrl}/en/${pathname}`}
+      />
+      <meta name="description" content={metaDescription} />
+      <meta name="robots" content="index, follow" />
+      <meta name="image" content={metaImage} />
       <meta property="description" content={metaDescription} />
       <meta
         property="keywords"
@@ -75,6 +86,9 @@ const Seo: React.FC<SeoProps> = ({
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:title" content={metaTitleValue} />
       <meta property="twitter:creator" content={metaData.author} />
+      {pageContext.language === 'br' && (
+        <meta name="googlebot" content="notranslate" />
+      )}
     </>
   );
 };

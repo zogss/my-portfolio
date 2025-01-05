@@ -28,7 +28,7 @@ export const Head: HeadFC<I18nPageData, PageContextType> = (
       props.data.locales.edges[0].node.data,
       'projects',
     )} - Yan Lucas`}
-    url="projects"
+    pathname="projects"
     {...props}
   />
 );
