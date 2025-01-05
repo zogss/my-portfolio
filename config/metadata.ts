@@ -6,19 +6,19 @@ const getSiteMetadata = <T>(env: Dict<T>) => ({
   author: 'Yan Lucas',
   title: 'Yan Lucas',
   image: '/icon.png',
-  siteUrl: env.GATSBY_SITE_URL || 'https://yanlucas.com',
+  siteUrl: env.GATSBY_SITE_URL,
   social: [
     {
       name: 'github',
-      url: env.GATSBY_PERSONAL_GITHUB_URL || 'https://merda.com',
+      url: env.GATSBY_PERSONAL_GITHUB_URL,
     },
     {
       name: 'linkedin',
-      url: env.GATSBY_PERSONAL_LINKEDIN_URL || 'https://merda.com',
+      url: env.GATSBY_PERSONAL_LINKEDIN_URL,
     },
     {
       name: 'instagram',
-      url: env.GATSBY_PERSONAL_INSTAGRAM_URL || 'https://merda.com',
+      url: env.GATSBY_PERSONAL_INSTAGRAM_URL,
     },
   ],
   br: {
