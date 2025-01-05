@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
-import {WindowLocation} from '@reach/router';
-import clsx from 'clsx';
+import {type PageProps} from 'gatsby';
 import {GatsbyImage, getImage, type ImageDataLike} from 'gatsby-plugin-image';
 import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 import {startCase} from 'lodash';
@@ -12,7 +11,7 @@ interface PageHeaderProps {
     src: ImageDataLike;
     alt: string;
   };
-  location: WindowLocation;
+  location: PageProps['location'];
   hideOverlay?: boolean;
 }
 
