@@ -1,0 +1,35 @@
+@layer components {
+  .form-input {
+    @apply w-full rounded-lg px-4 py-2;
+  }
+
+  .form-input-primary {
+    @apply min-h-[2.625rem] border border-white/20 bg-charcoal-black-700 text-base text-neutral-100 outline-none transition-all duration-500 placeholder:text-sm placeholder:text-white/40 focus:border-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-700 group-hover/contactFormContainer:border-violet-700 group-hover/contactFormContainer:shadow-tertiary;
+  }
+
+  .form-error {
+    @apply mt-1 block text-start text-sm font-medium text-red-600;
+  }
+
+  .bg-gradient-primary {
+    transition:
+      --p-gr-primary-color-1 0.4s,
+      --p-gr-primary-color-2 0.4s;
+  }
+
+  .bg-gradient-primary:hover {
+    --p-gr-primary-color-1: #00000099;
+    --p-gr-primary-color-2: #ffffff33;
+  }
+
+  .bg-gradient-tertiary {
+    transition:
+      --p-gr-tertiary-color-1 1s,
+      --p-gr-tertiary-color-2 1s;
+  }
+
+  .bg-gradient-tertiary:hover {
+    --p-gr-tertiary-color-1: #663bc2;
+    --p-gr-tertiary-color-2: #4728d3;
+  }
+}

@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import {Tab} from '@headlessui/react';
-import clsx from 'clsx';
 import {StaticImage} from 'gatsby-plugin-image';
 import {useI18next} from 'gatsby-plugin-react-i18next';
 import {
@@ -37,6 +36,8 @@ import {
   SiStyledcomponents,
 } from 'react-icons/si';
 
+import {cn} from '@/utils';
+
 import ReactNavigationIcon from '../svgs/ReactNavigationIcon';
 
 const TechStackBlock: React.FC = () => {
@@ -68,11 +69,11 @@ const TechStackBlock: React.FC = () => {
           <Tab
             onClick={() => setActiveTab(0)}
             className={({selected}) =>
-              clsx(
+              cn(
                 'flex-1 rounded-tl-lg border-b-2 border-r-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-r-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
+                  ? 'z-[1] border-white/5 border-b-transparent'
+                  : 'border-white/5 border-r-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }>
             {({selected}) => (
@@ -82,17 +83,15 @@ const TechStackBlock: React.FC = () => {
                   alt={t('backend_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx(
-                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                  className={cn(
+                    'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
                 />
                 <span
-                  className={clsx(
-                    selected ? 'block' : 'sr-only md:not-sr-only',
-                  )}>
+                  className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}>
                   Backend
                 </span>
               </div>
@@ -101,11 +100,11 @@ const TechStackBlock: React.FC = () => {
           <Tab
             onClick={() => setActiveTab(1)}
             className={({selected}) =>
-              clsx(
+              cn(
                 'flex-1 border-x-2 border-b-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-x-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
+                  ? 'z-[1] border-white/5 border-b-transparent'
+                  : 'border-white/5 border-x-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }>
             {({selected}) => (
@@ -115,17 +114,15 @@ const TechStackBlock: React.FC = () => {
                   alt={t('frontend_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx(
-                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                  className={cn(
+                    'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
                 />
                 <span
-                  className={clsx(
-                    selected ? 'block' : 'sr-only md:not-sr-only',
-                  )}>
+                  className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}>
                   Frontend
                 </span>
               </div>
@@ -134,11 +131,11 @@ const TechStackBlock: React.FC = () => {
           <Tab
             onClick={() => setActiveTab(2)}
             className={({selected}) =>
-              clsx(
+              cn(
                 'flex-1 rounded-tr-lg border-b-2 border-l-2 border-white bg-midnight-slate-700 px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-b-transparent border-opacity-5'
-                  : 'border-l-transparent border-opacity-5 text-neutral-100/50 hover:bg-white/5',
+                  ? 'z-[1] border-white/5 border-b-transparent'
+                  : 'border-white/5 border-l-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }>
             {({selected}) => (
@@ -148,17 +145,15 @@ const TechStackBlock: React.FC = () => {
                   alt={t('mobile_icon_alt')}
                   width={40}
                   height={40}
-                  className={clsx(
-                    'h-8 w-8 shrink-0 transition-opacity duration-500 md:h-10 md:w-10',
+                  className={cn(
+                    'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
                 />
                 <span
-                  className={clsx(
-                    selected ? 'block' : 'sr-only md:not-sr-only',
-                  )}>
+                  className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}>
                   Mobile
                 </span>
               </div>

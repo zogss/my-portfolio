@@ -1,0 +1,9 @@
+@layer base {
+  * {
+    @apply box-border scroll-smooth;
+  }
+
+  body {
+    @apply flex min-h-screen bg-charcoal-black-700 p-0 font-inter antialiased;
+  }
+}

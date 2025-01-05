@@ -1,9 +1,9 @@
 import React, {Fragment, useEffect, useRef} from 'react';
 import {Menu} from '@headlessui/react';
-import clsx from 'clsx';
 import {AnimatePresence, motion} from 'framer-motion';
 import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 
+import {cn} from '@/utils';
 import {navLinks} from '@/components/HeaderLinks';
 import HeaderMenu from '@/components/HeaderMenu';
 import SocialLinks from '@/components/SocialLinks';
@@ -49,8 +49,8 @@ const Header: React.FC<HeaderProps> = ({hideSectionLinks}) => {
         {({open, close}) => (
           <header
             ref={headerRef}
-            className={clsx(
-              'fixed left-0 right-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:px-[calc(5vw_+_1.625rem)] xl:px-[calc(10vw_+_1.625rem)]',
+            className={cn(
+              'fixed inset-x-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:px-[calc(5vw_+_1.625rem)] xl:px-[calc(10vw_+_1.625rem)]',
               open
                 ? 'bg-charcoal-black-700/90'
                 : 'bg-gradient-to-b from-charcoal-black-700/90 to-charcoal-black-700/50',
@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({hideSectionLinks}) => {
         {({open, close}) => (
           <nav
             ref={navRef}
-            className="fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-all duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]">
+            className="fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 shadow-primary transition-[transform,width] duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]">
             <div className="flex w-full items-center justify-between gap-4">
               <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
                 <Link

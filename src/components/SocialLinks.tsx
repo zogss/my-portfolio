@@ -1,8 +1,7 @@
 import React, {useMemo} from 'react';
-import clsx from 'clsx';
 import {BsGithub, BsInstagram, BsLinkedin} from 'react-icons/bs';
 
-import {environments} from '@/utils';
+import {cn, environments} from '@/utils';
 
 interface SocialLinksProps {
   className?: string;
@@ -30,15 +29,15 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
 
   return (
     <div
-      data-animation-target={animate ? 'left' : undefined}
-      className={clsx('flex items-center text-slate-gray-500', className)}>
+      data-transition-target={animate ? 'left' : undefined}
+      className={cn('flex items-center text-slate-gray-500', className)}>
       <a
         href={environments.personal.instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
         title={environments.personal.instagramUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
-        <BsInstagram className={clsx(iconSizeClass, 'shrink-0')} />
+        <BsInstagram className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
         href={environments.personal.linkedinUrl}
@@ -46,7 +45,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         rel="noopener noreferrer"
         title={environments.personal.linkedinUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
-        <BsLinkedin className={clsx(iconSizeClass, 'shrink-0')} />
+        <BsLinkedin className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
         href={environments.personal.githubUrl}
@@ -54,7 +53,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         rel="noopener noreferrer"
         title={environments.personal.githubUrl}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
-        <BsGithub className={clsx(iconSizeClass, 'shrink-0')} />
+        <BsGithub className={cn(iconSizeClass, 'shrink-0')} />
       </a>
     </div>
   );

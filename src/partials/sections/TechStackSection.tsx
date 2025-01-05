@@ -21,9 +21,9 @@ const TechStackSection: React.FC = () => {
             </h2>
           </div>
         </div>
-        <div data-animation="animate" className="flex w-full justify-center">
+        <div data-transition="animate" className="flex w-full justify-center">
           <h3
-            data-animation-target="up"
+            data-transition-target="up"
             className="z-[1] flex flex-col items-center gap-1.5 lg:gap-2.5 xl:max-w-2xl">
             <span className="text-center font-semibold md:text-lg lg:text-xl">
               {t('tech_stack_section_text_part_1')}

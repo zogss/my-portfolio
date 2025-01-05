@@ -1,0 +1,33 @@
+/** 
+  * custom background gradient
+*/
+
+/* 
+* bg-gradient-primary
+*/
+@property --p-gr-primary-color-1 {
+  syntax: '<color>';
+  initial-value: #ffffff33;
+  inherits: false;
+}
+
+@property --p-gr-primary-color-2 {
+  syntax: '<color>';
+  initial-value: #00000099;
+  inherits: false;
+}
+
+/* 
+* bg-gradient-tertiary
+*/
+@property --p-gr-tertiary-color-1 {
+  syntax: '<color>';
+  initial-value: #4728d3;
+  inherits: false;
+}
+
+@property --p-gr-tertiary-color-2 {
+  syntax: '<color>';
+  initial-value: #663bc2;
+  inherits: false;
+}

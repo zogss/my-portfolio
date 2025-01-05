@@ -3,7 +3,8 @@ import React, {
   InputHTMLAttributes,
   TextareaHTMLAttributes,
 } from 'react';
-import clsx from 'clsx';
+
+import {cn} from '@/utils';
 
 import AnimatedError from './AnimatedError';
 
@@ -12,7 +13,7 @@ interface InputProps {
   className?: string;
 }
 const Input: React.FC<InputProps> = ({children, className}) => (
-  <div className={clsx('flex flex-col', className)}>{children}</div>
+  <div className={cn('flex flex-col', className)}>{children}</div>
 );
 
 Input.displayName = 'Input';
@@ -27,7 +28,7 @@ const InputInput = forwardRef<HTMLInputElement, InputInputProps>(
   ({name, error, label, labelClassName, ...rest}, ref) => (
     <>
       {label && (
-        <label htmlFor={name} className={clsx('sr-only', labelClassName)}>
+        <label htmlFor={name} className={cn('sr-only', labelClassName)}>
           {label}
         </label>
       )}
@@ -49,7 +50,7 @@ const TextAreaInput = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({name, error, label, labelClassName, ...rest}, ref) => (
     <>
       {label && (
-        <label htmlFor={name} className={clsx('sr-only', labelClassName)}>
+        <label htmlFor={name} className={cn('sr-only', labelClassName)}>
           {label}
         </label>
       )}

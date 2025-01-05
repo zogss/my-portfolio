@@ -3,8 +3,44 @@ import plugin from 'tailwindcss/plugin';
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  sans: [
+    'Inter',
+    'ui-sans-serif',
+    'system-ui',
+    '-apple-system',
+    'system-ui',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    'Arial',
+    'Noto Sans',
+    'sans-serif',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji',
+  ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: [
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'system-ui',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ],
+      },
       colors: {
         'charcoal-black': {
           700: '#121120',
@@ -34,26 +70,26 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-primary':
-          'linear-gradient(140deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.6) 95%)',
+          'linear-gradient(140deg, var(--p-gr-primary-color-1) 0%, var(--p-gr-primary-color-2) 95%)',
         'gradient-secondary':
-          'linear-gradient(160deg, rgba(217, 217, 217, 0.04) 10%, rgba(255, 255, 255, 0.004) 30%)',
+          'linear-gradient(160deg, #d9d9d90a 10%, #ffffff01 30%)',
         'gradient-tertiary':
-          'linear-gradient(91deg, #4728D3 13.25%, #663BC2 96.98%)',
+          'linear-gradient(91deg, var(--p-gr-tertiary-color-1) 13.25%, var(--p-gr-tertiary-color-2) 96.98%)',
       },
       boxShadow: {
         primary:
-          '0rem .25rem 1.25rem -0.0625rem rgba(0, 0, 0, 0.25), 0rem .25rem 1.25rem 0rem rgba(47, 24, 108, 0.1)',
-        secondary: '0rem .25rem 3.125rem 0rem rgba(106, 45, 206, 0.65)',
-        tertiary: '0rem 0rem .625rem 0rem rgba(106, 45, 206, 0.65)',
-        'white-sm': '0rem 0rem 1.25rem 0rem rgba(255, 255, 255, 0.25)',
-        'white-md': '0rem 0rem 2.5rem 0rem rgba(255, 255, 255, 0.25)',
-        'white-lg': '0rem 0rem 5rem 0rem rgba(255, 255, 255, 0.25)',
+          '0rem .25rem 1.25rem -0.0625rem #00000040, 0rem .25rem 1.25rem 0rem #2f186c1a',
+        secondary: '0rem .25rem 3.125rem 0rem #6a2dcea6',
+        tertiary: '0rem 0rem .625rem 0rem #6a2dcea6',
+        'white-sm': '0rem 0rem 1.25rem 0rem #ffffff40',
+        'white-md': '0rem 0rem 2.5rem 0rem #ffffff40',
+        'white-lg': '0rem 0rem 5rem 0rem #ffffff40',
       },
       textShadow: {
         sm: '0 .0625rem .125rem var(--tw-shadow-color)',
         DEFAULT: '0 .125rem .25rem var(--tw-shadow-color)',
         lg: '0 .5rem 1rem var(--tw-shadow-color)',
-        primary: '0rem 0rem .8361rem rgba(0, 0, 0, 0.25)',
+        primary: '0rem 0rem .8361rem #00000040',
       },
       minHeight: {
         'home-section': 'calc(100vh - 4.5rem)',

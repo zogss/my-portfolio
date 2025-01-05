@@ -9,12 +9,12 @@ const ContactBlock: React.FC = () => {
 
   return (
     <div
-      data-animation="animate"
+      data-transition="animate"
       className="flex w-full items-center justify-center">
       <div
-        data-animation-target="up"
+        data-transition-target="up"
         className="flex w-full items-center justify-center">
-        <div className="group/contactFormContainer flex w-full items-center justify-center transition-all duration-500 hover:shadow-secondary xl:w-3/4">
+        <div className="group/contactFormContainer flex w-full items-center justify-center transition-shadow duration-500 hover:shadow-secondary xl:w-3/4">
           <div className="relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 bg-charcoal-black-700 p-5 py-6 md:px-8 lg:px-12 lg:py-8">
             <div className="flex flex-col items-start gap-6 self-stretch">
               <h3 className="flex w-full flex-col items-start justify-center gap-3 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
@@ -29,7 +29,7 @@ const ContactBlock: React.FC = () => {
                 <ContactForm />
               </div>
             </div>
-            <PenIllustration className="absolute bottom-10 right-6 translate-x-1/2 grayscale transition-all duration-500 group-hover/contactFormContainer:grayscale-0" />
+            <PenIllustration className="absolute bottom-10 right-6 translate-x-1/2 grayscale transition-[filter] duration-500 group-hover/contactFormContainer:grayscale-0" />
           </div>
         </div>
       </div>

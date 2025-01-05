@@ -1,19 +1,15 @@
 import React, {Fragment} from 'react';
 import {Menu, Transition} from '@headlessui/react';
-import clsx from 'clsx';
 import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 import {BiChevronDown} from 'react-icons/bi';
+
+import {cn} from '@/utils';
 
 import BrFlag from './svgs/flags/BrFlag';
 import UsFlag from './svgs/flags/UsFlag';
 
 const LanguageDropdown: React.FC = () => {
-  const {
-    t,
-    languages,
-    originalPath,
-    i18n: {language},
-  } = useI18next();
+  const {t, language, languages, originalPath} = useI18next();
 
   const getFlagByLanguage = (language: string) => {
     return flags.find(flag => flag.slug === language) || flags[0];
@@ -27,7 +23,7 @@ const LanguageDropdown: React.FC = () => {
         title={t('language')}
         aria-label={t('language')}
         className={({open}) =>
-          clsx(
+          cn(
             'inline-flex w-full items-center justify-center gap-0.5 rounded px-2 py-1.5 pr-0.5 text-neutral-100/50 transition-colors hover:bg-white/10 md:gap-1 md:px-3 md:py-2 md:pr-1',
             {'bg-white/20': open},
           )
@@ -36,8 +32,8 @@ const LanguageDropdown: React.FC = () => {
           <>
             <CurrentFlag className="size-8 shrink-0 rounded" />
             <BiChevronDown
-              className={clsx(
-                'h-5 w-5 shrink-0 transition-all ease-in',
+              className={cn(
+                'size-5 shrink-0 transition-transform ease-in',
                 open ? 'rotate-180' : 'rotate-0',
               )}
               aria-hidden="true"
@@ -64,7 +60,7 @@ const LanguageDropdown: React.FC = () => {
                   to={originalPath || '/'}
                   language={lng}
                   title={t(lng)}
-                  className={clsx(
+                  className={cn(
                     'flex w-full items-center justify-end gap-2 px-3.5 py-3 text-sm transition-colors hover:bg-royal-purple-700 hover:text-white group-first/translationLink:rounded-t-md group-last/translationLink:rounded-b-md',
                     language === lng
                       ? 'bg-royal-purple-700 text-white'

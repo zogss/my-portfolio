@@ -8,7 +8,7 @@ const WithEnterAnimation = <T extends object = object>(
   const ComponentWithAnimation = (props: T) => {
     useEffect(() => {
       const intersectionObservers: IntersectionObserver[] = [];
-      const targetElements = document.querySelectorAll('[data-animation]');
+      const targetElements = document.querySelectorAll('[data-transition]');
 
       targetElements.forEach((el, i) => {
         intersectionObservers[i] = new IntersectionObserver(
@@ -18,7 +18,7 @@ const WithEnterAnimation = <T extends object = object>(
 
               if (entry.isIntersecting) {
                 const targetChildElements = element.querySelectorAll(
-                  '[data-animation-target]',
+                  '[data-transition-target]',
                 );
 
                 targetChildElements.forEach((child, index) => {

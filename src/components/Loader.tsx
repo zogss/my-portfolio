@@ -28,7 +28,7 @@ const Loader: React.FC = () => (
         animate={{opacity: 0}}
         transition={{duration: 0.2, ease: 'easeInOut'}}
         className="size-5 -translate-x-2.5">
-        <div className="ldio-r4drh11gvk7">
+        <div className="loader-dots">
           <div className="absolute inset-0 rounded-full bg-gray-400"></div>
           <div className="absolute inset-0 rounded-full bg-gray-600"></div>
           <div className="absolute inset-0 rounded-full bg-gray-400"></div>

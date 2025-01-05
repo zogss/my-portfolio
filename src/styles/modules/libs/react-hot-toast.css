@@ -1,0 +1,14 @@
+/** 
+  * toast notification styles
+*/
+.react-hot-toast__container {
+  @apply !bottom-[1.25rem] !right-5;
+}
+
+.react-hot-toast__toast {
+  @apply !bg-transparent !p-0;
+}
+
+.react-hot-toast__toast > div {
+  @apply !m-0;
+}

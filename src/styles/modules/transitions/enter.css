@@ -1,0 +1,26 @@
+/** 
+  * enter transitions
+*/
+[data-transition='animate'] [data-transition-target='up'] {
+  @apply translate-y-10 scale-[.975] opacity-15 transition-[transform,opacity] duration-[0.8s] ease-in-out;
+}
+
+[data-transition='animate'] [data-transition-target='up'].animate {
+  @apply translate-y-0 scale-100 opacity-100;
+}
+
+[data-transition='animate'] [data-transition-target='left'] {
+  @apply translate-x-[-31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+}
+
+[data-transition='animate'] [data-transition-target='left'].animate {
+  @apply translate-x-0 opacity-100;
+}
+
+[data-transition='animate'] [data-transition-target='right'] {
+  @apply translate-x-[31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+}
+
+[data-transition='animate'] [data-transition-target='right'].animate {
+  @apply translate-x-0 opacity-100;
+}

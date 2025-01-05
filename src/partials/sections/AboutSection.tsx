@@ -23,9 +23,9 @@ const AboutSection: React.FC = () => {
         </div>
       </div>
       <div
-        data-animation="animate"
+        data-transition="animate"
         className="z-[1] flex w-full flex-col items-center gap-10 md:gap-12 xl:flex-row xl:items-start xl:justify-center 2xl:gap-16">
-        <div data-animation-target="left" className="relative p-3">
+        <div data-transition-target="left" className="relative p-3">
           <StaticImage
             src="../../images/about_image.jpg"
             alt={t('about_image_alt')}
@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
           <div className="absolute inset-0 bg-black/70 blur-3xl" />
         </div>
         <div
-          data-animation-target="right"
+          data-transition-target="right"
           className="flex w-full flex-col items-center text-sm text-neutral-100/40 md:text-base lg:text-lg">
           <h3 className="mb-[1.125rem] block max-w-xl text-center text-lg font-bold leading-tight text-neutral-100 md:text-xl md:leading-normal lg:text-2xl xl:max-w-none xl:text-start">
             {t('about_section_text_part_1', {

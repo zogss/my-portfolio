@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import {tv, type VariantProps} from 'tailwind-variants';
 
 import {cn} from '@/utils';
@@ -60,12 +59,12 @@ const ProjectTripleDots: React.FC<Props> = ({
             dot(
               animate
                 ? {
-                    class: clsx({
-                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out]':
+                    class: cn({
+                      'group-hover/projectCard:animate-[wiggle-up_0.5s_ease-in-out]':
                         i === 0,
-                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out_0.1s]':
+                      'group-hover/projectCard:animate-[wiggle-up_0.5s_ease-in-out_0.1s]':
                         i === 1,
-                      'group-hover/projectCard:animate-[wiggleUp_0.5s_ease-in-out_0.2s]':
+                      'group-hover/projectCard:animate-[wiggle-up_0.5s_ease-in-out_0.2s]':
                         i === 2,
                     }),
                   }

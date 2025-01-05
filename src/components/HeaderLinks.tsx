@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
-import clsx from 'clsx';
 import {Link} from 'gatsby';
 import {useI18next} from 'gatsby-plugin-react-i18next';
+
+import {cn} from '@/utils';
 
 interface HeaderLinksProps {
   floating?: boolean;
@@ -56,7 +57,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       ))}
       <div
         ref={floatingBarRef}
-        className={clsx(
+        className={cn(
           'absolute rounded bg-white/20 transition-all',
           hoveredItem ? 'opacity-100' : 'opacity-0',
         )}

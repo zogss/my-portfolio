@@ -1,7 +1,8 @@
 import React from 'react';
 import {Menu} from '@headlessui/react';
-import clsx from 'clsx';
 import {useI18next} from 'gatsby-plugin-react-i18next';
+
+import {cn} from '@/utils';
 
 import HeaderLinks from './HeaderLinks';
 import LanguageDropdown from './LanguageDropdown';
@@ -30,7 +31,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
           title={t('menu')}
           aria-label={t('menu')}
           className={({open}) =>
-            clsx(
+            cn(
               'inline-flex items-center justify-center gap-0.5 rounded px-2 py-1.5 text-neutral-100/50 transition-colors hover:bg-white/10 md:gap-1 md:px-3 md:py-2 lg:hidden',
               {'bg-white/20': open},
             )
