@@ -9,7 +9,7 @@ dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const siteUrl = 'https://yanlucas.vercel.app/';
+const siteUrl = process.env.GATSBY_SITE_URL;
 
 const defaultLanguage = 'br';
 
