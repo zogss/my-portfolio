@@ -12,7 +12,7 @@ import Seo from '@/components/Seo';
 
 export const Head: HeadFC<I18nPageData, PageContextType> = (
   props: HeadProps<I18nPageData, PageContextType>,
-) => <Seo title="Yan Lucas" {...props} />;
+) => <Seo {...props} />;
 
 const IndexPage: React.FC = () => (
   <PageLayout>
