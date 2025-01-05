@@ -1,7 +1,7 @@
 import React from 'react';
 import {graphql, HeadFC, HeadProps, PageProps} from 'gatsby';
 
-import {PageContextWithProject} from '@/utils';
+import {getStrFromLocaleCtx, PageContextWithProject} from '@/utils';
 import PageLayout from '@/layouts/PageLayout';
 import PageHeader from '@/components/PageHeader';
 import ProjectBlock from '@/components/projects/project/ProjectBlock';
@@ -10,7 +10,25 @@ import Seo from '@/components/Seo';
 export const Head: HeadFC<I18nPageData, PageContextWithProject> = (
   props: HeadProps<I18nPageData, PageContextWithProject>,
 ) => (
-  <Seo title={`${props.pageContext.project.title} - Yan Lucas`} {...props} />
+  <Seo
+    title={`${props.pageContext.project.title} - Yan Lucas`}
+    description={getStrFromLocaleCtx(
+      props.data.locales.edges[0].node.data,
+      props.pageContext.project.short_description,
+    )}
+    url={props.pageContext.project.slug}
+    metaOgType="article"
+    metaTitle={`${props.pageContext.project.title} - Yan Lucas`}
+    image={
+      props.pageContext.project.image.childImageSharp.gatsbyImageData.images
+        .fallback?.src
+    }
+    imageAlt={getStrFromLocaleCtx(
+      props.data.locales.edges[0].node.data,
+      props.pageContext.project.alt,
+    )}
+    {...props}
+  />
 );
 
 const Project: React.FC<PageProps<I18nPageData, PageContextWithProject>> = ({

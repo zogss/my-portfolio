@@ -20,6 +20,15 @@ export const Head: HeadFC<I18nPageData, PageContextType> = (
       props.data.locales.edges[0].node.data,
       'projects',
     )} - Yan Lucas`}
+    description={getStrFromLocaleCtx(
+      props.data.locales.edges[0].node.data,
+      'projects_page_description',
+    )}
+    metaTitle={`${getStrFromLocaleCtx(
+      props.data.locales.edges[0].node.data,
+      'projects',
+    )} - Yan Lucas`}
+    url="projects"
     {...props}
   />
 );

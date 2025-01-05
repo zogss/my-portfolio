@@ -3,7 +3,7 @@ import path, {join} from 'path';
 import dotenv from 'dotenv';
 import type {GatsbyConfig} from 'gatsby';
 
-import siteMetadata from './config/metadata';
+import getSiteMetadata from './config/metadata';
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -20,7 +20,7 @@ const languages = readdirSync(join(__dirname, 'locales')).filter(fileName => {
 });
 
 const config: GatsbyConfig = {
-  siteMetadata,
+  siteMetadata: getSiteMetadata(process.env),
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
@@ -138,7 +138,7 @@ const config: GatsbyConfig = {
           };
         }) => {
           const {languages, originalPath, defaultLanguage} = node.context.i18n;
-          const url = siteUrl + originalPath;
+          const url = `${siteUrl}/${originalPath}`;
           const links = [
             {lang: defaultLanguage, url},
             {lang: 'x-default', url},
