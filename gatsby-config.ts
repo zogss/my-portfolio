@@ -44,13 +44,19 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Yan Lucas',
+        name: 'Yan Lucas - Software Engineer',
         short_name: 'Yan Lucas',
+        description:
+          'Yan Lucas, software engineer passionate about developing interactive interfaces and high-quality digital experiences.',
         start_url: '/',
+        scope: '/',
         background_color: '#121120',
         theme_color: '#121120',
         display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
+        icon_options: {
+          purpose: 'maskable',
+        },
       },
     },
     {
