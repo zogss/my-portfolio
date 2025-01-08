@@ -76,11 +76,11 @@ export const createSchemaCustomization: GatsbyNode[`createSchemaCustomization`] 
       i18n: i18nContext
     }
     type i18nContext {
-        language: String,
-        languages: [String],
-        defaultLanguage: String,
-        originalPath: String
-        routed: Boolean
+      language: String,
+      languages: [String],
+      defaultLanguage: String,
+      originalPath: String
+      routed: Boolean
     }
     
     type Project implements Node {

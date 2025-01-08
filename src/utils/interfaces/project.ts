@@ -30,12 +30,7 @@ export type ProjectType = {
   url: string | null;
   repository_url: string | null;
   techs: string[];
-  image: {
-    base: string;
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
+  image: FileNodeType;
   alt: string;
 };
 
