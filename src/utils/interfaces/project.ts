@@ -1,4 +1,4 @@
-import {type IGatsbyImageData} from 'gatsby-plugin-image';
+import {FileNodeType} from './fileNode';
 
 export type ProjectNameType =
   | 'Spacie'
