@@ -36,7 +36,7 @@ const Project: React.FC<PageProps<I18nPageData, PageContextWithProject>> = ({
   pageContext,
   location,
 }) => (
-  <PageLayout hideSectionLinks hideScrollSpy>
+  <PageLayout hideSectionLinks>
     <PageHeader
       title={pageContext.project.title}
       subtitle={pageContext.project.subtitle}

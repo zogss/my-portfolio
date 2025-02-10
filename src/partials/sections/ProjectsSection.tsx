@@ -37,7 +37,7 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section
-      id="projects"
+      id="nav-projects"
       className="relative flex min-h-screen w-full flex-col items-center justify-start gap-10 px-[10%] py-10 md:gap-12 md:px-[9%] md:py-14 lg:gap-16">
       <div className="flex w-full flex-col items-center gap-2.5 self-stretch">
         <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">

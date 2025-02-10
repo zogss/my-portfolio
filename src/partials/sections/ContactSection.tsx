@@ -10,7 +10,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <section
-      id="contact"
+      id="nav-contact"
       className="relative flex min-h-[75vh] w-full flex-col items-center justify-start gap-10 px-[10%] py-10 sm:min-h-screen md:gap-12 md:px-[15%] md:py-14 lg:gap-16">
       <div className="relative flex w-full items-center justify-center gap-6 py-10 md:py-[4.5rem]">
         <TitleEclipse className="absolute left-1/2 top-1/2 h-[31.25rem] -translate-x-1/2 -translate-y-1/2 lg:h-[50rem]" />

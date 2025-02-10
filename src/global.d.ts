@@ -8,11 +8,13 @@ declare module 'gatsby-plugin-firebase-v9.0' {
 // TODO: Remove this when the following issue is resolved!
 declare module 'gatsby-plugin-react-i18next' {
   import * as Gatsby18n from 'gatsby-plugin-react-i18next/dist';
-  import { GatsbyLinkProps } from 'gatsby';
+  import {GatsbyLinkProps} from 'gatsby';
 
-  export declare const Link = Gatsby18n.Link as React.ForwardRefExoticComponent<GatsbyLinkProps & {
+  export declare const Link = Gatsby18n.Link as React.ForwardRefExoticComponent<
+    GatsbyLinkProps & {
       language?: string;
-  } & React.RefAttributes<HTMLAnchorElement>>;
+    } & React.RefAttributes<HTMLAnchorElement>
+  >;
 
   export * from 'gatsby-plugin-react-i18next/dist';
 }

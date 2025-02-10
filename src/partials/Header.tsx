@@ -158,7 +158,7 @@ const Header: React.FC<HeaderProps> = ({hideSectionLinks}) => {
                         <Menu.Item
                           as={Link}
                           key={link.name}
-                          to={link.to || '/'}
+                          to={link.to}
                           onClick={() => close()}
                           className="flex w-full justify-center rounded px-3.5 py-3 pr-8 text-center text-sm text-neutral-100/50 transition-colors duration-200 hover:bg-white/20 hover:text-neutral-100">
                           {t(link.name)}

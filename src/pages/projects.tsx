@@ -36,7 +36,7 @@ export const Head: HeadFC<I18nPageData, PageContextType> = (
 const ProjectsPage: React.FC<
   PageProps<I18nPageData & ProjectsQueryType & {image: ProjectType['image']}>
 > = ({data, location}) => (
-  <PageLayout hideSectionLinks hideScrollSpy>
+  <PageLayout hideSectionLinks>
     <PageHeader
       title="projects"
       subtitle="projects_page_subtitle"

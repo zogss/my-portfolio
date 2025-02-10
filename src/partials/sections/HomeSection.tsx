@@ -12,7 +12,7 @@ const HomeSection: React.FC = () => {
 
   return (
     <section
-      id="home"
+      id="nav-home"
       data-transition="animate"
       className="flex min-h-screen w-full flex-col items-center justify-center">
       <HomeEclipse className="absolute left-[40%] top-[55vh] h-[37.5rem] -translate-x-1/2 -translate-y-1/2 md:top-[50vh] lg:top-[40vh] lg:h-[50rem] xl:top-[45vh]" />
