@@ -9,16 +9,10 @@ module.exports = {
     'prettier',
     'plugin:tailwindcss/recommended',
   ],
-  plugins: [
-    '@typescript-eslint/eslint-plugin',
-    'tailwindcss',
-    'react',
-    'react-hooks',
-    'only-warn',
-  ],
+  plugins: ['@typescript-eslint/eslint-plugin', 'only-warn', 'tailwindcss'],
   settings: {
     tailwindcss: {
-      callees: ['cn'],
+      callees: ['cn', 'clsx', 'cva'],
       config: 'tailwind.config.js',
     },
     react: {
@@ -33,15 +27,20 @@ module.exports = {
   rules: {
     'no-unreachable': 'error',
     'tailwindcss/no-custom-classname': 'off',
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
-      'warn',
+      'error',
       {
+        args: 'all',
         argsIgnorePattern: '^_',
+        caughtErrors: 'all',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
         varsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
       },
     ],
   },
-  parser: '@typescript-eslint/parser',
   overrides: [
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
