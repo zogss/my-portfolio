@@ -4,6 +4,7 @@ import {useI18next} from 'gatsby-plugin-react-i18next';
 
 import {cn} from '@/utils';
 import {capitalize} from '@/utils/helpers/capitalize';
+import {useWindowSize} from '@/hooks/useWindowSize';
 import TitleEclipse from '@/components/svgs/TitleEclipse';
 
 const itemVariants: Variants = {
@@ -24,6 +25,7 @@ const itemVariants: Variants = {
 };
 
 const ExperienceSection: React.FC = () => {
+  const {isSmaller} = useWindowSize({breakpoint: 'md'});
   const {
     t,
     i18n: {language},
@@ -65,7 +67,7 @@ const ExperienceSection: React.FC = () => {
               whileInView="visible"
               viewport={{
                 once: true,
-                amount: window.innerWidth > 768 ? 0.2 : 0.4,
+                amount: isSmaller ? 0.4 : 0.2,
               }}
               variants={itemVariants}
               className={cn(
