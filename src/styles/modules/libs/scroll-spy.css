@@ -1,7 +1,3 @@
 .active-scroll-spy {
   @apply text-neutral-100;
 }
-
-.active-scroll-spy > .link-border {
-  @apply block h-0.5 translate-y-[.375rem] rounded-full bg-neutral-100;
-}
