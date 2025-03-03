@@ -5,6 +5,7 @@ import {PageContextType} from '@/utils';
 import PageLayout from '@/layouts/PageLayout';
 import AboutSection from '@/partials/sections/AboutSection';
 import ContactSection from '@/partials/sections/ContactSection';
+import ExperienceSection from '@/partials/sections/ExperienceSection';
 import HomeSection from '@/partials/sections/HomeSection';
 import ProjectsSection from '@/partials/sections/ProjectsSection';
 import TechStackSection from '@/partials/sections/TechStackSection';
@@ -19,6 +20,7 @@ const IndexPage: React.FC = () => (
     <HomeSection />
     <AboutSection />
     <ProjectsSection />
+    <ExperienceSection />
     <TechStackSection />
     <ContactSection />
   </PageLayout>

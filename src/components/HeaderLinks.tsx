@@ -133,6 +133,10 @@ export const navLinks = [
     to: '#nav-projects',
   },
   {
+    name: 'experience',
+    to: '#nav-experience',
+  },
+  {
     name: 'tech_stack',
     to: '#nav-tech-stack',
   },
