@@ -1,7 +1,6 @@
 import React from 'react';
 import {StaticImage} from 'gatsby-plugin-image';
 import {useI18next} from 'gatsby-plugin-react-i18next';
-import {upperCase} from 'lodash';
 
 import {cn} from '@/utils';
 import SocialLinks from '@/components/SocialLinks';
@@ -28,15 +27,15 @@ const HomeSection: React.FC = () => {
               )}>
               <h1
                 className={cn(
-                  'absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary sm:max-w-xs md:flex md:justify-center md:text-[4rem] lg:left-auto lg:block lg:translate-x-0 lg:text-start',
+                  'absolute left-1/2 -translate-x-1/2 text-center text-5xl font-black uppercase leading-[100.5%] tracking-[.08rem] text-white/80 backdrop-blur-[.1766rem] text-shadow-primary sm:max-w-xs md:flex md:justify-center md:text-[4rem] lg:left-auto lg:block lg:translate-x-0 lg:text-start',
                   language === 'br'
                     ? 'lg:max-w-xl 3xl:max-w-none 3xl:whitespace-nowrap'
                     : 'lg:max-w-xs xl:max-w-none xl:whitespace-nowrap',
                 )}>
-                {upperCase(t('software_engineer'))}
+                {t('software_engineer')}
               </h1>
             </div>
-            <h2 className="z-[3] text-slate-gray-300">
+            <h2 className="z-[3] text-zinc-400">
               <p className="w-full max-w-sm text-center font-medium lg:text-start">
                 {t('home_section_description_part_1')}{' '}
                 <span className="font-bold text-white">Yan Lucas</span>
@@ -46,7 +45,7 @@ const HomeSection: React.FC = () => {
           </div>
           <SocialLinks
             animate
-            className="z-[3] gap-2 !text-white/40"
+            className="z-[3] gap-2 text-white/40"
             iconSize="lg"
           />
         </div>

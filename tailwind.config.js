@@ -94,6 +94,9 @@ module.exports = {
       },
       minHeight: {
         'home-section': 'calc(100vh - 4.5rem)',
+        sm: '400px',
+        md: '768px',
+        lg: '1024px',
       },
       maxHeight: {
         'home-section': 'calc(100vh - 4.5rem)',
