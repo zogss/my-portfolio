@@ -10,7 +10,7 @@ interface HeaderLinksProps {
 }
 
 const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
-  const {t, language} = useI18next();
+  const {t} = useI18next();
 
   const floatingBarRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
@@ -93,10 +93,6 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
                 `${link.name}-${floating ? 'floating' : 'header'}`,
               )
             }
-            onClick={e => {
-              e.preventDefault();
-              window.location.href = `${language === 'en' ? '/en/' : ''}${link.to}`;
-            }}
             className="z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100">
             {t(link.name)}
           </a>
