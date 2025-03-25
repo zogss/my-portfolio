@@ -59,12 +59,12 @@ const Seo: React.FC<SeoProps> = ({
       <link
         rel="alternate"
         hrefLang="pt-BR"
-        href={`${metaData.siteUrl}/${pathname}`}
+        href={`${metaData.siteUrl}/${pathname ?? ''}`}
       />
       <link
         rel="alternate"
         hrefLang="en"
-        href={`${metaData.siteUrl}/en/${pathname}`}
+        href={`${metaData.siteUrl}/en/${pathname ?? ''}`}
       />
       <meta name="description" content={metaDescription} />
       <meta name="robots" content="index, follow" />
