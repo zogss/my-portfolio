@@ -4,7 +4,7 @@
   }
 
   .form-input-primary {
-    @apply min-h-[2.625rem] border border-charcoal-black-400 bg-charcoal-black-700 text-base text-neutral-100 outline-none transition-all duration-500 placeholder:text-sm placeholder:text-gray-500 focus:border-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-700 group-hover/contactFormContainer:border-violet-700 group-hover/contactFormContainer:shadow-tertiary;
+    @apply border-charcoal-black-400 bg-charcoal-black-700 group-hover/contactFormContainer:shadow-tertiary min-h-[2.625rem] border text-base text-neutral-100 transition-all duration-500 outline-none group-hover/contactFormContainer:border-violet-700 placeholder:text-sm placeholder:text-gray-500 focus:border-violet-700 focus:ring-2 focus:ring-violet-700 focus:outline-none;
   }
 
   .form-error {

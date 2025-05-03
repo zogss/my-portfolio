@@ -1,7 +1,6 @@
-import React, {useMemo} from 'react';
-import {BsGithub, BsInstagram, BsLinkedin} from 'react-icons/bs';
-
-import {cn, environments} from '@/utils';
+import React, { useMemo } from 'react';
+import { cn, environments } from '@/utils';
+import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
 
 interface SocialLinksProps {
   className?: string;
@@ -30,13 +29,15 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   return (
     <div
       data-transition-target={animate ? 'left' : undefined}
-      className={cn('flex items-center text-slate-gray-500', className)}>
+      className={cn('text-slate-gray-500 flex items-center', className)}
+    >
       <a
         href={environments.personal.instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
         title={environments.personal.instagramUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsInstagram className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
@@ -44,7 +45,8 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         title={environments.personal.linkedinUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsLinkedin className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
@@ -52,7 +54,8 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         title={environments.personal.githubUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsGithub className={cn(iconSizeClass, 'shrink-0')} />
       </a>
     </div>

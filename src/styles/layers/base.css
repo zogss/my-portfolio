@@ -1,9 +1,12 @@
 @layer base {
   * {
-    @apply box-border scroll-smooth;
+    @apply border-border box-border scroll-smooth;
   }
-
   body {
-    @apply flex min-h-screen bg-charcoal-black-700 p-0 font-inter antialiased;
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
   }
 }

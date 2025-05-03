@@ -1,10 +1,9 @@
-import React, {Fragment} from 'react';
-import {type PageProps} from 'gatsby';
-import {GatsbyImage, getImage, type ImageDataLike} from 'gatsby-plugin-image';
-import {Link, useI18next} from 'gatsby-plugin-react-i18next';
-import {startCase} from 'lodash';
-
-import {cn} from '@/utils';
+import React, { Fragment } from 'react';
+import { cn } from '@/utils';
+import { type PageProps } from 'gatsby';
+import { GatsbyImage, getImage, type ImageDataLike } from 'gatsby-plugin-image';
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
+import { startCase } from 'lodash';
 
 interface PageHeaderProps {
   title: string;
@@ -24,11 +23,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   location,
   hideOverlay,
 }) => {
-  const {t} = useI18next();
+  const { t } = useTranslation();
 
   const paths = `/home${location.pathname.replace('/en', '')}`
     .split('/')
-    .filter(path => path);
+    .filter((path) => path);
 
   return (
     <div className="relative flex h-64 w-full flex-col items-center justify-center py-10 md:h-80 md:py-16 lg:h-[28.75rem] lg:py-24">
@@ -47,7 +46,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               {i < paths.length - 1 ? (
                 <Link
                   to={`/${path === 'home' ? '' : path}`}
-                  className="transition-colors hover:text-neutral-400 hover:underline">
+                  className="transition-colors hover:text-neutral-400 hover:underline"
+                >
                   {t(path)}
                 </Link>
               ) : (
@@ -74,12 +74,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             {
               'bg-black/40': !hideOverlay,
             },
-          )}>
-          <div className="h-[56.25rem] w-[106.25rem] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-charcoal-black-700 via-transparent to-transparent" />
+          )}
+        >
+          <div className="from-charcoal-black-700 h-[56.25rem] w-[106.25rem] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent" />
         </div>
       )}
-      <div className="absolute inset-x-0 top-0 z-[-2] h-[4.5rem] bg-gradient-to-b from-charcoal-black-700 to-charcoal-black-700/20" />
-      <div className="absolute inset-x-0 bottom-0 z-[-2] h-40 bg-gradient-to-t from-charcoal-black-700 via-charcoal-black-700/60 to-transparent" />
+      <div className="from-charcoal-black-700 to-charcoal-black-700/20 absolute inset-x-0 top-0 z-[-2] h-[4.5rem] bg-gradient-to-b" />
+      <div className="from-charcoal-black-700 via-charcoal-black-700/60 absolute inset-x-0 bottom-0 z-[-2] h-40 bg-gradient-to-t to-transparent" />
     </div>
   );
 };

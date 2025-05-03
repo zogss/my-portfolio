@@ -1,0 +1,31 @@
+/*
+* Tailwind CSS
+*/
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+* Tailwind CSS plugins
+*/
+@plugin "@tailwindcss/typography";
+/* @plugin "@tailwindcss/forms"; */
+
+/*
+* Core
+*/
+@import './core/variables.css';
+
+/*
+* Base
+*/
+@import './layers/base.css';
+
+/*
+* Components
+*/
+@import './layers/components.css';
+
+/* 
+* Modules
+*/
+@import './modules/modules.css';

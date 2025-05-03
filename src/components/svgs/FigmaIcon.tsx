@@ -1,13 +1,14 @@
-import React, {SVGProps} from 'react';
+import React, { SVGProps } from 'react';
 
-const FigmaIcon: React.FC<SVGProps<SVGSVGElement>> = props => (
+const FigmaIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="11"
     height="18"
     viewBox="0 0 11 18"
     fill="none"
-    {...props}>
+    {...props}
+  >
     <g clipPath="url(#clip0_355_903)">
       <path
         d="M2.75055 17.2693C4.26824 17.2693 5.5 16.0403 5.5 14.526V11.7827H2.75055C1.23285 11.7827 0.00109863 13.0117 0.00109863 14.526C0.00109863 16.0403 1.23285 17.2693 2.75055 17.2693Z"

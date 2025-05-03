@@ -13,7 +13,7 @@ type ErrorType = {
 
 type GetErrorMessageType = (error?: unknown) => string | undefined;
 
-export const getErrorMessage: GetErrorMessageType = err => {
+export const getErrorMessage: GetErrorMessageType = (err) => {
   const error = err as ErrorType;
 
   if (error?.response?.data?.errors?.length) {

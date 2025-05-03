@@ -1,13 +1,11 @@
 import * as React from 'react';
+import { cn } from '@/utils';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import {useI18next} from 'gatsby-plugin-react-i18next';
-import {ArrowLeft, ArrowRight} from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-import {cn} from '@/utils';
-
-import {Button} from './button';
+import { Button } from './button';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -132,14 +130,16 @@ const Carousel = React.forwardRef<
           scrollNext,
           canScrollPrev,
           canScrollNext,
-        }}>
+        }}
+      >
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
           className={cn('relative', className)}
           role="region"
           aria-roledescription="carousel"
-          {...props}>
+          {...props}
+        >
           {children}
         </div>
       </CarouselContext.Provider>
@@ -151,8 +151,8 @@ Carousel.displayName = 'Carousel';
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => {
-  const {carouselRef, orientation} = useCarousel();
+>(({ className, ...props }, ref) => {
+  const { carouselRef, orientation } = useCarousel();
 
   return (
     <div ref={carouselRef} className="overflow-hidden">
@@ -173,8 +173,8 @@ CarouselContent.displayName = 'CarouselContent';
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => {
-  const {orientation} = useCarousel();
+>(({ className, ...props }, ref) => {
+  const { orientation } = useCarousel();
 
   return (
     <div
@@ -195,9 +195,8 @@ CarouselItem.displayName = 'CarouselItem';
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({className, variant = 'outline', size = 'icon', ...props}, ref) => {
-  const {orientation, scrollPrev, canScrollPrev} = useCarousel();
-  const {t} = useI18next();
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
     <Button
@@ -207,15 +206,16 @@ const CarouselPrevious = React.forwardRef<
       className={cn(
         'absolute size-8 rounded-full',
         orientation === 'horizontal'
-          ? '-left-12 top-1/2 -translate-y-1/2'
+          ? 'top-1/2 -left-12 -translate-y-1/2'
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
         className,
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
-      {...props}>
+      {...props}
+    >
       <ArrowLeft className="size-4" />
-      <span className="sr-only">{t('previous_slide')}</span>
+      <span className="sr-only">{'previous_slide'}</span>
     </Button>
   );
 });
@@ -224,9 +224,8 @@ CarouselPrevious.displayName = 'CarouselPrevious';
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({className, variant = 'outline', size = 'icon', ...props}, ref) => {
-  const {orientation, scrollNext, canScrollNext} = useCarousel();
-  const {t} = useI18next();
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
     <Button
@@ -236,15 +235,16 @@ const CarouselNext = React.forwardRef<
       className={cn(
         'absolute size-8 rounded-full',
         orientation === 'horizontal'
-          ? '-right-12 top-1/2 -translate-y-1/2'
+          ? 'top-1/2 -right-12 -translate-y-1/2'
           : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
         className,
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
-      {...props}>
+      {...props}
+    >
       <ArrowRight className="size-4" />
-      <span className="sr-only">{t('next_slide')}</span>
+      <span className="sr-only">{'next_slide'}</span>
     </Button>
   );
 });

@@ -1,16 +1,19 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {useI18next} from 'gatsby-plugin-react-i18next';
-import {debounce} from 'lodash';
+'use client';
+
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { cn } from '@/utils';
 import ScrollSpy from 'react-scrollspy-navigation';
 
-import {cn} from '@/utils';
+import { debounce } from '@/lib/debounce';
+import { useTranslation } from '@/i18n/client';
 
 interface HeaderLinksProps {
   floating?: boolean;
 }
 
-const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
-  const {t} = useI18next();
+const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
+  const { t } = useTranslation();
 
   const floatingBarRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
@@ -19,11 +22,12 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
 
   const handleChangeActiveId = useCallback(
     (hashId: string) => {
+      console.log(' hashId:', hashId);
       const id = `${hashId.replace('#', '').replace('nav-', '').replace('-', '_')}-${floating ? 'floating' : 'header'}`;
       const anchorElement = document.getElementById(id);
       const floatingBarElement = underlineRef.current;
       if (anchorElement) {
-        const {offsetWidth, offsetLeft} = anchorElement;
+        const { offsetWidth, offsetLeft } = anchorElement;
         if (floatingBarElement) {
           floatingBarElement.style.width = `${offsetWidth}px`;
           floatingBarElement.style.left = `${offsetLeft}px`;
@@ -46,7 +50,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       const handleScroll = debounce((event: Event) => {
         const target = event.target as Document;
 
-        if (target.documentElement.scrollTop <= 20) {
+        if (target.documentElement.scrollTop <= 20 && navLinks[0]) {
           handleChangeActiveId(navLinks[0].to);
         }
       }, 100);
@@ -64,7 +68,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       const hoveredElement = document.getElementById(hoveredItem);
       const floatingBarElement = floatingBarRef.current;
       if (hoveredElement && floatingBarElement) {
-        const {offsetWidth, offsetHeight, offsetTop, offsetLeft} =
+        const { offsetWidth, offsetHeight, offsetTop, offsetLeft } =
           hoveredElement;
         floatingBarElement.style.width = `${offsetWidth}px`;
         floatingBarElement.style.height = `${offsetHeight}px`;
@@ -78,12 +82,14 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
     <ScrollSpy
       activeClass="active-scroll-spy"
       offsetTop={80}
-      onChangeActiveId={handleChangeActiveId}>
+      onChangeActiveId={handleChangeActiveId}
+    >
       <div
         className="relative hidden items-center lg:flex"
-        onMouseLeave={handleMouseLeave}>
-        {navLinks.map(link => (
-          <a
+        onMouseLeave={handleMouseLeave}
+      >
+        {navLinks.map((link) => (
+          <Link
             key={link.name}
             href={link.to}
             id={`${link.name}-${floating ? 'floating' : 'header'}`}
@@ -93,9 +99,10 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
                 `${link.name}-${floating ? 'floating' : 'header'}`,
               )
             }
-            className="z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100">
+            className="z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
+          >
             {t(link.name)}
-          </a>
+          </Link>
         ))}
         <div
           ref={floatingBarRef}

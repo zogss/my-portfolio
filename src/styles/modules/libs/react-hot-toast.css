@@ -2,7 +2,7 @@
   * toast notification styles
 */
 .react-hot-toast__container {
-  @apply !bottom-[1.25rem] !right-5;
+  @apply !right-5 !bottom-[1.25rem];
 }
 
 .react-hot-toast__toast {

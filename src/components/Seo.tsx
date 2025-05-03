@@ -1,8 +1,8 @@
 import React from 'react';
-import {HeadProps} from 'gatsby';
+import { PageContextType } from '@/utils';
+import { HeadProps } from 'gatsby';
 
-import {PageContextType} from '@/utils';
-import {useSiteMetadata} from '@/hooks/useSiteMetadata';
+import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
 interface SeoProps extends HeadProps<unknown, PageContextType> {
   title?: string;

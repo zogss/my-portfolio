@@ -1,13 +1,13 @@
 import React from 'react';
-import {t} from 'i18next';
-import hotToast, {Toast} from 'react-hot-toast';
+import { t } from 'i18next';
+import hotToast, { Toast } from 'react-hot-toast';
 import {
   FaCircleCheck,
   FaCircleExclamation,
   FaCircleInfo,
   FaCircleXmark,
 } from 'react-icons/fa6';
-import {MdClose} from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 
 interface NotificationProps {
   toastInst: Toast;
@@ -21,13 +21,14 @@ export const SuccessNotification: React.FC<NotificationProps> = ({
   toastInst,
 }) => {
   return (
-    <div className="relative flex w-80 items-center rounded-lg border border-green-600 bg-charcoal-black-700 p-4 text-sm text-white">
+    <div className="bg-charcoal-black-700 relative flex w-80 items-center rounded-lg border border-green-600 p-4 text-sm text-white">
       <button
         type="button"
         title={t('close')}
         aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
-        className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-green-400 transition-colors duration-300 ease-in-out hover:bg-white/20">
+        className="absolute top-0 right-0 m-3 rounded-md p-0.5 text-green-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
+      >
         <MdClose className="size-4" />
       </button>
       <FaCircleCheck
@@ -44,13 +45,14 @@ export const InfoNotification: React.FC<NotificationProps> = ({
   toastInst,
 }) => {
   return (
-    <div className="relative flex w-80 items-center rounded-lg border border-blue-600 bg-charcoal-black-700 p-4 text-sm text-white">
+    <div className="bg-charcoal-black-700 relative flex w-80 items-center rounded-lg border border-blue-600 p-4 text-sm text-white">
       <button
         type="button"
         title={t('close')}
         aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
-        className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-blue-400 transition-colors duration-300 ease-in-out hover:bg-white/20">
+        className="absolute top-0 right-0 m-3 rounded-md p-0.5 text-blue-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
+      >
         <MdClose className="size-4" />
       </button>
       <FaCircleInfo
@@ -67,13 +69,14 @@ export const WarningNotification: React.FC<NotificationProps> = ({
   toastInst,
 }) => {
   return (
-    <div className="relative flex w-80 items-center rounded-lg border border-yellow-600 bg-charcoal-black-700 p-4 text-sm text-white">
+    <div className="bg-charcoal-black-700 relative flex w-80 items-center rounded-lg border border-yellow-600 p-4 text-sm text-white">
       <button
         type="button"
         title={t('close')}
         aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
-        className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-yellow-400 transition-colors duration-300 ease-in-out hover:bg-white/20">
+        className="absolute top-0 right-0 m-3 rounded-md p-0.5 text-yellow-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
+      >
         <MdClose className="size-4" />
       </button>
       <FaCircleExclamation
@@ -90,13 +93,14 @@ export const DangerNotification: React.FC<NotificationProps> = ({
   toastInst,
 }) => {
   return (
-    <div className="relative flex w-80 items-center rounded-lg border border-red-600 bg-charcoal-black-700 p-4 text-sm text-white">
+    <div className="bg-charcoal-black-700 relative flex w-80 items-center rounded-lg border border-red-600 p-4 text-sm text-white">
       <button
         type="button"
         title={t('close')}
         aria-label={t('close')}
         onClick={() => dismiss(toastInst?.id)}
-        className="absolute right-0 top-0 m-3 rounded-md p-0.5 text-red-400 transition-colors duration-300 ease-in-out hover:bg-white/20">
+        className="absolute top-0 right-0 m-3 rounded-md p-0.5 text-red-400 transition-colors duration-300 ease-in-out hover:bg-white/20"
+      >
         <MdClose className="size-4" />
       </button>
       <FaCircleXmark

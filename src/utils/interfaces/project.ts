@@ -1,4 +1,4 @@
-import {FileNodeType} from './fileNode';
+import { FileNodeType } from './fileNode';
 
 export type ProjectNameType =
   | 'Spacie'
@@ -31,6 +31,7 @@ export type ProjectType = {
   repository_url: string | null;
   techs: string[];
   image: FileNodeType;
+  carousel: { image: FileNodeType }[] | null;
   alt: string;
 };
 

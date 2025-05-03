@@ -1,5 +1,8 @@
-import {useEffect, useState} from 'react';
-import {debounce} from 'lodash';
+'use client';
+
+import { useEffect, useState } from 'react';
+
+import { debounce } from '@/lib/debounce';
 
 const breakpoints = {
   xs: 0,

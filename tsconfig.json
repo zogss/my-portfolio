@@ -1,27 +1,31 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "strict": true,
-    "noEmit": true,
-    "target": "esnext",
-    "lib": ["dom", "esnext"],
-    "jsx": "react",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strictNullChecks": true,
+    "incremental": false,
+    "isolatedModules": true,
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "moduleDetection": "force",
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "plugins": [{ "name": "next" }],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@env": ["./env.ts"],
+      "@public/*": ["./public/*"]
     }
   },
-  "exclude": [".*.js", "node_modules", "public", "static", ".cache"],
-  "include": [
-    "src",
-    "config",
-    "gatsby-node.ts",
-    "gatsby-config.ts",
-    "gatsby-browser.tsx",
-    "gatsby-ssr.tsx"
-  ]
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

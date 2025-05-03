@@ -1,7 +1,6 @@
-import React, {Fragment, type ComponentPropsWithoutRef} from 'react';
-import {tv, type VariantProps} from 'tailwind-variants';
-
-import {cn} from '@/utils';
+import React, { Fragment, type ComponentPropsWithoutRef } from 'react';
+import { cn } from '@/utils';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 export const titleText = tv({
   base: 'flex w-full items-center hover:underline justify-center text-white rounded-md text-3xl font-bold leading-none transition-colors duration-500 hover:text-white focus:outline-none',
@@ -48,7 +47,7 @@ const ProjectTitleText = <C extends React.ElementType>({
   const Comp = as || (asChild ? 'span' : Fragment);
 
   return (
-    <Comp {...props} className={cn(titleText({color, size}), className)} />
+    <Comp {...props} className={cn(titleText({ color, size }), className)} />
   );
 };
 
