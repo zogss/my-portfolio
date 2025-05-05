@@ -165,8 +165,8 @@ export const generateMetadata = async ({
       images: [
         {
           url: `${env.APP_URL}${project.image}`,
-          width: 1600,
-          height: 1600,
+          width: 3200,
+          height: 1800,
           alt: project.title,
         },
       ],
@@ -179,8 +179,8 @@ export const generateMetadata = async ({
       images: [
         {
           url: `${env.APP_URL}${project.image}`,
-          width: 1600,
-          height: 1600,
+          width: 3200,
+          height: 1800,
           alt: project.title,
         },
       ],
