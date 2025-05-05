@@ -2,6 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { Metadata } from 'next';
 import { getTranslation } from '@/i18n';
 
+import { env } from '@env';
 import { WithLanguageParams } from '@/@types/i18n.types';
 import getCookie from '@/actions/getCookie';
 import { cookieName, languages } from '@/i18n/settings';
@@ -130,26 +131,56 @@ export const generateMetadata = async ({
       statusBarStyle: 'default',
       title: APP_DEFAULT_TITLE,
     },
+    authors: {
+      name: 'Yan Lucas',
+      url: env.APP_URL,
+    },
     robots: {
       index: true,
       follow: true,
+      notranslate: lng === 'pt-BR',
+    },
+    alternates: {
+      languages: {
+        'pt-BR': `${env.APP_URL}/pt-BR`,
+        en: `${env.APP_URL}/en`,
+      },
     },
     openGraph: {
       type: 'website',
       siteName: APP_NAME,
+      url: `${env.APP_URL}/${lng}`,
       title: {
         default: APP_DEFAULT_TITLE,
         template: APP_TITLE_TEMPLATE,
       },
-      description: APP_DESCRIPTION,
+      description: t(APP_DESCRIPTION),
+      locale: lng,
+      images: [
+        {
+          url: `${env.APP_URL}/images/logo.png`,
+          width: 1600,
+          height: 1600,
+          alt: APP_NAME,
+        },
+      ],
     },
     twitter: {
       card: 'summary',
+      creator: 'Yan Lucas',
       title: {
         default: APP_DEFAULT_TITLE,
         template: APP_TITLE_TEMPLATE,
       },
-      description: APP_DESCRIPTION,
+      description: t(APP_DESCRIPTION),
+      images: [
+        {
+          url: `${env.APP_URL}/images/logo.png`,
+          width: 1600,
+          height: 1600,
+          alt: APP_NAME,
+        },
+      ],
     },
     formatDetection: {
       telephone: false,
