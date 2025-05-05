@@ -1,5 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 import { Metadata } from 'next';
+import {
+  APP_DEFAULT_TITLE,
+  APP_DESCRIPTION,
+  APP_NAME,
+  APP_TITLE_TEMPLATE,
+} from '@/constants';
 import { getTranslation } from '@/i18n';
 
 import { env } from '@env';
@@ -10,18 +16,13 @@ import { AppProvider } from '@/providers/app-provider';
 import { AppLayout } from '@/components/layout/app-layout';
 import withTranslation from '@/components/with-translation';
 
-const APP_NAME = 'Yan Lucas';
-const APP_DEFAULT_TITLE = 'Yan Lucas ';
-const APP_TITLE_TEMPLATE = '%s - Yan Lucas';
-const APP_DESCRIPTION = 'seo_description';
-
 export const generateStaticParams = async () => {
   return languages.map((lng) => ({ lng }));
 };
 
 export const generateMetadata = async ({
   params,
-}: WithLanguageParams<PropsWithChildren>): Promise<Metadata> => {
+}: WithLanguageParams): Promise<Metadata> => {
   const { lng } = await params;
   const {
     t,
