@@ -1,10 +1,11 @@
 'use client';
+
 import React from 'react';
 import { cn } from '@/utils';
 import { capitalize } from '@/utils/helpers/capitalize';
-import { useTranslation } from '@/i18n/client';
 import { motion, Variants } from 'motion/react';
 
+import { useTranslation } from '@/i18n/client';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import TitleEclipse from '@/components/svgs/TitleEclipse';
 

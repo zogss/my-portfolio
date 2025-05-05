@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting, submitCount, touchedFields },
+    formState: { errors, isSubmitting, submitCount },
   } = useForm<ContactFormDataType>({
     mode: 'onChange',
     reValidateMode: 'onChange',
