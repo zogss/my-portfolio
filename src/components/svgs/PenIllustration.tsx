@@ -1,13 +1,14 @@
-import React, {SVGProps} from 'react';
+import React, { SVGProps } from 'react';
 
-const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
+const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="255"
     height="306"
     viewBox="0 0 255 306"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    {...props}
+  >
     <g opacity="0.8">
       <rect
         x="98"
@@ -158,7 +159,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="276.991"
         x2="141.907"
         y2="251.8"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#5E00A8" />
         <stop offset="1" stopColor="#4729D3" />
       </linearGradient>
@@ -168,7 +170,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="247"
         x2="102.891"
         y2="168.578"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#5E00A8" />
         <stop offset="1" stopColor="#4729D3" />
       </linearGradient>
@@ -178,7 +181,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="160.5"
         x2="129"
         y2="279.5"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#6744D4" />
         <stop offset="1" stopColor="#6525AC" />
       </linearGradient>
@@ -188,7 +192,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="175.428"
         x2="202.301"
         y2="194.65"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -198,7 +203,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="167.505"
         x2="202.301"
         y2="186.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -208,7 +214,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="160.505"
         x2="202.301"
         y2="179.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -218,7 +225,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="153.505"
         x2="202.301"
         y2="172.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -228,7 +236,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="146.505"
         x2="202.301"
         y2="165.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -238,7 +247,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="139.505"
         x2="202.301"
         y2="158.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -248,7 +258,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="132.505"
         x2="202.301"
         y2="151.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -258,7 +269,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="125.505"
         x2="202.301"
         y2="144.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -268,7 +280,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="118.505"
         x2="202.301"
         y2="137.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -278,7 +291,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="111.505"
         x2="202.301"
         y2="130.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -288,7 +302,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="104.505"
         x2="202.301"
         y2="123.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -298,7 +313,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="97.5054"
         x2="202.301"
         y2="116.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -308,7 +324,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="90.5054"
         x2="202.301"
         y2="109.727"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>
@@ -318,7 +335,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="32.9071"
         x2="3.81769"
         y2="6.13874"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#121120" />
         <stop offset="1" stopColor="#2B2A37" />
       </linearGradient>
@@ -328,7 +346,8 @@ const PenIllustration: React.FC<SVGProps<SVGSVGElement>> = props => (
         y1="83.7212"
         x2="202.301"
         y2="102.943"
-        gradientUnits="userSpaceOnUse">
+        gradientUnits="userSpaceOnUse"
+      >
         <stop stopColor="#8046B9" />
         <stop offset="1" stopColor="#593BE7" />
       </linearGradient>

@@ -1,7 +1,8 @@
-import React, {useMemo} from 'react';
-import {BsGithub, BsInstagram, BsLinkedin} from 'react-icons/bs';
+import React, { useMemo } from 'react';
+import { cn } from '@/utils';
+import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
 
-import {cn, environments} from '@/utils';
+import { env } from '@env';
 
 interface SocialLinksProps {
   className?: string;
@@ -30,29 +31,33 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   return (
     <div
       data-transition-target={animate ? 'left' : undefined}
-      className={cn('flex items-center text-slate-gray-500', className)}>
+      className={cn('text-slate-gray-500 flex items-center', className)}
+    >
       <a
-        href={environments.personal.instagramUrl}
+        href={env.NEXT_PUBLIC_INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.instagramUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        title={env.NEXT_PUBLIC_INSTAGRAM_URL}
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsInstagram className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
-        href={environments.personal.linkedinUrl}
+        href={env.NEXT_PUBLIC_LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.linkedinUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        title={env.NEXT_PUBLIC_LINKEDIN_URL}
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsLinkedin className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
-        href={environments.personal.githubUrl}
+        href={env.NEXT_PUBLIC_GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.githubUrl}
-        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3">
+        title={env.NEXT_PUBLIC_GITHUB_URL}
+        className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
+      >
         <BsGithub className={cn(iconSizeClass, 'shrink-0')} />
       </a>
     </div>

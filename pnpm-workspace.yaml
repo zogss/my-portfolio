@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - gatsby
+  - protobufjs
+  - sharp
+onlyBuiltDependencies:
+  - '@firebase/util'

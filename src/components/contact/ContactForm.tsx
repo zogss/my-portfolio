@@ -1,24 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {addDoc, collection, getFirestore, setDoc} from 'firebase/firestore';
-import app from 'gatsby-plugin-firebase-v9.0';
-import {useI18next} from 'gatsby-plugin-react-i18next';
-import {useForm} from 'react-hook-form';
-import {BsSend} from 'react-icons/bs';
+'use client';
 
-import {getErrorMessage} from '@/utils';
-import {toast} from '@/services/toast';
-import {ContactFormDataType, contactSchema} from '@/schemas';
+import React, { useEffect, useState } from 'react';
+import { ContactFormDataType, contactSchema } from '@/schemas';
+import { getErrorMessage } from '@/utils';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { BsSend } from 'react-icons/bs';
+
+import saveContact from '@/actions/saveContact';
+import { useTranslation } from '@/i18n/client';
+import { toast } from '@/components/toast';
 
 import Input from '../form/Input';
 
 const ContactForm: React.FC = () => {
-  const {t} = useI18next();
+  const { t } = useTranslation();
   const {
     register,
     reset,
     handleSubmit,
-    formState: {errors, isSubmitting, submitCount},
+    formState: { errors, isSubmitting, submitCount },
   } = useForm<ContactFormDataType>({
     mode: 'onChange',
     reValidateMode: 'onChange',
@@ -27,20 +28,14 @@ const ContactForm: React.FC = () => {
 
   const [submitBlocked, setSubmitBlocked] = useState(false);
 
-  const onSubmit = handleSubmit(async data => {
+  const onSubmit = handleSubmit(async (data) => {
     try {
       if (submitCount >= 5) {
         setSubmitBlocked(true);
         throw new Error('submit_count_error');
       }
-      const db = getFirestore(app);
 
-      const dataWithTimestamp = {...data, createdAt: new Date()};
-      const contactsRef = await addDoc(
-        collection(db, 'contacts'),
-        dataWithTimestamp,
-      );
-      await setDoc(contactsRef, dataWithTimestamp);
+      await saveContact(data);
 
       reset(
         {
@@ -79,7 +74,8 @@ const ContactForm: React.FC = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="z-[1] flex w-full flex-col items-start gap-3.5 lg:w-2/3">
+      className="z-[1] flex w-full flex-col items-start gap-3.5 lg:w-2/3"
+    >
       <Input className="w-full">
         <Input.Input
           type="text"
@@ -121,14 +117,15 @@ const ContactForm: React.FC = () => {
             type="submit"
             disabled={isSubmitting}
             title={t('send')}
-            className="flex items-center justify-center gap-2.5 rounded-lg bg-gradient-tertiary px-[1.375rem] py-1.5 disabled:opacity-50">
+            className="bg-gradient-tertiary flex cursor-pointer items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-1.5 disabled:opacity-50"
+          >
             {t('send')}
             <BsSend className="size-[1.125rem]" />
           </button>
         </div>
         {isSubmitting && (
           <div className="follow-the-leader">
-            {Array.from({length: 5}).map((_, index) => (
+            {Array.from({ length: 5 }).map((_, index) => (
               <div key={index} />
             ))}
           </div>

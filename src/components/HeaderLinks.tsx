@@ -1,16 +1,19 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {useI18next} from 'gatsby-plugin-react-i18next';
-import {debounce} from 'lodash';
-import ScrollSpy from 'react-scrollspy-navigation';
+'use client';
 
-import {cn} from '@/utils';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { cn } from '@/utils';
+
+import { debounce } from '@/lib/debounce';
+import { useTranslation } from '@/i18n/client';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 interface HeaderLinksProps {
   floating?: boolean;
 }
 
-const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
-  const {t} = useI18next();
+const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
+  const { t } = useTranslation();
 
   const floatingBarRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
@@ -23,7 +26,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       const anchorElement = document.getElementById(id);
       const floatingBarElement = underlineRef.current;
       if (anchorElement) {
-        const {offsetWidth, offsetLeft} = anchorElement;
+        const { offsetWidth, offsetLeft } = anchorElement;
         if (floatingBarElement) {
           floatingBarElement.style.width = `${offsetWidth}px`;
           floatingBarElement.style.left = `${offsetLeft}px`;
@@ -32,6 +35,12 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
     },
     [floating],
   );
+
+  const { activeSection } = useScrollSpy({
+    sectionIds: navLinks.map((link) => link.to.replace('#', '')),
+    offsetTop: 80,
+    onChangeActiveId: handleChangeActiveId,
+  });
 
   const handleMouseEnter = (index: string) => {
     setHoveredItem(index);
@@ -46,7 +55,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       const handleScroll = debounce((event: Event) => {
         const target = event.target as Document;
 
-        if (target.documentElement.scrollTop <= 20) {
+        if (target.documentElement.scrollTop <= 20 && navLinks[0]) {
           handleChangeActiveId(navLinks[0].to);
         }
       }, 100);
@@ -64,7 +73,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
       const hoveredElement = document.getElementById(hoveredItem);
       const floatingBarElement = floatingBarRef.current;
       if (hoveredElement && floatingBarElement) {
-        const {offsetWidth, offsetHeight, offsetTop, offsetLeft} =
+        const { offsetWidth, offsetHeight, offsetTop, offsetLeft } =
           hoveredElement;
         floatingBarElement.style.width = `${offsetWidth}px`;
         floatingBarElement.style.height = `${offsetHeight}px`;
@@ -75,41 +84,39 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({floating}) => {
   }, [hoveredItem]);
 
   return (
-    <ScrollSpy
-      activeClass="active-scroll-spy"
-      offsetTop={80}
-      onChangeActiveId={handleChangeActiveId}>
-      <div
-        className="relative hidden items-center lg:flex"
-        onMouseLeave={handleMouseLeave}>
-        {navLinks.map(link => (
-          <a
-            key={link.name}
-            href={link.to}
-            id={`${link.name}-${floating ? 'floating' : 'header'}`}
-            title={t(link.name)}
-            onMouseEnter={() =>
-              handleMouseEnter(
-                `${link.name}-${floating ? 'floating' : 'header'}`,
-              )
-            }
-            className="z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100">
-            {t(link.name)}
-          </a>
-        ))}
-        <div
-          ref={floatingBarRef}
+    <div
+      className="relative hidden items-center lg:flex"
+      onMouseLeave={handleMouseLeave}
+    >
+      {navLinks.map((link) => (
+        <Link
+          key={link.name}
+          href={link.to}
+          id={`${link.name}-${floating ? 'floating' : 'header'}`}
+          title={t(link.name)}
+          onMouseEnter={() =>
+            handleMouseEnter(`${link.name}-${floating ? 'floating' : 'header'}`)
+          }
           className={cn(
-            'absolute rounded bg-white/20 transition-[width,height,top,left,opacity]',
-            hoveredItem ? 'opacity-100' : 'opacity-0',
+            'z-[1] flex rounded px-4 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100 xl:px-5',
+            activeSection === link.to.replace('#', '') && 'text-neutral-100',
           )}
-        />
-        <div
-          ref={underlineRef}
-          className="absolute -bottom-0.5 h-0.5 rounded-full bg-neutral-100 transition-[width,left] duration-300 ease-in-out"
-        />
-      </div>
-    </ScrollSpy>
+        >
+          {t(link.name)}
+        </Link>
+      ))}
+      <div
+        ref={floatingBarRef}
+        className={cn(
+          'absolute rounded bg-white/20 transition-[width,height,top,left,opacity]',
+          hoveredItem ? 'opacity-100' : 'opacity-0',
+        )}
+      />
+      <div
+        ref={underlineRef}
+        className="absolute -bottom-0.5 h-0.5 rounded-full bg-neutral-100 transition-[width,left] duration-300 ease-in-out"
+      />
+    </div>
   );
 };
 

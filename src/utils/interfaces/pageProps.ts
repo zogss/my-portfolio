@@ -1,4 +1,4 @@
-import {ProjectType} from './project';
+import { ProjectType } from './project';
 
 export type PageContextType = {
   language: string;
