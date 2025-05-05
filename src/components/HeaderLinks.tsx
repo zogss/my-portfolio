@@ -3,10 +3,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/utils';
-import ScrollSpy from 'react-scrollspy-navigation';
 
 import { debounce } from '@/lib/debounce';
 import { useTranslation } from '@/i18n/client';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 interface HeaderLinksProps {
   floating?: boolean;
@@ -22,7 +22,6 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
 
   const handleChangeActiveId = useCallback(
     (hashId: string) => {
-      console.log(' hashId:', hashId);
       const id = `${hashId.replace('#', '').replace('nav-', '').replace('-', '_')}-${floating ? 'floating' : 'header'}`;
       const anchorElement = document.getElementById(id);
       const floatingBarElement = underlineRef.current;
@@ -36,6 +35,12 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
     },
     [floating],
   );
+
+  const { activeSection } = useScrollSpy({
+    sectionIds: navLinks.map((link) => link.to.replace('#', '')),
+    offsetTop: 80,
+    onChangeActiveId: handleChangeActiveId,
+  });
 
   const handleMouseEnter = (index: string) => {
     setHoveredItem(index);
@@ -79,44 +84,39 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
   }, [hoveredItem]);
 
   return (
-    <ScrollSpy
-      activeClass="active-scroll-spy"
-      offsetTop={80}
-      onChangeActiveId={handleChangeActiveId}
+    <div
+      className="relative hidden items-center lg:flex"
+      onMouseLeave={handleMouseLeave}
     >
-      <div
-        className="relative hidden items-center lg:flex"
-        onMouseLeave={handleMouseLeave}
-      >
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            href={link.to}
-            id={`${link.name}-${floating ? 'floating' : 'header'}`}
-            title={t(link.name)}
-            onMouseEnter={() =>
-              handleMouseEnter(
-                `${link.name}-${floating ? 'floating' : 'header'}`,
-              )
-            }
-            className="z-[1] flex rounded px-5 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100"
-          >
-            {t(link.name)}
-          </Link>
-        ))}
-        <div
-          ref={floatingBarRef}
+      {navLinks.map((link) => (
+        <Link
+          key={link.name}
+          href={link.to}
+          id={`${link.name}-${floating ? 'floating' : 'header'}`}
+          title={t(link.name)}
+          onMouseEnter={() =>
+            handleMouseEnter(`${link.name}-${floating ? 'floating' : 'header'}`)
+          }
           className={cn(
-            'absolute rounded bg-white/20 transition-[width,height,top,left,opacity]',
-            hoveredItem ? 'opacity-100' : 'opacity-0',
+            'z-[1] flex rounded px-4 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100 xl:px-5',
+            activeSection === link.to.replace('#', '') && 'text-neutral-100',
           )}
-        />
-        <div
-          ref={underlineRef}
-          className="absolute -bottom-0.5 h-0.5 rounded-full bg-neutral-100 transition-[width,left] duration-300 ease-in-out"
-        />
-      </div>
-    </ScrollSpy>
+        >
+          {t(link.name)}
+        </Link>
+      ))}
+      <div
+        ref={floatingBarRef}
+        className={cn(
+          'absolute rounded bg-white/20 transition-[width,height,top,left,opacity]',
+          hoveredItem ? 'opacity-100' : 'opacity-0',
+        )}
+      />
+      <div
+        ref={underlineRef}
+        className="absolute -bottom-0.5 h-0.5 rounded-full bg-neutral-100 transition-[width,left] duration-300 ease-in-out"
+      />
+    </div>
   );
 };
 

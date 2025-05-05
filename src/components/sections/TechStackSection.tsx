@@ -1,9 +1,12 @@
 'use client';
-import React from 'react';
-import { useTranslation } from '@/i18n/client';
 
+import React from 'react';
+
+import { useTranslation } from '@/i18n/client';
 import TitleEclipse from '@/components/svgs/TitleEclipse';
 import TechStackBlock from '@/components/techStack/TechStackBlock';
+
+import { AnimationContainer } from '../animation-container';
 
 const TechStackSection: React.FC = () => {
   const { t } = useTranslation();
@@ -22,11 +25,8 @@ const TechStackSection: React.FC = () => {
             </h2>
           </div>
         </div>
-        <div data-transition="animate" className="flex w-full justify-center">
-          <h3
-            data-transition-target="up"
-            className="z-[1] flex flex-col items-center gap-1.5 lg:gap-2.5 xl:max-w-2xl"
-          >
+        <AnimationContainer className="flex h-auto w-full justify-center">
+          <h3 className="z-[1] flex flex-col items-center gap-1.5 lg:gap-2.5 xl:max-w-2xl">
             <span className="text-center font-semibold md:text-lg lg:text-xl">
               {t('tech_stack_section_text_part_1')}
             </span>
@@ -34,7 +34,7 @@ const TechStackSection: React.FC = () => {
               {t('tech_stack_section_text_part_2')}
             </span>
           </h3>
-        </div>
+        </AnimationContainer>
       </div>
       <TechStackBlock />
     </section>

@@ -90,8 +90,8 @@ const ExperienceSection: React.FC = () => {
                   className={cn(
                     'flex lg:absolute lg:top-1/2 lg:z-[1] lg:-translate-y-1/2',
                     index % 2 === 0
-                      ? 'lg:right-1/2 lg:translate-x-[calc(100%+24px)]'
-                      : 'lg:left-1/2 lg:translate-x-[calc((100%+24px)*-1)]',
+                      ? 'lg:right-1/2 lg:translate-x-[calc(100%+6px)]'
+                      : 'lg:left-1/2 lg:translate-x-[calc((100%+36px)*-1)]',
                   )}
                 >
                   <span className="text-sm font-medium text-neutral-400">
@@ -128,7 +128,7 @@ const ExperienceSection: React.FC = () => {
                   {t(exp.description)}
                 </p>
               </div>
-              <div className="shadow-white-sm absolute top-1/2 left-0 z-[1] size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 lg:left-1/2" />
+              <div className="shadow-white-sm absolute top-1/2 left-0 z-[1] size-4 -translate-x-[calc(100%+8px)] -translate-y-1/2 rounded-full bg-white/80 lg:left-1/2" />
             </motion.div>
           ))}
         </div>

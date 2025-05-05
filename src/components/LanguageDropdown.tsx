@@ -1,10 +1,19 @@
+'use client';
+
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 import { cn } from '@/utils';
-import { Menu, Transition } from '@headlessui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from '@headlessui/react';
 import { BiChevronDown } from 'react-icons/bi';
 
 import { useTranslation } from '@/i18n/client';
+import { languages } from '@/i18n/settings';
 
 import BrFlag from './svgs/flags/BrFlag';
 import UsFlag from './svgs/flags/UsFlag';
@@ -12,7 +21,7 @@ import UsFlag from './svgs/flags/UsFlag';
 const LanguageDropdown: React.FC = () => {
   const {
     t,
-    i18n: { language, languages },
+    i18n: { language },
   } = useTranslation();
 
   const getFlagByLanguage = (language: string) => {
@@ -23,7 +32,7 @@ const LanguageDropdown: React.FC = () => {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button
+      <MenuButton
         title={t('language')}
         aria-label={t('language')}
         className={({ open }) =>
@@ -45,7 +54,7 @@ const LanguageDropdown: React.FC = () => {
             />
           </>
         )}
-      </Menu.Button>
+      </MenuButton>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -55,14 +64,14 @@ const LanguageDropdown: React.FC = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items
+        <MenuItems
           as="ul"
           className="bg-charcoal-black-700 shadow-white-md absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-neutral-100/30 rounded-md"
         >
           {languages.map((lng) => {
             const Flag = getFlagByLanguage(lng)?.Icon;
             return (
-              <Menu.Item key={lng} as="li" className="group/translationLink">
+              <MenuItem key={lng} as="li" className="group/translationLink">
                 <Link
                   href={`/${lng}`}
                   title={t(lng)}
@@ -76,10 +85,10 @@ const LanguageDropdown: React.FC = () => {
                   {t(lng)}
                   {Flag && <Flag className="size-6 shrink-0 rounded-sm" />}
                 </Link>
-              </Menu.Item>
+              </MenuItem>
             );
           })}
-        </Menu.Items>
+        </MenuItems>
       </Transition>
     </Menu>
   );
@@ -90,7 +99,7 @@ export default LanguageDropdown;
 const flags = [
   {
     name: 'brazil',
-    slug: 'br',
+    slug: 'pt-BR',
     Icon: BrFlag,
   },
   {

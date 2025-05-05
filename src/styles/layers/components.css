@@ -8,10 +8,11 @@
   }
 
   .form-error {
-    @apply mt-1 block text-start text-sm font-medium text-red-600;
+    @apply block text-start text-sm font-medium text-red-600;
   }
 
   .bg-gradient-primary {
+    background: var(--gradient-primary);
     transition:
       --p-gr-primary-color-1 0.4s,
       --p-gr-primary-color-2 0.4s;
@@ -22,7 +23,12 @@
     --p-gr-primary-color-2: #ffffff33;
   }
 
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
   .bg-gradient-tertiary {
+    background: var(--gradient-tertiary);
     transition:
       --p-gr-tertiary-color-1 1s,
       --p-gr-tertiary-color-2 1s;

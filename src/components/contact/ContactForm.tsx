@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { ContactFormDataType, contactSchema } from '@/schemas';
 import { getErrorMessage } from '@/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { addDoc, collection, getFirestore, setDoc } from 'firebase/firestore';
 import { useForm } from 'react-hook-form';
 import { BsSend } from 'react-icons/bs';
 
+import saveContact from '@/actions/saveContact';
 import { useTranslation } from '@/i18n/client';
 import { toast } from '@/components/toast';
 
@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting, submitCount },
+    formState: { errors, isSubmitting, submitCount, touchedFields },
   } = useForm<ContactFormDataType>({
     mode: 'onChange',
     reValidateMode: 'onChange',
@@ -34,15 +34,8 @@ const ContactForm: React.FC = () => {
         setSubmitBlocked(true);
         throw new Error('submit_count_error');
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const db = getFirestore({} as any);
 
-      const dataWithTimestamp = { ...data, createdAt: new Date() };
-      const contactsRef = await addDoc(
-        collection(db, 'contacts'),
-        dataWithTimestamp,
-      );
-      await setDoc(contactsRef, dataWithTimestamp);
+      await saveContact(data);
 
       reset(
         {
@@ -124,7 +117,7 @@ const ContactForm: React.FC = () => {
             type="submit"
             disabled={isSubmitting}
             title={t('send')}
-            className="bg-gradient-tertiary flex items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-1.5 disabled:opacity-50"
+            className="bg-gradient-tertiary flex cursor-pointer items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-1.5 disabled:opacity-50"
           >
             {t('send')}
             <BsSend className="size-[1.125rem]" />

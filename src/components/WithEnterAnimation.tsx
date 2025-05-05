@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 
 type WithEnterAnimationElement<T = object> = React.FC<T>;
@@ -5,7 +7,7 @@ type WithEnterAnimationElement<T = object> = React.FC<T>;
 const WithEnterAnimation = <T extends object = object>(
   WrappedComponent: WithEnterAnimationElement<T>,
 ) => {
-  const ComponentWithAnimation = (props: T) => {
+  const ComponentWithAnimation = (props: T): React.ReactElement => {
     useEffect(() => {
       const intersectionObservers: IntersectionObserver[] = [];
       const targetElements = document.querySelectorAll('[data-transition]');

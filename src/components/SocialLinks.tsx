@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
-import { cn, environments } from '@/utils';
+import { cn } from '@/utils';
 import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
+
+import { env } from '@env';
 
 interface SocialLinksProps {
   className?: string;
@@ -32,28 +34,28 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
       className={cn('text-slate-gray-500 flex items-center', className)}
     >
       <a
-        href={environments.personal.instagramUrl}
+        href={env.NEXT_PUBLIC_INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.instagramUrl}
+        title={env.NEXT_PUBLIC_INSTAGRAM_URL}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsInstagram className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
-        href={environments.personal.linkedinUrl}
+        href={env.NEXT_PUBLIC_LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.linkedinUrl}
+        title={env.NEXT_PUBLIC_LINKEDIN_URL}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsLinkedin className={cn(iconSizeClass, 'shrink-0')} />
       </a>
       <a
-        href={environments.personal.githubUrl}
+        href={env.NEXT_PUBLIC_GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        title={environments.personal.githubUrl}
+        title={env.NEXT_PUBLIC_GITHUB_URL}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsGithub className={cn(iconSizeClass, 'shrink-0')} />

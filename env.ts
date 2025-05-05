@@ -12,6 +12,8 @@ export const env = createEnv({
     FIREBASE_PROJECT_ID: z.string().min(1),
     FIREBASE_STORAGE_BUCKET: z.string().min(1),
     FIREBASE_MESSAGING_SENDER_ID: z.string().min(1),
+    FIREBASE_APP_ID: z.string().min(1),
+    FIREBASE_MEASUREMENT_ID: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_API_URL: z.string().url().min(1),
@@ -34,6 +36,8 @@ export const env = createEnv({
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_PERSONAL_EMAIL: process.env.NEXT_PUBLIC_PERSONAL_EMAIL,

@@ -9,11 +9,11 @@ export const LoadingProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     const handleStart = () => {
-      // const htmlElement = document.getElementsByTagName('html')[0];
-      // if (htmlElement) {
-      //   htmlElement.style.overflow = 'hidden';
-      //   htmlElement.style.marginRight = '.9375rem';
-      // }
+      const htmlElement = document.querySelector('html');
+      if (htmlElement) {
+        htmlElement.style.overflow = 'hidden';
+        htmlElement.style.marginRight = '.9375rem';
+      }
       const element = document.getElementById('loader-wrapper');
       if (element) {
         element.style.display = 'flex';
@@ -24,11 +24,11 @@ export const LoadingProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const handleComplete = async () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
 
-      // const htmlElement = document.getElementsByTagName('html')[0];
-      // if (htmlElement) {
-      //   htmlElement.style.overflow = 'unset';
-      //   htmlElement.style.marginRight = '0rem';
-      // }
+      const htmlElement = document.querySelector('html');
+      if (htmlElement) {
+        htmlElement.style.overflow = 'unset';
+        htmlElement.style.marginRight = '0rem';
+      }
       const element = document.getElementById('loader-wrapper');
       if (element) {
         element.classList.add('opacity-0');

@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useTranslation } from '@/i18n/client';
 
+import { AnimationContainer } from '../animation-container';
 import PenIllustration from '../svgs/PenIllustration';
 import ContactForm from './ContactForm';
 
@@ -11,14 +12,8 @@ const ContactBlock: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div
-      data-transition="animate"
-      className="flex w-full items-center justify-center"
-    >
-      <div
-        data-transition-target="up"
-        className="flex w-full items-center justify-center"
-      >
+    <AnimationContainer className="flex h-auto w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <div className="group/contactFormContainer hover:shadow-secondary flex w-full items-center justify-center transition-shadow duration-500 xl:w-3/4">
           <div className="bg-charcoal-black-700 relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 p-5 py-6 md:px-8 lg:px-12 lg:py-8">
             <div className="flex flex-col items-start gap-6 self-stretch">
@@ -38,7 +33,7 @@ const ContactBlock: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </AnimationContainer>
   );
 };
 

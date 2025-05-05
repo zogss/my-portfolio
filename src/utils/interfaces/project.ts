@@ -1,5 +1,3 @@
-import { FileNodeType } from './fileNode';
-
 export type ProjectNameType =
   | 'Spacie'
   | 'CS Analytics'
@@ -30,8 +28,8 @@ export type ProjectType = {
   url: string | null;
   repository_url: string | null;
   techs: string[];
-  image: FileNodeType;
-  carousel: { image: FileNodeType }[] | null;
+  image: string;
+  carousel: { image: string }[] | null;
   alt: string;
 };
 

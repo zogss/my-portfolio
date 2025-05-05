@@ -60,7 +60,7 @@ const HomeSection: React.FC = () => {
         <div
           data-transition-target="right"
           className={cn(
-            'shadow-primary relative z-[2] flex size-[12.5rem] items-start overflow-hidden rounded-full border border-white/5 bg-gradient-to-bl from-zinc-800/50 to-black/10 before:absolute before:inset-3 before:z-[1] before:rounded-full before:border before:border-white/5 before:bg-gradient-to-l before:from-zinc-800/50 before:to-black/10 md:size-[18.75rem] md:translate-y-0 lg:absolute lg:right-[5%] lg:h-auto lg:w-[43.75rem] lg:items-center lg:justify-end lg:overflow-auto lg:rounded-2xl lg:border-none lg:bg-gradient-to-l lg:from-black/30 lg:to-black/0 lg:shadow-none lg:before:hidden xl:right-[6%] 2xl:right-[12%]',
+            'shadow-primary relative z-[2] flex size-[12.5rem] items-start overflow-hidden rounded-full border border-white/5 bg-gradient-to-bl from-zinc-800/50 to-black/10 md:size-[18.75rem] md:translate-y-0 lg:absolute lg:right-[5%] lg:h-auto lg:w-[43.75rem] lg:items-center lg:justify-end lg:overflow-auto lg:rounded-2xl lg:border-none lg:bg-gradient-to-l lg:from-black/30 lg:to-black/0 lg:shadow-none xl:right-[6%] 2xl:right-[12%]',
             language === 'pt-BR'
               ? ''
               : 'xl:translate-y-[9%] 2xl:translate-y-[7%]',
@@ -72,7 +72,7 @@ const HomeSection: React.FC = () => {
             quality={100}
             width={620}
             height={620}
-            className="z-[3] size-[14.375rem] -translate-y-1 rounded-full md:size-[21.875rem] md:rounded-none lg:z-0 lg:size-[32.5rem] 2xl:size-[38.75rem]"
+            className="z-[3] size-[12.5rem] shrink-0 translate-y-4 rounded-full md:size-[21.875rem] md:translate-y-0 md:rounded-none lg:z-0 lg:size-[32.5rem] 2xl:size-[38.75rem]"
           />
         </div>
       </div>

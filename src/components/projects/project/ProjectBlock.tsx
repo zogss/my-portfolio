@@ -1,42 +1,45 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { ProjectType } from '@/utils';
-import Autoplay from 'embla-carousel-autoplay';
+// import Autoplay from 'embla-carousel-autoplay';
 import { BiLinkExternal } from 'react-icons/bi';
+import { BsGithub } from 'react-icons/bs';
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-// import Tag from '@/components/Tag';
+import { useTranslation } from '@/i18n/client';
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from '@/components/ui/carousel';
+import Tag from '@/components/Tag';
 import ProjectSeparator from '@/components/variants/projectSeparator';
 import ProjectTitleText from '@/components/variants/projectTitleText';
 import ProjectTripleDots from '@/components/variants/projectTripleDots';
-import { BsGithub } from 'react-icons/bs';
 
 const ProjectBlock: React.FC<ProjectType> = ({
   title,
   short_description,
   long_description,
-  // image,
-  carousel,
-  // alt,
+  image,
+  // carousel,
+  alt,
   slug,
-  // techs,
+  techs,
   url,
   repository_url,
 }) => {
-  const t = (a: string) => a;
-  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+  const { t } = useTranslation();
+
+  // const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
   return (
     <section className="flex w-full flex-col gap-9">
       <div className="flex w-full flex-col items-start gap-3 md:gap-4">
-        {carousel && carousel.length > 0 ? (
+        {/* {carousel && carousel.length > 0 ? (
           <Carousel
             plugins={[plugin.current]}
             opts={{ loop: true }}
@@ -46,13 +49,17 @@ const ProjectBlock: React.FC<ProjectType> = ({
           >
             <CarouselContent>
               {[...carousel, ...carousel].map(({ image }, index) => (
-                <CarouselItem key={`${image.base}-${index}`}>
+                <CarouselItem key={`${image}-${index}`}>
                   <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
-                    {/* <GatsbyImage
-                      image={getImage(image)!}
+                    <Image
+                      src={image}
                       alt={alt}
+                      priority
+                      quality={100}
+                      width={1600}
+                      height={900}
                       className="size-full"
-                    /> */}
+                    />
                   </div>
                 </CarouselItem>
               ))}
@@ -61,14 +68,18 @@ const ProjectBlock: React.FC<ProjectType> = ({
             <CarouselNext className="-right-px h-16 w-10 rounded-l rounded-r-none border-r-0 border-neutral-400/90 text-neutral-100 opacity-50 transition-[opacity,background-color,color,border-color,text-decoration-color,fill,stroke] duration-300 hover:bg-zinc-900/90 hover:opacity-100" />
           </Carousel>
         ) : (
-          <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
-            {/* <GatsbyImage
-              image={getImage(image)!}
-              alt={alt}
-              className="size-full"
-            /> */}
-          </div>
-        )}
+        )} */}
+        <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
+          <Image
+            src={image}
+            alt={alt}
+            priority
+            quality={100}
+            width={1600}
+            height={900}
+            className="size-full"
+          />
+        </div>
         <div className="flex w-full flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="group/projectCard flex w-full justify-between gap-4 sm:w-fit">
             <ProjectTitleText
@@ -138,9 +149,9 @@ const ProjectBlock: React.FC<ProjectType> = ({
           <ProjectSeparator color={slug} size="xs" />
         </div>
         <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
-          {/* {techs.map((tech, i) => (
-            <Tag key={`${kebabCase(title)}-${tech}-${i}`} text={tech} />
-          ))} */}
+          {techs.map((tech, i) => (
+            <Tag key={`${title}-${tech}-${i}`} text={tech} />
+          ))}
         </div>
       </div>
     </section>

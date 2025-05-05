@@ -17,7 +17,7 @@ export const getErrorMessage: GetErrorMessageType = (err) => {
   const error = err as ErrorType;
 
   if (error?.response?.data?.errors?.length) {
-    return error.response.data.errors[0].message.replace(/.*?:\s?/, '');
+    return error.response.data.errors[0]?.message.replace(/.*?:\s?/, '');
   } else if (
     error?.response?.data?.message ||
     error?.response?.message ||

@@ -39,6 +39,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
           navElement.classList.add('-translate-y-full');
         }
       };
+      handleScroll();
       window.addEventListener('scroll', handleScroll);
       return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -53,14 +54,14 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
           <header
             ref={headerRef}
             className={cn(
-              'fixed inset-x-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:right-auto lg:left-1/2 lg:-translate-x-1/2 lg:px-[calc(5vw_+_1.625rem)] xl:px-[calc(10vw_+_1.625rem)]',
+              'fixed inset-x-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:right-auto lg:left-1/2 lg:-translate-x-1/2 lg:px-[calc(4.5vw)] xl:px-[calc(10vw_+_1.625rem)]',
               open
                 ? 'bg-charcoal-black-700/90'
                 : 'from-charcoal-black-700/90 to-charcoal-black-700/50 bg-gradient-to-b',
             )}
           >
             <div className="flex w-full items-center justify-between gap-4">
-              <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
+              <div className="flex items-center gap-3 md:gap-4 lg:gap-5 xl:gap-16">
                 <Link
                   href={hideSectionLinks ? '/' : '#home'}
                   title={
@@ -123,10 +124,10 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
         {({ open, close }) => (
           <nav
             ref={navRef}
-            className="shadow-primary fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 transition-[transform,width] duration-300 md:px-6 lg:left-1/2 lg:w-[90vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
+            className="shadow-primary fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 transition-[transform,width] duration-300 md:px-6 lg:left-1/2 lg:w-[96vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
           >
             <div className="flex w-full items-center justify-between gap-4">
-              <div className="flex items-center gap-3 md:gap-6 lg:gap-8 xl:gap-16">
+              <div className="flex items-center gap-3 md:gap-4 lg:gap-5 xl:gap-16">
                 <Link
                   href={hideSectionLinks ? '/' : '#home'}
                   title={

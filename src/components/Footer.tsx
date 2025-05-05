@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { environments } from '@/utils';
 
+import { env } from '@env';
 import { useTranslation } from '@/i18n/client';
 import { navLinks } from '@/components/HeaderLinks';
 import SocialLinks from '@/components/SocialLinks';
@@ -50,11 +50,11 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
           <SocialLinks className="w-full justify-center gap-4 md:justify-end" />
           <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] md:w-full">
             <a
-              href={`mailto:${environments.personal.email}`}
-              title={environments.personal.email}
+              href={`mailto:${env.NEXT_PUBLIC_PERSONAL_EMAIL}`}
+              title={env.NEXT_PUBLIC_PERSONAL_EMAIL}
               className="bg-gradient-tertiary flex w-fit items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-2.5 text-sm md:w-full md:text-base"
             >
-              {environments.personal.email}
+              {env.NEXT_PUBLIC_PERSONAL_EMAIL}
             </a>
           </div>
         </div>
@@ -65,10 +65,10 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
           @ {new Date().getFullYear()} Yan Lucas.
         </span>
         <a
-          href={environments.inspiration.figmaUrl}
+          href={env.NEXT_PUBLIC_INSPIRATION_FIGMA_URL}
           target="_blank"
           rel="noreferrer"
-          title={environments.inspiration.figmaUrl}
+          title={env.NEXT_PUBLIC_INSPIRATION_FIGMA_URL}
           className="flex items-center justify-center gap-3 rounded px-3 py-2 text-xs font-medium text-white/40 transition-colors duration-500 hover:bg-zinc-700 hover:text-neutral-300"
         >
           {t('inspired_text', { name: '@KC Studio' })}

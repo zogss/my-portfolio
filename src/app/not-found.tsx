@@ -6,12 +6,6 @@ import { getTranslation } from '@/i18n';
 import getCookie from '@/actions/getCookie';
 import { cookieName, fallbackLng } from '@/i18n/settings';
 
-// import Seo from '@/components/Seo';
-
-// export const Head: HeadFC<I18nPageData, PageContextType> = (
-//   props: HeadProps<I18nPageData, PageContextType>,
-// ) => <Seo title="Page not found | Yan Lucas" {...props} />;
-
 const NotFound: React.FC = async () => {
   const lng = (await getCookie(cookieName)) || fallbackLng;
   const { t } = await getTranslation(lng);
@@ -22,8 +16,7 @@ const NotFound: React.FC = async () => {
         <Image
           src="/images/404-illustration.png"
           alt="404 illustration"
-          placeholder="blur"
-          layout="constrained"
+          priority
           width={300}
           height={300}
           className="mb-4 rounded-lg shadow-lg sm:mb-6 sm:size-80"

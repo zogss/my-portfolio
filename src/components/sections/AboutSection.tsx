@@ -2,13 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { environments } from '@/utils';
 import { differenceInYears } from 'date-fns';
 
+import { env } from '@env';
 import { useTranslation } from '@/i18n/client';
 import TitleEclipse from '@/components/svgs/TitleEclipse';
 
-import myImage from '@public/images/about_image.jpg';
+import myImage from '@public/images/about_image.png';
 
 const AboutSection: React.FC = () => {
   const { t } = useTranslation();
@@ -30,13 +30,12 @@ const AboutSection: React.FC = () => {
         data-transition="animate"
         className="z-[1] flex w-full flex-col items-center gap-10 md:gap-12 xl:flex-row xl:items-start xl:justify-center 2xl:gap-16"
       >
-        <div data-transition-target="left" className="relative p-3">
+        <div data-transition-target="left" className="relative shrink-0 p-3">
           <Image
             src={myImage}
             alt={t('about_image_alt')}
             priority
             quality={100}
-            placeholder="blur"
             className="relative z-[1] h-[14.375rem] w-[18.75rem] rounded-3xl shadow-2xl md:h-[21.625rem] md:w-[28.125rem] 2xl:h-[25rem] 2xl:w-[34.375rem]"
           />
           <div className="absolute inset-0 bg-black/70 blur-3xl" />
@@ -47,7 +46,7 @@ const AboutSection: React.FC = () => {
         >
           <h3 className="mb-[1.125rem] block max-w-xl text-center text-lg leading-tight font-bold text-neutral-100 md:text-xl md:leading-normal lg:text-2xl xl:max-w-none xl:text-start">
             {t('about_section_text_part_1', {
-              location: environments.personal.location,
+              location: env.NEXT_PUBLIC_PERSONAL_LOCATION,
             })}
           </h3>
           <p className="mb-3">

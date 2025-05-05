@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+
 import { useTranslation } from '@/i18n/client';
 
 interface TagProps {
@@ -9,7 +11,7 @@ const Tag: React.FC<TagProps> = ({ text }) => {
   const { t } = useTranslation();
 
   return (
-    <a
+    <Link
       href={`https://www.google.com/search?q=${text}`}
       target="_blank"
       rel="noopener noreferrer"
@@ -22,7 +24,7 @@ const Tag: React.FC<TagProps> = ({ text }) => {
           {text}
         </span>
       </div>
-    </a>
+    </Link>
   );
 };
 

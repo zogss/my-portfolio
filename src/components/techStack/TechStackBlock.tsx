@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
+'use client';
+
+import React, { Fragment, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { cn } from '@/utils';
-import { Tab } from '@headlessui/react';
-import { useTranslation } from '@/i18n/client';
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import {
   BiLogoAngular,
   BiLogoJavascript,
@@ -36,37 +38,40 @@ import {
   SiStyledcomponents,
 } from 'react-icons/si';
 
+import { useTranslation } from '@/i18n/client';
+
+import { AnimationContainer } from '../animation-container';
 import ReactNavigationIcon from '../svgs/ReactNavigationIcon';
 
 const TechStackBlock: React.FC = () => {
   const { t } = useTranslation();
 
-  const getActiveTab = () => {
-    if (typeof window !== 'undefined') {
-      const activeTab = localStorage.getItem('techStackActiveTab');
-      if (activeTab) {
-        return parseInt(activeTab);
-      }
-    }
-    return 1;
-  };
+  const [activeTab, setActiveTab] = useState(1);
 
-  const setActiveTab = (index: number) => {
+  const changeActiveTab = (index: number) => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('techStackActiveTab', index.toString());
     }
+    setActiveTab(index);
   };
 
+  useEffect(() => {
+    const activeTab = localStorage.getItem('techStackActiveTab');
+    if (activeTab) {
+      setActiveTab(parseInt(activeTab));
+    }
+  }, []);
+
   return (
-    <div className="z-[1] flex w-full flex-1 justify-center">
-      <Tab.Group
+    <AnimationContainer className="z-[1] flex h-auto w-full flex-1 justify-center">
+      <TabGroup
         as="div"
-        defaultIndex={getActiveTab()}
+        selectedIndex={activeTab}
+        onChange={changeActiveTab}
         className="bg-midnight-slate-700 flex w-full flex-col items-center gap-2.5 overflow-hidden rounded-lg 2xl:w-3/4"
       >
-        <Tab.List className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
+        <TabList className="flex w-full max-w-full justify-start -space-x-0.5 overflow-x-auto pb-0.5 md:justify-center">
           <Tab
-            onClick={() => setActiveTab(0)}
             className={({ selected }) =>
               cn(
                 'bg-midnight-slate-700 flex-1 rounded-tl-lg border-r-2 border-b-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
@@ -78,18 +83,18 @@ const TechStackBlock: React.FC = () => {
           >
             {({ selected }) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
-                {/* <StaticImage
-                  src="../../images/backend_icon.png"
+                <Image
+                  src="/images/backend_icon.png"
                   alt={t('backend_icon_alt')}
-                  width={40}
-                  height={40}
+                  width={100}
+                  height={100}
                   className={cn(
                     'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
-                /> */}
+                />
                 <span
                   className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}
                 >
@@ -99,7 +104,6 @@ const TechStackBlock: React.FC = () => {
             )}
           </Tab>
           <Tab
-            onClick={() => setActiveTab(1)}
             className={({ selected }) =>
               cn(
                 'bg-midnight-slate-700 flex-1 border-x-2 border-b-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
@@ -111,18 +115,18 @@ const TechStackBlock: React.FC = () => {
           >
             {({ selected }) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
-                {/* <StaticImage
-                  src="../../images/frontend_icon.png"
+                <Image
+                  src="/images/frontend_icon.png"
                   alt={t('frontend_icon_alt')}
-                  width={40}
-                  height={40}
+                  width={100}
+                  height={100}
                   className={cn(
                     'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
-                /> */}
+                />
                 <span
                   className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}
                 >
@@ -132,7 +136,6 @@ const TechStackBlock: React.FC = () => {
             )}
           </Tab>
           <Tab
-            onClick={() => setActiveTab(2)}
             className={({ selected }) =>
               cn(
                 'bg-midnight-slate-700 flex-1 rounded-tr-lg border-b-2 border-l-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
@@ -144,18 +147,18 @@ const TechStackBlock: React.FC = () => {
           >
             {({ selected }) => (
               <div className="flex flex-1 items-center justify-center gap-3 text-sm font-semibold md:justify-start md:text-base lg:gap-6">
-                {/* <StaticImage
-                  src="../../images/mobile_icon.png"
+                <Image
+                  src="/images/mobile_icon.png"
                   alt={t('mobile_icon_alt')}
-                  width={40}
-                  height={40}
+                  width={100}
+                  height={100}
                   className={cn(
                     'size-8 shrink-0 transition-opacity duration-500 md:size-10',
                     {
                       'opacity-70': !selected,
                     },
                   )}
-                /> */}
+                />
                 <span
                   className={cn(selected ? 'block' : 'sr-only md:not-sr-only')}
                 >
@@ -164,10 +167,10 @@ const TechStackBlock: React.FC = () => {
               </div>
             )}
           </Tab>
-        </Tab.List>
-        <Tab.Panels as={Fragment}>
+        </TabList>
+        <TabPanels as={Fragment}>
           {techStack.map((stack, i) => (
-            <Tab.Panel key={`tech-stack-${i}`} as="div" className="flex w-full">
+            <TabPanel key={`tech-stack-${i}`} as="div" className="flex w-full">
               <ul className="flex w-full flex-wrap items-center justify-center gap-8 self-stretch p-6">
                 {stack.techs.map(({ title, Icon, color }, i) => (
                   <li key={i}>
@@ -195,11 +198,11 @@ const TechStackBlock: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </Tab.Panel>
+            </TabPanel>
           ))}
-        </Tab.Panels>
-      </Tab.Group>
-    </div>
+        </TabPanels>
+      </TabGroup>
+    </AnimationContainer>
   );
 };
 

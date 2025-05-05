@@ -1,18 +1,20 @@
+'use client';
+
 import React, { Fragment } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { cn } from '@/utils';
-import { type PageProps } from 'gatsby';
-import { GatsbyImage, getImage, type ImageDataLike } from 'gatsby-plugin-image';
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
-import { startCase } from 'lodash';
+
+import { useTranslation } from '@/i18n/client';
 
 interface PageHeaderProps {
   title: string;
   subtitle: string;
   image?: {
-    src: ImageDataLike;
+    src: string;
     alt: string;
   };
-  location: PageProps['location'];
+  pathname: string;
   hideOverlay?: boolean;
 }
 
@@ -20,18 +22,19 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   subtitle,
   image,
-  location,
+  pathname,
   hideOverlay,
 }) => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
-  const paths = `/home${location.pathname.replace('/en', '')}`
-    .split('/')
-    .filter((path) => path);
+  const paths = `/home${pathname}`.split('/').filter((path) => path);
 
   return (
     <div className="relative flex h-64 w-full flex-col items-center justify-center py-10 md:h-80 md:py-16 lg:h-[28.75rem] lg:py-24">
-      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4">
+      <div className="relative z-[1] flex w-full flex-1 flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-start gap-2.5 px-[5%] pt-6 lg:px-0">
           <h1 className="text-center text-4xl font-black tracking-[.08rem] sm:text-5xl md:text-[4rem]">
             {t(title)}
@@ -45,13 +48,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             <Fragment key={`path-${i}`}>
               {i < paths.length - 1 ? (
                 <Link
-                  to={`/${path === 'home' ? '' : path}`}
+                  href={`/${language}/${path === 'home' ? '' : path}`}
                   className="transition-colors hover:text-neutral-400 hover:underline"
                 >
                   {t(path)}
                 </Link>
               ) : (
-                <span>{startCase(t(path))}</span>
+                <span className="capitalize">{t(path)}</span>
               )}
               {i !== paths.length - 1 && <span>/</span>}
             </Fragment>
@@ -59,10 +62,14 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         </div>
       </div>
       {image && (
-        <div className="absolute inset-0 z-[-3] bg-black/30">
-          <GatsbyImage
-            image={getImage(image.src)!}
+        <div className="absolute inset-0 z-[0] bg-black/30">
+          <Image
+            src={image.src}
             alt={image.alt}
+            priority
+            quality={100}
+            width={3840}
+            height={1200}
             className="top-0 size-full object-cover object-center"
           />
         </div>
@@ -70,7 +77,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       {!hideOverlay && (
         <div
           className={cn(
-            'absolute inset-0 z-[-1] flex items-center justify-center',
+            'absolute inset-0 z-[0] flex items-center justify-center',
             {
               'bg-black/40': !hideOverlay,
             },

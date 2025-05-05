@@ -1,13 +1,22 @@
 'use client';
+
 import React from 'react';
-
-// import ProjectsBlock from '@/components/projects/ProjectsBlock';
-import TitleEclipse from '@/components/svgs/TitleEclipse';
 import Link from 'next/link';
-import { useTranslation } from '@/i18n/client';
+import { ProjectType } from '@/utils';
 
-const ProjectsSection: React.FC = () => {
-  const { t } = useTranslation();
+import { useTranslation } from '@/i18n/client';
+import ProjectsBlock from '@/components/projects/ProjectsBlock';
+import TitleEclipse from '@/components/svgs/TitleEclipse';
+
+interface ProjectsSectionProps {
+  projects?: ProjectType[];
+}
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
   return (
     <section
@@ -37,9 +46,9 @@ const ProjectsSection: React.FC = () => {
           </h3>
         </div>
       </div>
-      {/* <ProjectsBlock projects={projects} /> */}
+      <ProjectsBlock projects={projects} />
       <Link
-        href="/projects"
+        href={`/${language}/projects`}
         title={t('view_all_projects')}
         className="bg-midnight-slate-700 shadow-primary hover:bg-midnight-slate-400 z-[2] flex items-center justify-center rounded-md px-4 py-2 transition-colors md:px-5 md:py-2.5"
       >
