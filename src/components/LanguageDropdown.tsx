@@ -2,6 +2,7 @@
 
 import React, { Fragment } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/utils';
 import {
   Menu,
@@ -23,6 +24,7 @@ const LanguageDropdown: React.FC = () => {
     t,
     i18n: { language },
   } = useTranslation();
+  const pathname = usePathname();
 
   const getFlagByLanguage = (language: string) => {
     return flags.find((flag) => flag.slug === language) || flags[0];
@@ -73,7 +75,7 @@ const LanguageDropdown: React.FC = () => {
             return (
               <MenuItem key={lng} as="li" className="group/translationLink">
                 <Link
-                  href={`/${lng}`}
+                  href={`/${lng}${pathname.replace(`/${language}`, '')}`}
                   title={t(lng)}
                   className={cn(
                     'hover:bg-royal-purple-700 flex w-full items-center justify-end gap-2 px-3.5 py-3 text-sm transition-colors group-first/translationLink:rounded-t-md group-last/translationLink:rounded-b-md hover:text-white',
