@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import '@/styles/globals.css';
 
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { cn } from '@/utils';
 import { dir } from 'i18next';
 
@@ -22,12 +23,17 @@ const RootLayout: React.FC<PropsWithChildren> = async ({ children }) => {
   const lng = i18nCookie || fallbackLng;
 
   return (
-    <html
-      lang={lng}
-      dir={dir(lng)}
-      suppressHydrationWarning
-      // className="overflow-hidden"
-    >
+    <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-44CL7KD2J4"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-44CL7KD2J4');`}
+      </Script>
       <body
         className={cn(
           'font-inter bg-charcoal-black-700 flex min-h-screen p-0 antialiased',
