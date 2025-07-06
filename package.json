@@ -18,7 +18,7 @@
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.12.4",
   "dependencies": {
     "@headlessui/react": "^2.2.2",
     "@hookform/resolvers": "^5.0.1",
