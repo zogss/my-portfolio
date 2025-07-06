@@ -1,26 +1,231 @@
 /** 
-  * enter transitions
+  * Enhanced enter transitions with modern animation patterns
 */
+
+/* Enhanced base transitions */
 [data-transition='animate'] [data-transition-target='up'] {
-  @apply translate-y-10 scale-[.975] opacity-15 transition-[transform,opacity] duration-[0.8s] ease-in-out;
+  @apply translate-y-16 scale-95 opacity-0 transition-[transform,opacity,filter] duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+  filter: blur(4px);
 }
 
 [data-transition='animate'] [data-transition-target='up'].animate {
   @apply translate-y-0 scale-100 opacity-100;
+  filter: blur(0px);
+}
+
+[data-transition='animate'] [data-transition-target='down'] {
+  @apply translate-y-[-4rem] scale-95 opacity-0 transition-[transform,opacity,filter] duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+  filter: blur(4px);
+}
+
+[data-transition='animate'] [data-transition-target='down'].animate {
+  @apply translate-y-0 scale-100 opacity-100;
+  filter: blur(0px);
 }
 
 [data-transition='animate'] [data-transition-target='left'] {
-  @apply translate-x-[-31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+  @apply translate-x-[-2rem] opacity-0 transition-[transform,opacity,filter] duration-[0.9s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+  filter: blur(2px);
 }
 
 [data-transition='animate'] [data-transition-target='left'].animate {
   @apply translate-x-0 opacity-100;
+  filter: blur(0px);
 }
 
 [data-transition='animate'] [data-transition-target='right'] {
-  @apply translate-x-[31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+  @apply translate-x-8 opacity-0 transition-[transform,opacity,filter] duration-[0.9s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+  filter: blur(2px);
 }
 
 [data-transition='animate'] [data-transition-target='right'].animate {
   @apply translate-x-0 opacity-100;
+  filter: blur(0px);
+}
+
+/* Advanced entrance effects */
+[data-transition='animate'] [data-transition-target='scale'] {
+  @apply scale-90 opacity-0 transition-[transform,opacity] duration-[0.7s] ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='scale'].animate {
+  @apply scale-100 opacity-100;
+}
+
+[data-transition='animate'] [data-transition-target='rotate'] {
+  @apply translate-y-4 rotate-[-5deg] opacity-0 transition-[transform,opacity] duration-[0.8s] ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='rotate'].animate {
+  @apply translate-y-0 rotate-0 opacity-100;
+}
+
+[data-transition='animate'] [data-transition-target='flip'] {
+  @apply rotate-x-[90deg] opacity-0 transition-[transform,opacity] duration-[0.9s] ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-[transform,opacity] perspective-[1000px];
+  transform-style: preserve-3d;
+}
+
+[data-transition='animate'] [data-transition-target='flip'].animate {
+  @apply rotate-x-0 opacity-100;
+}
+
+/* Text-specific animations */
+[data-transition='animate'] [data-transition-target='text-reveal'] {
+  @apply opacity-0 transition-[opacity,transform] duration-[0.6s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[opacity,transform];
+  transform: translateY(100%);
+  clip-path: inset(100% 0 0 0);
+}
+
+[data-transition='animate'] [data-transition-target='text-reveal'].animate {
+  @apply opacity-100;
+  transform: translateY(0%);
+  clip-path: inset(0 0 0 0);
+}
+
+[data-transition='animate'] [data-transition-target='text-blur'] {
+  @apply opacity-0 transition-[opacity,filter] duration-[0.7s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[opacity,filter];
+  filter: blur(10px);
+}
+
+[data-transition='animate'] [data-transition-target='text-blur'].animate {
+  @apply opacity-100;
+  filter: blur(0px);
+}
+
+/* Stagger animations */
+[data-transition='animate'] [data-transition-target='stagger'] {
+  @apply translate-y-8 opacity-0 transition-[transform,opacity] duration-[0.6s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='stagger'].animate {
+  @apply translate-y-0 opacity-100;
+}
+
+/* Stagger delay variants */
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+[data-transition='animate'] [data-transition-target='stagger']:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+/* Glass morphism entrance */
+[data-transition='animate'] [data-transition-target='glass'] {
+  @apply scale-95 border-transparent bg-transparent opacity-0 backdrop-blur-none transition-[transform,opacity,backdrop-filter,background-color,border-color] duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity,backdrop-filter];
+}
+
+[data-transition='animate'] [data-transition-target='glass'].animate {
+  @apply scale-100 border-white/20 bg-white/10 opacity-100 backdrop-blur-xl;
+}
+
+/* Magnetic entrance effect */
+[data-transition='animate'] [data-transition-target='magnetic'] {
+  @apply translate-y-12 scale-90 opacity-0 transition-[transform,opacity] duration-[0.9s] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='magnetic'].animate {
+  @apply translate-y-0 scale-100 opacity-100;
+}
+
+/* Gradient shift entrance */
+[data-transition='animate'] [data-transition-target='gradient'] {
+  @apply opacity-0 transition-[opacity,background-position] duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[opacity,background-position];
+  background-position: -200% 0;
+}
+
+[data-transition='animate'] [data-transition-target='gradient'].animate {
+  @apply opacity-100;
+  background-position: 0% 0;
+}
+
+/* Parallax entrance */
+[data-transition='animate'] [data-transition-target='parallax'] {
+  @apply translate-y-24 opacity-0 transition-[transform,opacity] duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='parallax'].animate {
+  @apply translate-y-0 opacity-100;
+}
+
+/* Morphing entrance */
+[data-transition='animate'] [data-transition-target='morph'] {
+  @apply scale-75 opacity-0 transition-[transform,opacity,border-radius] duration-[0.8s] ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-[transform,opacity,border-radius];
+  border-radius: 50%;
+}
+
+[data-transition='animate'] [data-transition-target='morph'].animate {
+  @apply scale-100 opacity-100;
+  border-radius: 0.75rem;
+}
+
+/* Elastic entrance */
+[data-transition='animate'] [data-transition-target='elastic'] {
+  @apply scale-0 opacity-0 transition-[transform,opacity] duration-[0.9s] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] will-change-[transform,opacity];
+}
+
+[data-transition='animate'] [data-transition-target='elastic'].animate {
+  @apply scale-100 opacity-100;
+}
+
+/* Slide and reveal */
+[data-transition='animate'] [data-transition-target='slide-reveal'] {
+  @apply translate-x-full opacity-0 transition-[transform,opacity] duration-[0.8s] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[transform,opacity];
+  clip-path: inset(0 100% 0 0);
+}
+
+[data-transition='animate'] [data-transition-target='slide-reveal'].animate {
+  @apply translate-x-0 opacity-100;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Performance optimizations */
+[data-transition='animate'] [data-transition-target] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hover enhancements for animated elements */
+[data-transition='animate'] [data-transition-target].animate:hover {
+  @apply transition-transform duration-200 ease-out;
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  [data-transition='animate'] [data-transition-target] {
+    @apply transition-none;
+  }
+
+  [data-transition='animate'] [data-transition-target].animate {
+    @apply translate-x-0 translate-y-0 scale-100 opacity-100;
+    filter: none;
+    clip-path: none;
+    border-radius: inherit;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [data-transition='animate'] [data-transition-target='glass'].animate {
+    @apply border-white/10 bg-black/20;
+  }
 }

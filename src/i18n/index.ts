@@ -32,6 +32,7 @@ export const getTranslation = async (
       }
     | undefined = {},
 ) => {
+  console.log(_lng);
   if (_lng && !languages.includes(_lng)) {
     throw new Error(`Invalid language: ${_lng}`);
   }
