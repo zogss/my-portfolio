@@ -19,7 +19,8 @@ export const env = createEnv({
     NEXT_PUBLIC_API_URL: z.string().url().min(1),
     NEXT_PUBLIC_APP_URL: z.string().url().min(1),
     NEXT_PUBLIC_PERSONAL_EMAIL: z.string().email().min(1),
-    NEXT_PUBLIC_PERSONAL_LOCATION: z.string().min(1),
+    NEXT_PUBLIC_PERSONAL_LOCATION_EN: z.string().min(1),
+    NEXT_PUBLIC_PERSONAL_LOCATION_BR: z.string().min(1),
     NEXT_PUBLIC_SITE_URL: z.string().url().min(1),
     NEXT_PUBLIC_GITHUB_URL: z.string().url().min(1),
     NEXT_PUBLIC_LINKEDIN_URL: z.string().url().min(1),
@@ -41,7 +42,10 @@ export const env = createEnv({
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_PERSONAL_EMAIL: process.env.NEXT_PUBLIC_PERSONAL_EMAIL,
-    NEXT_PUBLIC_PERSONAL_LOCATION: process.env.NEXT_PUBLIC_PERSONAL_LOCATION,
+    NEXT_PUBLIC_PERSONAL_LOCATION_EN:
+      process.env.NEXT_PUBLIC_PERSONAL_LOCATION_EN,
+    NEXT_PUBLIC_PERSONAL_LOCATION_BR:
+      process.env.NEXT_PUBLIC_PERSONAL_LOCATION_BR,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_GITHUB_URL: process.env.NEXT_PUBLIC_GITHUB_URL,
     NEXT_PUBLIC_LINKEDIN_URL: process.env.NEXT_PUBLIC_LINKEDIN_URL,

@@ -21,7 +21,7 @@ const ContactBlock: React.FC = () => {
                 <span className="text-xl font-semibold md:text-2xl">
                   {t('contact_form_title')}
                 </span>
-                <p className="text-xs font-medium text-zinc-500 md:text-sm">
+                <p className="text-xs font-medium text-zinc-400 md:text-sm">
                   {t('contact_form_description')}
                 </p>
               </h3>

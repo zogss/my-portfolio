@@ -124,7 +124,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
         {({ open, close }) => (
           <nav
             ref={navRef}
-            className="shadow-primary fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/90 px-5 py-3 pr-3 transition-[transform,width] duration-300 md:px-6 lg:left-1/2 lg:w-[96vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
+            className="shadow-primary fixed inset-x-0 top-0 z-10 flex w-full -translate-y-full flex-col items-center justify-between rounded-b-xl border border-t-0 border-zinc-800 bg-zinc-900/60 px-5 py-3 pr-3 backdrop-blur transition-[transform,width] duration-300 md:px-6 lg:left-1/2 lg:w-[96vw] lg:-translate-x-1/2 lg:px-8 xl:w-[80vw]"
           >
             <div className="flex w-full items-center justify-between gap-4">
               <div className="flex items-center gap-3 md:gap-4 lg:gap-5 xl:gap-16">

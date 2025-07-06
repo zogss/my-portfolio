@@ -46,7 +46,7 @@ const HomeSection: React.FC = () => {
             <h2 className="z-[3] text-zinc-400">
               <p className="w-full max-w-sm text-center font-medium lg:text-start">
                 {t('home_section_description_part_1')}{' '}
-                <span className="font-bold text-white">Yan Lucas</span>
+                <b className="font-bold text-white">Yan Lucas</b>
                 {t('home_section_description_part_2')}
               </p>
             </h2>

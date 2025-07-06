@@ -30,7 +30,7 @@ const TechStackSection: React.FC = () => {
             <span className="text-center font-semibold md:text-lg lg:text-xl">
               {t('tech_stack_section_text_part_1')}
             </span>
-            <span className="text-center text-sm font-medium text-zinc-500 md:text-base lg:text-lg">
+            <span className="text-center text-sm font-medium text-zinc-400 md:text-base lg:text-lg">
               {t('tech_stack_section_text_part_2')}
             </span>
           </h3>
