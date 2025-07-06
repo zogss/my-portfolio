@@ -11,8 +11,10 @@ import {
   MenuItems,
   Transition,
 } from '@headlessui/react';
+import { track } from '@vercel/analytics';
 import { BiChevronDown } from 'react-icons/bi';
 
+import { TRACK_EVENT_KEYS } from '@/lib/track-event-keys';
 import { useTranslation } from '@/i18n/client';
 import { languages } from '@/i18n/settings';
 
@@ -37,6 +39,9 @@ const LanguageDropdown: React.FC = () => {
       <MenuButton
         title={t('language')}
         aria-label={t('language')}
+        onClick={() => {
+          track(TRACK_EVENT_KEYS.LANGUAGE_DROPDOWN_TOGGLE);
+        }}
         className={({ open }) =>
           cn(
             'inline-flex w-full items-center justify-center gap-0.5 rounded px-2 py-1.5 pr-0.5 text-neutral-100/50 transition-colors hover:bg-white/10 md:gap-1 md:px-3 md:py-2 md:pr-1',
@@ -77,6 +82,13 @@ const LanguageDropdown: React.FC = () => {
                 <Link
                   href={`/${lng}${pathname.replace(`/${language}`, '')}`}
                   title={t(lng)}
+                  onClick={() => {
+                    track(
+                      lng === 'pt-BR'
+                        ? TRACK_EVENT_KEYS.LANGUAGE_DROPDOWN_SELECT_PT
+                        : TRACK_EVENT_KEYS.LANGUAGE_DROPDOWN_SELECT_EN,
+                    );
+                  }}
                   className={cn(
                     'hover:bg-royal-purple-700 flex w-full items-center justify-end gap-2 px-3.5 py-3 text-sm transition-colors group-first/translationLink:rounded-t-md group-last/translationLink:rounded-b-md hover:text-white',
                     language === lng

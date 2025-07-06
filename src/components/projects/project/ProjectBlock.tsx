@@ -2,11 +2,14 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ProjectType } from '@/utils';
+import { track } from '@vercel/analytics';
 // import Autoplay from 'embla-carousel-autoplay';
 import { BiLinkExternal } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 
+import { TRACK_EVENT_KEYS } from '@/lib/track-event-keys';
 import { useTranslation } from '@/i18n/client';
 // import {
 //   Carousel,
@@ -106,28 +109,38 @@ const ProjectBlock: React.FC<ProjectType> = ({
           {(url || repository_url) && (
             <div className="flex items-center justify-start gap-1 md:gap-2">
               {url && (
-                <a
+                <Link
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   title={url}
+                  onClick={() => {
+                    track(TRACK_EVENT_KEYS.PROJECT_VISIT_CLICK, {
+                      url,
+                    });
+                  }}
                   className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5"
                 >
                   <span className="sr-only">{t('visit')}</span>
                   <BiLinkExternal className="size-5 shrink-0 md:size-6" />
-                </a>
+                </Link>
               )}
               {repository_url && (
-                <a
+                <Link
                   href={repository_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   title={repository_url}
+                  onClick={() => {
+                    track(TRACK_EVENT_KEYS.PROJECT_CODE_CLICK, {
+                      url: repository_url,
+                    });
+                  }}
                   className="flex w-full items-center justify-center rounded-md p-1 text-sm font-semibold transition-colors duration-500 hover:bg-white/10 hover:text-white focus:outline-none md:gap-2 md:p-2 lg:gap-2.5 lg:p-2.5"
                 >
                   <span className="sr-only">{t('code')}</span>
                   <BsGithub className="w-h-5 md:6 shmd:rink-0 h-6 w-5" />
-                </a>
+                </Link>
               )}
             </div>
           )}

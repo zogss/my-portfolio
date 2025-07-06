@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react';
 import { ContactFormDataType, contactSchema } from '@/schemas';
 import { getErrorMessage } from '@/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { track } from '@vercel/analytics';
 import { useForm } from 'react-hook-form';
 import { BsSend } from 'react-icons/bs';
 
 import saveContact from '@/actions/saveContact';
+import { TRACK_EVENT_KEYS } from '@/lib/track-event-keys';
 import { useTranslation } from '@/i18n/client';
 import { toast } from '@/components/toast';
 
@@ -37,6 +39,13 @@ const ContactForm: React.FC = () => {
 
       await saveContact(data);
 
+      track(TRACK_EVENT_KEYS.CONTACT_FORM_SUBMIT, {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+      track(TRACK_EVENT_KEYS.CONTACT_FORM_SUCCESS);
+
       reset(
         {
           ...data,
@@ -49,6 +58,13 @@ const ContactForm: React.FC = () => {
       );
       toast.success(t('contact_form_success'));
     } catch (error) {
+      track(TRACK_EVENT_KEYS.CONTACT_FORM_VALIDATION_ERROR, {
+        error: JSON.stringify(error),
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+
       const err = getErrorMessage(error) || 'global_error';
 
       toast.error(t(err));

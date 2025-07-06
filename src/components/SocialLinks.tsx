@@ -1,8 +1,11 @@
 import React, { useMemo } from 'react';
+import Link from 'next/link';
 import { cn } from '@/utils';
+import { track } from '@vercel/analytics';
 import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
 
 import { env } from '@env';
+import { TRACK_EVENT_KEYS } from '@/lib/track-event-keys';
 
 interface SocialLinksProps {
   className?: string;
@@ -33,33 +36,42 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
       data-transition-target={animate ? 'left' : undefined}
       className={cn('text-slate-gray-500 flex items-center', className)}
     >
-      <a
+      <Link
         href={env.NEXT_PUBLIC_INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         title={env.NEXT_PUBLIC_INSTAGRAM_URL}
+        onClick={() => {
+          track(TRACK_EVENT_KEYS.INSTAGRAM_CLICK);
+        }}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsInstagram className={cn(iconSizeClass, 'shrink-0')} />
-      </a>
-      <a
+      </Link>
+      <Link
         href={env.NEXT_PUBLIC_LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
         title={env.NEXT_PUBLIC_LINKEDIN_URL}
+        onClick={() => {
+          track(TRACK_EVENT_KEYS.LINKEDIN_CLICK);
+        }}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsLinkedin className={cn(iconSizeClass, 'shrink-0')} />
-      </a>
-      <a
+      </Link>
+      <Link
         href={env.NEXT_PUBLIC_GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
         title={env.NEXT_PUBLIC_GITHUB_URL}
+        onClick={() => {
+          track(TRACK_EVENT_KEYS.GITHUB_CLICK);
+        }}
         className="rounded-md bg-transparent p-2 transition-colors duration-500 hover:bg-white/20 hover:text-white/70 md:p-2.5 lg:p-3"
       >
         <BsGithub className={cn(iconSizeClass, 'shrink-0')} />
-      </a>
+      </Link>
     </div>
   );
 };
