@@ -31,21 +31,22 @@ const AboutSection: React.FC = () => {
       </div>
       <div
         data-transition="animate"
-        className="relative z-[1] text-sm font-medium text-zinc-400 md:gap-12 md:text-base lg:text-lg xl:flex-row xl:items-start xl:justify-center 2xl:max-w-4xl 2xl:gap-16"
+        className="3xl:max-w-[1170px] relative z-[1] text-sm text-zinc-400 md:gap-12 md:text-base lg:text-lg xl:flex-row xl:items-start xl:justify-center 2xl:max-w-4xl 2xl:gap-16"
       >
         <div
           data-transition-target="left"
-          className="relative float-left clear-left mr-10 mb-6 shrink-0"
+          className="relative float-left clear-left mb-6 shrink-0 min-[480px]:mr-4 md:mr-10 md:mb-6"
         >
           <Image
             src={myImage}
             alt={t('about_image_alt')}
             priority
             quality={100}
-            className="relative z-[1] h-[230px] w-auto rounded-3xl shadow-2xl md:h-[346px] 2xl:h-[250px]"
+            className="3xl:h-[320px] relative z-[1] h-[190px] w-auto rounded-3xl shadow-2xl md:h-[220px] 2xl:h-[250px]"
           />
           <div className="absolute inset-0 bg-black/70 blur-2xl" />
         </div>
+
         <p data-transition-target="right" className="relative z-[1] mb-3">
           {t('about_section_text_part_1', {
             age: differenceInYears(new Date(), new Date(2003, 0, 20)),
@@ -55,7 +56,6 @@ const AboutSection: React.FC = () => {
                 : env.NEXT_PUBLIC_PERSONAL_LOCATION_EN,
           })}
         </p>
-
         <p data-transition-target="right" className="relative z-[1] mb-3">
           {t('about_section_text_part_2')}
         </p>
