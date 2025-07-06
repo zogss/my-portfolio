@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { cn } from '@/utils';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 
 import getCookie from '@/actions/getCookie';
@@ -43,6 +44,7 @@ const RootLayout: React.FC<PropsWithChildren> = async ({ children }) => {
       >
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
