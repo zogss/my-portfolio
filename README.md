@@ -419,35 +419,6 @@ pnpm build && pnpm analyze
    pnpm build
    ```
 
-### **Commit and Pull Request Process**
-
-1. **Make atomic commits** with descriptive messages following conventional commit format
-2. **Push your branch**:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-3. **Create a Pull Request** with:
-   - Clear description of changes
-   - Screenshots for UI changes
-   - Testing instructions
-   - Any breaking changes noted
-
-### **Areas for Contribution**
-
-- **New project additions**: Add projects to `public/projects.json`
-- **Translation improvements**: Enhance translations in `public/locales/`
-- **Performance optimizations**: Improve loading times and user experience
-- **Accessibility enhancements**: Improve WCAG compliance
-- **New features**: Contact form enhancements, project filtering, etc.
-- **Bug fixes**: Address any reported issues
-
-### **Code Review Process**
-
-- All contributions require code review
-- Maintain consistency with existing code style
-- Ensure all tests pass and build succeeds
-- Address any feedback promptly
-
 ---
 
 ## License
