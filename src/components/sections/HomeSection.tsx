@@ -8,6 +8,8 @@ import { useTranslation } from '@/i18n/client';
 import SocialLinks from '@/components/SocialLinks';
 import HomeEclipse from '@/components/svgs/HomeEclipse';
 
+import { AnimationContainer } from '../animation-container';
+
 const HomeSection: React.FC = () => {
   const {
     t,
@@ -17,7 +19,6 @@ const HomeSection: React.FC = () => {
   return (
     <section
       id="nav-home"
-      data-transition="animate"
       className="flex min-h-screen w-full flex-col items-center justify-center"
     >
       <HomeEclipse className="absolute top-[55vh] left-[40%] h-[37.5rem] -translate-x-1/2 -translate-y-1/2 md:top-[50vh] lg:top-[40vh] lg:h-[50rem] xl:top-[45vh]" />
@@ -57,8 +58,8 @@ const HomeSection: React.FC = () => {
             iconSize="lg"
           />
         </div>
-        <div
-          data-transition-target="right"
+        <AnimationContainer
+          orientation="horizontal"
           className={cn(
             'shadow-primary relative z-[2] flex size-[12.5rem] items-start overflow-hidden rounded-full border border-white/5 bg-gradient-to-bl from-zinc-800/50 to-black/10 md:size-[18.75rem] md:translate-y-0 lg:absolute lg:right-[5%] lg:h-auto lg:w-[43.75rem] lg:items-center lg:justify-end lg:overflow-auto lg:rounded-2xl lg:border-none lg:bg-gradient-to-l lg:from-black/30 lg:to-black/0 lg:shadow-none xl:right-[6%] 2xl:right-[12%]',
             language === 'pt-BR'
@@ -74,7 +75,7 @@ const HomeSection: React.FC = () => {
             height={620}
             className="z-[3] size-[12.5rem] shrink-0 translate-y-4 rounded-full md:size-[21.875rem] md:translate-y-0 md:rounded-none lg:z-0 lg:size-[32.5rem] 2xl:size-[38.75rem]"
           />
-        </div>
+        </AnimationContainer>
       </div>
     </section>
   );
