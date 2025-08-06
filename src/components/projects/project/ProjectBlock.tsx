@@ -56,7 +56,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
                   <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
                     <Image
                       src={image}
-                      alt={alt}
+                      alt={t(alt)}
                       priority
                       quality={100}
                       width={1600}
@@ -75,7 +75,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
         <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
           <Image
             src={image}
-            alt={alt}
+            alt={t(alt)}
             priority
             quality={100}
             width={1600}
