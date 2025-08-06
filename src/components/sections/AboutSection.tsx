@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
             alt={t('about_image_alt')}
             priority
             quality={100}
-            className="3xl:h-[320px] relative z-[1] h-[190px] w-auto rounded-3xl shadow-2xl md:h-[220px] 2xl:h-[250px]"
+            className="3xl:h-[320px] relative z-[1] max-h-[190px] w-full rounded-3xl shadow-2xl sm:h-[190px] sm:max-h-max sm:w-auto md:h-[220px] 2xl:h-[250px]"
           />
           <div className="absolute inset-0 bg-black/70 blur-2xl" />
         </AnimationContainer>

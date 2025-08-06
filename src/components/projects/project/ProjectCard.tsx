@@ -26,8 +26,8 @@ const ProjectCard: React.FC<ProjectType> = ({ image, alt, slug, title }) => {
                 <Image
                   src={image}
                   alt={t(alt)}
-                  width={1000}
-                  height={1000}
+                  width={2400}
+                  height={1200}
                   className="aspect-[18/9] max-h-[11.875rem] w-full [transition:transform_5000ms_cubic-bezier(0.7,0,0.7,1.01),max-height_200ms] hover:transform-[scale(150%)] sm:w-auto 2xl:max-h-[12.8125rem]"
                 />
                 <div className="shadow-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-black/70 px-5 py-1.5 opacity-0 transition-[background-color,opacity] duration-500 group-hover/projectImg:opacity-100 hover:bg-black">
