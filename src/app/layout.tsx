@@ -21,8 +21,7 @@ const inter = Inter({
 });
 
 const RootLayout: React.FC<PropsWithChildren> = async ({ children }) => {
-  const i18nCookie = await getCookie(cookieName);
-  const lng = i18nCookie || fallbackLng;
+  const lng = (await getCookie(cookieName)) || fallbackLng;
 
   return (
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning>

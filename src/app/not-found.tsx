@@ -5,6 +5,7 @@ import { getTranslation } from '@/i18n';
 
 import getCookie from '@/actions/getCookie';
 import { cookieName, fallbackLng } from '@/i18n/settings';
+import withTranslation from '@/components/with-translation';
 
 const NotFound: React.FC = async () => {
   const lng = (await getCookie(cookieName)) || fallbackLng;
@@ -31,11 +32,11 @@ const NotFound: React.FC = async () => {
           href="/"
           className="mt-4 flex items-center gap-4 rounded-md px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:mt-6 sm:px-8 sm:py-4 sm:text-base"
         >
-          Go Back Home
+          {t('not_found_button')}
         </Link>
       </div>
     </main>
   );
 };
 
-export default NotFound;
+export default withTranslation(NotFound);

@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { WithLanguageParams } from '@/@types/i18n.types';
+import getCookie from '@/actions/getCookie';
 import { languageCtx } from '@/lib/server-ctx';
+import { cookieName, fallbackLng } from '@/i18n/settings';
 
 /**
  * HOC to set the language for the component
@@ -31,7 +33,8 @@ const withTranslation = <T,>(WrappedComponent: React.FC<T>) => {
   const WithTranslations: React.FC<
     WithLanguageParams<T & React.Attributes>
   > = async (props) => {
-    const { lng } = await props.params;
+    const lng =
+      (await props.params)?.lng || (await getCookie(cookieName)) || fallbackLng;
     if (!lng) {
       throw new Error(
         'Language not found! language is required to load translations.',
