@@ -11,7 +11,7 @@ import { getTranslation } from '@/i18n';
 import { env } from '@env';
 import { WithLanguageParams } from '@/@types/i18n.types';
 import getCookie from '@/actions/getCookie';
-import { cookieName, languages } from '@/i18n/settings';
+import { cookieName, fallbackLng, languages } from '@/i18n/settings';
 import { AppProvider } from '@/providers/app-provider';
 import { AppLayout } from '@/components/layout/app-layout';
 import withTranslation from '@/components/with-translation';
@@ -192,16 +192,12 @@ export const generateMetadata = async ({
 const RootLayout: React.FC<WithLanguageParams<PropsWithChildren>> = async ({
   children,
 }) => {
-  const i18nCookie = await getCookie(cookieName);
+  const lng = (await getCookie(cookieName)) || fallbackLng;
 
   return (
-    <>
-      {/* <AnimatePresenceLayout> */}
-      <AppProvider i18nCookie={i18nCookie}>
-        <AppLayout>{children}</AppLayout>
-      </AppProvider>
-      {/* </AnimatePresenceLayout> */}
-    </>
+    <AppProvider i18nCookie={lng}>
+      <AppLayout>{children}</AppLayout>
+    </AppProvider>
   );
 };
 
