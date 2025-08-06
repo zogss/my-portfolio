@@ -5,6 +5,7 @@ import { getTranslation } from '@/i18n';
 
 import getCookie from '@/actions/getCookie';
 import { cookieName, fallbackLng } from '@/i18n/settings';
+import HomeEclipse from '@/components/svgs/HomeEclipse';
 import withTranslation from '@/components/with-translation';
 
 const NotFound: React.FC = async () => {
@@ -12,8 +13,11 @@ const NotFound: React.FC = async () => {
   const { t } = await getTranslation(lng);
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-6 text-neutral-100 sm:p-10 lg:gap-8 lg:p-24">
-      <div className="flex flex-col items-center text-center">
+    <main className="relative flex min-h-screen w-full flex-col items-center justify-center gap-6 overflow-hidden p-6 text-neutral-100 sm:p-10 lg:gap-8 lg:p-24">
+      <div className="absolute top-1/2 left-1/2 h-auto w-[150vw] -translate-x-1/2 -translate-y-1/2">
+        <HomeEclipse className="size-full opacity-35" />
+      </div>
+      <div className="relative flex max-w-xl flex-col items-center text-center">
         <Image
           src="/images/404-illustration.png"
           alt="404 illustration"
@@ -22,7 +26,7 @@ const NotFound: React.FC = async () => {
           height={300}
           className="mb-4 rounded-lg shadow-lg sm:mb-6 sm:size-80"
         />
-        <h1 className="mb-3 text-3xl font-extrabold text-white sm:text-4xl lg:mb-4 lg:text-5xl">
+        <h1 className="mb-3 text-3xl font-extrabold text-white sm:text-4xl lg:mb-4 lg:text-4xl">
           {t('not_found_title')}
         </h1>
         <p className="mb-4 text-base text-gray-300 sm:text-lg lg:mb-6 lg:text-xl">
