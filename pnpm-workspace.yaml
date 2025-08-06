@@ -2,5 +2,7 @@ ignoredBuiltDependencies:
   - gatsby
   - protobufjs
   - sharp
+
 onlyBuiltDependencies:
   - '@firebase/util'
+  - '@vercel/speed-insights'
