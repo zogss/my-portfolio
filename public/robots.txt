@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Disallow Next.js internal files
+Disallow: /_next/
+Disallow: /api/
+
+# Allow all other content (portfolio site)
+Allow: /en/
+Allow: /pt-BR/
+Allow: /images/
+Allow: /locales/
+
+# Sitemap location
+Sitemap: https://yanlucas.site/sitemap.xml 
