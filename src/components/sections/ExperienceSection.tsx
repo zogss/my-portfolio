@@ -142,8 +142,17 @@ export default ExperienceSection;
 
 export const experiences = [
   {
+    company: 'Skim',
+    role: 'frontend_engineer',
+    period: {
+      from: new Date('2025-01-01'),
+      to: undefined,
+    },
+    description: 'skim_description',
+  },
+  {
     company: 'Tracking Trade',
-    role: 'web_development_intern',
+    role: 'frontend_developer',
     period: {
       from: new Date('2023-11-01'),
       to: undefined,

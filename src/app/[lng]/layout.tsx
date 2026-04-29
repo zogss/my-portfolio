@@ -5,13 +5,14 @@ import {
   APP_DESCRIPTION,
   APP_NAME,
   APP_TITLE_TEMPLATE,
+  BASE_KEYWORDS_EN,
+  BASE_KEYWORDS_PT,
 } from '@/constants';
 import { getTranslation } from '@/i18n';
 
 import { env } from '@env';
 import { WithLanguageParams } from '@/@types/i18n.types';
-import getCookie from '@/actions/getCookie';
-import { cookieName, fallbackLng, languages } from '@/i18n/settings';
+import { fallbackLng, languages } from '@/i18n/settings';
 import { AppProvider } from '@/providers/app-provider';
 import { AppLayout } from '@/components/layout/app-layout';
 import withTranslation from '@/components/with-translation';
@@ -29,104 +30,18 @@ export const generateMetadata = async ({
     i18n: { language },
   } = await getTranslation(lng);
 
+  const description = t(APP_DESCRIPTION);
+  const ogImageUrl = `${env.APP_URL}/images/logo.png`;
+
   return {
+    metadataBase: new URL(env.APP_URL),
     applicationName: APP_NAME,
     title: {
       default: APP_DEFAULT_TITLE,
       template: APP_TITLE_TEMPLATE,
     },
-    description: t(APP_DESCRIPTION),
-    keywords:
-      language === 'en'
-        ? [
-            'Yan',
-            'Lucas',
-            'Yan Lucas',
-            'Yan lucas pereira branco',
-            'Yan Lucas software engineer',
-            'Yan Lucas frontend developer',
-            'Yan Lucas front-end developer',
-            'Web development',
-            'Software engineer',
-            'Frontend',
-            'FrontEnd',
-            'Front-end',
-            'Front end',
-            'Front end developer',
-            'Front-end developer',
-            'FrontEnd developer',
-            'Tech',
-            'Programming',
-            'Games',
-            'Gaming',
-            'Digital marketing',
-            'Marketing',
-            'Developer',
-            'JavaScript',
-            'TypeScript',
-            'React',
-            'Vue',
-            'Angular',
-            'Node.js',
-            'CSS',
-            'HTML',
-            'Web design',
-            'UI/UX',
-            'GitHub',
-            'Open source',
-          ]
-        : [
-            'Yan',
-            'Lucas',
-            'Yan Lucas',
-            'Yan lucas pereira branco',
-            'Yan Lucas software engineer',
-            'Yan Lucas engenheiro de software',
-            'Yan Lucas frontend developer',
-            'Yan Lucas front-end developer',
-            'Yan Lucas desenvolvedor de frontend',
-            'Yan Lucas desenvolvedor de front-end',
-            'Web development',
-            'Desenvolvimento web',
-            'Software engineer',
-            'Engenheiro de software',
-            'Frontent',
-            'Front-end',
-            'Front end',
-            'FrontEnd',
-            'Frontend developer',
-            'Front-end developer',
-            'Front end developer',
-            'FrontEnd developer',
-            'Desenvolvedor de frontend',
-            'Desenvolvedor de front-end',
-            'Desenvolvedor front end',
-            'Desenvolvedor front-end',
-            'Desenvolvedor frontend',
-            'Desenvolvedor frontEnd',
-            'Tech',
-            'Programming',
-            'Games',
-            'Gaming',
-            'Programming',
-            'Digital marketing',
-            'Marketing',
-            'Marketing digital',
-            'Marketing-digital',
-            'Developer',
-            'JavaScript',
-            'TypeScript',
-            'React',
-            'Vue',
-            'Angular',
-            'Node.js',
-            'CSS',
-            'HTML',
-            'Web design',
-            'UI/UX',
-            'GitHub',
-            'Open source',
-          ],
+    description,
+    keywords: language === 'en' ? BASE_KEYWORDS_EN : BASE_KEYWORDS_PT,
     appleWebApp: {
       capable: true,
       statusBarStyle: 'default',
@@ -139,10 +54,11 @@ export const generateMetadata = async ({
     robots: {
       index: true,
       follow: true,
-      notranslate: lng === 'pt-BR',
     },
     alternates: {
+      canonical: `${env.APP_URL}/${lng}`,
       languages: {
+        'x-default': `${env.APP_URL}/en`,
         'pt-BR': `${env.APP_URL}/pt-BR`,
         en: `${env.APP_URL}/en`,
       },
@@ -155,30 +71,29 @@ export const generateMetadata = async ({
         default: APP_DEFAULT_TITLE,
         template: APP_TITLE_TEMPLATE,
       },
-      description: t(APP_DESCRIPTION),
-      locale: lng,
+      description,
+      locale: language === 'pt-BR' ? 'pt_BR' : 'en_US',
+      alternateLocale: language === 'pt-BR' ? 'en_US' : 'pt_BR',
       images: [
         {
-          url: `${env.APP_URL}/images/logo.png`,
-          width: 1600,
-          height: 1600,
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
           alt: APP_NAME,
         },
       ],
     },
     twitter: {
-      card: 'summary',
-      creator: 'Yan Lucas',
+      card: 'summary_large_image',
+      creator: '@yanlucasp',
       title: {
         default: APP_DEFAULT_TITLE,
         template: APP_TITLE_TEMPLATE,
       },
-      description: t(APP_DESCRIPTION),
+      description,
       images: [
         {
-          url: `${env.APP_URL}/images/logo.png`,
-          width: 1600,
-          height: 1600,
+          url: ogImageUrl,
           alt: APP_NAME,
         },
       ],
@@ -191,11 +106,12 @@ export const generateMetadata = async ({
 
 const RootLayout: React.FC<WithLanguageParams<PropsWithChildren>> = async ({
   children,
+  params,
 }) => {
-  const lng = (await getCookie(cookieName)) || fallbackLng;
+  const { lng } = await params;
 
   return (
-    <AppProvider i18nCookie={lng}>
+    <AppProvider i18nCookie={lng ?? fallbackLng}>
       <AppLayout>{children}</AppLayout>
     </AppProvider>
   );
