@@ -13,11 +13,15 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022",
-    "plugins": [{ "name": "next" }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
@@ -26,6 +30,12 @@
       "@public/*": ["./public/*"]
     }
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": ["node_modules", ".next"]
 }

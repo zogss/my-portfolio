@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import type { ProxyConfig } from 'next/server';
 import acceptLanguage from 'accept-language';
 
 import {
@@ -10,14 +11,13 @@ import {
 
 acceptLanguage.languages(languages);
 
-export const config = {
+export const config: ProxyConfig = {
   matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 };
 
-const middleware = async (req: NextRequest): Promise<NextResponse | void> => {
+const proxy = async (req: NextRequest): Promise<NextResponse | void> => {
   const { nextUrl } = req;
 
-  // Cancel if exception
   const isException = [
     '/img',
     '/preview',
@@ -28,19 +28,17 @@ const middleware = async (req: NextRequest): Promise<NextResponse | void> => {
     '/sw.js',
     '/favicon.ico',
     '/__next',
-  ].some((allowedPath) => nextUrl.pathname.startsWith(`${allowedPath}`));
+  ].some((allowedPath) => nextUrl.pathname.startsWith(allowedPath));
   if (isException) {
     return;
   }
 
-  // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = languages.every(
     (loc) =>
       !nextUrl.pathname.startsWith(`/${loc}/`) &&
       nextUrl.pathname !== `/${loc}`,
   );
 
-  // Handle Locale
   let lng: string | null = null;
   if (!pathnameIsMissingLocale) {
     const pathSegment = nextUrl.pathname.split('/')[1] || '';
@@ -54,7 +52,6 @@ const middleware = async (req: NextRequest): Promise<NextResponse | void> => {
     lng = fallbackLng;
   }
 
-  // Redirect if there is no locale
   if (pathnameIsMissingLocale && !nextUrl.pathname.startsWith('/_next')) {
     return setLngCookieOnResponse(
       NextResponse.redirect(
@@ -64,8 +61,7 @@ const middleware = async (req: NextRequest): Promise<NextResponse | void> => {
     );
   }
 
-  // Continue
   return setLngCookieOnResponse(NextResponse.next(), lng);
 };
 
-export default middleware;
+export default proxy;
