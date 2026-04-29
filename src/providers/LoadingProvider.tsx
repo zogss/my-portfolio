@@ -22,7 +22,7 @@ export const LoadingProvider: React.FC<PropsWithChildren> = ({ children }) => {
     };
 
     const handleComplete = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
       const htmlElement = document.querySelector('html');
       if (htmlElement) {

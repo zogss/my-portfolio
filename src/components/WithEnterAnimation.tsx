@@ -9,42 +9,38 @@ const WithEnterAnimation = <T extends object = object>(
 ) => {
   const ComponentWithAnimation = (props: T): React.ReactElement => {
     useEffect(() => {
-      const intersectionObservers: IntersectionObserver[] = [];
-      const targetElements = document.querySelectorAll('[data-transition]');
+      const threshold = window.innerWidth > 768 ? 0.2 : 0.4;
 
-      targetElements.forEach((el, i) => {
-        intersectionObservers[i] = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const element = entry.target;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-              if (entry.isIntersecting) {
-                const targetChildElements = element.querySelectorAll(
-                  '[data-transition-target]',
-                );
+            const element = entry.target;
+            const targetChildElements = element.querySelectorAll(
+              '[data-transition-target]',
+            );
 
-                targetChildElements.forEach((child, index) => {
-                  if (!child.classList.contains('animate')) {
-                    child.classList.add('animate');
-                  } else if (targetChildElements.length === index + 1) {
-                    intersectionObservers[i]?.unobserve(el);
-                  }
-                });
+            let allAnimated = true;
+            targetChildElements.forEach((child) => {
+              if (!child.classList.contains('animate')) {
+                child.classList.add('animate');
+                allAnimated = false;
               }
             });
-          },
-          {
-            threshold: window.innerWidth > 768 ? 0.2 : 0.4,
-          },
-        );
-        intersectionObservers[i].observe(el);
-      });
 
-      return () => {
-        if (intersectionObservers.length > 0) {
-          intersectionObservers.forEach((observer) => observer.disconnect());
-        }
-      };
+            if (allAnimated) {
+              observer.unobserve(element);
+            }
+          });
+        },
+        { threshold },
+      );
+
+      const targetElements = document.querySelectorAll('[data-transition]');
+      targetElements.forEach((el) => observer.observe(el));
+
+      return () => observer.disconnect();
     }, []);
 
     return <WrappedComponent {...props} />;
