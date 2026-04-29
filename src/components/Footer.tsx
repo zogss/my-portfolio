@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
   const { t } = useTranslation();
 
   return (
-    <footer className="from-charcoal-black-700 flex flex-col items-center justify-center gap-6 self-stretch bg-gradient-to-b to-black/80 px-[10%] pt-12 pb-6 md:px-[15%]">
+    <footer className="from-charcoal-black-700 flex flex-col items-center justify-center gap-6 self-stretch bg-linear-to-b to-black/80 px-[10%] pt-12 pb-6 md:px-[15%]">
       <div className="flex w-full flex-col items-center justify-between gap-8 self-stretch sm:flex-row md:items-start md:gap-3">
         <div className="flex flex-col items-start gap-8 md:flex-row">
           <Link
@@ -50,14 +50,14 @@ const Footer: React.FC<FooterProps> = ({ hideSectionLinks }) => {
         </div>
         <div className="flex flex-col items-center justify-end gap-2 self-stretch md:items-end md:gap-7">
           <SocialLinks className="w-full justify-center gap-4 md:justify-end" />
-          <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] md:w-full">
+          <div className="w-fit rounded-lg bg-linear-to-b from-violet-500 to-violet-700 p-[.0625rem] md:w-full">
             <Link
               href={`mailto:${env.NEXT_PUBLIC_PERSONAL_EMAIL}`}
               title={env.NEXT_PUBLIC_PERSONAL_EMAIL}
               onClick={() => {
                 track(TRACK_EVENT_KEYS.EMAIL_CLICK);
               }}
-              className="bg-gradient-tertiary flex w-fit items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-2.5 text-sm md:w-full md:text-base"
+              className="bg-gradient-tertiary flex w-fit items-center justify-center gap-2.5 rounded-lg px-5.5 py-2.5 text-sm md:w-full md:text-base"
             >
               {env.NEXT_PUBLIC_PERSONAL_EMAIL}
             </Link>

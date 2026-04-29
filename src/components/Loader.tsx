@@ -10,10 +10,10 @@ const Loader: React.FC = () => {
     <div
       id="loader-wrapper"
       aria-label="Loading"
-      className="bg-charcoal-black-700 fixed inset-0 z-[9999] flex flex-col items-center justify-center text-black transition-all duration-500 ease-in"
+      className="bg-charcoal-black-700 fixed inset-0 z-9999 flex flex-col items-center justify-center text-black transition-all duration-500 ease-in"
     >
       <div className="flex w-fit items-end">
-        <div className="from-charcoal-black-700 z-[1] bg-gradient-to-r to-transparent pb-1.5 lg:pb-2">
+        <div className="from-charcoal-black-700 z-1 bg-linear-to-r to-transparent pb-1.5 lg:pb-2">
           <YIcon className="size-24 shrink-0 md:size-32 lg:size-36" />
         </div>
         <motion.div

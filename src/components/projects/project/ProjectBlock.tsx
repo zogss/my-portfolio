@@ -58,7 +58,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
                       src={image}
                       alt={t(alt)}
                       priority
-                      quality={100}
+                      quality={85}
                       width={1600}
                       height={900}
                       className="size-full"
@@ -72,12 +72,12 @@ const ProjectBlock: React.FC<ProjectType> = ({
           </Carousel>
         ) : (
         )} */}
-        <div className="aspect-[16/9] w-full overflow-hidden rounded-md bg-neutral-950">
+        <div className="aspect-video w-full overflow-hidden rounded-md bg-neutral-950">
           <Image
             src={image}
             alt={t(alt)}
             priority
-            quality={100}
+            quality={85}
             width={1600}
             height={900}
             className="size-full"

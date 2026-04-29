@@ -54,10 +54,10 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
           <header
             ref={headerRef}
             className={cn(
-              'fixed inset-x-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:right-auto lg:left-1/2 lg:-translate-x-1/2 lg:px-[calc(4.5vw)] xl:px-[calc(10vw_+_1.625rem)]',
+              'fixed inset-x-0 top-0 z-10 flex w-full flex-col items-center justify-between px-5 py-3 pr-3 md:px-6 lg:right-auto lg:left-1/2 lg:-translate-x-1/2 lg:px-[calc(4.5vw)] xl:px-[calc(10vw+1.625rem)]',
               open
                 ? 'bg-charcoal-black-700/90'
-                : 'from-charcoal-black-700/90 to-charcoal-black-700/50 bg-gradient-to-b',
+                : 'from-charcoal-black-700/90 to-charcoal-black-700/50 bg-linear-to-b',
             )}
           >
             <div className="flex w-full items-center justify-between gap-4">
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
                 >
                   <YIcon
                     aria-label={t('yan_logo_alt')}
-                    className="size-[2.125rem] shrink-0"
+                    className="size-8.5 shrink-0"
                   />
                   <span className="sr-only">{t('yan_logo_alt')}</span>
                 </Link>
@@ -140,7 +140,7 @@ const Header: React.FC<HeaderProps> = ({ hideSectionLinks }) => {
                 >
                   <YIcon
                     aria-label={t('yan_logo_alt')}
-                    className="size-[2.125rem] shrink-0"
+                    className="size-8.5 shrink-0"
                   />
                   <span className="sr-only">{t('yan_logo_alt')}</span>
                 </Link>

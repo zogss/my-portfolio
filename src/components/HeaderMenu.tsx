@@ -45,7 +45,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-[1.375rem] md:size-6"
+            className="size-5.5 md:size-6"
           >
             <path
               strokeLinecap="round"

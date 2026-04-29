@@ -90,7 +90,7 @@ const ContactForm: React.FC = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="z-[1] flex w-full flex-col items-start gap-3.5 lg:w-2/3"
+      className="z-1 flex w-full flex-col items-start gap-3.5 lg:w-2/3"
     >
       <Input className="w-full">
         <Input.Input
@@ -128,15 +128,15 @@ const ContactForm: React.FC = () => {
         />
       </Input>
       <div className="mt-2.5 flex w-fit items-center justify-start gap-6">
-        <div className="w-fit rounded-lg bg-gradient-to-b from-violet-500 to-violet-700 p-[.0625rem] grayscale transition-[filter] duration-500 group-hover/contactFormContainer:grayscale-0">
+        <div className="w-fit rounded-lg bg-linear-to-b from-violet-500 to-violet-700 p-[.0625rem] grayscale transition-[filter] duration-500 group-hover/contactFormContainer:grayscale-0">
           <button
             type="submit"
             disabled={isSubmitting}
             title={t('send')}
-            className="bg-gradient-tertiary flex cursor-pointer items-center justify-center gap-2.5 rounded-lg px-[1.375rem] py-1.5 disabled:opacity-50"
+            className="bg-gradient-tertiary flex cursor-pointer items-center justify-center gap-2.5 rounded-lg px-5.5 py-1.5 disabled:opacity-50"
           >
             {t('send')}
-            <BsSend className="size-[1.125rem]" />
+            <BsSend className="size-4.5" />
           </button>
         </div>
         {isSubmitting && (

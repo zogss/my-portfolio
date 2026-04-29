@@ -15,7 +15,7 @@ const ContactBlock: React.FC = () => {
     <AnimationContainer className="flex h-auto w-full items-center justify-center">
       <div className="flex w-full items-center justify-center">
         <div className="group/contactFormContainer hover:shadow-secondary flex w-full items-center justify-center transition-shadow duration-500 xl:w-3/4">
-          <div className="bg-charcoal-black-700 relative z-[1] flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 p-5 py-6 md:px-8 lg:px-12 lg:py-8">
+          <div className="bg-charcoal-black-700 relative z-1 flex w-full flex-col items-center overflow-hidden rounded-lg border border-violet-700 p-5 py-6 md:px-8 lg:px-12 lg:py-8">
             <div className="flex flex-col items-start gap-6 self-stretch">
               <h3 className="flex w-full flex-col items-start justify-center gap-3 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
                 <span className="text-xl font-semibold md:text-2xl">

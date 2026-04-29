@@ -7,7 +7,7 @@
 /*
 * Tailwind CSS plugins
 */
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
 /*
 * Core

@@ -10,7 +10,7 @@
 }
 
 [data-transition='animate'] [data-transition-target='left'] {
-  @apply translate-x-[-31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+  @apply -translate-x-125 opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
 }
 
 [data-transition='animate'] [data-transition-target='left'].animate {
@@ -18,7 +18,7 @@
 }
 
 [data-transition='animate'] [data-transition-target='right'] {
-  @apply translate-x-[31.25rem] opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
+  @apply translate-x-125 opacity-0 transition-[transform,opacity] duration-1000 ease-[cubic-bezier(0,0.71,0.2,1.01)];
 }
 
 [data-transition='animate'] [data-transition-target='right'].animate {

@@ -63,7 +63,7 @@ const TechStackBlock: React.FC = () => {
   }, []);
 
   return (
-    <AnimationContainer className="z-[1] flex h-auto w-full flex-1 justify-center">
+    <AnimationContainer className="z-1 flex h-auto w-full flex-1 justify-center">
       <TabGroup
         as="div"
         selectedIndex={activeTab}
@@ -76,7 +76,7 @@ const TechStackBlock: React.FC = () => {
               cn(
                 'bg-midnight-slate-700 flex-1 rounded-tl-lg border-r-2 border-b-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-white/5 border-b-transparent'
+                  ? 'z-1 border-white/5 border-b-transparent'
                   : 'border-white/5 border-r-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }
@@ -108,7 +108,7 @@ const TechStackBlock: React.FC = () => {
               cn(
                 'bg-midnight-slate-700 flex-1 border-x-2 border-b-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-white/5 border-b-transparent'
+                  ? 'z-1 border-white/5 border-b-transparent'
                   : 'border-white/5 border-x-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }
@@ -140,7 +140,7 @@ const TechStackBlock: React.FC = () => {
               cn(
                 'bg-midnight-slate-700 flex-1 rounded-tr-lg border-b-2 border-l-2 border-white px-5 py-3 transition-all duration-500 md:py-4 lg:px-7',
                 selected
-                  ? 'z-[1] border-white/5 border-b-transparent'
+                  ? 'z-1 border-white/5 border-b-transparent'
                   : 'border-white/5 border-l-transparent text-neutral-100/50 hover:bg-white/5',
               )
             }
@@ -179,7 +179,7 @@ const TechStackBlock: React.FC = () => {
                         style={{
                           color,
                         }}
-                        className="z-[1] size-7 md:size-9 lg:size-11"
+                        className="z-1 size-7 md:size-9 lg:size-11"
                       />
                       <a
                         href={`https://www.google.com/search?q=${title}`}
@@ -187,7 +187,7 @@ const TechStackBlock: React.FC = () => {
                         rel="noopener noreferrer"
                         title={t('google_seach', { text: title })}
                         aria-label={t('google_seach', { text: title })}
-                        className="z-[1] text-xs font-medium md:text-sm"
+                        className="z-1 text-xs font-medium md:text-sm"
                       >
                         {title}
                       </a>

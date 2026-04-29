@@ -98,7 +98,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = ({ floating }) => {
             handleMouseEnter(`${link.name}-${floating ? 'floating' : 'header'}`)
           }
           className={cn(
-            'z-[1] flex rounded px-4 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100 xl:px-5',
+            'z-1 flex rounded px-4 py-2.5 text-neutral-100/50 transition-colors duration-200 hover:text-neutral-100 xl:px-5',
             activeSection === link.to.replace('#', '') && 'text-neutral-100',
           )}
         >
