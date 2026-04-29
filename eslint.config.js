@@ -24,6 +24,7 @@ export default [
       'static',
       '.gitignore',
       '.cache',
+      '.next',
     ],
   },
   {
