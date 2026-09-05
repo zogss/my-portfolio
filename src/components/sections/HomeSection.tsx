@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { cn } from '@/utils';
 
 import { useTranslation } from '@/i18n/client';
+import ResumeDownloadButton from '@/components/ResumeDownloadButton';
 import SocialLinks from '@/components/SocialLinks';
 import HomeEclipse from '@/components/svgs/HomeEclipse';
 
@@ -52,11 +53,18 @@ const HomeSection: React.FC = () => {
               </p>
             </h2>
           </div>
-          <SocialLinks
-            animate
-            className="z-3 gap-2 text-white/40"
-            iconSize="lg"
-          />
+          <div className="flex w-full flex-col items-center gap-6 lg:items-start">
+            <SocialLinks
+              animate
+              className="z-3 gap-2 text-white/40"
+              iconSize="lg"
+            />
+            <ResumeDownloadButton
+              source="hero"
+              size="lg"
+              data-transition-target="left"
+            />
+          </div>
         </div>
         <AnimationContainer
           orientation="horizontal"

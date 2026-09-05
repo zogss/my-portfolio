@@ -124,5 +124,7 @@
   "name_max_length_error": "The name must have at most 50 characters",
   "email_field_error": "Enter a valid email",
   "message_min_length_error": "The message must have at least 5 characters",
-  "message_max_length_error": "The message must have at most 1000 characters"
+  "message_max_length_error": "The message must have at most 1000 characters",
+  "download_cv": "Download CV",
+  "resume_section_prompt": "Want the full story?"
 }
