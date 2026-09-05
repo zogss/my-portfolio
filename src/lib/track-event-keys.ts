@@ -6,7 +6,7 @@ export const TRACK_EVENT_KEYS = {
   LINKEDIN_CLICK: 'linkedin_click',
   GITHUB_CLICK: 'github_click',
   EMAIL_CLICK: 'email_click',
-  //   RESUME_CLICK: 'resume_click', TODO: add resume click
+  RESUME_CLICK: 'resume_click',
   KC_STUDIO_CLICK: 'kc_studio_click',
   PROJECT_VISIT_CLICK: 'project_visit_click',
   PROJECT_CODE_CLICK: 'project_code_click',

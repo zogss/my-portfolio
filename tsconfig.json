@@ -23,7 +23,6 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "noEmit": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@env": ["./env.ts"],

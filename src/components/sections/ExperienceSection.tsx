@@ -7,7 +7,21 @@ import { motion, Variants } from 'motion/react';
 
 import { useTranslation } from '@/i18n/client';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import ResumeDownloadButton from '@/components/ResumeDownloadButton';
 import TitleEclipse from '@/components/svgs/TitleEclipse';
+
+import { AnimationContainer } from '../animation-container';
+
+/**
+ * The `experiences` dates below are ISO date-only strings, which JS parses as UTC
+ * midnight. Formatting them in the visitor's local time renders the previous
+ * month everywhere west of UTC (Brazil included), so pin the output to UTC.
+ */
+const DATE_FORMAT: Intl.DateTimeFormatOptions = {
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+};
 
 const itemVariants: Variants = {
   hidden: {
@@ -99,10 +113,7 @@ const ExperienceSection: React.FC = () => {
                     {capitalize(
                       exp.period.from.toLocaleDateString(
                         language === 'pt-BR' ? 'pt-BR' : 'en-US',
-                        {
-                          month: 'short',
-                          year: 'numeric',
-                        },
+                        DATE_FORMAT,
                       ),
                     )}{' '}
                     -{' '}
@@ -110,10 +121,7 @@ const ExperienceSection: React.FC = () => {
                       ? capitalize(
                           exp.period.to.toLocaleDateString(
                             language === 'pt-BR' ? 'pt-BR' : 'en-US',
-                            {
-                              month: 'short',
-                              year: 'numeric',
-                            },
+                            DATE_FORMAT,
                           ),
                         )
                       : t('at_the_moment')}
@@ -134,6 +142,12 @@ const ExperienceSection: React.FC = () => {
           ))}
         </div>
       </div>
+      <AnimationContainer className="z-1 flex w-full flex-col items-center gap-4">
+        <span className="text-center text-sm font-medium text-zinc-400 md:text-base">
+          {t('resume_section_prompt')}
+        </span>
+        <ResumeDownloadButton source="experience" variant="outline" />
+      </AnimationContainer>
     </section>
   );
 };
@@ -145,7 +159,7 @@ export const experiences = [
     company: 'Skim',
     role: 'frontend_engineer',
     period: {
-      from: new Date('2025-01-01'),
+      from: new Date('2024-12-01'),
       to: undefined,
     },
     description: 'skim_description',
