@@ -20,34 +20,44 @@ service cloud.firestore {
     // Counters for the server-side rate limiter in src/lib/rate-limit.ts.
     // Documents are keyed by a SHA-256 hash of the client IP, never the IP
     // itself, and hold only { count, windowStart }.
+    //
+    // Operations are split rather than using a single `read, write` rule:
+    // `request.resource` is null on get/list/delete, so a shared condition that
+    // touches `request.resource.data` would dereference null instead of simply
+    // evaluating false.
     match /contact_rate_limits/{clientHash} {
-      allow read, write: if isValidRateLimitDoc();
+      // Reading a single counter requires already knowing the IP hash, and the
+      // document holds nothing but a count and a window start.
+      allow get: if true;
+      allow create, update: if isValidRateLimitDoc();
+      allow list, delete: if false;
     }
 
     match /{document=**} {
       allow read, write: if false;
     }
-  }
 
-  function isValidContact() {
-    let data = request.resource.data;
-    return data.keys().hasOnly(['name', 'email', 'message', 'createdAt'])
-      && data.name is string
-      && data.name.size() >= 3 && data.name.size() <= 50
-      && data.email is string
-      && data.email.size() <= 254
-      && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
-      && data.message is string
-      && data.message.size() >= 5 && data.message.size() <= 1000
-      && data.createdAt is timestamp;
-  }
+    function isValidContact() {
+      let data = request.resource.data;
+      return data.keys().hasOnly(['name', 'email', 'message', 'createdAt'])
+        && data.name is string
+        && data.name.size() >= 3 && data.name.size() <= 50
+        && data.email is string
+        && data.email.size() <= 254
+        && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && data.message is string
+        && data.message.size() >= 5 && data.message.size() <= 1000
+        && data.createdAt is timestamp;
+    }
 
-  function isValidRateLimitDoc() {
-    let data = request.resource.data;
-    return request.method == 'get'
-      || (data.keys().hasOnly(['count', 'windowStart'])
-        && data.count is int
+    function isValidRateLimitDoc() {
+      let data = request.resource.data;
+      // `is number` rather than `is int`: the JS SDK may serialise a whole
+      // number as a double, which would fail an `is int` check.
+      return data.keys().hasOnly(['count', 'windowStart'])
+        && data.count is number
         && data.count >= 0 && data.count <= 1000
-        && data.windowStart is timestamp);
+        && data.windowStart is timestamp;
+    }
   }
 }

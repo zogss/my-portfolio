@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { RESUME_FILES } from '@/constants';
 import { cn, ProjectType } from '@/utils';
 import {
@@ -65,6 +65,7 @@ interface CommandPaletteProps {
 
 const CommandPalette: React.FC<CommandPaletteProps> = ({ projects }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const {
     t,
     i18n: { language },
@@ -187,7 +188,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ projects }) => {
               ? TRACK_EVENT_KEYS.LANGUAGE_DROPDOWN_SELECT_PT
               : TRACK_EVENT_KEYS.LANGUAGE_DROPDOWN_SELECT_EN,
           );
-          router.push(`/${otherLng}`);
+          // Keep the current page, matching LanguageDropdown: switching locale
+          // from a project should stay on that project, not jump home.
+          router.push(`/${otherLng}${pathname.replace(`/${lng}`, '')}`);
         },
       },
       {
@@ -222,7 +225,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ projects }) => {
         ),
       },
     ];
-  }, [close, lng, projects, router, t]);
+  }, [close, lng, pathname, projects, router, t]);
 
   const filtered = useMemo(() => {
     const q = normalize(query.trim());
