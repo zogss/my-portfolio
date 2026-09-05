@@ -1,4 +1,4 @@
-import { createInstance } from 'i18next';
+import { createInstance, type i18n, type TFunction } from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 
@@ -23,6 +23,11 @@ export const initI18next = async (
   return i18nInstance;
 };
 
+/**
+ * Explicitly annotated: with `declaration: true`, TypeScript 6 refuses to infer a
+ * return type it cannot name portably (TS2883), because `getFixedT` resolves to a
+ * generic `TFunction` tied to i18next's own module path.
+ */
 export const getTranslation = async (
   _lng?: string,
   ns?: string | string[],
@@ -31,7 +36,7 @@ export const getTranslation = async (
         keyPrefix?: string;
       }
     | undefined = {},
-) => {
+): Promise<{ t: TFunction; i18n: i18n }> => {
   if (_lng && !languages.includes(_lng)) {
     throw new Error(`Invalid language: ${_lng}`);
   }
