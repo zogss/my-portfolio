@@ -34,7 +34,12 @@
       "i18next",
       "Vite",
       "Firebase"
-    ]
+    ],
+    "case_study": {
+      "problem": "spacie_case_problem",
+      "approach": "spacie_case_approach",
+      "outcome": "spacie_case_outcome"
+    }
   },
   {
     "title": "CS Analytics",
@@ -68,7 +73,12 @@
       "Recoil",
       "Popper.js",
       "Font Awesome"
-    ]
+    ],
+    "case_study": {
+      "problem": "cs_analytics_case_problem",
+      "approach": "cs_analytics_case_approach",
+      "outcome": "cs_analytics_case_outcome"
+    }
   },
   {
     "title": "Expert Stats",
@@ -97,7 +107,12 @@
       "Axios",
       "ApexCharts",
       "Font Awesome"
-    ]
+    ],
+    "case_study": {
+      "problem": "expert_stats_case_problem",
+      "approach": "expert_stats_case_approach",
+      "outcome": "expert_stats_case_outcome"
+    }
   },
   {
     "title": "Chirp",
@@ -125,7 +140,12 @@
       "Prisma",
       "TailwindCSS",
       "Zod"
-    ]
+    ],
+    "case_study": {
+      "problem": "chirp_case_problem",
+      "approach": "chirp_case_approach",
+      "outcome": "chirp_case_outcome"
+    }
   },
   {
     "title": "Massagueirinha Menu",
@@ -149,7 +169,12 @@
       "Gatsby",
       "Firebase",
       "TailwindCSS"
-    ]
+    ],
+    "case_study": {
+      "problem": "massagueirinha_menu_case_problem",
+      "approach": "massagueirinha_menu_case_approach",
+      "outcome": "massagueirinha_menu_case_outcome"
+    }
   },
   {
     "title": "Bull Blockchain",
@@ -176,7 +201,12 @@
       "Alpine",
       "Bootstrap",
       "Sass"
-    ]
+    ],
+    "case_study": {
+      "problem": "bull_blockchain_case_problem",
+      "approach": "bull_blockchain_case_approach",
+      "outcome": "bull_blockchain_case_outcome"
+    }
   },
   {
     "title": "Car Rent",
@@ -204,7 +234,12 @@
       "Sass",
       "MongoDB",
       "Yup"
-    ]
+    ],
+    "case_study": {
+      "problem": "car_rent_case_problem",
+      "approach": "car_rent_case_approach",
+      "outcome": "car_rent_case_outcome"
+    }
   },
   {
     "title": "Localize",
@@ -241,6 +276,11 @@
       "React Hook Form",
       "Zod",
       "Styled Components"
-    ]
+    ],
+    "case_study": {
+      "problem": "localize_case_problem",
+      "approach": "localize_case_approach",
+      "outcome": "localize_case_outcome"
+    }
   }
 ]

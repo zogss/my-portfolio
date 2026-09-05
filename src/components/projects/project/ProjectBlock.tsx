@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ProjectType } from '@/utils';
 import { track } from '@vercel/analytics';
 // import Autoplay from 'embla-carousel-autoplay';
+import { Lightbulb, Target, Wrench } from 'lucide-react';
 import { BiLinkExternal } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 
@@ -27,6 +28,7 @@ const ProjectBlock: React.FC<ProjectType> = ({
   title,
   short_description,
   long_description,
+  case_study,
   image,
   // carousel,
   alt,
@@ -154,7 +156,51 @@ const ProjectBlock: React.FC<ProjectType> = ({
           </p>
         ))}
       </div>
-      <div className="mt-5 flex w-full flex-col items-start gap-3">
+      {case_study && (
+        <div className="flex w-full flex-col items-start gap-3">
+          <div className="flex w-full items-end justify-start gap-2">
+            <span className="text-sm font-semibold whitespace-nowrap text-neutral-400">
+              {t('case_study')}
+            </span>
+            <ProjectSeparator color={slug} size="xs" />
+          </div>
+          <dl className="grid w-full gap-4 md:grid-cols-3">
+            {(
+              [
+                {
+                  key: 'case_problem',
+                  icon: Target,
+                  value: case_study.problem,
+                },
+                {
+                  key: 'case_approach',
+                  icon: Wrench,
+                  value: case_study.approach,
+                },
+                {
+                  key: 'case_outcome',
+                  icon: Lightbulb,
+                  value: case_study.outcome,
+                },
+              ] as const
+            ).map(({ key, icon: Icon, value }) => (
+              <div
+                key={key}
+                className="flex h-full flex-col gap-2 rounded-lg border border-white/10 bg-white/[0.03] p-4"
+              >
+                <dt className="flex items-center gap-2 text-sm font-semibold text-neutral-200">
+                  <Icon aria-hidden="true" className="size-4 shrink-0" />
+                  {t(key)}
+                </dt>
+                <dd className="text-sm leading-relaxed text-neutral-400">
+                  {t(value)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
+      <div className="flex w-full flex-col items-start gap-3">
         <div className="flex w-full items-end justify-start gap-2">
           <span className="text-sm font-semibold text-neutral-400">
             {t('techs')}

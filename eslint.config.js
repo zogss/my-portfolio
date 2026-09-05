@@ -35,7 +35,16 @@ export default [
         ...globals.serviceworker,
       },
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   },
+  // tsconfig sets `"jsx": "react-jsx"`, so React does not need to be in scope.
+  // Without this, `react/react-in-jsx-scope` fires on any file that renders JSX
+  // without importing React.
+  pluginReact.configs.flat['jsx-runtime'],
   {
     plugins: {
       '@next/next': pluginNext,
@@ -45,19 +54,11 @@ export default [
       ...pluginNext.configs['core-web-vitals'].rules,
     },
   },
-  {
-    plugins: {
-      'react-hooks': pluginReactHooks,
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-    rules: {
-      ...pluginReactHooks.configs.recommended.rules,
-    },
-  },
+  // v7 ships the React Compiler rules in `recommended`; `configs.flat.*` are the
+  // flat-config entries (the legacy `configs.recommended` keeps an eslintrc-shaped
+  // `plugins` array). Swap to `flat['recommended-latest']` to opt into the
+  // experimental rules on top.
+  pluginReactHooks.configs.flat.recommended,
   {
     plugins: {
       'only-warn': pluginOnlyWarn,

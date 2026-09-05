@@ -4,12 +4,12 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 
 ## Stack snapshot
 
-- **Next.js 16.2** App Router · **React 19.2** · **TypeScript 5.8** strict + `noUncheckedIndexedAccess`
-- **Tailwind CSS 4.2** with `@theme` blocks (no `tailwind.config.js`)
-- **motion** (Framer Motion v12) for animation
-- **i18next** 25 with `i18next-resources-to-backend` (dynamic JSON imports)
-- **react-hook-form** + **zod** for forms
-- **Firebase 11 / Firestore** for contact submissions
+- **Next.js 16.3** App Router · **React 19.2** · **TypeScript 6.0** strict + `noUncheckedIndexedAccess`
+- **Tailwind CSS 4.3** with `@theme` blocks (no `tailwind.config.js`)
+- **motion** (Framer Motion v13) for animation
+- **i18next** 26 with `i18next-resources-to-backend` (dynamic JSON imports)
+- **react-hook-form** + **zod 4** for forms
+- **Firebase 12 / Firestore** for contact submissions
 - **@t3-oss/env-nextjs** validates env at boot
 - **pnpm 10** · Node ≥ 22
 
@@ -33,19 +33,19 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 
 ## Where to put things
 
-| Adding...                            | Goes in...                                                                                                                                                                                          |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A new top-level page                 | [src/app/[lng]/<route>/page.tsx](src/app/%5Blng%5D/)                                                                                                                                                |
-| A new project entry                  | Append to [public/projects.json](public/projects.json), add `*_description` + `*_long_description_NN` keys to both locale JSONs, drop image into [public/images/projects/](public/images/projects/) |
-| A new work experience entry          | Prepend to `experiences` array in [src/components/sections/ExperienceSection.tsx](src/components/sections/ExperienceSection.tsx) and add role + description translation keys                        |
-| A new section on the home page       | New file in [src/components/sections/](src/components/sections/), import in [src/app/[lng]/page.tsx](src/app/%5Blng%5D/page.tsx)                                                                    |
-| A reusable UI primitive              | [src/components/ui/](src/components/ui/)                                                                                                                                                            |
-| A custom hook                        | [src/hooks/](src/hooks/) (`use-` prefix, kebab- or camelCase to match neighbours)                                                                                                                   |
-| A server action                      | [src/actions/](src/actions/) — file starts with `'use server'`                                                                                                                                      |
-| A Zod schema                         | [src/schemas/](src/schemas/)                                                                                                                                                                        |
-| A shared type                        | [src/@types/](src/@types/) or [src/utils/interfaces/](src/utils/interfaces/)                                                                                                                        |
-| A new color / spacing / shadow token | `:root` or `@theme` block in [src/styles/core/variables.css](src/styles/core/variables.css) — and add the matching `@theme inline` mapping if it should appear as a Tailwind utility                |
-| Custom CSS                           | [src/styles/modules/](src/styles/modules/) (and import via `modules.css`) or [src/styles/layers/](src/styles/layers/)                                                                               |
+| Adding...                            | Goes in...                                                                                                                                                                                                                                           |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A new top-level page                 | [src/app/[lng]/<route>/page.tsx](src/app/%5Blng%5D/)                                                                                                                                                                                                 |
+| A new project entry                  | Append to [public/projects.json](public/projects.json), add `*_description`, `*_long_description_NN` and the three `*_case_{problem,approach,outcome}` keys to both locale JSONs, drop image into [public/images/projects/](public/images/projects/) |
+| A new work experience entry          | Prepend to `experiences` array in [src/components/sections/ExperienceSection.tsx](src/components/sections/ExperienceSection.tsx) and add role + description translation keys                                                                         |
+| A new section on the home page       | New file in [src/components/sections/](src/components/sections/), import in [src/app/[lng]/page.tsx](src/app/%5Blng%5D/page.tsx)                                                                                                                     |
+| A reusable UI primitive              | [src/components/ui/](src/components/ui/)                                                                                                                                                                                                             |
+| A custom hook                        | [src/hooks/](src/hooks/) (`use-` prefix, kebab- or camelCase to match neighbours)                                                                                                                                                                    |
+| A server action                      | [src/actions/](src/actions/) — file starts with `'use server'`                                                                                                                                                                                       |
+| A Zod schema                         | [src/schemas/](src/schemas/)                                                                                                                                                                                                                         |
+| A shared type                        | [src/@types/](src/@types/) or [src/utils/interfaces/](src/utils/interfaces/)                                                                                                                                                                         |
+| A new color / spacing / shadow token | `:root` or `@theme` block in [src/styles/core/variables.css](src/styles/core/variables.css) — and add the matching `@theme inline` mapping if it should appear as a Tailwind utility                                                                 |
+| Custom CSS                           | [src/styles/modules/](src/styles/modules/) (and import via `modules.css`) or [src/styles/layers/](src/styles/layers/)                                                                                                                                |
 
 ## Component patterns to follow
 
@@ -77,7 +77,7 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 - **Don't add `middleware.ts`.** This project uses the Next.js 16 proxy file ([src/proxy.ts](src/proxy.ts)) instead. Modify that one.
 - **Project descriptions are translation keys, not literal strings.** [public/projects.json](public/projects.json) stores the _key name_; the actual EN / PT text is in the locale JSONs.
 - **`tailwind.config.js` does not exist.** Tailwind 4 reads tokens from `@theme` blocks in CSS. Don't recreate the config file.
-- **Two `cn` files exist** — [src/lib/utils.ts](src/lib/utils.ts) and [src/utils/helpers/cn.ts](src/utils/helpers/cn.ts). The codebase imports from `@/utils` (the helpers version). Prefer that.
+- **`cn` lives in [src/utils/helpers/cn.ts](src/utils/helpers/cn.ts)** and is re-exported from `@/utils` — import it from there. [src/lib/utils.ts](src/lib/utils.ts) is unrelated (it only exports `findScrollContainer`).
 - **Google Analytics + Vercel Analytics + Speed Insights** are all already mounted in [src/app/layout.tsx](src/app/layout.tsx). Track product events through `@vercel/analytics`'s `track()` with keys from [src/lib/track-event-keys.ts](src/lib/track-event-keys.ts).
 - **`'pt-BR'` not `'pt'`.** Internal locale code is `pt-BR`; Open Graph uses `pt_BR`. The `translations.json` `pt` key is just a label, not the routing locale.
 - **Hardcoded experience data.** Most-recent role lives in [src/components/sections/ExperienceSection.tsx](src/components/sections/ExperienceSection.tsx). When updating, prepend to the array (newest first).
@@ -94,6 +94,41 @@ pnpm check-types   # tsc --noEmit
 ```
 
 There is **no test suite** configured. Verify changes with `pnpm check-types`, `pnpm lint`, and a manual pass over both `/en` and `/pt-BR` in the dev server.
+
+## Contact form & Firestore
+
+- The app talks to Firestore with the **client** SDK, including from server
+  actions, so [firestore.rules](firestore.rules) is the only guard on the public
+  API key. Deploy it with `firebase deploy --only firestore:rules`.
+- [src/actions/saveContact.ts](src/actions/saveContact.ts) re-validates with the
+  same Zod schema (a server action is a public endpoint) and returns a result
+  object rather than throwing — Next redacts thrown server-action errors in
+  production.
+- Rate limiting lives in [src/lib/rate-limit.ts](src/lib/rate-limit.ts): an
+  in-memory counter that always applies, plus a durable Firestore counter. Until
+  `firestore.rules` is deployed the Firestore layer is denied and logs one
+  warning per process; the in-memory layer still enforces.
+
+## Pinned toolchain (do not bump blindly)
+
+Two dev dependencies are deliberately held below `latest`; both were verified to
+break when upgraded:
+
+- **eslint 9.39.5** (10.x is out). `eslint-plugin-react` 7.37.5 is the newest
+  release and still peers at `eslint ^9.7`; under ESLint 10 it throws
+  `contextOrFilename.getFilename is not a function` and linting dies. Moving to
+  ESLint 10 means replacing `eslint-plugin-react` (e.g. with
+  `@eslint-react/eslint-plugin`), which is a lint-policy change, not a bump.
+- **typescript 6.0.3** (7.0.2 is out). `tsc --noEmit` and `next build` both pass
+  on TS 7, but `typescript-eslint` 8.69 hard-refuses to load against it
+  (`typescript-eslint does not support TS 7.0`). TS 7 has no programmatic
+  compiler API until 7.1, so typed tooling cannot follow yet.
+
+Re-check both when `eslint-plugin-react` and `typescript-eslint` ship support.
+
+`react-hooks/set-state-in-effect` currently reports 4 pre-existing warnings
+(`TechStackBlock`, `ui/carousel`, `use-local-storage`, `i18n/client`). Lint still
+exits 0; they are deliberate sync-on-mount patterns, not new breakage.
 
 ## Commit style
 
