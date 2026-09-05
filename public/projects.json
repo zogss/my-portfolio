@@ -8,8 +8,21 @@
       "skim_web_long_description_02",
       "skim_web_long_description_03"
     ],
-    "image": "/images/projects/skim_website_image.png",
-    "carousel": null,
+    "image": "/images/projects/skim_website_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/skim-web/1_home.jpg"
+      },
+      {
+        "image": "/images/projects/skim-web/2_youtube.jpg"
+      },
+      {
+        "image": "/images/projects/skim-web/3_brands.jpg"
+      },
+      {
+        "image": "/images/projects/skim-web/4_feed.jpg"
+      }
+    ],
     "url": "https://skim.plus",
     "repository_url": null,
     "subtitle": "skim_web_subtitle",
@@ -47,8 +60,15 @@
       "skim_extension_long_description_02",
       "skim_extension_long_description_03"
     ],
-    "image": "/images/projects/skim_extension_image.png",
-    "carousel": null,
+    "image": "/images/projects/skim_extension_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/skim-extension/1_store.jpg"
+      },
+      {
+        "image": "/images/projects/skim-extension/2_detail.jpg"
+      }
+    ],
     "url": "https://chromewebstore.google.com/detail/skim-get-to-the-point-fre/eenbaojdcmnbdlhkmambidocigepdobm",
     "repository_url": null,
     "subtitle": "skim_extension_subtitle",
@@ -81,8 +101,18 @@
       "skim_mobile_long_description_01",
       "skim_mobile_long_description_02"
     ],
-    "image": "/images/projects/skim_mobile_image.png",
-    "carousel": null,
+    "image": "/images/projects/skim_mobile_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/skim-mobile/1_app_store.jpg"
+      },
+      {
+        "image": "/images/projects/skim-mobile/2_play_store.jpg"
+      },
+      {
+        "image": "/images/projects/skim-mobile/3_screens.jpg"
+      }
+    ],
     "url": "https://apps.apple.com/us/app/skim-catch-what-matters/id6760806056",
     "repository_url": null,
     "subtitle": "skim_mobile_subtitle",
@@ -114,8 +144,21 @@
       "pricetrack_long_description_01",
       "pricetrack_long_description_02"
     ],
-    "image": "/images/projects/pricetrack_image.png",
-    "carousel": null,
+    "image": "/images/projects/pricetrack_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/pricetrack/1_hero.jpg"
+      },
+      {
+        "image": "/images/projects/pricetrack/2_process.jpg"
+      },
+      {
+        "image": "/images/projects/pricetrack/3_features.jpg"
+      },
+      {
+        "image": "/images/projects/pricetrack/4_products.jpg"
+      }
+    ],
     "url": "https://pricetrack.com.br",
     "repository_url": null,
     "subtitle": "pricetrack_subtitle",
@@ -299,7 +342,17 @@
       "massagueirinha_menu_long_description_01"
     ],
     "image": "/images/projects/massagueirinha_image.png",
-    "carousel": null,
+    "carousel": [
+      {
+        "image": "/images/projects/massagueirinha-menu/1_home.jpg"
+      },
+      {
+        "image": "/images/projects/massagueirinha-menu/2_menu.jpg"
+      },
+      {
+        "image": "/images/projects/massagueirinha-menu/3_dishes.jpg"
+      }
+    ],
     "url": "https://massaguerinha-menu-cc348.web.app/",
     "repository_url": null,
     "subtitle": "massagueirinha_menu_subtitle",

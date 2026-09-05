@@ -196,5 +196,9 @@
   "pricetrack_long_description_02": "The platform is built by a team across a TypeScript monorepo: a Next.js frontend over a NestJS, Prisma and PostgreSQL API, with Python services alongside it. My contribution is on the frontend, where the interface leans heavily on TanStack Query and TanStack Table for large, filterable datasets, Recharts for price history, and i18next because the product ships in more than one language.",
   "pricetrack_case_problem": "Retailers selling across many online marketplaces had no single view of how their catalogue was priced against competitors, and pricing decisions were being made on stale spreadsheets.",
   "pricetrack_case_approach": "The team built PriceTrack across a TypeScript monorepo, with a NestJS and PostgreSQL API and Python services doing the heavy lifting behind the scenes. I work on the frontend — virtualised tables over large product sets, price history charts, configurable monitoring and alerting — the layer where collected data turns into a decision someone can act on.",
-  "pricetrack_case_outcome": "PriceTrack is one of the company's main products and my longest-running contribution there, used by commercial teams to monitor competitors and adjust pricing on live marketplace data. It is very much a group effort: the data collection and backend work it rests on matter at least as much as the interface I build on top."
+  "pricetrack_case_outcome": "PriceTrack is one of the company's main products and my longest-running contribution there, used by commercial teams to monitor competitors and adjust pricing on live marketplace data. It is very much a group effort: the data collection and backend work it rests on matter at least as much as the interface I build on top.",
+  "previous_slide": "Previous slide",
+  "next_slide": "Next slide",
+  "go_to_slide": "Go to slide {{current}}",
+  "project_slide_alt": "{{alt}} — image {{current}} of {{total}}"
 }

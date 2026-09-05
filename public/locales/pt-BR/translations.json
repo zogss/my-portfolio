@@ -196,5 +196,9 @@
   "pricetrack_long_description_02": "A plataforma é construída por um time dentro de um monorepo TypeScript: um frontend em Next.js sobre uma API em NestJS, Prisma e PostgreSQL, com serviços em Python ao lado. Minha contribuição é no frontend, onde a interface se apoia bastante em TanStack Query e TanStack Table para conjuntos de dados grandes e filtráveis, Recharts para histórico de preços, e i18next porque o produto é entregue em mais de um idioma.",
   "pricetrack_case_problem": "Varejistas que vendem em muitos marketplaces não tinham uma visão única de como seu catálogo estava precificado frente à concorrência, e decisões de preço eram tomadas em planilhas desatualizadas.",
   "pricetrack_case_approach": "O time construiu o PriceTrack em um monorepo TypeScript, com uma API em NestJS e PostgreSQL e serviços em Python fazendo o trabalho pesado nos bastidores. Atuo no frontend — tabelas virtualizadas sobre grandes conjuntos de produtos, gráficos de histórico de preço, monitoramento configurável e alertas — a camada em que os dados coletados viram uma decisão que alguém consegue tomar.",
-  "pricetrack_case_outcome": "O PriceTrack é um dos principais produtos da empresa e minha contribuição mais longa por lá, usado por times comerciais para monitorar concorrentes e ajustar preços sobre dados reais de marketplace. É um trabalho de time: a coleta de dados e o backend em que ele se apoia importam no mínimo tanto quanto a interface que construo por cima."
+  "pricetrack_case_outcome": "O PriceTrack é um dos principais produtos da empresa e minha contribuição mais longa por lá, usado por times comerciais para monitorar concorrentes e ajustar preços sobre dados reais de marketplace. É um trabalho de time: a coleta de dados e o backend em que ele se apoia importam no mínimo tanto quanto a interface que construo por cima.",
+  "previous_slide": "Slide anterior",
+  "next_slide": "Próximo slide",
+  "go_to_slide": "Ir para o slide {{current}}",
+  "project_slide_alt": "{{alt}} — imagem {{current}} de {{total}}"
 }
