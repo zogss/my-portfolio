@@ -18,6 +18,17 @@ export type ProjectSlugType =
   | 'car-rent'
   | 'localize';
 
+/**
+ * Problem / approach / outcome narrative for a project. Values are translation
+ * keys, like the rest of the project copy. Optional: projects without one fall
+ * back to the plain description.
+ */
+export type ProjectCaseStudyType = {
+  problem: string;
+  approach: string;
+  outcome: string;
+};
+
 export type ProjectType = {
   id: string;
   slug: ProjectSlugType;
@@ -25,6 +36,7 @@ export type ProjectType = {
   subtitle: string;
   short_description: string;
   long_description: string[];
+  case_study?: ProjectCaseStudyType;
   url: string | null;
   repository_url: string | null;
   techs: string[];
