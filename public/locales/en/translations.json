@@ -126,5 +126,6 @@
   "message_min_length_error": "The message must have at least 5 characters",
   "message_max_length_error": "The message must have at most 1000 characters",
   "download_cv": "Download CV",
-  "resume_section_prompt": "Want the full story?"
+  "resume_section_prompt": "Want the full story?",
+  "rate_limit_error": "Too many messages sent. Please wait a few minutes and try again."
 }

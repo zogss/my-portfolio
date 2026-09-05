@@ -126,5 +126,6 @@
   "message_min_length_error": "A mensagem deve ter pelo menos 5 caracteres",
   "message_max_length_error": "A mensagem deve ter no máximo 1000 caracteres",
   "download_cv": "Baixar currículo",
-  "resume_section_prompt": "Quer a história completa?"
+  "resume_section_prompt": "Quer a história completa?",
+  "rate_limit_error": "Muitas mensagens enviadas. Aguarde alguns minutos e tente novamente."
 }

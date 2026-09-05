@@ -1,0 +1,53 @@
+rules_version = '2';
+
+// Deploy with:  firebase deploy --only firestore:rules
+//
+// The app talks to Firestore with the *client* SDK (see src/lib/firebase.ts),
+// including from server actions, so these rules are the only thing standing
+// between the public API key and the database. Everything is denied unless
+// listed below.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Contact form submissions. Create-only: nobody may read, update or delete
+    // through the client SDK, so submissions cannot be enumerated with the
+    // public API key. Read them in the Firebase console.
+    match /contacts/{document} {
+      allow create: if isValidContact();
+      allow read, update, delete: if false;
+    }
+
+    // Counters for the server-side rate limiter in src/lib/rate-limit.ts.
+    // Documents are keyed by a SHA-256 hash of the client IP, never the IP
+    // itself, and hold only { count, windowStart }.
+    match /contact_rate_limits/{clientHash} {
+      allow read, write: if isValidRateLimitDoc();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+
+  function isValidContact() {
+    let data = request.resource.data;
+    return data.keys().hasOnly(['name', 'email', 'message', 'createdAt'])
+      && data.name is string
+      && data.name.size() >= 3 && data.name.size() <= 50
+      && data.email is string
+      && data.email.size() <= 254
+      && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+      && data.message is string
+      && data.message.size() >= 5 && data.message.size() <= 1000
+      && data.createdAt is timestamp;
+  }
+
+  function isValidRateLimitDoc() {
+    let data = request.resource.data;
+    return request.method == 'get'
+      || (data.keys().hasOnly(['count', 'windowStart'])
+        && data.count is int
+        && data.count >= 0 && data.count <= 1000
+        && data.windowStart is timestamp);
+  }
+}
