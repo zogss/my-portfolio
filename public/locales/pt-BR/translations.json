@@ -127,5 +127,12 @@
   "message_max_length_error": "A mensagem deve ter no máximo 1000 caracteres",
   "download_cv": "Baixar currículo",
   "resume_section_prompt": "Quer a história completa?",
-  "rate_limit_error": "Muitas mensagens enviadas. Aguarde alguns minutos e tente novamente."
+  "rate_limit_error": "Muitas mensagens enviadas. Aguarde alguns minutos e tente novamente.",
+  "command_palette_label": "Buscar seções, projetos e ações",
+  "command_palette_placeholder": "Ir para uma seção, projeto ou ação…",
+  "command_palette_empty": "Nenhum resultado encontrado.",
+  "command_palette_open": "Abrir paleta de comandos",
+  "command_group_sections": "Seções",
+  "command_group_projects": "Projetos",
+  "command_group_actions": "Ações"
 }

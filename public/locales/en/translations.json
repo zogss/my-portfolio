@@ -127,5 +127,12 @@
   "message_max_length_error": "The message must have at most 1000 characters",
   "download_cv": "Download CV",
   "resume_section_prompt": "Want the full story?",
-  "rate_limit_error": "Too many messages sent. Please wait a few minutes and try again."
+  "rate_limit_error": "Too many messages sent. Please wait a few minutes and try again.",
+  "command_palette_label": "Search sections, projects and actions",
+  "command_palette_placeholder": "Jump to a section, project or action…",
+  "command_palette_empty": "No results found.",
+  "command_palette_open": "Open command palette",
+  "command_group_sections": "Sections",
+  "command_group_projects": "Projects",
+  "command_group_actions": "Actions"
 }

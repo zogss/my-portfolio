@@ -12,8 +12,10 @@ import { getTranslation } from '@/i18n';
 
 import { env } from '@env';
 import { WithLanguageParams } from '@/@types/i18n.types';
+import { getProjects } from '@/actions/getProjects';
 import { fallbackLng, languages } from '@/i18n/settings';
 import { AppProvider } from '@/providers/app-provider';
+import CommandPalette from '@/components/CommandPalette';
 import { AppLayout } from '@/components/layout/app-layout';
 import withTranslation from '@/components/with-translation';
 
@@ -94,10 +96,12 @@ const RootLayout: React.FC<WithLanguageParams<PropsWithChildren>> = async ({
   params,
 }) => {
   const { lng } = await params;
+  const projects = await getProjects();
 
   return (
     <AppProvider i18nCookie={lng ?? fallbackLng}>
       <AppLayout>{children}</AppLayout>
+      <CommandPalette projects={projects} />
     </AppProvider>
   );
 };

@@ -6,6 +6,7 @@ import { MenuButton } from '@headlessui/react';
 
 import { useTranslation } from '@/i18n/client';
 
+import CommandPaletteTrigger from './CommandPaletteTrigger';
 import HeaderLinks from './HeaderLinks';
 import LanguageDropdown from './LanguageDropdown';
 
@@ -27,6 +28,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
           <HeaderLinks floating={floating} />
         </div>
       )}
+      <CommandPaletteTrigger />
       <LanguageDropdown />
       {!hideSectionLinks && (
         <MenuButton
