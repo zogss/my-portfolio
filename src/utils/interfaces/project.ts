@@ -6,7 +6,11 @@ export type ProjectNameType =
   | 'Massagueirinha Menu'
   | 'Bull Blockchain'
   | 'Car Rent'
-  | 'Localize';
+  | 'Localize'
+  | 'Skim Web'
+  | 'Skim Extension'
+  | 'Skim Mobile'
+  | 'PriceTrack';
 
 export type ProjectSlugType =
   | 'spacie'
@@ -16,7 +20,11 @@ export type ProjectSlugType =
   | 'massagueirinha-menu'
   | 'bull-blockchain'
   | 'car-rent'
-  | 'localize';
+  | 'localize'
+  | 'skim-web'
+  | 'skim-extension'
+  | 'skim-mobile'
+  | 'pricetrack';
 
 /**
  * Problem / approach / outcome narrative for a project. Values are translation

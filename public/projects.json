@@ -1,5 +1,149 @@
 [
   {
+    "title": "Skim Web",
+    "slug": "skim-web",
+    "short_description": "skim_web_description",
+    "long_description": [
+      "skim_web_long_description_01",
+      "skim_web_long_description_02",
+      "skim_web_long_description_03"
+    ],
+    "image": "/images/projects/skim_website_image.png",
+    "carousel": null,
+    "url": "https://skim.plus",
+    "repository_url": null,
+    "subtitle": "skim_web_subtitle",
+    "alt": "skim_web_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "shadcn/ui",
+      "TanStack Query",
+      "React Hook Form",
+      "Zod",
+      "Axios",
+      "Socket.io",
+      "Motion",
+      "Recharts",
+      "iron-session",
+      "PostHog",
+      "Turborepo"
+    ],
+    "case_study": {
+      "problem": "skim_web_case_problem",
+      "approach": "skim_web_case_approach",
+      "outcome": "skim_web_case_outcome"
+    }
+  },
+  {
+    "title": "Skim Extension",
+    "slug": "skim-extension",
+    "short_description": "skim_extension_description",
+    "long_description": [
+      "skim_extension_long_description_01",
+      "skim_extension_long_description_02",
+      "skim_extension_long_description_03"
+    ],
+    "image": "/images/projects/skim_extension_image.png",
+    "carousel": null,
+    "url": "https://chromewebstore.google.com/detail/skim-get-to-the-point-fre/eenbaojdcmnbdlhkmambidocigepdobm",
+    "repository_url": null,
+    "subtitle": "skim_extension_subtitle",
+    "alt": "skim_extension_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Chrome Manifest V3",
+      "Shadow DOM",
+      "Service Worker",
+      "Tailwind CSS",
+      "Radix UI",
+      "Motion",
+      "Zod",
+      "Jest",
+      "Playwright"
+    ],
+    "case_study": {
+      "problem": "skim_extension_case_problem",
+      "approach": "skim_extension_case_approach",
+      "outcome": "skim_extension_case_outcome"
+    }
+  },
+  {
+    "title": "Skim Mobile",
+    "slug": "skim-mobile",
+    "short_description": "skim_mobile_description",
+    "long_description": [
+      "skim_mobile_long_description_01",
+      "skim_mobile_long_description_02"
+    ],
+    "image": "/images/projects/skim_mobile_image.png",
+    "carousel": null,
+    "url": "https://apps.apple.com/us/app/skim-catch-what-matters/id6760806056",
+    "repository_url": null,
+    "subtitle": "skim_mobile_subtitle",
+    "alt": "skim_mobile_alt",
+    "techs": [
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "TanStack Query",
+      "Reanimated",
+      "Expo Secure Store",
+      "FlashList",
+      "Zod",
+      "EAS",
+      "Jest"
+    ],
+    "case_study": {
+      "problem": "skim_mobile_case_problem",
+      "approach": "skim_mobile_case_approach",
+      "outcome": "skim_mobile_case_outcome"
+    }
+  },
+  {
+    "title": "PriceTrack",
+    "slug": "pricetrack",
+    "short_description": "pricetrack_description",
+    "long_description": [
+      "pricetrack_long_description_01",
+      "pricetrack_long_description_02"
+    ],
+    "image": "/images/projects/pricetrack_image.png",
+    "carousel": null,
+    "url": "https://pricetrack.com.br",
+    "repository_url": null,
+    "subtitle": "pricetrack_subtitle",
+    "alt": "pricetrack_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "TanStack Query",
+      "TanStack Table",
+      "Zustand",
+      "Recharts",
+      "i18next",
+      "Socket.io",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Python"
+    ],
+    "case_study": {
+      "problem": "pricetrack_case_problem",
+      "approach": "pricetrack_case_approach",
+      "outcome": "pricetrack_case_outcome"
+    }
+  },
+  {
     "title": "Spacie",
     "slug": "spacie",
     "short_description": "spacie_description",

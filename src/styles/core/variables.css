@@ -64,6 +64,10 @@
   --bull-blockchain-blue: #04203a;
   --car-rent-violet: #5038de;
   --localize-blue: #81d9f7;
+  --skim-blue: #1860d8;
+  --skim-gold: #f0c030;
+  --skim-sky: #5aa9ff;
+  --pricetrack-green: #4c9a4c;
 }
 
 /* 
@@ -201,6 +205,10 @@
   --color-bull-blockchain-blue: var(--bull-blockchain-blue);
   --color-car-rent-violet: var(--car-rent-violet);
   --color-localize-blue: var(--localize-blue);
+  --color-skim-blue: var(--skim-blue);
+  --color-skim-gold: var(--skim-gold);
+  --color-skim-sky: var(--skim-sky);
+  --color-pricetrack-green: var(--pricetrack-green);
 }
 
 /** 
