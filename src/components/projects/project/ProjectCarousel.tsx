@@ -119,8 +119,8 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ images, alt }) => {
         ))}
       </CarouselContent>
 
-      <CarouselPrevious className="-left-px hidden h-16 w-10 rounded-l-none rounded-r border-l-0 border-neutral-400/90 text-neutral-100 opacity-50 transition-opacity duration-300 hover:bg-zinc-900/90 hover:opacity-100 focus-visible:opacity-100 md:inline-flex" />
-      <CarouselNext className="-right-px hidden h-16 w-10 rounded-l rounded-r-none border-r-0 border-neutral-400/90 text-neutral-100 opacity-50 transition-opacity duration-300 hover:bg-zinc-900/90 hover:opacity-100 focus-visible:opacity-100 md:inline-flex" />
+      <CarouselPrevious className="left-2 hidden size-12 cursor-pointer rounded bg-zinc-900/40 text-neutral-100 opacity-50 transition-opacity duration-300 hover:bg-zinc-900/90 hover:opacity-100 focus-visible:opacity-100 md:inline-flex" />
+      <CarouselNext className="right-2 hidden size-12 cursor-pointer rounded bg-zinc-900/40 text-neutral-100 opacity-50 transition-opacity duration-300 hover:bg-zinc-900/90 hover:opacity-100 focus-visible:opacity-100 md:inline-flex" />
 
       <div className="mt-3 flex items-center justify-center gap-2">
         {images.map(({ image }, index) => (
