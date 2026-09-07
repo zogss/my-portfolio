@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { env } from '@env';
-import { getProjects } from '@/actions/getProjects';
+import { getMainProjects } from '@/actions/getProjects';
 import PageLayout from '@/components/layout/PageLayout';
 import AboutSection from '@/components/sections/AboutSection';
 import ContactSection from '@/components/sections/ContactSection';
@@ -11,7 +11,7 @@ import ProjectsSection from '@/components/sections/ProjectsSection';
 import TechStackSection from '@/components/sections/TechStackSection';
 
 const IndexPage: React.FC = async () => {
-  const projects = await getProjects();
+  const projects = await getMainProjects();
 
   const personJsonLd = {
     '@context': 'https://schema.org',
