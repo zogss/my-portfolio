@@ -40,7 +40,13 @@
       "Recharts",
       "iron-session",
       "PostHog",
-      "Turborepo"
+      "Turborepo",
+      "Node.js",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Redis",
+      "AWS Lambda"
     ],
     "case_study": {
       "problem": "skim_web_case_problem",
@@ -75,7 +81,9 @@
       "Motion",
       "Zod",
       "Jest",
-      "Playwright"
+      "Playwright",
+      "Node.js",
+      "NestJS"
     ],
     "case_study": {
       "problem": "skim_extension_case_problem",
@@ -115,7 +123,9 @@
       "FlashList",
       "Zod",
       "EAS",
-      "Jest"
+      "Jest",
+      "Node.js",
+      "NestJS"
     ],
     "case_study": {
       "problem": "skim_mobile_case_problem",
