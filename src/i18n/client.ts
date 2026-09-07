@@ -57,7 +57,13 @@ export const useTranslation = (
   const { cookie } = useTranslationCookie();
   const lng = _lng || cookie;
 
-  const ret = useTranslationOrg(ns, options);
+  // Bind `t` to `lng` explicitly rather than relying on the shared i18next
+  // instance's mutable current language. react-i18next 17 memoises the snapshot
+  // behind `useSyncExternalStore`, keyed on `props.lng || i18n.language`, so
+  // reading the mutated global raced with SSR and hydrated `/pt-BR` with English
+  // attributes. `i18n.language` itself is still kept in sync below for consumers
+  // that read it (e.g. LanguageDropdown).
+  const ret = useTranslationOrg(ns, { ...options, lng });
   const { i18n } = ret;
 
   if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
@@ -69,6 +75,7 @@ export const useTranslation = (
 
     useEffect(() => {
       if (activeLng === i18n.resolvedLanguage) return;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveLng(i18n.resolvedLanguage || '');
     }, [activeLng, i18n.resolvedLanguage]);
 

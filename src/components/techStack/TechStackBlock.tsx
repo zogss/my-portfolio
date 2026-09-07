@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/utils';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
@@ -46,7 +46,15 @@ import ReactNavigationIcon from '../svgs/ReactNavigationIcon';
 const TechStackBlock: React.FC = () => {
   const { t } = useTranslation();
 
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const activeTab = localStorage.getItem('techStackActiveTab');
+      if (activeTab) {
+        return parseInt(activeTab);
+      }
+    }
+    return 1;
+  });
 
   const changeActiveTab = (index: number) => {
     if (typeof window !== 'undefined') {
@@ -54,13 +62,6 @@ const TechStackBlock: React.FC = () => {
     }
     setActiveTab(index);
   };
-
-  useEffect(() => {
-    const activeTab = localStorage.getItem('techStackActiveTab');
-    if (activeTab) {
-      setActiveTab(parseInt(activeTab));
-    }
-  }, []);
 
   return (
     <AnimationContainer className="z-1 flex h-auto w-full flex-1 justify-center">
