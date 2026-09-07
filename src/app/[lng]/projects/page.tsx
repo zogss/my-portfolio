@@ -21,7 +21,6 @@ export const generateMetadata = async ({
 
   const title = t('projects_page_title');
   const description = t('projects_page_description');
-  const ogImageUrl = `${env.APP_URL}/images/logo.png`;
 
   return {
     metadataBase: new URL(env.APP_URL),
@@ -57,26 +56,12 @@ export const generateMetadata = async ({
       description,
       locale: language === 'pt-BR' ? 'pt_BR' : 'en_US',
       alternateLocale: language === 'pt-BR' ? 'en_US' : 'pt_BR',
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: APP_NAME,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       creator: '@yanlucasp',
       title,
       description,
-      images: [
-        {
-          url: ogImageUrl,
-          alt: APP_NAME,
-        },
-      ],
     },
   };
 };

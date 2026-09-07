@@ -15,6 +15,10 @@ export const separator = tv({
       'bull-blockchain': 'bg-bull-blockchain-blue',
       'car-rent': 'bg-car-rent-violet',
       localize: 'bg-localize-blue',
+      'skim-web': 'bg-skim-blue',
+      'skim-extension': 'bg-skim-gold',
+      'skim-mobile': 'bg-skim-sky',
+      pricetrack: 'bg-pricetrack-green',
     },
     size: {
       default: 'h-1',

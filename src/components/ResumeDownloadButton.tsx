@@ -15,7 +15,8 @@ const resumeButton = tv({
   base: 'group/resume z-3 inline-flex shrink-0 cursor-pointer items-center justify-center gap-2.5 rounded-lg font-semibold transition-colors duration-500 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none',
   variants: {
     variant: {
-      primary: 'bg-gradient-tertiary text-white hover:brightness-110',
+      primary:
+        'bg-transparent text-white/70 border-2 border-white/20 hover:bg-white/20 hover:text-white/70',
       outline:
         'border border-white/20 text-neutral-100/60 hover:bg-white/10 hover:text-white',
     },
@@ -78,7 +79,7 @@ const ResumeDownloadButton: React.FC<ResumeDownloadButtonProps> = ({
     >
       <Download
         aria-hidden="true"
-        className="size-4.5 shrink-0 transition-transform duration-500 group-hover/resume:translate-y-0.5 md:size-5"
+        className="size-5 shrink-0 transition-transform duration-500 group-hover/resume:translate-y-px md:size-6"
       />
       {t('download_cv')}
     </a>

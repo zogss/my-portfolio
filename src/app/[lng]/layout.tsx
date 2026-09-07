@@ -12,8 +12,10 @@ import { getTranslation } from '@/i18n';
 
 import { env } from '@env';
 import { WithLanguageParams } from '@/@types/i18n.types';
+import { getProjects } from '@/actions/getProjects';
 import { fallbackLng, languages } from '@/i18n/settings';
 import { AppProvider } from '@/providers/app-provider';
+import CommandPalette from '@/components/CommandPalette';
 import { AppLayout } from '@/components/layout/app-layout';
 import withTranslation from '@/components/with-translation';
 
@@ -31,7 +33,6 @@ export const generateMetadata = async ({
   } = await getTranslation(lng);
 
   const description = t(APP_DESCRIPTION);
-  const ogImageUrl = `${env.APP_URL}/images/logo.png`;
 
   return {
     metadataBase: new URL(env.APP_URL),
@@ -74,14 +75,6 @@ export const generateMetadata = async ({
       description,
       locale: language === 'pt-BR' ? 'pt_BR' : 'en_US',
       alternateLocale: language === 'pt-BR' ? 'en_US' : 'pt_BR',
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: APP_NAME,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -91,12 +84,6 @@ export const generateMetadata = async ({
         template: APP_TITLE_TEMPLATE,
       },
       description,
-      images: [
-        {
-          url: ogImageUrl,
-          alt: APP_NAME,
-        },
-      ],
     },
     formatDetection: {
       telephone: false,
@@ -109,10 +96,12 @@ const RootLayout: React.FC<WithLanguageParams<PropsWithChildren>> = async ({
   params,
 }) => {
   const { lng } = await params;
+  const projects = await getProjects();
 
   return (
     <AppProvider i18nCookie={lng ?? fallbackLng}>
       <AppLayout>{children}</AppLayout>
+      <CommandPalette projects={projects} />
     </AppProvider>
   );
 };

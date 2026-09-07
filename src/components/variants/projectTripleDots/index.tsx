@@ -20,6 +20,10 @@ export const tripleDots = tv({
       'bull-blockchain': { dot: 'bg-bull-blockchain-blue' },
       'car-rent': { dot: 'bg-car-rent-violet' },
       localize: { dot: 'bg-localize-blue' },
+      'skim-web': { dot: 'bg-skim-blue' },
+      'skim-extension': { dot: 'bg-skim-gold' },
+      'skim-mobile': { dot: 'bg-skim-sky' },
+      pricetrack: { dot: 'bg-pricetrack-green' },
     },
     size: {
       default: { wrapper: 'gap-1.5', dot: 'h-2 w-2 md:h-3 md:w-3' },

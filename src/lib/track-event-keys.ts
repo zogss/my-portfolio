@@ -7,6 +7,7 @@ export const TRACK_EVENT_KEYS = {
   GITHUB_CLICK: 'github_click',
   EMAIL_CLICK: 'email_click',
   RESUME_CLICK: 'resume_click',
+  COMMAND_PALETTE_OPEN: 'command_palette_open',
   KC_STUDIO_CLICK: 'kc_studio_click',
   PROJECT_VISIT_CLICK: 'project_visit_click',
   PROJECT_CODE_CLICK: 'project_code_click',

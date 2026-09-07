@@ -6,7 +6,11 @@ export type ProjectNameType =
   | 'Massagueirinha Menu'
   | 'Bull Blockchain'
   | 'Car Rent'
-  | 'Localize';
+  | 'Localize'
+  | 'Skim Web'
+  | 'Skim Extension'
+  | 'Skim Mobile'
+  | 'PriceTrack';
 
 export type ProjectSlugType =
   | 'spacie'
@@ -16,7 +20,22 @@ export type ProjectSlugType =
   | 'massagueirinha-menu'
   | 'bull-blockchain'
   | 'car-rent'
-  | 'localize';
+  | 'localize'
+  | 'skim-web'
+  | 'skim-extension'
+  | 'skim-mobile'
+  | 'pricetrack';
+
+/**
+ * Problem / approach / outcome narrative for a project. Values are translation
+ * keys, like the rest of the project copy. Optional: projects without one fall
+ * back to the plain description.
+ */
+export type ProjectCaseStudyType = {
+  problem: string;
+  approach: string;
+  outcome: string;
+};
 
 export type ProjectType = {
   id: string;
@@ -25,6 +44,7 @@ export type ProjectType = {
   subtitle: string;
   short_description: string;
   long_description: string[];
+  case_study?: ProjectCaseStudyType;
   url: string | null;
   repository_url: string | null;
   techs: string[];

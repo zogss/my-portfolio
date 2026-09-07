@@ -84,7 +84,7 @@ my-portfolio/
 │   │   ├── sections/            # HomeSection, AboutSection, ProjectsSection,
 │   │   │                        # ExperienceSection, TechStackSection, ContactSection
 │   │   ├── layout/              # app-layout.tsx, PageLayout.tsx
-│   │   ├── projects/            # ProjectsBlock.tsx, ProjectsHeader.tsx
+│   │   ├── projects/            # ProjectsBlock.tsx
 │   │   ├── techStack/           # TechStackBlock.tsx
 │   │   ├── contact/             # ContactForm.tsx, ContactBlock.tsx
 │   │   ├── form/                # Input.tsx, AnimatedError.tsx

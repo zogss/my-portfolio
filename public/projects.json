@@ -1,5 +1,183 @@
 [
   {
+    "title": "Skim Web",
+    "slug": "skim-web",
+    "short_description": "skim_web_description",
+    "long_description": [
+      "skim_web_long_description_01",
+      "skim_web_long_description_02",
+      "skim_web_long_description_03"
+    ],
+    "image": "/images/projects/skim_website_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/skim_website_image.jpg"
+      },
+      {
+        "image": "/images/projects/skim-web/2_youtube_slices.jpg"
+      },
+      {
+        "image": "/images/projects/skim-web/3_news_credibility.jpg"
+      }
+    ],
+    "url": "https://skim.plus",
+    "repository_url": null,
+    "subtitle": "skim_web_subtitle",
+    "alt": "skim_web_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "shadcn/ui",
+      "TanStack Query",
+      "React Hook Form",
+      "Zod",
+      "Axios",
+      "Socket.io",
+      "Motion",
+      "Recharts",
+      "iron-session",
+      "PostHog",
+      "Turborepo",
+      "Node.js",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Redis",
+      "AWS Lambda"
+    ],
+    "case_study": {
+      "problem": "skim_web_case_problem",
+      "approach": "skim_web_case_approach",
+      "outcome": "skim_web_case_outcome"
+    }
+  },
+  {
+    "title": "Skim Extension",
+    "slug": "skim-extension",
+    "short_description": "skim_extension_description",
+    "long_description": [
+      "skim_extension_long_description_01",
+      "skim_extension_long_description_02",
+      "skim_extension_long_description_03"
+    ],
+    "image": "/images/projects/skim_extension_image.jpg",
+    "carousel": null,
+    "url": "https://chromewebstore.google.com/detail/skim-get-to-the-point-fre/eenbaojdcmnbdlhkmambidocigepdobm",
+    "repository_url": null,
+    "subtitle": "skim_extension_subtitle",
+    "alt": "skim_extension_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Chrome Manifest V3",
+      "Shadow DOM",
+      "Service Worker",
+      "Tailwind CSS",
+      "Radix UI",
+      "Motion",
+      "Zod",
+      "Jest",
+      "Playwright",
+      "Node.js",
+      "NestJS"
+    ],
+    "case_study": {
+      "problem": "skim_extension_case_problem",
+      "approach": "skim_extension_case_approach",
+      "outcome": "skim_extension_case_outcome"
+    }
+  },
+  {
+    "title": "Skim Mobile",
+    "slug": "skim-mobile",
+    "short_description": "skim_mobile_description",
+    "long_description": [
+      "skim_mobile_long_description_01",
+      "skim_mobile_long_description_02"
+    ],
+    "image": "/images/projects/skim_mobile_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/skim_mobile_image.jpg"
+      },
+      {
+        "image": "/images/projects/skim-mobile/2_play_store.jpg"
+      }
+    ],
+    "url": "https://apps.apple.com/us/app/skim-catch-what-matters/id6760806056",
+    "repository_url": null,
+    "subtitle": "skim_mobile_subtitle",
+    "alt": "skim_mobile_alt",
+    "techs": [
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "TanStack Query",
+      "Reanimated",
+      "Expo Secure Store",
+      "FlashList",
+      "Zod",
+      "EAS",
+      "Jest",
+      "Node.js",
+      "NestJS"
+    ],
+    "case_study": {
+      "problem": "skim_mobile_case_problem",
+      "approach": "skim_mobile_case_approach",
+      "outcome": "skim_mobile_case_outcome"
+    }
+  },
+  {
+    "title": "PriceTrack",
+    "slug": "pricetrack",
+    "short_description": "pricetrack_description",
+    "long_description": [
+      "pricetrack_long_description_01",
+      "pricetrack_long_description_02"
+    ],
+    "image": "/images/projects/pricetrack_image.jpg",
+    "carousel": [
+      {
+        "image": "/images/projects/pricetrack_image.jpg"
+      },
+      {
+        "image": "/images/projects/pricetrack/2_features.jpg"
+      }
+    ],
+    "url": "https://pricetrack.com.br",
+    "repository_url": null,
+    "subtitle": "pricetrack_subtitle",
+    "alt": "pricetrack_alt",
+    "techs": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "TanStack Query",
+      "TanStack Table",
+      "Zustand",
+      "Recharts",
+      "i18next",
+      "Socket.io",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Python"
+    ],
+    "case_study": {
+      "problem": "pricetrack_case_problem",
+      "approach": "pricetrack_case_approach",
+      "outcome": "pricetrack_case_outcome"
+    }
+  },
+  {
     "title": "Spacie",
     "slug": "spacie",
     "short_description": "spacie_description",
@@ -34,7 +212,12 @@
       "i18next",
       "Vite",
       "Firebase"
-    ]
+    ],
+    "case_study": {
+      "problem": "spacie_case_problem",
+      "approach": "spacie_case_approach",
+      "outcome": "spacie_case_outcome"
+    }
   },
   {
     "title": "CS Analytics",
@@ -68,7 +251,12 @@
       "Recoil",
       "Popper.js",
       "Font Awesome"
-    ]
+    ],
+    "case_study": {
+      "problem": "cs_analytics_case_problem",
+      "approach": "cs_analytics_case_approach",
+      "outcome": "cs_analytics_case_outcome"
+    }
   },
   {
     "title": "Expert Stats",
@@ -97,7 +285,12 @@
       "Axios",
       "ApexCharts",
       "Font Awesome"
-    ]
+    ],
+    "case_study": {
+      "problem": "expert_stats_case_problem",
+      "approach": "expert_stats_case_approach",
+      "outcome": "expert_stats_case_outcome"
+    }
   },
   {
     "title": "Chirp",
@@ -125,7 +318,12 @@
       "Prisma",
       "TailwindCSS",
       "Zod"
-    ]
+    ],
+    "case_study": {
+      "problem": "chirp_case_problem",
+      "approach": "chirp_case_approach",
+      "outcome": "chirp_case_outcome"
+    }
   },
   {
     "title": "Massagueirinha Menu",
@@ -149,7 +347,12 @@
       "Gatsby",
       "Firebase",
       "TailwindCSS"
-    ]
+    ],
+    "case_study": {
+      "problem": "massagueirinha_menu_case_problem",
+      "approach": "massagueirinha_menu_case_approach",
+      "outcome": "massagueirinha_menu_case_outcome"
+    }
   },
   {
     "title": "Bull Blockchain",
@@ -176,7 +379,12 @@
       "Alpine",
       "Bootstrap",
       "Sass"
-    ]
+    ],
+    "case_study": {
+      "problem": "bull_blockchain_case_problem",
+      "approach": "bull_blockchain_case_approach",
+      "outcome": "bull_blockchain_case_outcome"
+    }
   },
   {
     "title": "Car Rent",
@@ -204,7 +412,12 @@
       "Sass",
       "MongoDB",
       "Yup"
-    ]
+    ],
+    "case_study": {
+      "problem": "car_rent_case_problem",
+      "approach": "car_rent_case_approach",
+      "outcome": "car_rent_case_outcome"
+    }
   },
   {
     "title": "Localize",
@@ -241,6 +454,11 @@
       "React Hook Form",
       "Zod",
       "Styled Components"
-    ]
+    ],
+    "case_study": {
+      "problem": "localize_case_problem",
+      "approach": "localize_case_approach",
+      "outcome": "localize_case_outcome"
+    }
   }
 ]

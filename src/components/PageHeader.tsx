@@ -49,7 +49,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               {i < paths.length - 1 ? (
                 <Link
                   href={`/${language}/${path === 'home' ? '' : path}`}
-                  className="transition-colors hover:text-neutral-400 hover:underline"
+                  className="transition-colors duration-150 hover:text-neutral-300/90 hover:underline"
                 >
                   {t(path)}
                 </Link>

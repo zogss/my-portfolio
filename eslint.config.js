@@ -41,6 +41,10 @@ export default [
       },
     },
   },
+  // tsconfig sets `"jsx": "react-jsx"`, so React does not need to be in scope.
+  // Without this, `react/react-in-jsx-scope` fires on any file that renders JSX
+  // without importing React.
+  pluginReact.configs.flat['jsx-runtime'],
   {
     plugins: {
       '@next/next': pluginNext,

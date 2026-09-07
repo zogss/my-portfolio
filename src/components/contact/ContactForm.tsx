@@ -37,7 +37,14 @@ const ContactForm: React.FC = () => {
         throw new Error('submit_count_error');
       }
 
-      await saveContact(data);
+      const result = await saveContact(data);
+
+      // The server also validates and rate-limits; it reports failures as a
+      // result object because Next redacts thrown server action errors in
+      // production.
+      if (!result.success) {
+        throw new Error(result.error || 'global_error');
+      }
 
       track(TRACK_EVENT_KEYS.CONTACT_FORM_SUBMIT, {
         name: data.name,

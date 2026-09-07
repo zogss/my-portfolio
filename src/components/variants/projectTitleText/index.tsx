@@ -15,6 +15,10 @@ export const titleText = tv({
       'bull-blockchain': 'decoration-bull-blockchain-blue',
       'car-rent': 'decoration-car-rent-violet',
       localize: 'decoration-localize-blue',
+      'skim-web': 'decoration-skim-blue',
+      'skim-extension': 'decoration-skim-gold',
+      'skim-mobile': 'decoration-skim-sky',
+      pricetrack: 'decoration-pricetrack-green',
     },
     size: {
       default: 'text-xl md:text-2xl lg:text-3xl',

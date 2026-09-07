@@ -1,9 +1,13 @@
+'use client';
+
 import * as React from 'react';
 import { cn } from '@/utils';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+
+import { useTranslation } from '@/i18n/client';
 
 import { Button } from './button';
 
@@ -197,6 +201,7 @@ const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { t } = useTranslation();
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -213,10 +218,11 @@ const CarouselPrevious = React.forwardRef<
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      aria-label={t('previous_slide')}
       {...props}
     >
       <ArrowLeft className="size-4" />
-      <span className="sr-only">{'previous_slide'}</span>
+      <span className="sr-only">{t('previous_slide')}</span>
     </Button>
   );
 });
@@ -226,6 +232,7 @@ const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { t } = useTranslation();
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -242,10 +249,11 @@ const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      aria-label={t('next_slide')}
       {...props}
     >
       <ArrowRight className="size-4" />
-      <span className="sr-only">{'next_slide'}</span>
+      <span className="sr-only">{t('next_slide')}</span>
     </Button>
   );
 });

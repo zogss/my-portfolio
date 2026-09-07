@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { ProjectType } from '@/utils';
+import { ProjectSlugType, ProjectType } from '@/utils';
 
 /**
  * Get all projects from the projects.json file
@@ -13,6 +13,27 @@ export const getProjects = async (): Promise<ProjectType[]> => {
   const content = fs.readFileSync(filePath, 'utf8');
 
   return JSON.parse(content || '[]');
+};
+
+const mainProjectsSlugs: ProjectSlugType[] = [
+  'skim-web',
+  'skim-mobile',
+  'skim-extension',
+  'pricetrack',
+  'chirp',
+  'localize',
+  'bull-blockchain',
+];
+
+/**
+ * Get main projects (max 6) from the projects.json file
+ * @returns {Promise<ProjectType[]>}
+ */
+export const getMainProjects = async (): Promise<ProjectType[]> => {
+  const projects = await getProjects();
+  return projects
+    .filter((project: ProjectType) => mainProjectsSlugs.includes(project.slug))
+    .slice(0, 6);
 };
 
 /**

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import hotToast, { ToastOptions } from 'react-hot-toast';
 
 import {
