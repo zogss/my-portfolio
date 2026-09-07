@@ -3,6 +3,22 @@ export const APP_DEFAULT_TITLE = 'Yan Lucas';
 export const APP_TITLE_TEMPLATE = '%s | Yan Lucas';
 export const APP_DESCRIPTION = 'seo_description';
 
+/**
+ * Downloadable CV, one file per locale. Keys match the `languages` array in
+ * [src/i18n/settings.ts]; `fallbackLng` is used for any unmapped locale.
+ */
+export const RESUME_FILES: Record<string, { path: string; fileName: string }> =
+  {
+    en: {
+      path: '/docs/yan-lucas-resume-en.pdf',
+      fileName: 'Yan Lucas - Resume.pdf',
+    },
+    'pt-BR': {
+      path: '/docs/yan-lucas-curriculo-pt-br.pdf',
+      fileName: 'Yan Lucas - Curriculo.pdf',
+    },
+  };
+
 export const BASE_KEYWORDS_EN = [
   'Yan',
   'Lucas',

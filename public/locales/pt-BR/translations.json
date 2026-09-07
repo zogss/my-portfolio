@@ -111,7 +111,7 @@
   "opd_description": "Atuei como desenvolvedor front-end para web no SASS, principal solução da empresa, voltado para personal trainers. Usei principalmente Angular e Typescript para aprimorar e desenvolver novas funcionalidades para a aplicação web. Ao longo do ano aprendi muito sobre a colaboração entre diversas áreas de uma empresa, seja desenvolvimento de produto, marketing, atendimento e equipe técnica.",
   "lisbom_dev_description": "Atuei como desenvolvedor front-end freelancer, trabalhando em novos projetos e contribuindo na manutenção de projetos existentes. Tenho a oportunidade de aplicar minhas habilidades de programação e conhecimentos em tecnologias front-end para desenvolver soluções inovadoras e melhorar a funcionalidade dos projetos já implementados.",
   "truck_up_description": "Fui responsável por dar manutenção no front-end da plataforma de gerenciamento de todos os processos e dados do principal case da empresa, o Truck Up app, utilizando tecnologias como JavaScript, TypeScript, React, Material UI e GIT.",
-  "skim_description": "Atuo como Engenheiro de Software Frontend na Skim (Credible AI Labs), uma plataforma gratuita com IA que resume vídeos do YouTube e artigos de notícias, fornecendo pontuações de credibilidade e detecção de viés. Sou responsável pelo desenvolvimento frontend completo do site principal (skim.plus), da extensão para Chrome e do aplicativo mobile em breve disponível na App Store e no Google Play. A plataforma é impulsionada pelo Gemini e pelo Claude AI, ajudando usuários a avaliar rapidamente a confiabilidade de qualquer conteúdo online.",
+  "skim_description": "Atuo como Engenheiro de Software Frontend na Skim (Credible AI Labs), uma plataforma gratuita com IA que resume vídeos do YouTube e artigos de notícias, fornecendo pontuações de credibilidade e detecção de viés. Sou responsável pelo desenvolvimento frontend completo do site principal (skim.plus), da extensão para Chrome e do aplicativo mobile publicado na App Store e no Google Play. A plataforma é impulsionada pelo Gemini e pelo Claude AI, ajudando usuários a avaliar rapidamente a confiabilidade de qualquer conteúdo online.",
   "tracking_trade_description": "Atuo principalmente como desenvolvedor front-end na manutenção e no desenvolvimento de novas funcionalidades nos SaaS da empresa. Contribuo com um foco maior em JavaScript, React e seus frameworks, como Next.js. Minha maior contribuição vem sendo num dos principais softwares da empresa, o PriceTrack.",
   "name_label": "Nome",
   "name_placeholder": "Digite seu nome",
@@ -124,5 +124,7 @@
   "name_max_length_error": "O nome deve ter no máximo 50 caracteres",
   "email_field_error": "Insira um e-mail válido",
   "message_min_length_error": "A mensagem deve ter pelo menos 5 caracteres",
-  "message_max_length_error": "A mensagem deve ter no máximo 1000 caracteres"
+  "message_max_length_error": "A mensagem deve ter no máximo 1000 caracteres",
+  "download_cv": "Baixar currículo",
+  "resume_section_prompt": "Quer a história completa?"
 }
