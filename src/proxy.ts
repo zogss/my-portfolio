@@ -12,7 +12,11 @@ import {
 acceptLanguage.languages(languages);
 
 export const config: ProxyConfig = {
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+  // The matcher decides whether the proxy is invoked at all, and every
+  // invocation is billed compute. Returning early inside the function still
+  // costs one, so static files must be excluded here: anything under _next or
+  // _vercel, and any path with a file extension. No route has a dot in it.
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
 };
 
 const proxy = async (req: NextRequest): Promise<NextResponse | void> => {
