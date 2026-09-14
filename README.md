@@ -32,21 +32,21 @@ The app is an internationalized single-page experience with a few sub-routes, se
 
 ### Routing & i18n flow
 
-1. **Proxy layer** — [src/proxy.ts](src/proxy.ts) inspects every incoming request. Using Next.js 16's `ProxyConfig`, it resolves the locale in this order:
+1. **Proxy layer** — [src/proxy.ts](src/proxy.ts) runs on every page request (its matcher skips `/api`, `/_next`, `/_vercel` and static files). Using Next.js 16's `ProxyConfig`, it resolves the locale in this order:
    - Path segment (`/en/...`, `/pt-BR/...`)
    - `i18next` cookie
    - Fallback to `en`
-     If the URL is missing a locale, it 308-redirects to `/{lng}{pathname}` and refreshes the cookie.
-2. **Root layout** — [src/app/layout.tsx](src/app/layout.tsx) sets up `<html lang dir>` from the cookie, loads Inter via `next/font`, mounts `Analytics`, `SpeedInsights`, and the Google Analytics script.
-3. **Locale layout** — [src/app/[lng]/layout.tsx](src/app/[lng]/layout.tsx) generates static params for both locales, builds full SEO metadata (canonical, hreflang, OpenGraph, Twitter, keywords per language), and wraps children in `AppProvider` (i18n context) and `AppLayout` (header / footer).
-4. **Translations** — [src/i18n/index.ts](src/i18n/index.ts) creates per-request i18next instances with a dynamic `import()` of `public/locales/{lng}/translations.json`. The active language is propagated via [src/lib/server-ctx.ts](src/lib/server-ctx.ts) (`AsyncLocalStorage`).
+     If the URL is missing a locale, it 307-redirects to `/{lng}{pathname}` and refreshes the cookie.
+2. **Root layout** — [src/app/[lng]/layout.tsx](src/app/[lng]/layout.tsx) sets up `<html lang dir>` from the `[lng]` segment, loads Inter via `next/font`, mounts `Analytics`, `SpeedInsights`, and the Google Analytics script, builds full SEO metadata (canonical, hreflang, OpenGraph, Twitter, keywords per language), and wraps children in `AppProvider` (i18n context) and `AppLayout` (header / footer). `generateStaticParams` pre-renders both locales and `dynamicParams = false` 404s anything else, so every page is served as static HTML.
+3. **Translations** — [src/i18n/index.ts](src/i18n/index.ts) creates an i18next instance per call with a dynamic `import()` of `public/locales/{lng}/translations.json`. The active language is propagated via [src/lib/server-ctx.ts](src/lib/server-ctx.ts) (a React `cache()`-scoped value).
 
 ### Pages
 
 - [src/app/[lng]/page.tsx](src/app/[lng]/page.tsx) — Home page composed of `HomeSection`, `AboutSection`, `ProjectsSection`, `ExperienceSection`, `TechStackSection`, `ContactSection`. Also renders Person + WebSite JSON-LD structured data inline.
 - [src/app/[lng]/projects/page.tsx](src/app/[lng]/projects/page.tsx) — Projects listing page.
 - [src/app/[lng]/projects/[slug]/page.tsx](src/app/[lng]/projects/[slug]/page.tsx) — Individual project detail.
-- [src/app/not-found.tsx](src/app/not-found.tsx) — Global 404.
+- [src/app/global-not-found.tsx](src/app/global-not-found.tsx) — 404 for unknown URLs and params (English).
+- [src/app/[lng]/not-found.tsx](src/app/[lng]/not-found.tsx) — Localized 404 for `notFound()` inside a locale.
 - [src/app/sitemap.ts](src/app/sitemap.ts) — Sitemap generation.
 
 ---
@@ -65,19 +65,18 @@ my-portfolio/
 ├── src/
 │   ├── @types/                  # Shared TS types (e.g. WithLanguageParams)
 │   ├── actions/                 # Server actions
-│   │   ├── getCookie.ts         # Server-side cookie read
 │   │   ├── getProjects.ts       # Reads /public/projects.json
 │   │   └── saveContact.ts       # Persists contact form to Firestore
 │   ├── app/                     # App Router
 │   │   ├── [lng]/               # Localized routes (en, pt-BR)
-│   │   │   ├── layout.tsx
+│   │   │   ├── layout.tsx       # Root layout (HTML, fonts, analytics, SEO)
+│   │   │   ├── not-found.tsx    # Localized 404
 │   │   │   ├── page.tsx
 │   │   │   └── projects/
 │   │   │       ├── page.tsx
 │   │   │       └── [slug]/page.tsx
-│   │   ├── layout.tsx           # Root layout (HTML, fonts, analytics)
+│   │   ├── global-not-found.tsx # English 404 for unknown URLs
 │   │   ├── manifest.json
-│   │   ├── not-found.tsx
 │   │   ├── sitemap.ts
 │   │   └── icon.* / favicon.ico
 │   ├── components/

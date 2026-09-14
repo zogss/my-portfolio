@@ -25,7 +25,7 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 
 - Locales: `en` (fallback) and `pt-BR`. Defined in [src/i18n/settings.ts](src/i18n/settings.ts).
 - **No `middleware.ts`** — locale routing is handled by [src/proxy.ts](src/proxy.ts) (Next.js 16 `ProxyConfig`). Resolution order: URL path segment → `i18next` cookie → `fallbackLng`. Missing-locale paths are redirected to `/{lng}{pathname}`.
-- All localized pages live under [src/app/[lng]/](src/app/%5Blng%5D/). `generateStaticParams` in the locale layout pre-renders both locales.
+- All localized pages live under [src/app/[lng]/](src/app/%5Blng%5D/). Its [layout.tsx](src/app/%5Blng%5D/layout.tsx) is the **root layout** — it owns `<html lang dir>`, and there is no `src/app/layout.tsx`. `generateStaticParams` pre-renders both locales and `dynamicParams = false` 404s any other value.
 - **Server-side translation:** `await getTranslation(lng)` from [src/i18n/index.ts](src/i18n/index.ts) returns `{ t, i18n }`. Active language is also available via `languageCtx.get()` from [src/lib/server-ctx.ts](src/lib/server-ctx.ts).
 - **Client-side translation:** `useTranslation()` from [src/i18n/client.ts](src/i18n/client.ts).
 - **Translation files:** [public/locales/en/translations.json](public/locales/en/translations.json) and [public/locales/pt-BR/translations.json](public/locales/pt-BR/translations.json) — single `translations` namespace, `snake_case` keys, often split into numbered fragments (`*_part_1`, `*_part_2`) so the UI can wrap pieces in styled spans.
@@ -51,7 +51,7 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 
 - **Default to Server Components.** Add `'use client'` only when you actually need state, refs, browser APIs, react-hook-form, motion-driven hooks, or context.
 - **Translation in Server Components:** `const { t } = await getTranslation(lng);` — never import the JSON directly.
-- **Translation in Client Components:** wrap in `withTranslation` HOC ([src/components/with-translation.tsx](src/components/with-translation.tsx)) or call `useTranslation()`. The locale comes from the cookie via [src/providers/cookie-provider.tsx](src/providers/cookie-provider.tsx).
+- **Translation in Client Components:** wrap in `withTranslation` HOC ([src/components/with-translation.tsx](src/components/with-translation.tsx)) or call `useTranslation()`. The locale comes from the `[lng]` segment: the layout passes it to `AppProvider`, which exposes it through [src/providers/cookie-provider.tsx](src/providers/cookie-provider.tsx) (the name is historical — nothing reads the cookie any more).
 - **Class composition:** use `cn()` from [src/utils/helpers/cn.ts](src/utils/helpers/cn.ts) (re-exported via `@/utils`). It wraps `clsx` + `tailwind-merge`.
 - **Variants:** prefer `tailwind-variants` (`tv()`) for components with size/color variants.
 - **Animations:** use `motion` from `motion/react`. Existing helpers — [src/components/WithEnterAnimation.tsx](src/components/WithEnterAnimation.tsx), [src/components/animation-container.tsx](src/components/animation-container.tsx) — drive entrance animations from intersection observers.
@@ -75,10 +75,14 @@ Working notes for Claude Code on this repo. Read this before making non-trivial 
 - **`noUncheckedIndexedAccess`** — array / object index reads are typed as `T | undefined`. Be explicit about narrowing.
 - **Locale param is async.** Page / layout props use `WithLanguageParams<T>` from [src/@types/i18n.types.ts](src/@types/i18n.types.ts), where `params` is a Promise. Always `await params` before reading `lng`.
 - **Don't add `middleware.ts`.** This project uses the Next.js 16 proxy file ([src/proxy.ts](src/proxy.ts)) instead. Modify that one.
+- **Keep every page static.** Locale and project pages are pre-rendered at build time (● in the `pnpm build` route table) and only the proxy runs per request. Calling `cookies()`, `headers()` or `connection()`, or reading `searchParams`, in a layout or page turns every route under it into an on-demand function, which Vercel bills as Fluid Compute. The old root layout read the i18next cookie and did exactly that. Take the locale from `params`, and check the route table after touching a layout.
+- **Dynamic segments need `dynamicParams = false`.** Without it any URL that fits the segment renders: a bot probing `/wp-login.php` hits `[lng]` with that as the locale and `getTranslation` throws. It only takes effect while the route is static.
+- **404s.** Unknown URLs and params are served by [src/app/global-not-found.tsx](src/app/global-not-found.tsx) (English, enabled by `experimental.globalNotFound`). [src/app/[lng]/not-found.tsx](src/app/%5Blng%5D/not-found.tsx) is the in-locale boundary for `notFound()` and reads the locale with `next/root-params`.
+- **Proxy matcher.** Every proxy run is a billed invocation even when it returns early, so the matcher in [src/proxy.ts](src/proxy.ts) skips `/api`, `/_next`, `/_vercel` and any path with a dot. Don't widen it to static files.
 - **Project descriptions are translation keys, not literal strings.** [public/projects.json](public/projects.json) stores the _key name_; the actual EN / PT text is in the locale JSONs.
 - **`tailwind.config.js` does not exist.** Tailwind 4 reads tokens from `@theme` blocks in CSS. Don't recreate the config file.
 - **`cn` lives in [src/utils/helpers/cn.ts](src/utils/helpers/cn.ts)** and is re-exported from `@/utils` — import it from there. [src/lib/utils.ts](src/lib/utils.ts) is unrelated (it only exports `findScrollContainer`).
-- **Google Analytics + Vercel Analytics + Speed Insights** are all already mounted in [src/app/layout.tsx](src/app/layout.tsx). Track product events through `@vercel/analytics`'s `track()` with keys from [src/lib/track-event-keys.ts](src/lib/track-event-keys.ts).
+- **Google Analytics + Vercel Analytics + Speed Insights** are all already mounted in [src/app/[lng]/layout.tsx](src/app/%5Blng%5D/layout.tsx). Track product events through `@vercel/analytics`'s `track()` with keys from [src/lib/track-event-keys.ts](src/lib/track-event-keys.ts).
 - **`'pt-BR'` not `'pt'`.** Internal locale code is `pt-BR`; Open Graph uses `pt_BR`. The `translations.json` `pt` key is just a label, not the routing locale.
 - **Hardcoded experience data.** Most-recent role lives in [src/components/sections/ExperienceSection.tsx](src/components/sections/ExperienceSection.tsx). When updating, prepend to the array (newest first).
 
