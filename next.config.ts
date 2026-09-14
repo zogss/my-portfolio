@@ -2,6 +2,11 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Required once the root layout sits under the [lng] segment: there is no
+  // single layout left to compose a global 404 from.
+  experimental: {
+    globalNotFound: true,
+  },
   // Next 16.3 otherwise appends a generated `nextjs-agent-rules` block to
   // CLAUDE.md on every `next dev`, which keeps the working tree dirty.
   agentRules: false,

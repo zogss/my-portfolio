@@ -8,6 +8,14 @@ import {
   renderOgImage,
   truncate,
 } from '@/lib/og-image';
+import { languages } from '@/i18n/settings';
+
+// Drawn once per locale at build time and served as a static file, instead of
+// being rendered by a function every time a crawler fetches the card. Any
+// other locale 404s.
+export const dynamicParams = false;
+
+export const generateStaticParams = () => languages.map((lng) => ({ lng }));
 
 export const alt = 'Yan Lucas — Projects';
 export const size = OG_SIZE;

@@ -1,16 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { lng } from 'next/root-params';
 import { getTranslation } from '@/i18n';
 
-import getCookie from '@/actions/getCookie';
-import { cookieName, fallbackLng } from '@/i18n/settings';
+import { fallbackLng } from '@/i18n/settings';
 import HomeEclipse from '@/components/svgs/HomeEclipse';
-import withTranslation from '@/components/with-translation';
 
+/**
+ * 404 inside a locale. `not-found` receives no props, so the locale is read with
+ * the root-param getter — unlike the cookie it replaced, that keeps the page
+ * static.
+ */
 const NotFound: React.FC = async () => {
-  const lng = (await getCookie(cookieName)) || fallbackLng;
-  const { t } = await getTranslation(lng);
+  const locale = (await lng()) ?? fallbackLng;
+  const { t } = await getTranslation(locale);
 
   return (
     <main className="relative flex min-h-screen w-full flex-col items-center justify-center gap-6 overflow-hidden p-6 text-neutral-100 sm:p-10 lg:gap-8 lg:p-24">
@@ -33,7 +37,7 @@ const NotFound: React.FC = async () => {
           {t('not_found_description')}
         </p>
         <Link
-          href="/"
+          href={`/${locale}`}
           className="mt-4 flex items-center gap-4 rounded-md px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:mt-6 sm:px-8 sm:py-4 sm:text-base"
         >
           {t('not_found_button')}
@@ -43,4 +47,4 @@ const NotFound: React.FC = async () => {
   );
 };
 
-export default withTranslation(NotFound);
+export default NotFound;

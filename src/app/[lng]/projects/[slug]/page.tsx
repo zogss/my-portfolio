@@ -10,6 +10,10 @@ import PageLayout from '@/components/layout/PageLayout';
 import PageHeader from '@/components/PageHeader';
 import ProjectBlock from '@/components/projects/project/ProjectBlock';
 
+// Only the slugs in projects.json exist; any other /{lng}/projects/{slug} 404s
+// straight away instead of rendering.
+export const dynamicParams = false;
+
 export const generateStaticParams = async () => {
   const projects = await getProjects();
 
