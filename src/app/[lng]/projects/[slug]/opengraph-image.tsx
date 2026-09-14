@@ -1,13 +1,26 @@
 import { notFound } from 'next/navigation';
 import { getTranslation } from '@/i18n';
 
-import { getProject } from '@/actions/getProjects';
+import { getProject, getProjects } from '@/actions/getProjects';
 import {
   OG_CONTENT_TYPE,
   OG_SIZE,
   renderOgImage,
   truncate,
 } from '@/lib/og-image';
+import { languages } from '@/i18n/settings';
+
+// Drawn once per locale and project at build time and served as a static file,
+// instead of being rendered by a function every time a crawler fetches the
+// card. Any other locale or slug 404s.
+export const dynamicParams = false;
+
+export const generateStaticParams = async () => {
+  const projects = await getProjects();
+  return languages.flatMap((lng) =>
+    projects.map((project) => ({ lng, slug: project.slug })),
+  );
+};
 
 export const alt = 'Yan Lucas — Project';
 export const size = OG_SIZE;
