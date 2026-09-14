@@ -10,15 +10,15 @@ Live: [https://yanlucas.site](https://yanlucas.site)
 
 | Area            | Technology                                                                                               |
 | --------------- | -------------------------------------------------------------------------------------------------------- |
-| Framework       | Next.js 16.2 (App Router, RSC, static generation)                                                        |
-| UI runtime      | React 19.2, TypeScript 5.8                                                                               |
-| Styling         | Tailwind CSS 4.2, `@tailwindcss/typography`, `@tailwindcss/container-queries`, `tw-animate-css`          |
-| Animation       | [`motion`](https://motion.dev) 12 (Framer Motion successor)                                              |
+| Framework       | Next.js 16.3 (App Router, RSC, static generation)                                                        |
+| UI runtime      | React 19.2, TypeScript 6.0                                                                               |
+| Styling         | Tailwind CSS 4.3, `@tailwindcss/typography`, `@tailwindcss/container-queries`, `tw-animate-css`          |
+| Animation       | [`motion`](https://motion.dev) 13 (Framer Motion successor)                                              |
 | Forms           | `react-hook-form` + `zod` (via `@hookform/resolvers`)                                                    |
-| i18n            | `i18next` 25 + `react-i18next` 15 + `i18next-resources-to-backend`                                       |
+| i18n            | `i18next` 26 + `react-i18next` 17 + `i18next-resources-to-backend`                                       |
 | UI primitives   | `@headlessui/react`, `@radix-ui/react-slot`, `embla-carousel-react`                                      |
 | Icons           | `lucide-react`, `react-icons`, custom SVG components                                                     |
-| Backend         | Firebase 11 (Firestore — contact form storage)                                                           |
+| Backend         | Firebase 12 (Firestore — contact form storage)                                                           |
 | Env validation  | `@t3-oss/env-nextjs` + `zod`                                                                             |
 | Analytics       | `@vercel/analytics`, `@vercel/speed-insights`, Google Analytics (gtag)                                   |
 | Tooling         | ESLint 9 (flat config), Prettier 3, `@ianvs/prettier-plugin-sort-imports`, `prettier-plugin-tailwindcss` |
